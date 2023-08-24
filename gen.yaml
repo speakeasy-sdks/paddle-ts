@@ -1,0 +1,15 @@
+configVersion: 1.0.0
+generation:
+  comments:
+    disableComments: false
+    omitDescriptionIfSummaryPresent: false
+  baseServerURL: ""
+  sdkClassName: Paddle
+  singleTagPerOp: false
+  tagNamespacingDisabled: false
+typescript:
+  version: 0.0.1
+  author: paddle
+  clientServerStatusCodesAsErrors: true
+  maxMethodParams: 0
+  packageName: Paddle
