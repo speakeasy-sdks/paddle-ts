@@ -1,0 +1,14 @@
+# BusinessCreateInput
+
+Represents a business entity.
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     | Example                                                                         |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `companyNumber`                                                                 | *string*                                                                        | :heavy_minus_sign:                                                              | Company number for this business.                                               | 123456789                                                                       |
+| `contacts`                                                                      | [BusinessCreateContacts](../../models/shared/businesscreatecontacts.md)[]       | :heavy_minus_sign:                                                              | List of contacts related to this business, typically used for sending invoices. |                                                                                 |
+| `id`                                                                            | *string*                                                                        | :heavy_minus_sign:                                                              | Unique Paddle ID for this business entity, prefixed with `biz_`.                | biz_01grrebrzaee2qj2fqqhmcyzaj                                                  |
+| `name`                                                                          | *string*                                                                        | :heavy_check_mark:                                                              | Full name.                                                                      |                                                                                 |
+| `taxIdentifier`                                                                 | *string*                                                                        | :heavy_minus_sign:                                                              | Tax or VAT Number for this business.                                            | AB0123456789                                                                    |

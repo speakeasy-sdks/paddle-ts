@@ -3,17 +3,28 @@
 
 ```typescript
 import { Paddle } from "Paddle";
-import { DeleteOrderResponse } from "Paddle/dist/sdk/models/operations";
+import { CreateAddressResponse } from "Paddle/dist/sdk/models/operations";
+import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
 
 const sdk = new Paddle({
   security: {
-    apiKey: "",
+    bearerAuth: "",
   },
 });
 
-sdk.order.deleteOrder({
-  orderID: 548814,
-}).then((res: DeleteOrderResponse) => {
+sdk.addresses.createAddress({
+  addressCreateInput: {
+    city: "Astoria",
+    countryCode: CountryCode2.Lv,
+    description: "Paddle.com",
+    firstLine: "3811 Ditmars Blvd",
+    id: "add_01gm302t81w94gyjpjpqypkzkf",
+    postalCode: "11105-1803",
+    region: "NY",
+    secondLine: "provident",
+  },
+  customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
+}).then((res: CreateAddressResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
