@@ -40,7 +40,7 @@ export class Adjustments {
      *
      * If successful, your response includes a copy of the new adjustment entity.
      */
-    async createAdjustment(
+    async create(
         req: shared.AdjustmentCreateInput,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateAdjustmentResponse> {
@@ -200,7 +200,7 @@ export class Adjustments {
      * @remarks
      * Returns a paginated list of adjustments. Use the query parameters to page through results.
      */
-    async listAdjustments(
+    async list(
         req: operations.ListAdjustmentsRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.ListAdjustmentsResponse> {
@@ -296,154 +296,6 @@ export class Adjustments {
                     );
                     err.rawResponse = httpRes;
                     throw new errors.ListAdjustments500ApplicationJSON(err);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-        }
-
-        return res;
-    }
-
-    /**
-     * List credit balances for a customer
-     *
-     * @remarks
-     * Returns a list of credit balances for each currency for a customer. Each balance has three totals:
-     *
-     * * `available`: total available to use.
-     * * `reserved`: total temporarily reserved for billed transactions.
-     * * `used`: total amount of credit used.
-     *
-     * Credit is added to the `available` total initially. When used, it moves to the `used` total.
-     *
-     * The `reserved` total is used when a credit balance is applied to a transaction that's marked as `billed`, like when working with an issued invoice. It's not available for other transactions at this point, but isn't considered `used` until the transaction is completed. If a `billed` transaction is `canceled`, any reserved credit moves back to `available`.
-     *
-     * The response is not paginated.
-     */
-    async listCreditBalances(
-        req: operations.ListCreditBalancesRequest,
-        config?: AxiosRequestConfig
-    ): Promise<operations.ListCreditBalancesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListCreditBalancesRequest(req);
-        }
-
-        const baseURL: string = utils.templateUrl(
-            this.sdkConfiguration.serverURL,
-            this.sdkConfiguration.serverDefaults
-        );
-        const url: string = utils.generateURL(
-            baseURL,
-            "/customers/{customer_id}/credit-balances",
-            req
-        );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
-        const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json";
-
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
-
-        const httpRes: AxiosResponse = await client.request({
-            validateStatus: () => true,
-            url: url + queryParams,
-            method: "get",
-            headers: headers,
-            responseType: "arraybuffer",
-            ...config,
-        });
-
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) {
-            throw new Error(`status code not found in response: ${httpRes}`);
-        }
-
-        const res: operations.ListCreditBalancesResponse =
-            new operations.ListCreditBalancesResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes,
-                headers: utils.getHeadersFromResponse(httpRes.headers),
-            });
-        const decodedRes = new TextDecoder().decode(httpRes?.data);
-        switch (true) {
-            case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listCreditBalances200ApplicationJSONObject = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.ListCreditBalances200ApplicationJSON
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        errors.ListCreditBalances400ApplicationJSON
-                    );
-                    err.rawResponse = httpRes;
-                    throw new errors.ListCreditBalances400ApplicationJSON(err);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        errors.ListCreditBalances404ApplicationJSON
-                    );
-                    err.rawResponse = httpRes;
-                    throw new errors.ListCreditBalances404ApplicationJSON(err);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
-                (httpRes?.status >= 500 && httpRes?.status < 600):
-                throw new errors.SDKError(
-                    "API error occurred",
-                    httpRes.status,
-                    decodedRes,
-                    httpRes
-                );
-            case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        errors.ListCreditBalances500ApplicationJSON
-                    );
-                    err.rawResponse = httpRes;
-                    throw new errors.ListCreditBalances500ApplicationJSON(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

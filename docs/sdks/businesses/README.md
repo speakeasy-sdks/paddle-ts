@@ -8,12 +8,12 @@ Businesses - Paddle Developer Center
 <https://paddle.stoplight.io/docs/next-gen-billing/entities/customers#business-object>
 ### Available Operations
 
-* [createBusiness](#createbusiness) - Create a business for a customer
-* [getBusiness](#getbusiness) - Get a business for a customer
-* [listBusinesses](#listbusinesses) - List businesses for a customer
-* [updateBusiness](#updatebusiness) - Update a business for a customer
+* [create](#create) - Create a business for a customer
+* [get](#get) - Get a business for a customer
+* [list](#list) - List businesses for a customer
+* [update](#update) - Update a business for a customer
 
-## createBusiness
+## create
 
 Creates a new business for a customer.
 
@@ -31,7 +31,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.businesses.createBusiness({
+sdk.businesses.create({
   businessCreateInput: {
     companyNumber: "123456789",
     contacts: [
@@ -73,7 +73,7 @@ sdk.businesses.createBusiness({
 **Promise<[operations.CreateBusinessResponse](../../models/operations/createbusinessresponse.md)>**
 
 
-## getBusiness
+## get
 
 Returns a business for a customer using its ID and related customer ID.
 
@@ -89,7 +89,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.businesses.getBusiness({
+sdk.businesses.get({
   businessId: "biz_01gvcz4m28csa5kem2gqq5ymxn",
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
 }).then((res: GetBusinessResponse) => {
@@ -112,7 +112,7 @@ sdk.businesses.getBusiness({
 **Promise<[operations.GetBusinessResponse](../../models/operations/getbusinessresponse.md)>**
 
 
-## listBusinesses
+## list
 
 Returns a paginated list of businesses for a customer. Use the query parameters to page through results.
 
@@ -131,7 +131,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.businesses.listBusinesses({
+sdk.businesses.list({
   after: "culpa",
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   id: "2fa94677-3925-41aa-92c3-f5ad019da1ff",
@@ -159,7 +159,7 @@ sdk.businesses.listBusinesses({
 **Promise<[operations.ListBusinessesResponse](../../models/operations/listbusinessesresponse.md)>**
 
 
-## updateBusiness
+## update
 
 Updates a business for a customer using its ID and related customer ID.
 
@@ -178,7 +178,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.businesses.updateBusiness({
+sdk.businesses.update({
   businessInput: {
     companyNumber: "123456789",
     contacts: [

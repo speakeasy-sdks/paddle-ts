@@ -27,7 +27,7 @@ export class IPAddresses {
      *
      * IP addresses returned are for the environment that you're making the request in. For example, making the request to the production base URL returns all production IP addresses.
      */
-    async getIpAddresses(config?: AxiosRequestConfig): Promise<operations.GetIpAddressesResponse> {
+    async get(config?: AxiosRequestConfig): Promise<operations.GetIpAddressesResponse> {
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults

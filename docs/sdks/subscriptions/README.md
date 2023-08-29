@@ -8,12 +8,12 @@ Subscriptions - Paddle Developer Center
 <https://paddle.stoplight.io/docs/next-gen-billing/entities/subscriptions>
 ### Available Operations
 
-* [cancelSubscription](#cancelsubscription) - Cancel a subscription
-* [createSubscriptionCharge](#createsubscriptioncharge) - Create a one-time charge for a subscription
-* [listSubscriptions](#listsubscriptions) - List subscriptions
-* [pauseSubscription](#pausesubscription) - Pause a subscription
+* [cancel](#cancel) - Cancel a subscription
+* [create](#create) - Create a one-time charge for a subscription
+* [list](#list) - List subscriptions
+* [pause](#pause) - Pause a subscription
 
-## cancelSubscription
+## cancel
 
 Cancels a subscription using its ID.
 
@@ -36,7 +36,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.subscriptions.cancelSubscription({
+sdk.subscriptions.cancel({
   requestBody: {
     effectiveFrom: EffectiveFromNullable.NextBillingPeriod,
   },
@@ -61,7 +61,7 @@ sdk.subscriptions.cancelSubscription({
 **Promise<[operations.CancelSubscriptionResponse](../../models/operations/cancelsubscriptionresponse.md)>**
 
 
-## createSubscriptionCharge
+## create
 
 Creates a new one-time charge for a subscription. Use to bill non-recurring items to a subscription. Non-recurring items are price entities where the `billing_cycle` is `null`.
 
@@ -85,7 +85,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.subscriptions.createSubscriptionCharge({
+sdk.subscriptions.create({
   subscriptionCharge: {
     effectiveFrom: EffectiveFrom.NextBillingPeriod,
     items: [
@@ -128,7 +128,7 @@ sdk.subscriptions.createSubscriptionCharge({
 **Promise<[operations.CreateSubscriptionChargeResponse](../../models/operations/createsubscriptionchargeresponse.md)>**
 
 
-## listSubscriptions
+## list
 
 Returns a paginated list of subscriptions. Use the query parameters to page through results.
 
@@ -145,7 +145,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.subscriptions.listSubscriptions({
+sdk.subscriptions.list({
   after: "illum",
   customerId: "ctm_01gt25aq4b2zcfw12szwtjrbdt",
   orderBy: "pariatur",
@@ -172,7 +172,7 @@ sdk.subscriptions.listSubscriptions({
 **Promise<[operations.ListSubscriptionsResponse](../../models/operations/listsubscriptionsresponse.md)>**
 
 
-## pauseSubscription
+## pause
 
 Pauses a subscription using its ID.
 
@@ -195,7 +195,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.subscriptions.pauseSubscription({
+sdk.subscriptions.pause({
   requestBody: {
     effectiveFrom: EffectiveFromNullable.Immediately,
     resumeAt: new Date("2019-10-12T07:20:50.52Z"),

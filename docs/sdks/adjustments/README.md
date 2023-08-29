@@ -6,11 +6,10 @@ Work with adjustments.
 
 ### Available Operations
 
-* [createAdjustment](#createadjustment) - Create an adjustment
-* [listAdjustments](#listadjustments) - List adjustments
-* [listCreditBalances](#listcreditbalances) - List credit balances for a customer
+* [create](#create) - Create an adjustment
+* [list](#list) - List adjustments
 
-## createAdjustment
+## create
 
 Creates an adjustment for one or more transaction items.
 
@@ -48,7 +47,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.adjustments.createAdjustment({
+sdk.adjustments.create({
   action: Schemasaction.ChargebackWarning,
   currencyCode: CurrencyCode2.Thb,
   customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
@@ -106,7 +105,7 @@ sdk.adjustments.createAdjustment({
 **Promise<[operations.CreateAdjustmentResponse](../../models/operations/createadjustmentresponse.md)>**
 
 
-## listAdjustments
+## list
 
 Returns a paginated list of adjustments. Use the query parameters to page through results.
 
@@ -123,7 +122,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.adjustments.listAdjustments({
+sdk.adjustments.list({
   action: Action.Chargeback,
   after: "deleniti",
   customerId: "ctm_01gt25aq4b2zcfw12szwtjrbdt",
@@ -151,53 +150,4 @@ sdk.adjustments.listAdjustments({
 ### Response
 
 **Promise<[operations.ListAdjustmentsResponse](../../models/operations/listadjustmentsresponse.md)>**
-
-
-## listCreditBalances
-
-Returns a list of credit balances for each currency for a customer. Each balance has three totals:
-
-* `available`: total available to use.
-* `reserved`: total temporarily reserved for billed transactions.
-* `used`: total amount of credit used.
-
-Credit is added to the `available` total initially. When used, it moves to the `used` total.
-
-The `reserved` total is used when a credit balance is applied to a transaction that's marked as `billed`, like when working with an issued invoice. It's not available for other transactions at this point, but isn't considered `used` until the transaction is completed. If a `billed` transaction is `canceled`, any reserved credit moves back to `available`.
-
-The response is not paginated.
-
-### Example Usage
-
-```typescript
-import { Paddle } from "Paddle";
-import { ListCreditBalancesResponse } from "Paddle/dist/sdk/models/operations";
-
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "",
-  },
-});
-
-sdk.adjustments.listCreditBalances({
-  currencyCode: "EUR",
-  customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-}).then((res: ListCreditBalancesResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.ListCreditBalancesRequest](../../models/operations/listcreditbalancesrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
-
-
-### Response
-
-**Promise<[operations.ListCreditBalancesResponse](../../models/operations/listcreditbalancesresponse.md)>**
 

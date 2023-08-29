@@ -31,7 +31,7 @@ export class Addresses {
      *
      * If successful, your response includes a copy of the new address entity.
      */
-    async createAddress(
+    async create(
         req: operations.CreateAddressRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateAddressResponse> {
@@ -212,7 +212,7 @@ export class Addresses {
      * @remarks
      * Returns an address for a customer using its ID and related customer ID.
      */
-    async getAddress(
+    async get(
         req: operations.GetAddressRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.GetAddressResponse> {
@@ -384,7 +384,7 @@ export class Addresses {
      *
      * By default, Paddle returns addresses that are `active`. Use the `status` query parameter to return addresses that are archived.
      */
-    async listAddresses(
+    async list(
         req: operations.ListAddressesRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.ListAddressesResponse> {
@@ -536,7 +536,7 @@ export class Addresses {
      *
      * If successful, your response includes a copy of the updated address entity.
      */
-    async updateAddress(
+    async update(
         req: operations.UpdateAddressRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateAddressResponse> {

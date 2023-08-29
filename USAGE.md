@@ -12,7 +12,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.addresses.createAddress({
+sdk.addresses.create({
   addressCreateInput: {
     city: "Astoria",
     countryCode: CountryCode2.Lv,

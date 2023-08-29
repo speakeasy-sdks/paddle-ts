@@ -29,7 +29,7 @@ export class Invoices {
      *
      * The link returned is not a permanent link. It expires at the date and time returned in the `Expires` header.
      */
-    async getInvoicePdf(
+    async getPdf(
         req: operations.GetInvoicePdfRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.GetInvoicePdfResponse> {

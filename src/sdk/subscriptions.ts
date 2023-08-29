@@ -33,7 +33,7 @@ export class Subscriptions {
      *
      * You cannot reactivate a canceled subscription.
      */
-    async cancelSubscription(
+    async cancel(
         req: operations.CancelSubscriptionRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.CancelSubscriptionResponse> {
@@ -202,7 +202,7 @@ export class Subscriptions {
      * * When created with `effective_from` as `next_billing_period`, get the subscription the charge was billed to and use the `include` query parameter with the `next_transaction` value.
      * * When created with `effective_from` as `immediately`, list transactions and use the `subscription_id` query parameter with the subscription ID of the subscription the charge was billed to.
      */
-    async createSubscriptionCharge(
+    async create(
         req: operations.CreateSubscriptionChargeRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateSubscriptionChargeResponse> {
@@ -337,7 +337,7 @@ export class Subscriptions {
      * @remarks
      * Returns a paginated list of subscriptions. Use the query parameters to page through results.
      */
-    async listSubscriptions(
+    async list(
         req: operations.ListSubscriptionsRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.ListSubscriptionsResponse> {
@@ -459,7 +459,7 @@ export class Subscriptions {
      *
      * Pauses take place at the end of a subscription billing period. If successful, your response includes a copy of the updated subscription entity with a `schedule_change` to say that the subscription should pause at the end of the billing period. Its `status` remains the same until after the effective date of the scheduled change, at which point it changes to `paused`.
      */
-    async pauseSubscription(
+    async pause(
         req: operations.PauseSubscriptionRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.PauseSubscriptionResponse> {

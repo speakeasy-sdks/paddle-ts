@@ -29,7 +29,7 @@ export class Businesses {
      *
      * If successful, your response includes a copy of the new business entity.
      */
-    async createBusiness(
+    async create(
         req: operations.CreateBusinessRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateBusinessResponse> {
@@ -210,7 +210,7 @@ export class Businesses {
      * @remarks
      * Returns a business for a customer using its ID and related customer ID.
      */
-    async getBusiness(
+    async get(
         req: operations.GetBusinessRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.GetBusinessResponse> {
@@ -365,7 +365,7 @@ export class Businesses {
      *
      * By default, Paddle returns businesses that are `active`. Use the `status` query parameter to return businesses that are archived.
      */
-    async listBusinesses(
+    async list(
         req: operations.ListBusinessesRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.ListBusinessesResponse> {
@@ -517,7 +517,7 @@ export class Businesses {
      *
      * If successful, your response includes a copy of the updated business entity.
      */
-    async updateBusiness(
+    async update(
         req: operations.UpdateBusinessRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateBusinessResponse> {

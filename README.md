@@ -31,7 +31,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.addresses.createAddress({
+sdk.addresses.create({
   addressCreateInput: {
     city: "Astoria",
     countryCode: CountryCode2.Lv,
@@ -57,131 +57,74 @@ sdk.addresses.createAddress({
 
 ### [addresses](docs/sdks/addresses/README.md)
 
-* [createAddress](docs/sdks/addresses/README.md#createaddress) - Create an address for a customer
-* [getAddress](docs/sdks/addresses/README.md#getaddress) - Get an address for a customer
-* [listAddresses](docs/sdks/addresses/README.md#listaddresses) - List addresses for a customer
-* [updateAddress](docs/sdks/addresses/README.md#updateaddress) - Update an address for a customer
+* [create](docs/sdks/addresses/README.md#create) - Create an address for a customer
+* [get](docs/sdks/addresses/README.md#get) - Get an address for a customer
+* [list](docs/sdks/addresses/README.md#list) - List addresses for a customer
+* [update](docs/sdks/addresses/README.md#update) - Update an address for a customer
 
 ### [adjustments](docs/sdks/adjustments/README.md)
 
-* [createAdjustment](docs/sdks/adjustments/README.md#createadjustment) - Create an adjustment
-* [listAdjustments](docs/sdks/adjustments/README.md#listadjustments) - List adjustments
-* [listCreditBalances](docs/sdks/adjustments/README.md#listcreditbalances) - List credit balances for a customer
+* [create](docs/sdks/adjustments/README.md#create) - Create an adjustment
+* [list](docs/sdks/adjustments/README.md#list) - List adjustments
 
 ### [businesses](docs/sdks/businesses/README.md)
 
-* [createBusiness](docs/sdks/businesses/README.md#createbusiness) - Create a business for a customer
-* [getBusiness](docs/sdks/businesses/README.md#getbusiness) - Get a business for a customer
-* [listBusinesses](docs/sdks/businesses/README.md#listbusinesses) - List businesses for a customer
-* [updateBusiness](docs/sdks/businesses/README.md#updatebusiness) - Update a business for a customer
+* [create](docs/sdks/businesses/README.md#create) - Create a business for a customer
+* [get](docs/sdks/businesses/README.md#get) - Get a business for a customer
+* [list](docs/sdks/businesses/README.md#list) - List businesses for a customer
+* [update](docs/sdks/businesses/README.md#update) - Update a business for a customer
 
 ### [customers](docs/sdks/customers/README.md)
 
-* [createCustomer](docs/sdks/customers/README.md#createcustomer) - Create a customer
-* [getCustomer](docs/sdks/customers/README.md#getcustomer) - Get a customer
+* [create](docs/sdks/customers/README.md#create) - Create a customer
+* [get](docs/sdks/customers/README.md#get) - Get a customer
+* [list](docs/sdks/customers/README.md#list) - List customers
 * [listCreditBalances](docs/sdks/customers/README.md#listcreditbalances) - List credit balances for a customer
-* [listCustomers](docs/sdks/customers/README.md#listcustomers) - List customers
-* [updateCustomer](docs/sdks/customers/README.md#updatecustomer) - Update a customer
+* [update](docs/sdks/customers/README.md#update) - Update a customer
 
 ### [discounts](docs/sdks/discounts/README.md)
 
-* [createDiscount](docs/sdks/discounts/README.md#creatediscount) - Create a discount
-* [getDiscount](docs/sdks/discounts/README.md#getdiscount) - Get a discount
-* [listDiscounts](docs/sdks/discounts/README.md#listdiscounts) - List discounts
-* [updateDiscount](docs/sdks/discounts/README.md#updatediscount) - Update a discount
+* [create](docs/sdks/discounts/README.md#create) - Create a discount
+* [get](docs/sdks/discounts/README.md#get) - Get a discount
+* [list](docs/sdks/discounts/README.md#list) - List discounts
+* [update](docs/sdks/discounts/README.md#update) - Update a discount
 
 ### [events](docs/sdks/events/README.md)
 
-* [listEventTypes](docs/sdks/events/README.md#listeventtypes) - List events types
-* [listEvents](docs/sdks/events/README.md#listevents) - List events
+* [list](docs/sdks/events/README.md#list) - List events
+* [listTypes](docs/sdks/events/README.md#listtypes) - List events types
 
 ### [ipAddresses](docs/sdks/ipaddresses/README.md)
 
-* [getIpAddresses](docs/sdks/ipaddresses/README.md#getipaddresses) - Get Paddle IP addresses
+* [get](docs/sdks/ipaddresses/README.md#get) - Get Paddle IP addresses
 
 ### [invoices](docs/sdks/invoices/README.md)
 
-* [getInvoicePdf](docs/sdks/invoices/README.md#getinvoicepdf) - Get a PDF for an invoice
+* [getPdf](docs/sdks/invoices/README.md#getpdf) - Get a PDF for an invoice
 
 ### [notifications](docs/sdks/notifications/README.md)
 
-* [createNotificationSetting](docs/sdks/notifications/README.md#createnotificationsetting) - Create a notification setting
-* [deleteNotificationSetting](docs/sdks/notifications/README.md#deletenotificationsetting) - Delete a notification setting
-* [getNotification](docs/sdks/notifications/README.md#getnotification) - Get a notification
-* [getNotificationSetting](docs/sdks/notifications/README.md#getnotificationsetting) - Get a notification setting
-* [listNotificationLogs](docs/sdks/notifications/README.md#listnotificationlogs) - List logs for a notification
-* [listNotificationSettings](docs/sdks/notifications/README.md#listnotificationsettings) - List notification settings
-* [listNotifications](docs/sdks/notifications/README.md#listnotifications) - List notifications
-* [postNotificationSettingsNotificationSettingIdReplay](docs/sdks/notifications/README.md#postnotificationsettingsnotificationsettingidreplay) - Replay notifications by notification setting
-* [replayNotification](docs/sdks/notifications/README.md#replaynotification) - Replay a notification
-* [updateNotificationSetting](docs/sdks/notifications/README.md#updatenotificationsetting) - Update a notification setting
+* [createSetting](docs/sdks/notifications/README.md#createsetting) - Create a notification setting
+* [deleteSetting](docs/sdks/notifications/README.md#deletesetting) - Delete a notification setting
+* [get](docs/sdks/notifications/README.md#get) - Get a notification
+* [getSetting](docs/sdks/notifications/README.md#getsetting) - Get a notification setting
+* [list](docs/sdks/notifications/README.md#list) - List notifications
+* [listLogs](docs/sdks/notifications/README.md#listlogs) - List logs for a notification
+* [listSettings](docs/sdks/notifications/README.md#listsettings) - List notification settings
+* [replay](docs/sdks/notifications/README.md#replay) - Replay a notification
+* [replayBySetting](docs/sdks/notifications/README.md#replaybysetting) - Replay notifications by notification setting
+* [updateSettings](docs/sdks/notifications/README.md#updatesettings) - Update a notification setting
 
 ### [subscriptions](docs/sdks/subscriptions/README.md)
 
-* [cancelSubscription](docs/sdks/subscriptions/README.md#cancelsubscription) - Cancel a subscription
-* [createSubscriptionCharge](docs/sdks/subscriptions/README.md#createsubscriptioncharge) - Create a one-time charge for a subscription
-* [listSubscriptions](docs/sdks/subscriptions/README.md#listsubscriptions) - List subscriptions
-* [pauseSubscription](docs/sdks/subscriptions/README.md#pausesubscription) - Pause a subscription
+* [cancel](docs/sdks/subscriptions/README.md#cancel) - Cancel a subscription
+* [create](docs/sdks/subscriptions/README.md#create) - Create a one-time charge for a subscription
+* [list](docs/sdks/subscriptions/README.md#list) - List subscriptions
+* [pause](docs/sdks/subscriptions/README.md#pause) - Pause a subscription
 
 ### [transactions](docs/sdks/transactions/README.md)
 
-* [getTransactionInvoice](docs/sdks/transactions/README.md#gettransactioninvoice) - Get a PDF invoice for a transaction
-
-### [adjustmentService](docs/sdks/adjustmentservice/README.md)
-
-* [createAdjustment](docs/sdks/adjustmentservice/README.md#createadjustment) - Create an adjustment
-* [listAdjustments](docs/sdks/adjustmentservice/README.md#listadjustments) - List adjustments
-* [listCreditBalances](docs/sdks/adjustmentservice/README.md#listcreditbalances) - List credit balances for a customer
-
-### [customerService](docs/sdks/customerservice/README.md)
-
-* [createAddress](docs/sdks/customerservice/README.md#createaddress) - Create an address for a customer
-* [createBusiness](docs/sdks/customerservice/README.md#createbusiness) - Create a business for a customer
-* [createCustomer](docs/sdks/customerservice/README.md#createcustomer) - Create a customer
-* [getAddress](docs/sdks/customerservice/README.md#getaddress) - Get an address for a customer
-* [getBusiness](docs/sdks/customerservice/README.md#getbusiness) - Get a business for a customer
-* [getCustomer](docs/sdks/customerservice/README.md#getcustomer) - Get a customer
-* [listAddresses](docs/sdks/customerservice/README.md#listaddresses) - List addresses for a customer
-* [listBusinesses](docs/sdks/customerservice/README.md#listbusinesses) - List businesses for a customer
-* [listCustomers](docs/sdks/customerservice/README.md#listcustomers) - List customers
-* [updateAddress](docs/sdks/customerservice/README.md#updateaddress) - Update an address for a customer
-* [updateBusiness](docs/sdks/customerservice/README.md#updatebusiness) - Update a business for a customer
-* [updateCustomer](docs/sdks/customerservice/README.md#updatecustomer) - Update a customer
-
-### [discountService](docs/sdks/discountservice/README.md)
-
-* [createDiscount](docs/sdks/discountservice/README.md#creatediscount) - Create a discount
-* [getDiscount](docs/sdks/discountservice/README.md#getdiscount) - Get a discount
-* [listDiscounts](docs/sdks/discountservice/README.md#listdiscounts) - List discounts
-* [updateDiscount](docs/sdks/discountservice/README.md#updatediscount) - Update a discount
-
-### [invoiceService](docs/sdks/invoiceservice/README.md)
-
-* [getInvoicePdf](docs/sdks/invoiceservice/README.md#getinvoicepdf) - Get a PDF for an invoice
-* [getTransactionInvoice](docs/sdks/invoiceservice/README.md#gettransactioninvoice) - Get a PDF invoice for a transaction
-
-### [notificationService](docs/sdks/notificationservice/README.md)
-
-* [createNotificationSetting](docs/sdks/notificationservice/README.md#createnotificationsetting) - Create a notification setting
-* [deleteNotificationSetting](docs/sdks/notificationservice/README.md#deletenotificationsetting) - Delete a notification setting
-* [getIpAddresses](docs/sdks/notificationservice/README.md#getipaddresses) - Get Paddle IP addresses
-* [getNotification](docs/sdks/notificationservice/README.md#getnotification) - Get a notification
-* [getNotificationSetting](docs/sdks/notificationservice/README.md#getnotificationsetting) - Get a notification setting
-* [listEventTypes](docs/sdks/notificationservice/README.md#listeventtypes) - List events types
-* [listEvents](docs/sdks/notificationservice/README.md#listevents) - List events
-* [listNotificationLogs](docs/sdks/notificationservice/README.md#listnotificationlogs) - List logs for a notification
-* [listNotificationSettings](docs/sdks/notificationservice/README.md#listnotificationsettings) - List notification settings
-* [listNotifications](docs/sdks/notificationservice/README.md#listnotifications) - List notifications
-* [postNotificationSettingsNotificationSettingIdReplay](docs/sdks/notificationservice/README.md#postnotificationsettingsnotificationsettingidreplay) - Replay notifications by notification setting
-* [replayNotification](docs/sdks/notificationservice/README.md#replaynotification) - Replay a notification
-* [updateNotificationSetting](docs/sdks/notificationservice/README.md#updatenotificationsetting) - Update a notification setting
-
-### [subscriptionService](docs/sdks/subscriptionservice/README.md)
-
-* [cancelSubscription](docs/sdks/subscriptionservice/README.md#cancelsubscription) - Cancel a subscription
-* [createSubscriptionCharge](docs/sdks/subscriptionservice/README.md#createsubscriptioncharge) - Create a one-time charge for a subscription
-* [listSubscriptions](docs/sdks/subscriptionservice/README.md#listsubscriptions) - List subscriptions
-* [pauseSubscription](docs/sdks/subscriptionservice/README.md#pausesubscription) - Pause a subscription
+* [getInvoice](docs/sdks/transactions/README.md#getinvoice) - Get a PDF invoice for a transaction
 <!-- End SDK Available Operations -->
 
 ### Maturity

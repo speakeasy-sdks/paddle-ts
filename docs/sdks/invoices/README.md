@@ -8,9 +8,9 @@ Invoices - Paddle Developer Center
 <https://paddle.stoplight.io/docs/next-gen-billing/entities/invoices>
 ### Available Operations
 
-* [getInvoicePdf](#getinvoicepdf) - Get a PDF for an invoice
+* [getPdf](#getpdf) - Get a PDF for an invoice
 
-## getInvoicePdf
+## getPdf
 
 Generates a PDF for an invoice, then returns a link to it.
 
@@ -28,7 +28,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.invoices.getInvoicePdf({
+sdk.invoices.getPdf({
   invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
 }).then((res: GetInvoicePdfResponse) => {
   if (res.statusCode == 200) {

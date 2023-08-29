@@ -8,12 +8,12 @@ Discounts - Paddle Developer Center
 <https://paddle.stoplight.io/docs/next-gen-billing/entities/discounts>
 ### Available Operations
 
-* [createDiscount](#creatediscount) - Create a discount
-* [getDiscount](#getdiscount) - Get a discount
-* [listDiscounts](#listdiscounts) - List discounts
-* [updateDiscount](#updatediscount) - Update a discount
+* [create](#create) - Create a discount
+* [get](#get) - Get a discount
+* [list](#list) - List discounts
+* [update](#update) - Update a discount
 
-## createDiscount
+## create
 
 Creates a new discount.
 
@@ -32,7 +32,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.discounts.createDiscount({
+sdk.discounts.create({
   amount: "illum",
   code: "maiores",
   currencyCode: CurrencyCode2.Rub,
@@ -70,7 +70,7 @@ sdk.discounts.createDiscount({
 **Promise<[operations.CreateDiscountResponse](../../models/operations/creatediscountresponse.md)>**
 
 
-## getDiscount
+## get
 
 Returns a discount using its ID.
 
@@ -86,7 +86,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.discounts.getDiscount({
+sdk.discounts.get({
   discountId: "dsc_01gt218xfk7yztpvgmcazkes83",
 }).then((res: GetDiscountResponse) => {
   if (res.statusCode == 200) {
@@ -108,7 +108,7 @@ sdk.discounts.getDiscount({
 **Promise<[operations.GetDiscountResponse](../../models/operations/getdiscountresponse.md)>**
 
 
-## listDiscounts
+## list
 
 Returns a paginated list of discounts. Use the query parameters to page through results.
 
@@ -127,7 +127,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.discounts.listDiscounts({
+sdk.discounts.list({
   after: "occaecati",
   code: "BLACKFRIDAY",
   id: "5efb9ba8-8f3a-4669-9707-4ba4469b6e21",
@@ -154,7 +154,7 @@ sdk.discounts.listDiscounts({
 **Promise<[operations.ListDiscountsResponse](../../models/operations/listdiscountsresponse.md)>**
 
 
-## updateDiscount
+## update
 
 Updates a discount using its ID.
 
@@ -173,7 +173,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.discounts.updateDiscount({
+sdk.discounts.update({
   discountInput: {
     amount: "ullam",
     code: "provident",

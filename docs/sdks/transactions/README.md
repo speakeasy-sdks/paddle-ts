@@ -8,9 +8,9 @@ Transactions - Paddle Developer Center
 <https://paddle.stoplight.io/docs/next-gen-billing/entities/transactions>
 ### Available Operations
 
-* [getTransactionInvoice](#gettransactioninvoice) - Get a PDF invoice for a transaction
+* [getInvoice](#getinvoice) - Get a PDF invoice for a transaction
 
-## getTransactionInvoice
+## getInvoice
 
 Returns a link to an invoice PDF for a transaction.
 
@@ -33,7 +33,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.transactions.getTransactionInvoice({
+sdk.transactions.getInvoice({
   transactionId: "txn_01gw225vv6tjbb5gnt062a3k5v",
 }).then((res: GetTransactionInvoiceResponse) => {
   if (res.statusCode == 200) {

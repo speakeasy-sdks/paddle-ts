@@ -30,7 +30,7 @@ export class Customers {
      *
      * If successful, your response includes a copy of the new customer entity.
      */
-    async createCustomer(
+    async create(
         req: shared.CustomerCreateInput,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateCustomerResponse> {
@@ -190,7 +190,7 @@ export class Customers {
      * @remarks
      * Returns a customer using its ID.
      */
-    async getCustomer(
+    async get(
         req: operations.GetCustomerRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.GetCustomerResponse> {
@@ -319,6 +319,158 @@ export class Customers {
                     );
                     err.rawResponse = httpRes;
                     throw new errors.GetCustomer500ApplicationJSON(err);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * List customers
+     *
+     * @remarks
+     * Returns a paginated list of customers. Use the query parameters to page through results.
+     *
+     * By default, Paddle returns customers that are `active`. Use the `status` query parameter to return customers that are archived.
+     */
+    async list(
+        req: operations.ListCustomersRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.ListCustomersResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.ListCustomersRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = baseURL.replace(/\/$/, "") + "/customers";
+
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json";
+
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            responseType: "arraybuffer",
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.ListCustomersResponse = new operations.ListCustomersResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+            headers: utils.getHeadersFromResponse(httpRes.headers),
+        });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.listCustomers200ApplicationJSONObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.ListCustomers200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 401:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    const err = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        errors.ListCustomers401ApplicationJSON
+                    );
+                    err.rawResponse = httpRes;
+                    throw new errors.ListCustomers401ApplicationJSON(err);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 403:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    const err = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        errors.ListCustomers403ApplicationJSON
+                    );
+                    err.rawResponse = httpRes;
+                    throw new errors.ListCustomers403ApplicationJSON(err);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 404:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    const err = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        errors.ListCustomers404ApplicationJSON
+                    );
+                    err.rawResponse = httpRes;
+                    throw new errors.ListCustomers404ApplicationJSON(err);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
+            case httpRes?.status == 500:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    const err = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        errors.ListCustomers500ApplicationJSON
+                    );
+                    err.rawResponse = httpRes;
+                    throw new errors.ListCustomers500ApplicationJSON(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -482,158 +634,6 @@ export class Customers {
     }
 
     /**
-     * List customers
-     *
-     * @remarks
-     * Returns a paginated list of customers. Use the query parameters to page through results.
-     *
-     * By default, Paddle returns customers that are `active`. Use the `status` query parameter to return customers that are archived.
-     */
-    async listCustomers(
-        req: operations.ListCustomersRequest,
-        config?: AxiosRequestConfig
-    ): Promise<operations.ListCustomersResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListCustomersRequest(req);
-        }
-
-        const baseURL: string = utils.templateUrl(
-            this.sdkConfiguration.serverURL,
-            this.sdkConfiguration.serverDefaults
-        );
-        const url: string = baseURL.replace(/\/$/, "") + "/customers";
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
-        const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json";
-
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
-
-        const httpRes: AxiosResponse = await client.request({
-            validateStatus: () => true,
-            url: url + queryParams,
-            method: "get",
-            headers: headers,
-            responseType: "arraybuffer",
-            ...config,
-        });
-
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) {
-            throw new Error(`status code not found in response: ${httpRes}`);
-        }
-
-        const res: operations.ListCustomersResponse = new operations.ListCustomersResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-            headers: utils.getHeadersFromResponse(httpRes.headers),
-        });
-        const decodedRes = new TextDecoder().decode(httpRes?.data);
-        switch (true) {
-            case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listCustomers200ApplicationJSONObject = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.ListCustomers200ApplicationJSON
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        errors.ListCustomers401ApplicationJSON
-                    );
-                    err.rawResponse = httpRes;
-                    throw new errors.ListCustomers401ApplicationJSON(err);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        errors.ListCustomers403ApplicationJSON
-                    );
-                    err.rawResponse = httpRes;
-                    throw new errors.ListCustomers403ApplicationJSON(err);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        errors.ListCustomers404ApplicationJSON
-                    );
-                    err.rawResponse = httpRes;
-                    throw new errors.ListCustomers404ApplicationJSON(err);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
-                (httpRes?.status >= 500 && httpRes?.status < 600):
-                throw new errors.SDKError(
-                    "API error occurred",
-                    httpRes.status,
-                    decodedRes,
-                    httpRes
-                );
-            case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        errors.ListCustomers500ApplicationJSON
-                    );
-                    err.rawResponse = httpRes;
-                    throw new errors.ListCustomers500ApplicationJSON(err);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-        }
-
-        return res;
-    }
-
-    /**
      * Update a customer
      *
      * @remarks
@@ -641,7 +641,7 @@ export class Customers {
      *
      * If successful, your response includes a copy of the updated customer entity.
      */
-    async updateCustomer(
+    async update(
         req: operations.UpdateCustomerRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateCustomerResponse> {

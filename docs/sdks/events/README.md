@@ -6,47 +6,10 @@ Work with events and the event stream.
 
 ### Available Operations
 
-* [listEventTypes](#listeventtypes) - List events types
-* [listEvents](#listevents) - List events
+* [list](#list) - List events
+* [listTypes](#listtypes) - List events types
 
-## listEventTypes
-
-Returns a list of event types.
-
-The response is not paginated.
-
-### Example Usage
-
-```typescript
-import { Paddle } from "Paddle";
-import { ListEventTypesResponse } from "Paddle/dist/sdk/models/operations";
-
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "",
-  },
-});
-
-sdk.events.listEventTypes().then((res: ListEventTypesResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
-
-
-### Response
-
-**Promise<[operations.ListEventTypesResponse](../../models/operations/listeventtypesresponse.md)>**
-
-
-## listEvents
+## list
 
 Returns a paginated list of events that have occurred. Use the query parameters to page through results.
 
@@ -64,7 +27,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.events.listEvents({
+sdk.events.list({
   after: "odit",
   orderBy: "nemo",
   perPage: 97260,
@@ -86,4 +49,41 @@ sdk.events.listEvents({
 ### Response
 
 **Promise<[operations.ListEventsResponse](../../models/operations/listeventsresponse.md)>**
+
+
+## listTypes
+
+Returns a list of event types.
+
+The response is not paginated.
+
+### Example Usage
+
+```typescript
+import { Paddle } from "Paddle";
+import { ListEventTypesResponse } from "Paddle/dist/sdk/models/operations";
+
+const sdk = new Paddle({
+  security: {
+    bearerAuth: "",
+  },
+});
+
+sdk.events.listTypes().then((res: ListEventTypesResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
+
+
+### Response
+
+**Promise<[operations.ListEventTypesResponse](../../models/operations/listeventtypesresponse.md)>**
 

@@ -34,7 +34,7 @@ export class Transactions {
      *
      * The link returned is not a permanent link. It expires at the date and time returned in the `Expires` header.
      */
-    async getTransactionInvoice(
+    async getInvoice(
         req: operations.GetTransactionInvoiceRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.GetTransactionInvoiceResponse> {

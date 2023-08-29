@@ -6,9 +6,9 @@ Get Paddle IP addresses.
 
 ### Available Operations
 
-* [getIpAddresses](#getipaddresses) - Get Paddle IP addresses
+* [get](#get) - Get Paddle IP addresses
 
-## getIpAddresses
+## get
 
 Returns Paddle IP addresses. You can add these IP addresses to your allowlist.
 
@@ -26,7 +26,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.ipAddresses.getIpAddresses().then((res: GetIpAddressesResponse) => {
+sdk.ipAddresses.get().then((res: GetIpAddressesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

@@ -6,18 +6,18 @@ Work with notifications and notification settings.
 
 ### Available Operations
 
-* [createNotificationSetting](#createnotificationsetting) - Create a notification setting
-* [deleteNotificationSetting](#deletenotificationsetting) - Delete a notification setting
-* [getNotification](#getnotification) - Get a notification
-* [getNotificationSetting](#getnotificationsetting) - Get a notification setting
-* [listNotificationLogs](#listnotificationlogs) - List logs for a notification
-* [listNotificationSettings](#listnotificationsettings) - List notification settings
-* [listNotifications](#listnotifications) - List notifications
-* [postNotificationSettingsNotificationSettingIdReplay](#postnotificationsettingsnotificationsettingidreplay) - Replay notifications by notification setting
-* [replayNotification](#replaynotification) - Replay a notification
-* [updateNotificationSetting](#updatenotificationsetting) - Update a notification setting
+* [createSetting](#createsetting) - Create a notification setting
+* [deleteSetting](#deletesetting) - Delete a notification setting
+* [get](#get) - Get a notification
+* [getSetting](#getsetting) - Get a notification setting
+* [list](#list) - List notifications
+* [listLogs](#listlogs) - List logs for a notification
+* [listSettings](#listsettings) - List notification settings
+* [replay](#replay) - Replay a notification
+* [replayBySetting](#replaybysetting) - Replay notifications by notification setting
+* [updateSettings](#updatesettings) - Update a notification setting
 
-## createNotificationSetting
+## createSetting
 
 Creates a new notification setting (notification destination).
 
@@ -38,7 +38,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.notifications.createNotificationSetting({
+sdk.notifications.createSetting({
   active: false,
   apiVersion: 435865,
   description: "doloribus",
@@ -69,7 +69,7 @@ sdk.notifications.createNotificationSetting({
 **Promise<[operations.CreateNotificationSettingResponse](../../models/operations/createnotificationsettingresponse.md)>**
 
 
-## deleteNotificationSetting
+## deleteSetting
 
 Deletes a notification setting (notification destination) using its ID.
 
@@ -89,7 +89,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.notifications.deleteNotificationSetting({
+sdk.notifications.deleteSetting({
   notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
 }).then((res: DeleteNotificationSettingResponse) => {
   if (res.statusCode == 200) {
@@ -111,7 +111,7 @@ sdk.notifications.deleteNotificationSetting({
 **Promise<[operations.DeleteNotificationSettingResponse](../../models/operations/deletenotificationsettingresponse.md)>**
 
 
-## getNotification
+## get
 
 Returns a notification using its ID.
 
@@ -127,7 +127,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.notifications.getNotification({
+sdk.notifications.get({
   notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
 }).then((res: GetNotificationResponse) => {
   if (res.statusCode == 200) {
@@ -149,7 +149,7 @@ sdk.notifications.getNotification({
 **Promise<[operations.GetNotificationResponse](../../models/operations/getnotificationresponse.md)>**
 
 
-## getNotificationSetting
+## getSetting
 
 Returns a notification setting (notification destination) using its ID.
 
@@ -165,7 +165,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.notifications.getNotificationSetting({
+sdk.notifications.getSetting({
   notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
 }).then((res: GetNotificationSettingResponse) => {
   if (res.statusCode == 200) {
@@ -187,84 +187,7 @@ sdk.notifications.getNotificationSetting({
 **Promise<[operations.GetNotificationSettingResponse](../../models/operations/getnotificationsettingresponse.md)>**
 
 
-## listNotificationLogs
-
-Returns a paginated list of notification logs for a notification. A log includes information about delivery attempts, including failures.
-
-### Example Usage
-
-```typescript
-import { Paddle } from "Paddle";
-import { ListNotificationLogsResponse } from "Paddle/dist/sdk/models/operations";
-
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "",
-  },
-});
-
-sdk.notifications.listNotificationLogs({
-  after: "in",
-  notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
-  perPage: 100226,
-}).then((res: ListNotificationLogsResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.ListNotificationLogsRequest](../../models/operations/listnotificationlogsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
-
-
-### Response
-
-**Promise<[operations.ListNotificationLogsResponse](../../models/operations/listnotificationlogsresponse.md)>**
-
-
-## listNotificationSettings
-
-Returns a list of notification settings (notification destinations).
-
-The response is not paginated.
-
-### Example Usage
-
-```typescript
-import { Paddle } from "Paddle";
-import { ListNotificationSettingsResponse } from "Paddle/dist/sdk/models/operations";
-
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "",
-  },
-});
-
-sdk.notifications.listNotificationSettings().then((res: ListNotificationSettingsResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
-
-
-### Response
-
-**Promise<[operations.ListNotificationSettingsResponse](../../models/operations/listnotificationsettingsresponse.md)>**
-
-
-## listNotifications
+## list
 
 Returns a paginated list of notifications. Use the query parameters to page through results.
 
@@ -281,13 +204,13 @@ const sdk = new Paddle({
   },
 });
 
-sdk.notifications.listNotifications({
-  after: "architecto",
-  filter: "sub_01gw4rrmfrqcwkhjm04hr3ah4n",
+sdk.notifications.list({
+  after: "in",
+  filter: "txn_01h3cgmh9qn7yezn4rgze4nrg2",
   from: "2023-04-18T17:03:26",
   notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
-  orderBy: "ullam",
-  perPage: 714242,
+  orderBy: "architecto",
+  perPage: 919483,
   search: "upgrade",
   status: StatusNotification.Failed,
   to: "2023-04-18T17:03:26",
@@ -311,7 +234,126 @@ sdk.notifications.listNotifications({
 **Promise<[operations.ListNotificationsResponse](../../models/operations/listnotificationsresponse.md)>**
 
 
-## postNotificationSettingsNotificationSettingIdReplay
+## listLogs
+
+Returns a paginated list of notification logs for a notification. A log includes information about delivery attempts, including failures.
+
+### Example Usage
+
+```typescript
+import { Paddle } from "Paddle";
+import { ListNotificationLogsResponse } from "Paddle/dist/sdk/models/operations";
+
+const sdk = new Paddle({
+  security: {
+    bearerAuth: "",
+  },
+});
+
+sdk.notifications.listLogs({
+  after: "expedita",
+  notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
+  perPage: 469249,
+}).then((res: ListNotificationLogsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.ListNotificationLogsRequest](../../models/operations/listnotificationlogsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+
+
+### Response
+
+**Promise<[operations.ListNotificationLogsResponse](../../models/operations/listnotificationlogsresponse.md)>**
+
+
+## listSettings
+
+Returns a list of notification settings (notification destinations).
+
+The response is not paginated.
+
+### Example Usage
+
+```typescript
+import { Paddle } from "Paddle";
+import { ListNotificationSettingsResponse } from "Paddle/dist/sdk/models/operations";
+
+const sdk = new Paddle({
+  security: {
+    bearerAuth: "",
+  },
+});
+
+sdk.notifications.listSettings().then((res: ListNotificationSettingsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
+
+
+### Response
+
+**Promise<[operations.ListNotificationSettingsResponse](../../models/operations/listnotificationsettingsresponse.md)>**
+
+
+## replay
+
+Attempts to resend a `delivered` or `failed` notification using its ID.
+
+Paddle creates a new notification entity for the replay, related to the same `event_id`.
+
+The new notification replay is sent to the `destination` against the `notification_setting_id`.
+
+### Example Usage
+
+```typescript
+import { Paddle } from "Paddle";
+import { ReplayNotificationResponse } from "Paddle/dist/sdk/models/operations";
+
+const sdk = new Paddle({
+  security: {
+    bearerAuth: "",
+  },
+});
+
+sdk.notifications.replay({
+  notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
+}).then((res: ReplayNotificationResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.ReplayNotificationRequest](../../models/operations/replaynotificationrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+
+
+### Response
+
+**Promise<[operations.ReplayNotificationResponse](../../models/operations/replaynotificationresponse.md)>**
+
+
+## replayBySetting
 
 Replay notifications by notification setting
 
@@ -327,7 +369,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.notifications.postNotificationSettingsNotificationSettingIdReplay({
+sdk.notifications.replayBySetting({
   requestBody: {
     filter: "sub_01gw4rrmfrqcwkhjm04hr3ah4n",
     from: new Date("2019-10-12T07:20:50.52Z"),
@@ -354,49 +396,7 @@ sdk.notifications.postNotificationSettingsNotificationSettingIdReplay({
 **Promise<[operations.PostNotificationSettingsNotificationSettingIdReplayResponse](../../models/operations/postnotificationsettingsnotificationsettingidreplayresponse.md)>**
 
 
-## replayNotification
-
-Attempts to resend a `delivered` or `failed` notification using its ID.
-
-Paddle creates a new notification entity for the replay, related to the same `event_id`.
-
-The new notification replay is sent to the `destination` against the `notification_setting_id`.
-
-### Example Usage
-
-```typescript
-import { Paddle } from "Paddle";
-import { ReplayNotificationResponse } from "Paddle/dist/sdk/models/operations";
-
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "",
-  },
-});
-
-sdk.notifications.replayNotification({
-  notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
-}).then((res: ReplayNotificationResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.ReplayNotificationRequest](../../models/operations/replaynotificationrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
-
-
-### Response
-
-**Promise<[operations.ReplayNotificationResponse](../../models/operations/replaynotificationresponse.md)>**
-
-
-## updateNotificationSetting
+## updateSettings
 
 Updates a notification setting (notification destination) using its ID.
 
@@ -418,7 +418,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.notifications.updateNotificationSetting({
+sdk.notifications.updateSettings({
   notificationSettingUpdate: {
     active: false,
     apiVersion: 841140,

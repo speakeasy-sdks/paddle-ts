@@ -30,7 +30,7 @@ export class Discounts {
      *
      * If successful, your response includes a copy of the new discount entity.
      */
-    async createDiscount(
+    async create(
         req: shared.DiscountCreateInput,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateDiscountResponse> {
@@ -121,7 +121,7 @@ export class Discounts {
      * @remarks
      * Returns a discount using its ID.
      */
-    async getDiscount(
+    async get(
         req: operations.GetDiscountRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.GetDiscountResponse> {
@@ -221,7 +221,7 @@ export class Discounts {
      *
      * By default, Paddle returns discounts that are `active`. Use the `status` query parameter to return discounts that are archived or expired.
      */
-    async listDiscounts(
+    async list(
         req: operations.ListDiscountsRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.ListDiscountsResponse> {
@@ -304,7 +304,7 @@ export class Discounts {
      *
      * If successful, your response includes a copy of the updated discount entity.
      */
-    async updateDiscount(
+    async update(
         req: operations.UpdateDiscountRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateDiscountResponse> {

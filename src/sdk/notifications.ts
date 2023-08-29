@@ -30,7 +30,7 @@ export class Notifications {
      *
      * If successful, your response includes a copy of the new notification setting entity. Use the returned `endpoint_secret_key` for webhook signature verification.
      */
-    async createNotificationSetting(
+    async createSetting(
         req: shared.NotificationSettingCreateInput,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateNotificationSettingResponse> {
@@ -178,7 +178,7 @@ export class Notifications {
      *
      * There's no way to recover a deleted notification setting. Deactivate a notification setting using the update notification setting operation if you'll need access to the logs or want to reactivate later on.
      */
-    async deleteNotificationSetting(
+    async deleteSetting(
         req: operations.DeleteNotificationSettingRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.DeleteNotificationSettingResponse> {
@@ -302,7 +302,7 @@ export class Notifications {
      * @remarks
      * Returns a notification using its ID.
      */
-    async getNotification(
+    async get(
         req: operations.GetNotificationRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.GetNotificationResponse> {
@@ -434,7 +434,7 @@ export class Notifications {
      * @remarks
      * Returns a notification setting (notification destination) using its ID.
      */
-    async getNotificationSetting(
+    async getSetting(
         req: operations.GetNotificationSettingRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.GetNotificationSettingResponse> {
@@ -566,12 +566,128 @@ export class Notifications {
     }
 
     /**
+     * List notifications
+     *
+     * @remarks
+     * Returns a paginated list of notifications. Use the query parameters to page through results.
+     */
+    async list(
+        req: operations.ListNotificationsRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.ListNotificationsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.ListNotificationsRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = baseURL.replace(/\/$/, "") + "/notifications";
+
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json";
+
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            responseType: "arraybuffer",
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.ListNotificationsResponse = new operations.ListNotificationsResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+            headers: utils.getHeadersFromResponse(httpRes.headers),
+        });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.listNotifications200ApplicationJSONObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.ListNotifications200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 401:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    const err = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        errors.ListNotifications401ApplicationJSON
+                    );
+                    err.rawResponse = httpRes;
+                    throw new errors.ListNotifications401ApplicationJSON(err);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
+            case httpRes?.status == 500:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    const err = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        errors.ListNotifications500ApplicationJSON
+                    );
+                    err.rawResponse = httpRes;
+                    throw new errors.ListNotifications500ApplicationJSON(err);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
      * List logs for a notification
      *
      * @remarks
      * Returns a paginated list of notification logs for a notification. A log includes information about delivery attempts, including failures.
      */
-    async listNotificationLogs(
+    async listLogs(
         req: operations.ListNotificationLogsRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.ListNotificationLogsResponse> {
@@ -711,7 +827,7 @@ export class Notifications {
      *
      * The response is not paginated.
      */
-    async listNotificationSettings(
+    async listSettings(
         config?: AxiosRequestConfig
     ): Promise<operations.ListNotificationSettingsResponse> {
         const baseURL: string = utils.templateUrl(
@@ -817,30 +933,37 @@ export class Notifications {
     }
 
     /**
-     * List notifications
+     * Replay a notification
      *
      * @remarks
-     * Returns a paginated list of notifications. Use the query parameters to page through results.
+     * Attempts to resend a `delivered` or `failed` notification using its ID.
+     *
+     * Paddle creates a new notification entity for the replay, related to the same `event_id`.
+     *
+     * The new notification replay is sent to the `destination` against the `notification_setting_id`.
      */
-    async listNotifications(
-        req: operations.ListNotificationsRequest,
+    async replay(
+        req: operations.ReplayNotificationRequest,
         config?: AxiosRequestConfig
-    ): Promise<operations.ListNotificationsResponse> {
+    ): Promise<operations.ReplayNotificationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListNotificationsRequest(req);
+            req = new operations.ReplayNotificationRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/notifications";
+        const url: string = utils.generateURL(
+            baseURL,
+            "/notifications/{notification_id}/replay",
+            req
+        );
 
         const client: AxiosInstance =
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...config?.headers };
-        const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
         headers[
@@ -849,8 +972,8 @@ export class Notifications {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
-            method: "get",
+            url: url,
+            method: "post",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
@@ -862,19 +985,20 @@ export class Notifications {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.ListNotificationsResponse = new operations.ListNotificationsResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-            headers: utils.getHeadersFromResponse(httpRes.headers),
-        });
+        const res: operations.ReplayNotificationResponse =
+            new operations.ReplayNotificationResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+                headers: utils.getHeadersFromResponse(httpRes.headers),
+            });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
-            case httpRes?.status == 200:
+            case httpRes?.status == 202:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listNotifications200ApplicationJSONObject = utils.objectToClass(
+                    res.replayNotification202ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListNotifications200ApplicationJSON
+                        operations.ReplayNotification202ApplicationJSON
                     );
                 } else {
                     throw new errors.SDKError(
@@ -889,10 +1013,27 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListNotifications401ApplicationJSON
+                        errors.ReplayNotification401ApplicationJSON
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListNotifications401ApplicationJSON(err);
+                    throw new errors.ReplayNotification401ApplicationJSON(err);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 404:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    const err = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        errors.ReplayNotification404ApplicationJSON
+                    );
+                    err.rawResponse = httpRes;
+                    throw new errors.ReplayNotification404ApplicationJSON(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -914,10 +1055,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListNotifications500ApplicationJSON
+                        errors.ReplayNotification500ApplicationJSON
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListNotifications500ApplicationJSON(err);
+                    throw new errors.ReplayNotification500ApplicationJSON(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -935,7 +1076,7 @@ export class Notifications {
     /**
      * Replay notifications by notification setting
      */
-    async postNotificationSettingsNotificationSettingIdReplay(
+    async replayBySetting(
         req: operations.PostNotificationSettingsNotificationSettingIdReplayRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.PostNotificationSettingsNotificationSettingIdReplayResponse> {
@@ -1071,147 +1212,6 @@ export class Notifications {
     }
 
     /**
-     * Replay a notification
-     *
-     * @remarks
-     * Attempts to resend a `delivered` or `failed` notification using its ID.
-     *
-     * Paddle creates a new notification entity for the replay, related to the same `event_id`.
-     *
-     * The new notification replay is sent to the `destination` against the `notification_setting_id`.
-     */
-    async replayNotification(
-        req: operations.ReplayNotificationRequest,
-        config?: AxiosRequestConfig
-    ): Promise<operations.ReplayNotificationResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ReplayNotificationRequest(req);
-        }
-
-        const baseURL: string = utils.templateUrl(
-            this.sdkConfiguration.serverURL,
-            this.sdkConfiguration.serverDefaults
-        );
-        const url: string = utils.generateURL(
-            baseURL,
-            "/notifications/{notification_id}/replay",
-            req
-        );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json";
-
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
-
-        const httpRes: AxiosResponse = await client.request({
-            validateStatus: () => true,
-            url: url,
-            method: "post",
-            headers: headers,
-            responseType: "arraybuffer",
-            ...config,
-        });
-
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) {
-            throw new Error(`status code not found in response: ${httpRes}`);
-        }
-
-        const res: operations.ReplayNotificationResponse =
-            new operations.ReplayNotificationResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes,
-                headers: utils.getHeadersFromResponse(httpRes.headers),
-            });
-        const decodedRes = new TextDecoder().decode(httpRes?.data);
-        switch (true) {
-            case httpRes?.status == 202:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.replayNotification202ApplicationJSONObject = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.ReplayNotification202ApplicationJSON
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        errors.ReplayNotification401ApplicationJSON
-                    );
-                    err.rawResponse = httpRes;
-                    throw new errors.ReplayNotification401ApplicationJSON(err);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        errors.ReplayNotification404ApplicationJSON
-                    );
-                    err.rawResponse = httpRes;
-                    throw new errors.ReplayNotification404ApplicationJSON(err);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
-                (httpRes?.status >= 500 && httpRes?.status < 600):
-                throw new errors.SDKError(
-                    "API error occurred",
-                    httpRes.status,
-                    decodedRes,
-                    httpRes
-                );
-            case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        errors.ReplayNotification500ApplicationJSON
-                    );
-                    err.rawResponse = httpRes;
-                    throw new errors.ReplayNotification500ApplicationJSON(err);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-        }
-
-        return res;
-    }
-
-    /**
      * Update a notification setting
      *
      * @remarks
@@ -1223,7 +1223,7 @@ export class Notifications {
      *
      * If successful, your response includes a copy of the updated notification setting entity.
      */
-    async updateNotificationSetting(
+    async updateSettings(
         req: operations.UpdateNotificationSettingRequest,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateNotificationSettingResponse> {

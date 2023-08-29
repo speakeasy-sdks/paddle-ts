@@ -8,12 +8,12 @@ Addresses - Paddle Developer Center
 <https://paddle.stoplight.io/docs/next-gen-billing/entities/customers#address-object>
 ### Available Operations
 
-* [createAddress](#createaddress) - Create an address for a customer
-* [getAddress](#getaddress) - Get an address for a customer
-* [listAddresses](#listaddresses) - List addresses for a customer
-* [updateAddress](#updateaddress) - Update an address for a customer
+* [create](#create) - Create an address for a customer
+* [get](#get) - Get an address for a customer
+* [list](#list) - List addresses for a customer
+* [update](#update) - Update an address for a customer
 
-## createAddress
+## create
 
 Creates a new address for a customer.
 
@@ -34,7 +34,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.addresses.createAddress({
+sdk.addresses.create({
   addressCreateInput: {
     city: "Astoria",
     countryCode: CountryCode2.Ph,
@@ -66,7 +66,7 @@ sdk.addresses.createAddress({
 **Promise<[operations.CreateAddressResponse](../../models/operations/createaddressresponse.md)>**
 
 
-## getAddress
+## get
 
 Returns an address for a customer using its ID and related customer ID.
 
@@ -82,7 +82,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.addresses.getAddress({
+sdk.addresses.get({
   addressId: "add_01gvcz6r0t0g5cphhwd8n952gb",
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
 }).then((res: GetAddressResponse) => {
@@ -105,7 +105,7 @@ sdk.addresses.getAddress({
 **Promise<[operations.GetAddressResponse](../../models/operations/getaddressresponse.md)>**
 
 
-## listAddresses
+## list
 
 Returns a paginated list of addresses for a customer. Use the query parameters to page through results.
 
@@ -124,7 +124,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.addresses.listAddresses({
+sdk.addresses.list({
   after: "unde",
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   id: "d8d69a67-4e0f-4467-8c87-96ed151a05df",
@@ -152,7 +152,7 @@ sdk.addresses.listAddresses({
 **Promise<[operations.ListAddressesResponse](../../models/operations/listaddressesresponse.md)>**
 
 
-## updateAddress
+## update
 
 Updates an address for a customer using its ID and related customer ID.
 
@@ -171,7 +171,7 @@ const sdk = new Paddle({
   },
 });
 
-sdk.addresses.updateAddress({
+sdk.addresses.update({
   addressInput: {
     city: "Astoria",
     countryCode: CountryCode2.Th,

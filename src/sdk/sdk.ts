@@ -5,21 +5,15 @@
 import * as utils from "../internal/utils";
 import { Addresses } from "./addresses";
 import { Adjustments } from "./adjustments";
-import { AdjustmentService } from "./adjustmentservice";
 import { Businesses } from "./businesses";
 import { Customers } from "./customers";
-import { CustomerService } from "./customerservice";
 import { Discounts } from "./discounts";
-import { DiscountService } from "./discountservice";
 import { Events } from "./events";
 import { Invoices } from "./invoices";
-import { InvoiceService } from "./invoiceservice";
 import { IPAddresses } from "./ipaddresses";
 import * as shared from "./models/shared";
 import { Notifications } from "./notifications";
-import { NotificationService } from "./notificationservice";
 import { Subscriptions } from "./subscriptions";
-import { SubscriptionService } from "./subscriptionservice";
 import { Transactions } from "./transactions";
 import axios from "axios";
 import { AxiosInstance } from "axios";
@@ -69,7 +63,7 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.0";
-    sdkVersion = "0.3.0";
+    sdkVersion = "0.4.0";
     genVersion = "2.88.6";
 
     public constructor(init?: Partial<SDKConfiguration>) {
@@ -144,12 +138,6 @@ export class Paddle {
      * @see {@link https://paddle.stoplight.io/docs/next-gen-billing/entities/transactions} - Transactions - Paddle Developer Center
      */
     public transactions: Transactions;
-    public adjustmentService: AdjustmentService;
-    public customerService: CustomerService;
-    public discountService: DiscountService;
-    public invoiceService: InvoiceService;
-    public notificationService: NotificationService;
-    public subscriptionService: SubscriptionService;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -189,11 +177,5 @@ export class Paddle {
         this.notifications = new Notifications(this.sdkConfiguration);
         this.subscriptions = new Subscriptions(this.sdkConfiguration);
         this.transactions = new Transactions(this.sdkConfiguration);
-        this.adjustmentService = new AdjustmentService(this.sdkConfiguration);
-        this.customerService = new CustomerService(this.sdkConfiguration);
-        this.discountService = new DiscountService(this.sdkConfiguration);
-        this.invoiceService = new InvoiceService(this.sdkConfiguration);
-        this.notificationService = new NotificationService(this.sdkConfiguration);
-        this.subscriptionService = new SubscriptionService(this.sdkConfiguration);
     }
 }
