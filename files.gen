@@ -493,3 +493,4 @@ docs/models/errors/pausesubscription400applicationjson.md
 docs/models/errors/gettransactioninvoice500applicationjson.md
 docs/models/errors/gettransactioninvoice404applicationjson.md
 docs/models/errors/gettransactioninvoice401applicationjson.md
+.gitattributes
