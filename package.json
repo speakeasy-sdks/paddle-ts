@@ -1,6 +1,6 @@
 {
   "name": "Paddle",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "author": "paddle",
   "scripts": {
     "prepare": "tsc --build"
