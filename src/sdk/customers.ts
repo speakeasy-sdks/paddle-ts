@@ -32,6 +32,7 @@ export class Customers {
      */
     async create(
         req: shared.CustomerCreateInput,
+        retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateCustomerResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -69,15 +70,30 @@ export class Customers {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
-        const httpRes: AxiosResponse = await client.request({
-            validateStatus: () => true,
-            url: url,
-            method: "post",
-            headers: headers,
-            responseType: "arraybuffer",
-            data: reqBody,
-            ...config,
-        });
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "post",
+                headers: headers,
+                responseType: "arraybuffer",
+                data: reqBody,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
@@ -197,6 +213,7 @@ export class Customers {
      */
     async get(
         req: operations.GetCustomerRequest,
+        retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
     ): Promise<operations.GetCustomerResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -224,14 +241,29 @@ export class Customers {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
-        const httpRes: AxiosResponse = await client.request({
-            validateStatus: () => true,
-            url: url,
-            method: "get",
-            headers: headers,
-            responseType: "arraybuffer",
-            ...config,
-        });
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                responseType: "arraybuffer",
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
@@ -353,6 +385,7 @@ export class Customers {
      */
     async list(
         req: operations.ListCustomersRequest,
+        retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
     ): Promise<operations.ListCustomersResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -381,14 +414,29 @@ export class Customers {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
-        const httpRes: AxiosResponse = await client.request({
-            validateStatus: () => true,
-            url: url + queryParams,
-            method: "get",
-            headers: headers,
-            responseType: "arraybuffer",
-            ...config,
-        });
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                responseType: "arraybuffer",
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
@@ -518,6 +566,7 @@ export class Customers {
      */
     async listCreditBalances(
         req: operations.ListCreditBalancesRequest,
+        retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
     ): Promise<operations.ListCreditBalancesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -550,14 +599,29 @@ export class Customers {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
-        const httpRes: AxiosResponse = await client.request({
-            validateStatus: () => true,
-            url: url + queryParams,
-            method: "get",
-            headers: headers,
-            responseType: "arraybuffer",
-            ...config,
-        });
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                responseType: "arraybuffer",
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
@@ -663,6 +727,7 @@ export class Customers {
      */
     async update(
         req: operations.UpdateCustomerRequest,
+        retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateCustomerResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
@@ -700,15 +765,30 @@ export class Customers {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
-        const httpRes: AxiosResponse = await client.request({
-            validateStatus: () => true,
-            url: url,
-            method: "patch",
-            headers: headers,
-            responseType: "arraybuffer",
-            data: reqBody,
-            ...config,
-        });
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "patch",
+                headers: headers,
+                responseType: "arraybuffer",
+                data: reqBody,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 

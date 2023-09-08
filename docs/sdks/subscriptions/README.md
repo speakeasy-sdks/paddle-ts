@@ -32,13 +32,13 @@ import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
 sdk.subscriptions.cancel({
   requestBody: {
-    effectiveFrom: EffectiveFromNullable.NextBillingPeriod,
+    effectiveFrom: EffectiveFromNullable.LessThanNilGreaterThan,
   },
   subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
 }).then((res: CancelSubscriptionResponse) => {
@@ -53,6 +53,7 @@ sdk.subscriptions.cancel({
 | Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `request`                                                                                    | [operations.CancelSubscriptionRequest](../../models/operations/cancelsubscriptionrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `retries`                                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                                       | :heavy_minus_sign:                                                                           | Configuration to override the default retry behavior of the client.                          |
 | `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
@@ -81,7 +82,7 @@ import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -89,18 +90,6 @@ sdk.subscriptions.create({
   subscriptionCharge: {
     effectiveFrom: EffectiveFrom.NextBillingPeriod,
     items: [
-      {
-        priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-        quantity: 5,
-      },
-      {
-        priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-        quantity: 5,
-      },
-      {
-        priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-        quantity: 5,
-      },
       {
         priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
         quantity: 5,
@@ -120,6 +109,7 @@ sdk.subscriptions.create({
 | Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
 | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                | [operations.CreateSubscriptionChargeRequest](../../models/operations/createsubscriptionchargerequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `retries`                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                       | Configuration to override the default retry behavior of the client.                                      |
 | `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
 
 
@@ -141,15 +131,15 @@ import { StatusSubscription } from "Paddle/dist/sdk/models/shared";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
 sdk.subscriptions.list({
-  after: "illum",
+  after: "architecto",
   customerId: "ctm_01gt25aq4b2zcfw12szwtjrbdt",
-  orderBy: "pariatur",
-  perPage: 807319,
+  orderBy: "magnam",
+  perPage: 92373,
   priceId: "pri_01gvne87kv8vbqa9jkfbmgtsed",
   status: StatusSubscription.PastDue,
 }).then((res: ListSubscriptionsResponse) => {
@@ -164,6 +154,7 @@ sdk.subscriptions.list({
 | Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
 | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
 | `request`                                                                                  | [operations.ListSubscriptionsRequest](../../models/operations/listsubscriptionsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `retries`                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                     | :heavy_minus_sign:                                                                         | Configuration to override the default retry behavior of the client.                        |
 | `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
@@ -191,7 +182,7 @@ import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -213,6 +204,7 @@ sdk.subscriptions.pause({
 | Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
 | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
 | `request`                                                                                  | [operations.PauseSubscriptionRequest](../../models/operations/pausesubscriptionrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `retries`                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                     | :heavy_minus_sign:                                                                         | Configuration to override the default retry behavior of the client.                        |
 | `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 

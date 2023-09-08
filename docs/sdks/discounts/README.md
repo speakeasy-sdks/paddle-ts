@@ -28,28 +28,25 @@ import { CurrencyCode2, DiscountCreateType } from "Paddle/dist/sdk/models/shared
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
 sdk.discounts.create({
-  amount: "illum",
-  code: "maiores",
-  currencyCode: CurrencyCode2.Rub,
-  description: "dicta",
+  amount: "aliquid",
+  code: "cupiditate",
+  currencyCode: CurrencyCode2.Mxn,
+  description: "perferendis",
   enabledForCheckout: false,
   expiresAt: new Date("2024-10-12T07:20:50.52Z"),
   id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
-  maximumRecurringIntervals: 297437,
+  maximumRecurringIntervals: 164940,
   recur: false,
   restrictTo: [
-    "facere",
-    "ea",
-    "aliquid",
-    "laborum",
+    "assumenda",
   ],
-  type: DiscountCreateType.Percentage,
-  usageLimit: 249796,
+  type: DiscountCreateType.FlatPerSeat,
+  usageLimit: 4695,
 }).then((res: CreateDiscountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -62,6 +59,7 @@ sdk.discounts.create({
 | Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
 | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
 | `request`                                                                | [shared.DiscountCreateInput](../../models/shared/discountcreateinput.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| `retries`                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                   | :heavy_minus_sign:                                                       | Configuration to override the default retry behavior of the client.      |
 | `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
 
 
@@ -82,7 +80,7 @@ import { GetDiscountResponse } from "Paddle/dist/sdk/models/operations";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -100,6 +98,7 @@ sdk.discounts.get({
 | Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
 | `request`                                                                      | [operations.GetDiscountRequest](../../models/operations/getdiscountrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `retries`                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                         | :heavy_minus_sign:                                                             | Configuration to override the default retry behavior of the client.            |
 | `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
@@ -123,17 +122,17 @@ import { StatusDiscount } from "Paddle/dist/sdk/models/shared";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
 sdk.discounts.list({
-  after: "occaecati",
+  after: "fugit",
   code: "BLACKFRIDAY",
-  id: "5efb9ba8-8f3a-4669-9707-4ba4469b6e21",
-  orderBy: "magnam",
-  perPage: 92373,
-  status: StatusDiscount.Expired,
+  id: "a94bb4f6-3c96-49e9-a3ef-a77dfb14cd66",
+  orderBy: "laborum",
+  perPage: 881104,
+  status: StatusDiscount.Active,
 }).then((res: ListDiscountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -146,6 +145,7 @@ sdk.discounts.list({
 | Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
 | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | `request`                                                                          | [operations.ListDiscountsRequest](../../models/operations/listdiscountsrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `retries`                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                             | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |
 | `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
@@ -169,29 +169,27 @@ import { CurrencyCode2, DiscountType, SchemasstatusDiscount } from "Paddle/dist/
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
 sdk.discounts.update({
   discountInput: {
-    amount: "ullam",
-    code: "provident",
-    currencyCode: CurrencyCode2.Mxn,
-    description: "sint",
+    amount: "occaecati",
+    code: "enim",
+    currencyCode: CurrencyCode2.Twd,
+    description: "delectus",
     enabledForCheckout: false,
     expiresAt: new Date("2024-10-12T07:20:50.52Z"),
     id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
-    maximumRecurringIntervals: 33625,
+    maximumRecurringIntervals: 692532,
     recur: false,
     restrictTo: [
-      "reiciendis",
-      "mollitia",
-      "ad",
+      "provident",
     ],
-    status: SchemasstatusDiscount.Archived,
-    type: DiscountType.Flat,
-    usageLimit: 896547,
+    status: SchemasstatusDiscount.Expired,
+    type: DiscountType.FlatPerSeat,
+    usageLimit: 501324,
   },
   discountId: "dsc_01gt218xfk7yztpvgmcazkes83",
 }).then((res: UpdateDiscountResponse) => {
@@ -206,6 +204,7 @@ sdk.discounts.update({
 | Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
 | `request`                                                                            | [operations.UpdateDiscountRequest](../../models/operations/updatediscountrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `retries`                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                   | Configuration to override the default retry behavior of the client.                  |
 | `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 

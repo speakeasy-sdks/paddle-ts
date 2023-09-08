@@ -28,7 +28,10 @@ export class IPAddresses {
      *
      * IP addresses returned are for the environment that you're making the request in. For example, making the request to the production base URL returns all production IP addresses.
      */
-    async get(config?: AxiosRequestConfig): Promise<operations.GetIpAddressesResponse> {
+    async get(
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetIpAddressesResponse> {
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -50,14 +53,29 @@ export class IPAddresses {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
-        const httpRes: AxiosResponse = await client.request({
-            validateStatus: () => true,
-            url: url,
-            method: "get",
-            headers: headers,
-            responseType: "arraybuffer",
-            ...config,
-        });
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                responseType: "arraybuffer",
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 

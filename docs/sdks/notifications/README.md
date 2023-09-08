@@ -34,19 +34,18 @@ import { NotificationSettingCreateType } from "Paddle/dist/sdk/models/shared";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
 sdk.notifications.createSetting({
   active: false,
-  apiVersion: 435865,
-  description: "doloribus",
-  destination: "debitis",
+  apiVersion: 643990,
+  description: "nisi",
+  destination: "vel",
   includeSensitiveFields: false,
   subscribedEvents: [
-    "maxime",
-    "deleniti",
+    "natus",
   ],
   type: NotificationSettingCreateType.Url,
 }).then((res: CreateNotificationSettingResponse) => {
@@ -61,6 +60,7 @@ sdk.notifications.createSetting({
 | Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
 | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | `request`                                                                                      | [shared.NotificationSettingCreateInput](../../models/shared/notificationsettingcreateinput.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `retries`                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
 | `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
@@ -85,7 +85,7 @@ import { DeleteNotificationSettingResponse } from "Paddle/dist/sdk/models/operat
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -103,6 +103,7 @@ sdk.notifications.deleteSetting({
 | Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                  | [operations.DeleteNotificationSettingRequest](../../models/operations/deletenotificationsettingrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `retries`                                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                     | :heavy_minus_sign:                                                                                         | Configuration to override the default retry behavior of the client.                                        |
 | `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
 
 
@@ -123,7 +124,7 @@ import { GetNotificationResponse } from "Paddle/dist/sdk/models/operations";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -141,6 +142,7 @@ sdk.notifications.get({
 | Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
 | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `request`                                                                              | [operations.GetNotificationRequest](../../models/operations/getnotificationrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `retries`                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                 | :heavy_minus_sign:                                                                     | Configuration to override the default retry behavior of the client.                    |
 | `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
@@ -161,7 +163,7 @@ import { GetNotificationSettingResponse } from "Paddle/dist/sdk/models/operation
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -179,6 +181,7 @@ sdk.notifications.getSetting({
 | Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
 | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | `request`                                                                                            | [operations.GetNotificationSettingRequest](../../models/operations/getnotificationsettingrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `retries`                                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                                               | :heavy_minus_sign:                                                                                   | Configuration to override the default retry behavior of the client.                                  |
 | `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
 
 
@@ -200,19 +203,19 @@ import { StatusNotification } from "Paddle/dist/sdk/models/shared";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
 sdk.notifications.list({
-  after: "in",
+  after: "molestiae",
   filter: "txn_01h3cgmh9qn7yezn4rgze4nrg2",
   from: "2023-04-18T17:03:26",
   notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
-  orderBy: "architecto",
-  perPage: 919483,
+  orderBy: "nihil",
+  perPage: 301575,
   search: "upgrade",
-  status: StatusNotification.Failed,
+  status: StatusNotification.NeedsRetry,
   to: "2023-04-18T17:03:26",
 }).then((res: ListNotificationsResponse) => {
   if (res.statusCode == 200) {
@@ -226,6 +229,7 @@ sdk.notifications.list({
 | Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
 | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
 | `request`                                                                                  | [operations.ListNotificationsRequest](../../models/operations/listnotificationsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `retries`                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                     | :heavy_minus_sign:                                                                         | Configuration to override the default retry behavior of the client.                        |
 | `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
@@ -246,14 +250,14 @@ import { ListNotificationLogsResponse } from "Paddle/dist/sdk/models/operations"
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
 sdk.notifications.listLogs({
-  after: "expedita",
+  after: "id",
   notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
-  perPage: 469249,
+  perPage: 287991,
 }).then((res: ListNotificationLogsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -266,6 +270,7 @@ sdk.notifications.listLogs({
 | Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
 | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
 | `request`                                                                                        | [operations.ListNotificationLogsRequest](../../models/operations/listnotificationlogsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `retries`                                                                                        | [utils.RetryConfig](../../models/utils/retryconfig.md)                                           | :heavy_minus_sign:                                                                               | Configuration to override the default retry behavior of the client.                              |
 | `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
@@ -288,7 +293,7 @@ import { ListNotificationSettingsResponse } from "Paddle/dist/sdk/models/operati
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -301,9 +306,10 @@ sdk.notifications.listSettings().then((res: ListNotificationSettingsResponse) =>
 
 ### Parameters
 
-| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `retries`                                                           | [utils.RetryConfig](../../models/utils/retryconfig.md)              | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| `config`                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)        | :heavy_minus_sign:                                                  | Available config options for making requests.                       |
 
 
 ### Response
@@ -327,7 +333,7 @@ import { ReplayNotificationResponse } from "Paddle/dist/sdk/models/operations";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -345,6 +351,7 @@ sdk.notifications.replay({
 | Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `request`                                                                                    | [operations.ReplayNotificationRequest](../../models/operations/replaynotificationrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `retries`                                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                                       | :heavy_minus_sign:                                                                           | Configuration to override the default retry behavior of the client.                          |
 | `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
@@ -365,13 +372,13 @@ import { PostNotificationSettingsNotificationSettingIdReplayResponse } from "Pad
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
 sdk.notifications.replayBySetting({
   requestBody: {
-    filter: "sub_01gw4rrmfrqcwkhjm04hr3ah4n",
+    filter: "txn_01h3cgmh9qn7yezn4rgze4nrg2",
     from: new Date("2019-10-12T07:20:50.52Z"),
     to: new Date("2019-10-12T07:20:50.52Z"),
   },
@@ -388,6 +395,7 @@ sdk.notifications.replayBySetting({
 | Parameter                                                                                                                                                      | Type                                                                                                                                                           | Required                                                                                                                                                       | Description                                                                                                                                                    |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                                                      | [operations.PostNotificationSettingsNotificationSettingIdReplayRequest](../../models/operations/postnotificationsettingsnotificationsettingidreplayrequest.md) | :heavy_check_mark:                                                                                                                                             | The request object to use for the request.                                                                                                                     |
+| `retries`                                                                                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                                                         | :heavy_minus_sign:                                                                                                                                             | Configuration to override the default retry behavior of the client.                                                                                            |
 | `config`                                                                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                                                   | :heavy_minus_sign:                                                                                                                                             | Available config options for making requests.                                                                                                                  |
 
 
@@ -414,22 +422,19 @@ import { UpdateNotificationSettingResponse } from "Paddle/dist/sdk/models/operat
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
 sdk.notifications.updateSettings({
   notificationSettingUpdate: {
     active: false,
-    apiVersion: 841140,
-    description: "sed",
-    destination: "saepe",
+    apiVersion: 383462,
+    description: "natus",
+    destination: "nobis",
     includeSensitiveFields: false,
     subscribedEvents: [
-      "accusantium",
-      "consequuntur",
-      "praesentium",
-      "natus",
+      "eum",
     ],
   },
   notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
@@ -445,6 +450,7 @@ sdk.notifications.updateSettings({
 | Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                  | [operations.UpdateNotificationSettingRequest](../../models/operations/updatenotificationsettingrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `retries`                                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                     | :heavy_minus_sign:                                                                                         | Configuration to override the default retry behavior of the client.                                        |
 | `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
 
 
