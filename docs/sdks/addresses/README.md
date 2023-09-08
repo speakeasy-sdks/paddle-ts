@@ -30,7 +30,7 @@ import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -58,6 +58,7 @@ sdk.addresses.create({
 | Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
 | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | `request`                                                                          | [operations.CreateAddressRequest](../../models/operations/createaddressrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `retries`                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                             | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |
 | `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
@@ -78,7 +79,7 @@ import { GetAddressResponse } from "Paddle/dist/sdk/models/operations";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -97,6 +98,7 @@ sdk.addresses.get({
 | Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | `request`                                                                    | [operations.GetAddressRequest](../../models/operations/getaddressrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `retries`                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                       | :heavy_minus_sign:                                                           | Configuration to override the default retry behavior of the client.          |
 | `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
@@ -120,7 +122,7 @@ import { Status } from "Paddle/dist/sdk/models/shared";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -144,6 +146,7 @@ sdk.addresses.list({
 | Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
 | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | `request`                                                                          | [operations.ListAddressesRequest](../../models/operations/listaddressesrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `retries`                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                             | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |
 | `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
@@ -167,7 +170,7 @@ import { CountryCode2, Schemasstatus } from "Paddle/dist/sdk/models/shared";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -197,6 +200,7 @@ sdk.addresses.update({
 | Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
 | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | `request`                                                                          | [operations.UpdateAddressRequest](../../models/operations/updateaddressrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `retries`                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                             | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |
 | `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 

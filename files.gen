@@ -167,6 +167,7 @@ src/sdk/models/errors/pausesubscription.ts
 src/sdk/models/errors/gettransactioninvoice.ts
 src/sdk/models/errors/index.ts
 docs/sdks/paddle/README.md
+docs/models/utils/retryconfig.md
 docs/sdks/addresses/README.md
 docs/sdks/adjustments/README.md
 docs/sdks/businesses/README.md

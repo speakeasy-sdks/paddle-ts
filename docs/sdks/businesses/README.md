@@ -27,7 +27,7 @@ import { CreateBusinessResponse } from "Paddle/dist/sdk/models/operations";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -37,19 +37,11 @@ sdk.businesses.create({
     contacts: [
       {
         email: "weloveyourproduct@paddle.com",
-        name: "Cameron Dach",
-      },
-      {
-        email: "weloveyourproduct@paddle.com",
-        name: "Della Halvorson",
-      },
-      {
-        email: "weloveyourproduct@paddle.com",
-        name: "Velma Batz",
+        name: "Lela Orn",
       },
     ],
     id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-    name: "Darrin Brakus",
+    name: "Connie Herzog",
     taxIdentifier: "AB0123456789",
   },
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
@@ -65,6 +57,7 @@ sdk.businesses.create({
 | Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
 | `request`                                                                            | [operations.CreateBusinessRequest](../../models/operations/createbusinessrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `retries`                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                   | Configuration to override the default retry behavior of the client.                  |
 | `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
@@ -85,7 +78,7 @@ import { GetBusinessResponse } from "Paddle/dist/sdk/models/operations";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -104,6 +97,7 @@ sdk.businesses.get({
 | Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
 | `request`                                                                      | [operations.GetBusinessRequest](../../models/operations/getbusinessrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `retries`                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                         | :heavy_minus_sign:                                                             | Configuration to override the default retry behavior of the client.            |
 | `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
@@ -127,18 +121,18 @@ import { Status } from "Paddle/dist/sdk/models/shared";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
 sdk.businesses.list({
-  after: "culpa",
+  after: "enim",
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-  id: "2fa94677-3925-41aa-92c3-f5ad019da1ff",
-  orderBy: "vero",
-  perPage: 468651,
+  id: "955907af-f1a3-4a2f-a946-7739251aa52c",
+  orderBy: "sequi",
+  perPage: 949572,
   search: "upgrade",
-  status: Status.Archived,
+  status: Status.Active,
 }).then((res: ListBusinessesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -151,6 +145,7 @@ sdk.businesses.list({
 | Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
 | `request`                                                                            | [operations.ListBusinessesRequest](../../models/operations/listbusinessesrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `retries`                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                   | Configuration to override the default retry behavior of the client.                  |
 | `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
@@ -174,7 +169,7 @@ import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -184,24 +179,12 @@ sdk.businesses.update({
     contacts: [
       {
         email: "weloveyourproduct@paddle.com",
-        name: "Geneva Klein Jr.",
-      },
-      {
-        email: "weloveyourproduct@paddle.com",
-        name: "Mrs. April Wuckert",
-      },
-      {
-        email: "weloveyourproduct@paddle.com",
-        name: "Mildred Pfeffer",
-      },
-      {
-        email: "weloveyourproduct@paddle.com",
-        name: "Elvira Bergnaum",
+        name: "Miss Rufus Ankunding",
       },
     ],
     id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-    name: "Andy Streich",
-    status: Schemasstatus.Archived,
+    name: "Ryan Witting",
+    status: Schemasstatus.Active,
     taxIdentifier: "AB0123456789",
   },
   businessId: "biz_01gvcz4m28csa5kem2gqq5ymxn",
@@ -218,6 +201,7 @@ sdk.businesses.update({
 | Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
 | `request`                                                                            | [operations.UpdateBusinessRequest](../../models/operations/updatebusinessrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `retries`                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                   | Configuration to override the default retry behavior of the client.                  |
 | `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 

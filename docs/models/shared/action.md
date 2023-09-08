@@ -1,7 +1,5 @@
 # Action
 
-Return entities for the specified action.
-
 
 ## Values
 

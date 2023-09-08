@@ -43,7 +43,7 @@ import {
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
@@ -54,13 +54,7 @@ sdk.adjustments.create({
   id: "adj_01gya6twkp8y0tv1e19rsgst9m",
   items: [
     {
-      amount: "totam",
-      id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
-      itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
-      type: AdjustmentCreateAdjustmentItemType.Full,
-    },
-    {
-      amount: "porro",
+      amount: "esse",
       id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
       itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
       type: AdjustmentCreateAdjustmentItemType.Full,
@@ -71,20 +65,20 @@ sdk.adjustments.create({
       amount: "1680",
       original: {
         amount: "1500",
-        currencyCode: CurrencyCodeChargeback.Usd,
+        currencyCode: CurrencyCodeChargeback.Gbp,
       },
     },
-    currencyCode: CurrencyCodePayouts.Cad,
+    currencyCode: CurrencyCodePayouts.Sek,
     earnings: "15120",
     fee: "300",
     subtotal: "15000",
     tax: "1500",
     total: "16500",
   },
-  reason: "nam",
-  status: SchemasstatusAdjustment.Approved,
+  reason: "dolorum",
+  status: SchemasstatusAdjustment.PendingApproval,
   subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
-  transactionId: "occaecati",
+  transactionId: "nam",
 }).then((res: CreateAdjustmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -97,6 +91,7 @@ sdk.adjustments.create({
 | Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | `request`                                                                    | [shared.AdjustmentCreateInput](../../models/shared/adjustmentcreateinput.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `retries`                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                       | :heavy_minus_sign:                                                           | Configuration to override the default retry behavior of the client.          |
 | `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
@@ -118,18 +113,18 @@ import { Action, StatusAdjustment } from "Paddle/dist/sdk/models/shared";
 
 const sdk = new Paddle({
   security: {
-    bearerAuth: "",
+    bearerAuth: "YOUR_API_KEY",
   },
 });
 
 sdk.adjustments.list({
-  action: Action.Chargeback,
-  after: "deleniti",
+  action: Action.Credit,
+  after: "occaecati",
   customerId: "ctm_01gt25aq4b2zcfw12szwtjrbdt",
-  id: "fc816742-cb73-4920-9929-396fea7596eb",
-  orderBy: "architecto",
-  perPage: 60225,
-  status: StatusAdjustment.Reversed,
+  id: "28fc8167-42cb-4739-a059-29396fea7596",
+  orderBy: "saepe",
+  perPage: 697631,
+  status: StatusAdjustment.Approved,
   subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   transactionId: "txn_01gw225vv6tjbb5gnt062a3k5v",
 }).then((res: ListAdjustmentsResponse) => {
@@ -144,6 +139,7 @@ sdk.adjustments.list({
 | Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
 | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `request`                                                                              | [operations.ListAdjustmentsRequest](../../models/operations/listadjustmentsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `retries`                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                 | :heavy_minus_sign:                                                                     | Configuration to override the default retry behavior of the client.                    |
 | `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
