@@ -1,4 +1,4 @@
-# subscriptions
+# Subscriptions
 
 ## Overview
 

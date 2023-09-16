@@ -1,4 +1,4 @@
-# businesses
+# Businesses
 
 ## Overview
 

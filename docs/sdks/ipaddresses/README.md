@@ -1,4 +1,4 @@
-# ipAddresses
+# IPAddresses
 
 ## Overview
 

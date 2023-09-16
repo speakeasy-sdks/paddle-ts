@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 1fade75ac5b0bdfcf91084f35f8639c8
   docVersion: "1.0"
-  speakeasyVersion: 1.82.2
-  generationVersion: 2.107.3
+  speakeasyVersion: 1.86.0
+  generationVersion: 2.115.2
 generation:
   comments:
     disableComments: false
@@ -14,7 +14,7 @@ generation:
   tagNamespacingDisabled: false
 features:
   typescript:
-    core: 2.87.1
+    core: 2.87.2
     examples: 2.81.2
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
@@ -22,7 +22,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.82.0
 typescript:
-  version: 0.9.0
+  version: 0.9.1
   author: paddle
   clientServerStatusCodesAsErrors: true
   maxMethodParams: 0
