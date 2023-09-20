@@ -45,7 +45,7 @@ export class Customers {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/customers";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -740,7 +740,7 @@ export class Customers {
         );
         const url: string = utils.generateURL(baseURL, "/customers/{customer_id}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "customerInput", "json");

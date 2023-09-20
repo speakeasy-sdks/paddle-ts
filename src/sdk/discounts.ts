@@ -45,7 +45,7 @@ export class Discounts {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/discounts";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -382,7 +382,7 @@ export class Discounts {
         );
         const url: string = utils.generateURL(baseURL, "/discounts/{discount_id}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "discountInput", "json");
