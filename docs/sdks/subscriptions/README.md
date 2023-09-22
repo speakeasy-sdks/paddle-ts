@@ -38,7 +38,7 @@ const sdk = new Paddle({
 
 sdk.subscriptions.cancel({
   requestBody: {
-    effectiveFrom: EffectiveFromNullable.LessThanNilGreaterThan,
+    effectiveFrom: EffectiveFromNullable.NextBillingPeriod,
   },
   subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
 }).then((res: CancelSubscriptionResponse) => {
@@ -136,10 +136,10 @@ const sdk = new Paddle({
 });
 
 sdk.subscriptions.list({
-  after: "architecto",
+  after: "et",
   customerId: "ctm_01gt25aq4b2zcfw12szwtjrbdt",
-  orderBy: "magnam",
-  perPage: 92373,
+  orderBy: "excepturi",
+  perPage: 354047,
   priceId: "pri_01gvne87kv8vbqa9jkfbmgtsed",
   status: StatusSubscription.PastDue,
 }).then((res: ListSubscriptionsResponse) => {

@@ -37,11 +37,11 @@ sdk.businesses.create({
     contacts: [
       {
         email: "weloveyourproduct@paddle.com",
-        name: "Lela Orn",
+        name: "Shaun Osinski",
       },
     ],
     id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-    name: "Connie Herzog",
+    name: "Rose Rolfson",
     taxIdentifier: "AB0123456789",
   },
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
@@ -126,13 +126,13 @@ const sdk = new Paddle({
 });
 
 sdk.businesses.list({
-  after: "enim",
+  after: "nemo",
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-  id: "955907af-f1a3-4a2f-a946-7739251aa52c",
-  orderBy: "sequi",
-  perPage: 949572,
+  id: "5907aff1-a3a2-4fa9-8677-39251aa52c3f",
+  orderBy: "ipsam",
+  perPage: 662527,
   search: "upgrade",
-  status: Status.Active,
+  status: Status.Archived,
 }).then((res: ListBusinessesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -179,12 +179,12 @@ sdk.businesses.update({
     contacts: [
       {
         email: "weloveyourproduct@paddle.com",
-        name: "Miss Rufus Ankunding",
+        name: "Joyce Mueller",
       },
     ],
     id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-    name: "Ryan Witting",
-    status: Schemasstatus.Active,
+    name: "Johanna Wolf",
+    status: Schemasstatus.Archived,
     taxIdentifier: "AB0123456789",
   },
   businessId: "biz_01gvcz4m28csa5kem2gqq5ymxn",

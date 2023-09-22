@@ -33,20 +33,20 @@ const sdk = new Paddle({
 });
 
 sdk.discounts.create({
-  amount: "aliquid",
-  code: "cupiditate",
-  currencyCode: CurrencyCode2.Mxn,
-  description: "perferendis",
+  amount: "quos",
+  code: "perferendis",
+  currencyCode: CurrencyCode2.Chf,
+  description: "assumenda",
   enabledForCheckout: false,
   expiresAt: new Date("2024-10-12T07:20:50.52Z"),
   id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
-  maximumRecurringIntervals: 164940,
+  maximumRecurringIntervals: 369808,
   recur: false,
   restrictTo: [
-    "assumenda",
+    "alias",
   ],
-  type: DiscountCreateType.FlatPerSeat,
-  usageLimit: 4695,
+  type: DiscountCreateType.Flat,
+  usageLimit: 677817,
 }).then((res: CreateDiscountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -127,12 +127,12 @@ const sdk = new Paddle({
 });
 
 sdk.discounts.list({
-  after: "fugit",
+  after: "excepturi",
   code: "BLACKFRIDAY",
-  id: "a94bb4f6-3c96-49e9-a3ef-a77dfb14cd66",
-  orderBy: "laborum",
-  perPage: 881104,
-  status: StatusDiscount.Active,
+  id: "4bb4f63c-969e-49a3-afa7-7dfb14cd66ae",
+  orderBy: "non",
+  perPage: 581273,
+  status: StatusDiscount.Archived,
 }).then((res: ListDiscountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -175,21 +175,21 @@ const sdk = new Paddle({
 
 sdk.discounts.update({
   discountInput: {
-    amount: "occaecati",
-    code: "enim",
-    currencyCode: CurrencyCode2.Twd,
-    description: "delectus",
+    amount: "accusamus",
+    code: "delectus",
+    currencyCode: CurrencyCode2.Rub,
+    description: "provident",
     enabledForCheckout: false,
     expiresAt: new Date("2024-10-12T07:20:50.52Z"),
     id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
-    maximumRecurringIntervals: 692532,
+    maximumRecurringIntervals: 725255,
     recur: false,
     restrictTo: [
-      "provident",
+      "id",
     ],
     status: SchemasstatusDiscount.Expired,
     type: DiscountType.FlatPerSeat,
-    usageLimit: 501324,
+    usageLimit: 956084,
   },
   discountId: "dsc_01gt218xfk7yztpvgmcazkes83",
 }).then((res: UpdateDiscountResponse) => {

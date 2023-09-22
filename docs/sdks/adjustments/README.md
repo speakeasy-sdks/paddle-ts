@@ -48,13 +48,13 @@ const sdk = new Paddle({
 });
 
 sdk.adjustments.create({
-  action: Schemasaction.ChargebackWarning,
-  currencyCode: CurrencyCode2.Thb,
+  action: Schemasaction.Refund,
+  currencyCode: CurrencyCode2.Krw,
   customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
   id: "adj_01gya6twkp8y0tv1e19rsgst9m",
   items: [
     {
-      amount: "esse",
+      amount: "porro",
       id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
       itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
       type: AdjustmentCreateAdjustmentItemType.Full,
@@ -65,20 +65,20 @@ sdk.adjustments.create({
       amount: "1680",
       original: {
         amount: "1500",
-        currencyCode: CurrencyCodeChargeback.Gbp,
+        currencyCode: CurrencyCodeChargeback.Usd,
       },
     },
-    currencyCode: CurrencyCodePayouts.Sek,
+    currencyCode: CurrencyCodePayouts.Cad,
     earnings: "15120",
     fee: "300",
     subtotal: "15000",
     tax: "1500",
     total: "16500",
   },
-  reason: "dolorum",
-  status: SchemasstatusAdjustment.PendingApproval,
+  reason: "nam",
+  status: SchemasstatusAdjustment.Approved,
   subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
-  transactionId: "nam",
+  transactionId: "occaecati",
 }).then((res: CreateAdjustmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -118,13 +118,13 @@ const sdk = new Paddle({
 });
 
 sdk.adjustments.list({
-  action: Action.Credit,
-  after: "occaecati",
+  action: Action.Chargeback,
+  after: "deleniti",
   customerId: "ctm_01gt25aq4b2zcfw12szwtjrbdt",
-  id: "28fc8167-42cb-4739-a059-29396fea7596",
-  orderBy: "saepe",
-  perPage: 697631,
-  status: StatusAdjustment.Approved,
+  id: "fc816742-cb73-4920-9929-396fea7596eb",
+  orderBy: "architecto",
+  perPage: 60225,
+  status: StatusAdjustment.Reversed,
   subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   transactionId: "txn_01gw225vv6tjbb5gnt062a3k5v",
 }).then((res: ListAdjustmentsResponse) => {

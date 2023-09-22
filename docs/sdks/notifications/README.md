@@ -40,14 +40,14 @@ const sdk = new Paddle({
 
 sdk.notifications.createSetting({
   active: false,
-  apiVersion: 643990,
-  description: "nisi",
-  destination: "vel",
+  apiVersion: 423855,
+  description: "natus",
+  destination: "omnis",
   includeSensitiveFields: false,
   subscribedEvents: [
-    "natus",
+    "molestiae",
   ],
-  type: NotificationSettingCreateType.Url,
+  type: NotificationSettingCreateType.Email,
 }).then((res: CreateNotificationSettingResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -208,14 +208,14 @@ const sdk = new Paddle({
 });
 
 sdk.notifications.list({
-  after: "molestiae",
+  after: "nihil",
   filter: "txn_01h3cgmh9qn7yezn4rgze4nrg2",
   from: "2023-04-18T17:03:26",
   notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
-  orderBy: "nihil",
-  perPage: 301575,
+  orderBy: "distinctio",
+  perPage: 660174,
   search: "upgrade",
-  status: StatusNotification.NeedsRetry,
+  status: StatusNotification.Failed,
   to: "2023-04-18T17:03:26",
 }).then((res: ListNotificationsResponse) => {
   if (res.statusCode == 200) {
@@ -255,9 +255,9 @@ const sdk = new Paddle({
 });
 
 sdk.notifications.listLogs({
-  after: "id",
+  after: "labore",
   notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
-  perPage: 287991,
+  perPage: 383462,
 }).then((res: ListNotificationLogsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -378,7 +378,7 @@ const sdk = new Paddle({
 
 sdk.notifications.replayBySetting({
   requestBody: {
-    filter: "txn_01h3cgmh9qn7yezn4rgze4nrg2",
+    filter: "ctm_01gw4qna8a0w5ywmy8kb9syy84",
     from: new Date("2019-10-12T07:20:50.52Z"),
     to: new Date("2019-10-12T07:20:50.52Z"),
   },
@@ -429,12 +429,12 @@ const sdk = new Paddle({
 sdk.notifications.updateSettings({
   notificationSettingUpdate: {
     active: false,
-    apiVersion: 383462,
-    description: "natus",
-    destination: "nobis",
+    apiVersion: 749170,
+    description: "eum",
+    destination: "vero",
     includeSensitiveFields: false,
     subscribedEvents: [
-      "eum",
+      "aspernatur",
     ],
   },
   notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",

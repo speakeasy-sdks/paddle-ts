@@ -28,9 +28,9 @@ const sdk = new Paddle({
 });
 
 sdk.events.list({
-  after: "deleniti",
-  orderBy: "sapiente",
-  perPage: 230533,
+  after: "amet",
+  orderBy: "deserunt",
+  perPage: 394869,
 }).then((res: ListEventsResponse) => {
   if (res.statusCode == 200) {
     // handle response

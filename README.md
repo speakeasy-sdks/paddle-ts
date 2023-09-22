@@ -27,8 +27,6 @@ yarn add https://github.com/speakeasy-sdks/paddle-ts
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```typescript
 import { Paddle } from "Paddle";
 import { CreateAddressResponse } from "Paddle/dist/sdk/models/operations";
@@ -43,13 +41,13 @@ const sdk = new Paddle({
 sdk.addresses.create({
   addressCreateInput: {
     city: "Astoria",
-    countryCode: CountryCode2.Lv,
+    countryCode: CountryCode2.Ph,
     description: "Paddle.com",
     firstLine: "3811 Ditmars Blvd",
     id: "add_01gm302t81w94gyjpjpqypkzkf",
     postalCode: "11105-1803",
     region: "NY",
-    secondLine: "provident",
+    secondLine: "quibusdam",
   },
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
 }).then((res: CreateAddressResponse) => {
@@ -135,6 +133,32 @@ sdk.addresses.create({
 
 * [getInvoice](docs/sdks/transactions/README.md#getinvoice) - Get a PDF invoice for a transaction
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Dev Containers -->
+
+
+
+<!-- End Dev Containers -->
+
+
+
+<!-- Start Pagination -->
+# Pagination
+
+Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
+returned response object will have a `next` method that can be called to pull down the next group of results. If the
+return value of `next` is `null`, then there are no more pages to be fetched.
+
+Here's an example of one such pagination call:
+
+
+<!-- End Pagination -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 
 ### Maturity
 

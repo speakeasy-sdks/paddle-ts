@@ -35,8 +35,8 @@ const sdk = new Paddle({
 sdk.customers.create({
   email: "weloveyourproduct@paddle.com",
   id: "ctm_01grnn4zta5a1mf02jjze7y2ys",
-  locale: "praesentium",
-  name: "Jose Moen",
+  locale: "voluptatibus",
+  name: "Geneva Klein Jr.",
 }).then((res: CreateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -117,10 +117,10 @@ const sdk = new Paddle({
 });
 
 sdk.customers.list({
-  after: "perferendis",
-  id: "074f1547-1b5e-46e1-bb99-d488e1e91e45",
-  orderBy: "consequatur",
-  perPage: 667411,
+  after: "reprehenderit",
+  id: "4f15471b-5e6e-413b-99d4-88e1e91e450a",
+  orderBy: "quibusdam",
+  perPage: 131797,
   search: "upgrade",
   status: Status.Archived,
 }).then((res: ListCustomersResponse) => {
@@ -217,9 +217,9 @@ sdk.customers.update({
   customerInput: {
     email: "weloveyourproduct@paddle.com",
     id: "ctm_01grnn4zta5a1mf02jjze7y2ys",
-    locale: "explicabo",
-    name: "Rudy Spencer",
-    status: Schemasstatus.Active,
+    locale: "distinctio",
+    name: "Francisco Gleason",
+    status: Schemasstatus.Archived,
   },
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
 }).then((res: UpdateCustomerResponse) => {

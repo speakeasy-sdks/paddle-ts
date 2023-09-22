@@ -37,13 +37,13 @@ const sdk = new Paddle({
 sdk.addresses.create({
   addressCreateInput: {
     city: "Astoria",
-    countryCode: CountryCode2.Ph,
+    countryCode: CountryCode2.Mq,
     description: "Paddle.com",
     firstLine: "3811 Ditmars Blvd",
     id: "add_01gm302t81w94gyjpjpqypkzkf",
     postalCode: "11105-1803",
     region: "NY",
-    secondLine: "quibusdam",
+    secondLine: "nulla",
   },
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
 }).then((res: CreateAddressResponse) => {
@@ -127,11 +127,11 @@ const sdk = new Paddle({
 });
 
 sdk.addresses.list({
-  after: "unde",
+  after: "corrupti",
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-  id: "d8d69a67-4e0f-4467-8c87-96ed151a05df",
-  orderBy: "quo",
-  perPage: 140350,
+  id: "d69a674e-0f46-47cc-8796-ed151a05dfc2",
+  orderBy: "at",
+  perPage: 870088,
   search: "upgrade",
   status: Status.Archived,
 }).then((res: ListAddressesResponse) => {
@@ -177,14 +177,14 @@ const sdk = new Paddle({
 sdk.addresses.update({
   addressInput: {
     city: "Astoria",
-    countryCode: CountryCode2.Th,
+    countryCode: CountryCode2.Kh,
     description: "Paddle.com",
     firstLine: "3811 Ditmars Blvd",
     id: "add_01gm302t81w94gyjpjpqypkzkf",
     postalCode: "11105-1803",
     region: "NY",
-    secondLine: "maiores",
-    status: Schemasstatus.Active,
+    secondLine: "quod",
+    status: Schemasstatus.Archived,
   },
   addressId: "add_01gvcz6r0t0g5cphhwd8n952gb",
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
