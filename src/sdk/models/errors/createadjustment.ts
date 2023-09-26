@@ -11,6 +11,9 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
  * General error response
  */
 export class CreateAdjustment500ApplicationJSON extends Error {
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     @Exclude()
     rawResponse?: AxiosResponse;
@@ -38,6 +41,9 @@ export class CreateAdjustment500ApplicationJSON extends Error {
  * General error response
  */
 export class CreateAdjustment409ApplicationJSON extends Error {
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     @Exclude()
     rawResponse?: AxiosResponse;
@@ -65,6 +71,9 @@ export class CreateAdjustment409ApplicationJSON extends Error {
  * General error response
  */
 export class CreateAdjustment404ApplicationJSON extends Error {
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     @Exclude()
     rawResponse?: AxiosResponse;
@@ -92,6 +101,9 @@ export class CreateAdjustment404ApplicationJSON extends Error {
  * General error response
  */
 export class CreateAdjustment400ApplicationJSON extends Error {
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     @Exclude()
     rawResponse?: AxiosResponse;

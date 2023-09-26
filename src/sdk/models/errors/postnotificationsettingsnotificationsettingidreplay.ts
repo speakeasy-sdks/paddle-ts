@@ -11,6 +11,9 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
  * General error response
  */
 export class PostNotificationSettingsNotificationSettingIdReplay500ApplicationJSON extends Error {
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     @Exclude()
     rawResponse?: AxiosResponse;
@@ -41,6 +44,9 @@ export class PostNotificationSettingsNotificationSettingIdReplay500ApplicationJS
  * General error response
  */
 export class PostNotificationSettingsNotificationSettingIdReplay404ApplicationJSON extends Error {
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     @Exclude()
     rawResponse?: AxiosResponse;
@@ -71,6 +77,9 @@ export class PostNotificationSettingsNotificationSettingIdReplay404ApplicationJS
  * General error response
  */
 export class PostNotificationSettingsNotificationSettingIdReplay401ApplicationJSON extends Error {
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     @Exclude()
     rawResponse?: AxiosResponse;

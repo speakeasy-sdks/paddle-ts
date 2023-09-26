@@ -12,6 +12,9 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
  * General error response
  */
 export class CreateCustomer500ApplicationJSON extends Error {
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     @Exclude()
     rawResponse?: AxiosResponse;
@@ -39,6 +42,9 @@ export class CreateCustomer500ApplicationJSON extends Error {
  * General error response
  */
 export class CreateCustomer403ApplicationJSON extends Error {
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     @Exclude()
     rawResponse?: AxiosResponse;
@@ -66,6 +72,9 @@ export class CreateCustomer403ApplicationJSON extends Error {
  * General error response
  */
 export class CreateCustomer401ApplicationJSON extends Error {
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     @Exclude()
     rawResponse?: AxiosResponse;
@@ -93,6 +102,9 @@ export class CreateCustomer401ApplicationJSON extends Error {
  * Error response for validation
  */
 export class CreateCustomer400ApplicationJSON extends Error {
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     @Exclude()
     rawResponse?: AxiosResponse;

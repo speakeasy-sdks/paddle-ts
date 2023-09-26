@@ -11,6 +11,9 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
  * General error response
  */
 export class DeleteNotificationSetting500ApplicationJSON extends Error {
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     @Exclude()
     rawResponse?: AxiosResponse;
@@ -38,6 +41,9 @@ export class DeleteNotificationSetting500ApplicationJSON extends Error {
  * General error response
  */
 export class DeleteNotificationSetting404ApplicationJSON extends Error {
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     @Exclude()
     rawResponse?: AxiosResponse;
@@ -65,6 +71,9 @@ export class DeleteNotificationSetting404ApplicationJSON extends Error {
  * General error response
  */
 export class DeleteNotificationSetting401ApplicationJSON extends Error {
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     @Exclude()
     rawResponse?: AxiosResponse;
