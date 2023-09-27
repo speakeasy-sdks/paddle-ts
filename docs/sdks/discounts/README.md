@@ -1,4 +1,5 @@
 # Discounts
+(*discounts*)
 
 ## Overview
 

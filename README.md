@@ -62,26 +62,26 @@ sdk.addresses.create({
 ## Available Resources and Operations
 
 
-### [Addresses](docs/sdks/addresses/README.md)
+### [addresses](docs/sdks/addresses/README.md)
 
 * [create](docs/sdks/addresses/README.md#create) - Create an address for a customer
 * [get](docs/sdks/addresses/README.md#get) - Get an address for a customer
 * [list](docs/sdks/addresses/README.md#list) - List addresses for a customer
 * [update](docs/sdks/addresses/README.md#update) - Update an address for a customer
 
-### [Adjustments](docs/sdks/adjustments/README.md)
+### [adjustments](docs/sdks/adjustments/README.md)
 
 * [create](docs/sdks/adjustments/README.md#create) - Create an adjustment
 * [list](docs/sdks/adjustments/README.md#list) - List adjustments
 
-### [Businesses](docs/sdks/businesses/README.md)
+### [businesses](docs/sdks/businesses/README.md)
 
 * [create](docs/sdks/businesses/README.md#create) - Create a business for a customer
 * [get](docs/sdks/businesses/README.md#get) - Get a business for a customer
 * [list](docs/sdks/businesses/README.md#list) - List businesses for a customer
 * [update](docs/sdks/businesses/README.md#update) - Update a business for a customer
 
-### [Customers](docs/sdks/customers/README.md)
+### [customers](docs/sdks/customers/README.md)
 
 * [create](docs/sdks/customers/README.md#create) - Create a customer
 * [get](docs/sdks/customers/README.md#get) - Get a customer
@@ -89,27 +89,27 @@ sdk.addresses.create({
 * [listCreditBalances](docs/sdks/customers/README.md#listcreditbalances) - List credit balances for a customer
 * [update](docs/sdks/customers/README.md#update) - Update a customer
 
-### [Discounts](docs/sdks/discounts/README.md)
+### [discounts](docs/sdks/discounts/README.md)
 
 * [create](docs/sdks/discounts/README.md#create) - Create a discount
 * [get](docs/sdks/discounts/README.md#get) - Get a discount
 * [list](docs/sdks/discounts/README.md#list) - List discounts
 * [update](docs/sdks/discounts/README.md#update) - Update a discount
 
-### [Events](docs/sdks/events/README.md)
+### [events](docs/sdks/events/README.md)
 
 * [list](docs/sdks/events/README.md#list) - List events
 * [listTypes](docs/sdks/events/README.md#listtypes) - List events types
 
-### [IPAddresses](docs/sdks/ipaddresses/README.md)
+### [ipAddresses](docs/sdks/ipaddresses/README.md)
 
 * [get](docs/sdks/ipaddresses/README.md#get) - Get Paddle IP addresses
 
-### [Invoices](docs/sdks/invoices/README.md)
+### [invoices](docs/sdks/invoices/README.md)
 
 * [getPdf](docs/sdks/invoices/README.md#getpdf) - Get a PDF for an invoice
 
-### [Notifications](docs/sdks/notifications/README.md)
+### [notifications](docs/sdks/notifications/README.md)
 
 * [createSetting](docs/sdks/notifications/README.md#createsetting) - Create a notification setting
 * [deleteSetting](docs/sdks/notifications/README.md#deletesetting) - Delete a notification setting
@@ -122,14 +122,14 @@ sdk.addresses.create({
 * [replayBySetting](docs/sdks/notifications/README.md#replaybysetting) - Replay notifications by notification setting
 * [updateSettings](docs/sdks/notifications/README.md#updatesettings) - Update a notification setting
 
-### [Subscriptions](docs/sdks/subscriptions/README.md)
+### [subscriptions](docs/sdks/subscriptions/README.md)
 
 * [cancel](docs/sdks/subscriptions/README.md#cancel) - Cancel a subscription
 * [create](docs/sdks/subscriptions/README.md#create) - Create a one-time charge for a subscription
 * [list](docs/sdks/subscriptions/README.md#list) - List subscriptions
 * [pause](docs/sdks/subscriptions/README.md#pause) - Pause a subscription
 
-### [Transactions](docs/sdks/transactions/README.md)
+### [transactions](docs/sdks/transactions/README.md)
 
 * [getInvoice](docs/sdks/transactions/README.md#getinvoice) - Get a PDF invoice for a transaction
 <!-- End SDK Available Operations -->
