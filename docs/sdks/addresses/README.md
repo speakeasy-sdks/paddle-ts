@@ -38,13 +38,13 @@ const sdk = new Paddle({
 sdk.addresses.create({
   addressCreateInput: {
     city: "Astoria",
-    countryCode: CountryCode2.Mq,
+    countryCode: CountryCode2.Kn,
     description: "Paddle.com",
     firstLine: "3811 Ditmars Blvd",
     id: "add_01gm302t81w94gyjpjpqypkzkf",
     postalCode: "11105-1803",
     region: "NY",
-    secondLine: "nulla",
+    secondLine: "Configuration Money",
   },
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
 }).then((res: CreateAddressResponse) => {
@@ -128,11 +128,11 @@ const sdk = new Paddle({
 });
 
 sdk.addresses.list({
-  after: "corrupti",
+  after: "Northeast Metal Canada",
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-  id: "d69a674e-0f46-47cc-8796-ed151a05dfc2",
-  orderBy: "at",
-  perPage: 870088,
+  id: "<ID>",
+  orderBy: "Data Response West",
+  perPage: 718303,
   search: "upgrade",
   status: Status.Archived,
 }).then((res: ListAddressesResponse) => {
@@ -178,14 +178,14 @@ const sdk = new Paddle({
 sdk.addresses.update({
   addressInput: {
     city: "Astoria",
-    countryCode: CountryCode2.Kh,
+    countryCode: CountryCode2.Td,
     description: "Paddle.com",
     firstLine: "3811 Ditmars Blvd",
     id: "add_01gm302t81w94gyjpjpqypkzkf",
     postalCode: "11105-1803",
     region: "NY",
-    secondLine: "quod",
-    status: Schemasstatus.Archived,
+    secondLine: "Rock",
+    status: Schemasstatus.Active,
   },
   addressId: "add_01gvcz6r0t0g5cphhwd8n952gb",
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",

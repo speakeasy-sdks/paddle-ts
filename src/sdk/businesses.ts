@@ -74,9 +74,7 @@ export class Businesses {
         };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
@@ -266,9 +264,7 @@ export class Businesses {
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
@@ -439,9 +435,7 @@ export class Businesses {
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
@@ -629,9 +623,7 @@ export class Businesses {
         };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;

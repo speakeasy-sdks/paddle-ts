@@ -50,12 +50,12 @@ const sdk = new Paddle({
 
 sdk.adjustments.create({
   action: Schemasaction.Refund,
-  currencyCode: CurrencyCode2.Krw,
+  currencyCode: CurrencyCode2.Jpy,
   customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
   id: "adj_01gya6twkp8y0tv1e19rsgst9m",
   items: [
     {
-      amount: "porro",
+      amount: "638.43",
       id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
       itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
       type: AdjustmentCreateAdjustmentItemType.Full,
@@ -69,17 +69,17 @@ sdk.adjustments.create({
         currencyCode: CurrencyCodeChargeback.Usd,
       },
     },
-    currencyCode: CurrencyCodePayouts.Cad,
+    currencyCode: CurrencyCodePayouts.Dkk,
     earnings: "15120",
     fee: "300",
     subtotal: "15000",
     tax: "1500",
     total: "16500",
   },
-  reason: "nam",
-  status: SchemasstatusAdjustment.Approved,
+  reason: "South",
+  status: SchemasstatusAdjustment.Rejected,
   subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
-  transactionId: "occaecati",
+  transactionId: "grey",
 }).then((res: CreateAdjustmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -119,13 +119,13 @@ const sdk = new Paddle({
 });
 
 sdk.adjustments.list({
-  action: Action.Chargeback,
-  after: "deleniti",
+  action: Action.CreditReverse,
+  after: "compress",
   customerId: "ctm_01gt25aq4b2zcfw12szwtjrbdt",
-  id: "fc816742-cb73-4920-9929-396fea7596eb",
-  orderBy: "architecto",
-  perPage: 60225,
-  status: StatusAdjustment.Reversed,
+  id: "<ID>",
+  orderBy: "Canada that orchid",
+  perPage: 282238,
+  status: StatusAdjustment.Approved,
   subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   transactionId: "txn_01gw225vv6tjbb5gnt062a3k5v",
 }).then((res: ListAdjustmentsResponse) => {

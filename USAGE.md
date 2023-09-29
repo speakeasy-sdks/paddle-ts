@@ -15,13 +15,13 @@ const sdk = new Paddle({
 sdk.addresses.create({
   addressCreateInput: {
     city: "Astoria",
-    countryCode: CountryCode2.Lv,
+    countryCode: CountryCode2.Kn,
     description: "Paddle.com",
     firstLine: "3811 Ditmars Blvd",
     id: "add_01gm302t81w94gyjpjpqypkzkf",
     postalCode: "11105-1803",
     region: "NY",
-    secondLine: "provident",
+    secondLine: "Configuration Money",
   },
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
 }).then((res: CreateAddressResponse) => {

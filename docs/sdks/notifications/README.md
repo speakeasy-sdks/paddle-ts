@@ -41,14 +41,14 @@ const sdk = new Paddle({
 
 sdk.notifications.createSetting({
   active: false,
-  apiVersion: 423855,
-  description: "natus",
-  destination: "omnis",
+  apiVersion: 659672,
+  description: "Persistent next generation circuit",
+  destination: "between cyan",
   includeSensitiveFields: false,
   subscribedEvents: [
-    "molestiae",
+    "input",
   ],
-  type: NotificationSettingCreateType.Email,
+  type: NotificationSettingCreateType.Url,
 }).then((res: CreateNotificationSettingResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -209,12 +209,12 @@ const sdk = new Paddle({
 });
 
 sdk.notifications.list({
-  after: "nihil",
-  filter: "txn_01h3cgmh9qn7yezn4rgze4nrg2",
+  after: "Northeast Metal Canada",
+  filter: "sub_01gw4rrmfrqcwkhjm04hr3ah4n",
   from: "2023-04-18T17:03:26",
   notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
-  orderBy: "distinctio",
-  perPage: 660174,
+  orderBy: "orchid Van",
+  perPage: 86140,
   search: "upgrade",
   status: StatusNotification.Failed,
   to: "2023-04-18T17:03:26",
@@ -256,9 +256,9 @@ const sdk = new Paddle({
 });
 
 sdk.notifications.listLogs({
-  after: "labore",
+  after: "Wiley joule Rapids",
   notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
-  perPage: 383462,
+  perPage: 9396,
 }).then((res: ListNotificationLogsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -379,7 +379,7 @@ const sdk = new Paddle({
 
 sdk.notifications.replayBySetting({
   requestBody: {
-    filter: "ctm_01gw4qna8a0w5ywmy8kb9syy84",
+    filter: "txn_01h3cgmh9qn7yezn4rgze4nrg2",
     from: new Date("2019-10-12T07:20:50.52Z"),
     to: new Date("2019-10-12T07:20:50.52Z"),
   },
@@ -430,12 +430,12 @@ const sdk = new Paddle({
 sdk.notifications.updateSettings({
   notificationSettingUpdate: {
     active: false,
-    apiVersion: 749170,
-    description: "eum",
-    destination: "vero",
+    apiVersion: 303975,
+    description: "Implemented clear-thinking firmware",
+    destination: "shame dimly esse",
     includeSensitiveFields: false,
     subscribedEvents: [
-      "aspernatur",
+      "quibusdam",
     ],
   },
   notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",

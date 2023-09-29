@@ -137,12 +137,12 @@ const sdk = new Paddle({
 });
 
 sdk.subscriptions.list({
-  after: "et",
+  after: "Northeast Metal Canada",
   customerId: "ctm_01gt25aq4b2zcfw12szwtjrbdt",
-  orderBy: "excepturi",
-  perPage: 354047,
+  orderBy: "Data Response West",
+  perPage: 718303,
   priceId: "pri_01gvne87kv8vbqa9jkfbmgtsed",
-  status: StatusSubscription.PastDue,
+  status: StatusSubscription.Trialing,
 }).then((res: ListSubscriptionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -189,7 +189,7 @@ const sdk = new Paddle({
 
 sdk.subscriptions.pause({
   requestBody: {
-    effectiveFrom: EffectiveFromNullable.Immediately,
+    effectiveFrom: EffectiveFromNullable.NextBillingPeriod,
     resumeAt: new Date("2019-10-12T07:20:50.52Z"),
   },
   subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",

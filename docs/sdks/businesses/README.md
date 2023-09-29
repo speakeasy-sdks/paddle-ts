@@ -38,11 +38,11 @@ sdk.businesses.create({
     contacts: [
       {
         email: "weloveyourproduct@paddle.com",
-        name: "Shaun Osinski",
+        name: "bluetooth Extended",
       },
     ],
     id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-    name: "Rose Rolfson",
+    name: "blue",
     taxIdentifier: "AB0123456789",
   },
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
@@ -127,11 +127,11 @@ const sdk = new Paddle({
 });
 
 sdk.businesses.list({
-  after: "nemo",
+  after: "Northeast Metal Canada",
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-  id: "5907aff1-a3a2-4fa9-8677-39251aa52c3f",
-  orderBy: "ipsam",
-  perPage: 662527,
+  id: "<ID>",
+  orderBy: "Data Response West",
+  perPage: 718303,
   search: "upgrade",
   status: Status.Archived,
 }).then((res: ListBusinessesResponse) => {
@@ -180,12 +180,12 @@ sdk.businesses.update({
     contacts: [
       {
         email: "weloveyourproduct@paddle.com",
-        name: "Joyce Mueller",
+        name: "New Reactive dock",
       },
     ],
     id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-    name: "Johanna Wolf",
-    status: Schemasstatus.Archived,
+    name: "Analyst invoice",
+    status: Schemasstatus.Active,
     taxIdentifier: "AB0123456789",
   },
   businessId: "biz_01gvcz4m28csa5kem2gqq5ymxn",

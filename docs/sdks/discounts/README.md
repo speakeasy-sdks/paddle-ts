@@ -34,20 +34,20 @@ const sdk = new Paddle({
 });
 
 sdk.discounts.create({
-  amount: "quos",
-  code: "perferendis",
-  currencyCode: CurrencyCode2.Chf,
-  description: "assumenda",
+  amount: "486.59",
+  code: "Configuration Money",
+  currencyCode: CurrencyCode2.Sgd,
+  description: "Business-focused zero tolerance project",
   enabledForCheckout: false,
   expiresAt: new Date("2024-10-12T07:20:50.52Z"),
   id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
-  maximumRecurringIntervals: 369808,
+  maximumRecurringIntervals: 376844,
   recur: false,
   restrictTo: [
-    "alias",
+    "technology",
   ],
   type: DiscountCreateType.Flat,
-  usageLimit: 677817,
+  usageLimit: 455222,
 }).then((res: CreateDiscountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -128,12 +128,12 @@ const sdk = new Paddle({
 });
 
 sdk.discounts.list({
-  after: "excepturi",
+  after: "Northeast Metal Canada",
   code: "BLACKFRIDAY",
-  id: "4bb4f63c-969e-49a3-afa7-7dfb14cd66ae",
-  orderBy: "non",
-  perPage: 581273,
-  status: StatusDiscount.Archived,
+  id: "<ID>",
+  orderBy: "Data Response West",
+  perPage: 718303,
+  status: StatusDiscount.Used,
 }).then((res: ListDiscountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -176,21 +176,21 @@ const sdk = new Paddle({
 
 sdk.discounts.update({
   discountInput: {
-    amount: "accusamus",
-    code: "delectus",
-    currencyCode: CurrencyCode2.Rub,
-    description: "provident",
+    amount: "857.48",
+    code: "Rock",
+    currencyCode: CurrencyCode2.Gbp,
+    description: "Reactive zero tolerance definition",
     enabledForCheckout: false,
     expiresAt: new Date("2024-10-12T07:20:50.52Z"),
     id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
-    maximumRecurringIntervals: 725255,
+    maximumRecurringIntervals: 627690,
     recur: false,
     restrictTo: [
-      "id",
+      "Analyst",
     ],
-    status: SchemasstatusDiscount.Expired,
-    type: DiscountType.FlatPerSeat,
-    usageLimit: 956084,
+    status: SchemasstatusDiscount.Archived,
+    type: DiscountType.Percentage,
+    usageLimit: 134151,
   },
   discountId: "dsc_01gt218xfk7yztpvgmcazkes83",
 }).then((res: UpdateDiscountResponse) => {

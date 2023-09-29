@@ -36,8 +36,8 @@ const sdk = new Paddle({
 sdk.customers.create({
   email: "weloveyourproduct@paddle.com",
   id: "ctm_01grnn4zta5a1mf02jjze7y2ys",
-  locale: "voluptatibus",
-  name: "Geneva Klein Jr.",
+  locale: "fr_CH",
+  name: "Configuration Money",
 }).then((res: CreateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -118,10 +118,10 @@ const sdk = new Paddle({
 });
 
 sdk.customers.list({
-  after: "reprehenderit",
-  id: "4f15471b-5e6e-413b-99d4-88e1e91e450a",
-  orderBy: "quibusdam",
-  perPage: 131797,
+  after: "Northeast Metal Canada",
+  id: "<ID>",
+  orderBy: "Data Response West",
+  perPage: 718303,
   search: "upgrade",
   status: Status.Archived,
 }).then((res: ListCustomersResponse) => {
@@ -218,9 +218,9 @@ sdk.customers.update({
   customerInput: {
     email: "weloveyourproduct@paddle.com",
     id: "ctm_01grnn4zta5a1mf02jjze7y2ys",
-    locale: "distinctio",
-    name: "Francisco Gleason",
-    status: Schemasstatus.Archived,
+    locale: "sk",
+    name: "Rock",
+    status: Schemasstatus.Active,
   },
   customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
 }).then((res: UpdateCustomerResponse) => {

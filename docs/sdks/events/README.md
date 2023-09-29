@@ -29,9 +29,9 @@ const sdk = new Paddle({
 });
 
 sdk.events.list({
-  after: "amet",
-  orderBy: "deserunt",
-  perPage: 394869,
+  after: "Northeast Metal Canada",
+  orderBy: "Data Response West",
+  perPage: 718303,
 }).then((res: ListEventsResponse) => {
   if (res.statusCode == 200) {
     // handle response
