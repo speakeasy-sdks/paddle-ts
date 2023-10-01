@@ -1,0 +1,10 @@
+# TransactionIncludesCheckout
+
+Paddle Checkout details for this transaction. Always included for automatically-collected transactions. Included where `billing_details.enable_checkout` is `true` for manually-collected transactions.
+
+
+## Fields
+
+| Field                                                                                                                             | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `url`                                                                                                                             | *string*                                                                                                                          | :heavy_minus_sign:                                                                                                                | Paddle Checkout URL for this transaction, composed of your default payment URL + `_?txn=` and the Paddle ID for this transaction. |

@@ -25,54 +25,6 @@ export class BusinessContacts extends SpeakeasyBase {
 /**
  * Represents a business entity.
  */
-export class BusinessInput extends SpeakeasyBase {
-    /**
-     * Company number for this business.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "company_number" })
-    companyNumber?: string;
-
-    /**
-     * List of contacts related to this business, typically used for sending invoices.
-     */
-    @SpeakeasyMetadata({ elemType: BusinessContacts })
-    @Expose({ name: "contacts" })
-    @Type(() => BusinessContacts)
-    contacts?: BusinessContacts[];
-
-    /**
-     * Unique Paddle ID for this business entity, prefixed with `biz_`.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "id" })
-    id?: string;
-
-    /**
-     * Full name.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "name" })
-    name?: string;
-
-    /**
-     * Whether this entity can be used in Paddle.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "status" })
-    status?: Schemasstatus;
-
-    /**
-     * Tax or VAT Number for this business.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "tax_identifier" })
-    taxIdentifier?: string;
-}
-
-/**
- * Represents a business entity.
- */
 export class Business extends SpeakeasyBase {
     /**
      * Company number for this business.
@@ -132,4 +84,52 @@ export class Business extends SpeakeasyBase {
     @Expose({ name: "updated_at" })
     @Transform(({ value }) => new Date(value), { toClassOnly: true })
     updatedAt?: Date;
+}
+
+/**
+ * Represents a business entity.
+ */
+export class BusinessInput extends SpeakeasyBase {
+    /**
+     * Company number for this business.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "company_number" })
+    companyNumber?: string;
+
+    /**
+     * List of contacts related to this business, typically used for sending invoices.
+     */
+    @SpeakeasyMetadata({ elemType: BusinessContacts })
+    @Expose({ name: "contacts" })
+    @Type(() => BusinessContacts)
+    contacts?: BusinessContacts[];
+
+    /**
+     * Unique Paddle ID for this business entity, prefixed with `biz_`.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
+
+    /**
+     * Full name.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
+
+    /**
+     * Whether this entity can be used in Paddle.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: Schemasstatus;
+
+    /**
+     * Tax or VAT Number for this business.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "tax_identifier" })
+    taxIdentifier?: string;
 }

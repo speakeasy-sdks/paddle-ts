@@ -1,0 +1,11 @@
+# CollectionMode1
+
+Describes how the payment is collected. Manual mode is for invoicing where a customer is first sent an invoice and requires manual intervention on their end to initiate a payment and there are normally payment terms involved eg they have to pay within 30 days. Automatic payments are where there is not usually any action on the sellers part to initiate a payment eg a customer visits a website and purchases something via a checkout or when a recurring transaction for a subscription is paid for via a payment method that is stored on file.
+
+
+## Values
+
+| Name        | Value       |
+| ----------- | ----------- |
+| `Automatic` | automatic   |
+| `Manual`    | manual      |

@@ -1,0 +1,12 @@
+# SubscriptionIncludesDiscount
+
+Details of the discount applied to this subscription.
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `endsAt`                                                                                      | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | RFC 3339 datetime string.                                                                     | 2024-10-12T07:20:50.52Z                                                                       |
+| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | Unique Paddle ID for this discount, prefixed with `dsc_`.                                     | dsc_01gv5kpg05xp104ek2fmgjwttf                                                                |
+| `startsAt`                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | RFC 3339 datetime string.                                                                     | 2024-10-12T07:20:50.52Z                                                                       |

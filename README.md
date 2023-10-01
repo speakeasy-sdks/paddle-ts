@@ -107,7 +107,13 @@ sdk.addresses.create({
 
 ### [invoices](docs/sdks/invoices/README.md)
 
+* [cancel](docs/sdks/invoices/README.md#cancel) - Cancel an invoice
+* [create](docs/sdks/invoices/README.md#create) - Create a draft invoice
+* [get](docs/sdks/invoices/README.md#get) - Get an invoice
 * [getPdf](docs/sdks/invoices/README.md#getpdf) - Get a PDF for an invoice
+* [issueInvoice](docs/sdks/invoices/README.md#issueinvoice) - Issue an invoice
+* [list](docs/sdks/invoices/README.md#list) - List invoices
+* [update](docs/sdks/invoices/README.md#update) - Update a draft invoice
 
 ### [notifications](docs/sdks/notifications/README.md)
 
@@ -122,16 +128,51 @@ sdk.addresses.create({
 * [replayBySetting](docs/sdks/notifications/README.md#replaybysetting) - Replay notifications by notification setting
 * [updateSettings](docs/sdks/notifications/README.md#updatesettings) - Update a notification setting
 
+### [prices](docs/sdks/prices/README.md)
+
+* [create](docs/sdks/prices/README.md#create) - Create a price
+* [get](docs/sdks/prices/README.md#get) - Get a price
+* [list](docs/sdks/prices/README.md#list) - List prices
+* [update](docs/sdks/prices/README.md#update) - Update a price
+
+### [products](docs/sdks/products/README.md)
+
+* [create](docs/sdks/products/README.md#create) - Create a product
+* [get](docs/sdks/products/README.md#get) - Get a product
+* [list](docs/sdks/products/README.md#list) - List products
+* [update](docs/sdks/products/README.md#update) - Update a product
+
 ### [subscriptions](docs/sdks/subscriptions/README.md)
 
 * [cancel](docs/sdks/subscriptions/README.md#cancel) - Cancel a subscription
 * [create](docs/sdks/subscriptions/README.md#create) - Create a one-time charge for a subscription
+* [createPreview](docs/sdks/subscriptions/README.md#createpreview) - Preview one-off charge for a subscription
+* [get](docs/sdks/subscriptions/README.md#get) - Get a subscription
+* [getUpdatedPaymentMethodTransaction](docs/sdks/subscriptions/README.md#getupdatedpaymentmethodtransaction) - Get a transaction to update payment method
 * [list](docs/sdks/subscriptions/README.md#list) - List subscriptions
 * [pause](docs/sdks/subscriptions/README.md#pause) - Pause a subscription
+* [previewSubscription](docs/sdks/subscriptions/README.md#previewsubscription) - Preview an update to a subscription
+* [resumeSubscription](docs/sdks/subscriptions/README.md#resumesubscription) - Resume a paused subscription
+* [update](docs/sdks/subscriptions/README.md#update) - Update a subscription
 
 ### [transactions](docs/sdks/transactions/README.md)
 
+* [create](docs/sdks/transactions/README.md#create) - Create a transaction
+* [get](docs/sdks/transactions/README.md#get) - Get a transaction
 * [getInvoice](docs/sdks/transactions/README.md#getinvoice) - Get a PDF invoice for a transaction
+* [list](docs/sdks/transactions/README.md#list) - List transactions
+* [previewTransaction](docs/sdks/transactions/README.md#previewtransaction) - Preview a transaction
+* [pricePreview](docs/sdks/transactions/README.md#pricepreview) - Preview prices
+* [update](docs/sdks/transactions/README.md#update) - Update a transaction
+
+### [transactionService](docs/sdks/transactionservice/README.md)
+
+* [create](docs/sdks/transactionservice/README.md#create) - Create a transaction
+* [get](docs/sdks/transactionservice/README.md#get) - Get a transaction
+* [list](docs/sdks/transactionservice/README.md#list) - List transactions
+* [previewTransaction](docs/sdks/transactionservice/README.md#previewtransaction) - Preview a transaction
+* [pricePreview](docs/sdks/transactionservice/README.md#pricepreview) - Preview prices
+* [update](docs/sdks/transactionservice/README.md#update) - Update a transaction
 <!-- End SDK Available Operations -->
 
 

@@ -1,0 +1,9 @@
+# InvoiceDetails
+
+
+## Fields
+
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `lineItems`                                                                                      | [InvoiceDetailsLineItems](../../models/shared/invoicedetailslineitems.md)[]                      | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `totals`                                                                                         | [Totals2](../../models/shared/totals2.md)                                                        | :heavy_minus_sign:                                                                               | The financial breakdown of a charge in the lowest denomination of a currency (eg cents for USD). |

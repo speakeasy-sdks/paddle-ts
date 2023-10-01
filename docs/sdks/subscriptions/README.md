@@ -11,8 +11,14 @@ Subscriptions - Paddle Developer Center
 
 * [cancel](#cancel) - Cancel a subscription
 * [create](#create) - Create a one-time charge for a subscription
+* [createPreview](#createpreview) - Preview one-off charge for a subscription
+* [get](#get) - Get a subscription
+* [getUpdatedPaymentMethodTransaction](#getupdatedpaymentmethodtransaction) - Get a transaction to update payment method
 * [list](#list) - List subscriptions
 * [pause](#pause) - Pause a subscription
+* [previewSubscription](#previewsubscription) - Preview an update to a subscription
+* [resumeSubscription](#resumesubscription) - Resume a paused subscription
+* [update](#update) - Update a subscription
 
 ## cancel
 
@@ -119,6 +125,144 @@ sdk.subscriptions.create({
 **Promise<[operations.CreateSubscriptionChargeResponse](../../models/operations/createsubscriptionchargeresponse.md)>**
 
 
+## createPreview
+
+Previews a new one-off charge for a subscription. Use to preview the outcome of adding non-recurring items to a subscription.
+
+### Example Usage
+
+```typescript
+import { Paddle } from "Paddle";
+import { CreateSubscriptionChargePreviewResponse } from "Paddle/dist/sdk/models/operations";
+import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
+
+const sdk = new Paddle({
+  security: {
+    bearerAuth: "YOUR_API_KEY",
+  },
+});
+
+sdk.subscriptions.createPreview({
+  subscriptionCharge: {
+    effectiveFrom: EffectiveFrom.NextBillingPeriod,
+    items: [
+      {
+        priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
+        quantity: 5,
+      },
+    ],
+  },
+  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+}).then((res: CreateSubscriptionChargePreviewResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                                              | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                              | [operations.CreateSubscriptionChargePreviewRequest](../../models/operations/createsubscriptionchargepreviewrequest.md) | :heavy_check_mark:                                                                                                     | The request object to use for the request.                                                                             |
+| `retries`                                                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                 | :heavy_minus_sign:                                                                                                     | Configuration to override the default retry behavior of the client.                                                    |
+| `config`                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                           | :heavy_minus_sign:                                                                                                     | Available config options for making requests.                                                                          |
+
+
+### Response
+
+**Promise<[operations.CreateSubscriptionChargePreviewResponse](../../models/operations/createsubscriptionchargepreviewresponse.md)>**
+
+
+## get
+
+Returns a subscription using its ID.
+
+Use the `include` parameter to include transaction information in the response.
+
+### Example Usage
+
+```typescript
+import { Paddle } from "Paddle";
+import { GetSubscriptionResponse } from "Paddle/dist/sdk/models/operations";
+import { IncludeSubscription } from "Paddle/dist/sdk/models/shared";
+
+const sdk = new Paddle({
+  security: {
+    bearerAuth: "YOUR_API_KEY",
+  },
+});
+
+sdk.subscriptions.get({
+  include: IncludeSubscription.RecurringTransactionDetails,
+  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+}).then((res: GetSubscriptionResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.GetSubscriptionRequest](../../models/operations/getsubscriptionrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `retries`                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                 | :heavy_minus_sign:                                                                     | Configuration to override the default retry behavior of the client.                    |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+
+
+### Response
+
+**Promise<[operations.GetSubscriptionResponse](../../models/operations/getsubscriptionresponse.md)>**
+
+
+## getUpdatedPaymentMethodTransaction
+
+Returns a transaction that you can pass to a checkout to let customers update their payment details. Only for subscriptions where `collection_mode` is `automatic`.
+
+The transaction returned depends on the status of the related subscription:
+
+* Where a subscription is `past_due`, it returns the most recent `past_due` transaction.
+* Where a subscription is `active`, it creates a new zero amount transaction for the items on a subscription.
+
+You can use the returned `checkout.url`, or pass the returned transaction ID to Paddle.js to open a checkout to present customers with a way of updating their payment details.
+
+### Example Usage
+
+```typescript
+import { Paddle } from "Paddle";
+import { GetSubscriptionUpdatePaymentMethodTransactionResponse } from "Paddle/dist/sdk/models/operations";
+
+const sdk = new Paddle({
+  security: {
+    bearerAuth: "YOUR_API_KEY",
+  },
+});
+
+sdk.subscriptions.getUpdatedPaymentMethodTransaction({
+  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+}).then((res: GetSubscriptionUpdatePaymentMethodTransactionResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                                                                          | Type                                                                                                                                               | Required                                                                                                                                           | Description                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                          | [operations.GetSubscriptionUpdatePaymentMethodTransactionRequest](../../models/operations/getsubscriptionupdatepaymentmethodtransactionrequest.md) | :heavy_check_mark:                                                                                                                                 | The request object to use for the request.                                                                                                         |
+| `retries`                                                                                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                                             | :heavy_minus_sign:                                                                                                                                 | Configuration to override the default retry behavior of the client.                                                                                |
+| `config`                                                                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                                       | :heavy_minus_sign:                                                                                                                                 | Available config options for making requests.                                                                                                      |
+
+
+### Response
+
+**Promise<[operations.GetSubscriptionUpdatePaymentMethodTransactionResponse](../../models/operations/getsubscriptionupdatepaymentmethodtransactionresponse.md)>**
+
+
 ## list
 
 Returns a paginated list of subscriptions. Use the query parameters to page through results.
@@ -212,4 +356,211 @@ sdk.subscriptions.pause({
 ### Response
 
 **Promise<[operations.PauseSubscriptionResponse](../../models/operations/pausesubscriptionresponse.md)>**
+
+
+## previewSubscription
+
+Previews an update for a subscription without applying those changes. Typically used for previewing proration before making changes to a subscription.
+
+If successful, your response includes `immediate_transaction`, `next_transaction`, and `recurring_transaction_details` so you can see expected transactions for the changes.
+
+### Example Usage
+
+```typescript
+import { Paddle } from "Paddle";
+import { PreviewSubscriptionResponse } from "Paddle/dist/sdk/models/operations";
+import {
+  CollectionMode2,
+  CurrencyCode2,
+  EffectiveFrom,
+  Period2Interval,
+  SubscriptionUpdateProrationBillingMode,
+} from "Paddle/dist/sdk/models/shared";
+
+const sdk = new Paddle({
+  security: {
+    bearerAuth: "YOUR_API_KEY",
+  },
+});
+
+sdk.subscriptions.previewSubscription({
+  subscriptionUpdate: {
+    addressId: "add_01gm302t81w94gyjpjpqypkzkf",
+    billingDetails: {
+      additionalInformation: "watt",
+      enableCheckout: false,
+      paymentTerms: {
+        frequency: 727815,
+        interval: Period2Interval.Day,
+      },
+      purchaseOrderNumber: "Canyon fuchsia",
+    },
+    businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
+    collectionMode: CollectionMode2.Manual,
+    currencyCode: CurrencyCode2.Gbp,
+    customData: {},
+    customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+    discount: {
+      effectiveFrom: EffectiveFrom.Immediately,
+      id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
+    },
+    items: [
+      {
+        priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
+        quantity: 6669.91,
+      },
+    ],
+    nextBilledAt: new Date("2024-10-12T07:20:50.52Z"),
+    prorationBillingMode: SubscriptionUpdateProrationBillingMode.ProratedImmediately,
+    scheduledChange: "support",
+  },
+  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+}).then((res: PreviewSubscriptionResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.PreviewSubscriptionRequest](../../models/operations/previewsubscriptionrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `retries`                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+
+
+### Response
+
+**Promise<[operations.PreviewSubscriptionResponse](../../models/operations/previewsubscriptionresponse.md)>**
+
+
+## resumeSubscription
+
+Resumes a paused subscription using its ID. Only `paused` subscriptions can be resumed. You cannot resume a `canceled` subscription.
+
+On resume, Paddle bills for a subscription immediately. Subscription billing dates are recalculated based on the resume date.
+
+If successful, Paddle returns a copy of the updated subscription entity. The subscription status is `active`, and billing dates are updated to reflect the resume date.
+
+### Example Usage
+
+```typescript
+import { Paddle } from "Paddle";
+import { ResumeSubscriptionResponse } from "Paddle/dist/sdk/models/operations";
+import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
+
+const sdk = new Paddle({
+  security: {
+    bearerAuth: "YOUR_API_KEY",
+  },
+});
+
+sdk.subscriptions.resumeSubscription({
+  requestBody: {},
+  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+}).then((res: ResumeSubscriptionResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.ResumeSubscriptionRequest](../../models/operations/resumesubscriptionrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `retries`                                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                                       | :heavy_minus_sign:                                                                           | Configuration to override the default retry behavior of the client.                          |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+
+
+### Response
+
+**Promise<[operations.ResumeSubscriptionResponse](../../models/operations/resumesubscriptionresponse.md)>**
+
+
+## update
+
+Updates a subscription using its ID.
+
+When making changes to items on a subscription, you must include the `proration_billing_mode` field to tell Paddle how to bill for those changes. Paddle returns an error if this field is missing when sending `items`.
+
+Send the complete list of items that you'd like to be on a subscription — including existing items. If you omit items, they're removed from the subscription.
+
+For each item, send `price_id` and `quantity`. Paddle responds with the full price object for each price. If you're updating an existing item, you can omit the `quantity` if you don't want to update it.
+
+If successful, your response includes a copy of the updated subscription entity.
+
+### Example Usage
+
+```typescript
+import { Paddle } from "Paddle";
+import { UpdateSubscriptionResponse } from "Paddle/dist/sdk/models/operations";
+import {
+  CollectionMode2,
+  CurrencyCode2,
+  EffectiveFrom,
+  Period2Interval,
+  SubscriptionUpdateProrationBillingMode,
+} from "Paddle/dist/sdk/models/shared";
+
+const sdk = new Paddle({
+  security: {
+    bearerAuth: "YOUR_API_KEY",
+  },
+});
+
+sdk.subscriptions.update({
+  subscriptionUpdate: {
+    addressId: "add_01gm302t81w94gyjpjpqypkzkf",
+    billingDetails: {
+      additionalInformation: "New Reactive dock",
+      enableCheckout: false,
+      paymentTerms: {
+        frequency: 627690,
+        interval: Period2Interval.Month,
+      },
+      purchaseOrderNumber: "invoice Arizona",
+    },
+    businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
+    collectionMode: CollectionMode2.Automatic,
+    currencyCode: CurrencyCode2.Twd,
+    customData: {},
+    customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+    discount: {
+      effectiveFrom: EffectiveFrom.NextBillingPeriod,
+      id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
+    },
+    items: [
+      {
+        priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
+        quantity: 4468.63,
+      },
+    ],
+    nextBilledAt: new Date("2024-10-12T07:20:50.52Z"),
+    prorationBillingMode: SubscriptionUpdateProrationBillingMode.ProratedNextBillingPeriod,
+    scheduledChange: "extend",
+  },
+  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+}).then((res: UpdateSubscriptionResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.UpdateSubscriptionRequest](../../models/operations/updatesubscriptionrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `retries`                                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                                       | :heavy_minus_sign:                                                                           | Configuration to override the default retry behavior of the client.                          |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+
+
+### Response
+
+**Promise<[operations.UpdateSubscriptionResponse](../../models/operations/updatesubscriptionresponse.md)>**
 

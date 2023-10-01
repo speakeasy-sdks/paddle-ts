@@ -13,8 +13,11 @@ import { Invoices } from "./invoices";
 import { IPAddresses } from "./ipaddresses";
 import * as shared from "./models/shared";
 import { Notifications } from "./notifications";
+import { Prices } from "./prices";
+import { Products } from "./products";
 import { Subscriptions } from "./subscriptions";
 import { Transactions } from "./transactions";
+import { TransactionService } from "./transactionservice";
 import axios from "axios";
 import { AxiosInstance } from "axios";
 
@@ -67,9 +70,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.0";
-    sdkVersion = "0.11.0";
-    genVersion = "2.139.1";
-    userAgent = "speakeasy-sdk/typescript 0.11.0 2.139.1 1.0 Paddle";
+    sdkVersion = "0.12.0";
+    genVersion = "2.142.2";
+    userAgent = "speakeasy-sdk/typescript 0.12.0 2.142.2 1.0 Paddle";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -132,6 +135,18 @@ export class Paddle {
      */
     public notifications: Notifications;
     /**
+     * Work with prices.
+     *
+     * @see {@link https://paddle.stoplight.io/docs/next-gen-billing/entities/prices} - Prices - Paddle Developer Center
+     */
+    public prices: Prices;
+    /**
+     * Work with products.
+     *
+     * @see {@link https://paddle.stoplight.io/docs/next-gen-billing/entities/products} - Products - Paddle Developer Center
+     */
+    public products: Products;
+    /**
      * Work with subscriptions.
      *
      * @see {@link https://paddle.stoplight.io/docs/next-gen-billing/entities/subscriptions} - Subscriptions - Paddle Developer Center
@@ -143,6 +158,7 @@ export class Paddle {
      * @see {@link https://paddle.stoplight.io/docs/next-gen-billing/entities/transactions} - Transactions - Paddle Developer Center
      */
     public transactions: Transactions;
+    public transactionService: TransactionService;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -171,7 +187,10 @@ export class Paddle {
         this.ipAddresses = new IPAddresses(this.sdkConfiguration);
         this.invoices = new Invoices(this.sdkConfiguration);
         this.notifications = new Notifications(this.sdkConfiguration);
+        this.prices = new Prices(this.sdkConfiguration);
+        this.products = new Products(this.sdkConfiguration);
         this.subscriptions = new Subscriptions(this.sdkConfiguration);
         this.transactions = new Transactions(this.sdkConfiguration);
+        this.transactionService = new TransactionService(this.sdkConfiguration);
     }
 }
