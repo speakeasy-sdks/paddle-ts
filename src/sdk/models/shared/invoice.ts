@@ -23,11 +23,13 @@ export enum InvoiceBillingPeriodType {
 export class InvoiceBillingPeriod extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "ends_at" })
+    @Type(() => String)
     @Transform(({ value }) => new RFCDate(value), { toClassOnly: true })
     endsAt: RFCDate;
 
     @SpeakeasyMetadata()
     @Expose({ name: "starts_at" })
+    @Type(() => String)
     @Transform(({ value }) => new RFCDate(value), { toClassOnly: true })
     startsAt: RFCDate;
 
