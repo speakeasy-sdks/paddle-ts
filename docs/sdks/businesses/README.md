@@ -24,33 +24,34 @@ If successful, your response includes a copy of the new business entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CreateBusinessResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.businesses.create({
-  businessCreateInput: {
-    companyNumber: "123456789",
-    contacts: [
-      {
-        email: "weloveyourproduct@paddle.com",
-        name: "bluetooth Extended",
-      },
-    ],
-    id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-    name: "blue",
-    taxIdentifier: "AB0123456789",
-  },
-  customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-}).then((res: CreateBusinessResponse) => {
+  const res = await sdk.businesses.create({
+    businessCreateInput: {
+      companyNumber: "123456789",
+      contacts: [
+        {
+          email: "weloveyourproduct@paddle.com",
+          name: "bluetooth Extended",
+        },
+      ],
+      id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
+      name: "blue",
+      taxIdentifier: "AB0123456789",
+    },
+    customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -75,22 +76,23 @@ Returns a business for a customer using its ID and related customer ID.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { GetBusinessResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.businesses.get({
-  businessId: "biz_01gvcz4m28csa5kem2gqq5ymxn",
-  customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-}).then((res: GetBusinessResponse) => {
+  const res = await sdk.businesses.get({
+    businessId: "biz_01gvcz4m28csa5kem2gqq5ymxn",
+    customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -117,28 +119,24 @@ By default, Paddle returns businesses that are `active`. Use the `status` query 
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ListBusinessesResponse } from "Paddle/dist/sdk/models/operations";
 import { Status } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.businesses.list({
-  after: "Northeast Metal Canada",
-  customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-  id: "<ID>",
-  orderBy: "Data Response West",
-  perPage: 718303,
-  search: "upgrade",
-  status: Status.Archived,
-}).then((res: ListBusinessesResponse) => {
+  const res = await sdk.businesses.list({
+    customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
+    search: "upgrade",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -165,36 +163,35 @@ If successful, your response includes a copy of the updated business entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { UpdateBusinessResponse } from "Paddle/dist/sdk/models/operations";
 import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.businesses.update({
-  businessInput: {
-    companyNumber: "123456789",
-    contacts: [
-      {
-        email: "weloveyourproduct@paddle.com",
-        name: "New Reactive dock",
-      },
-    ],
-    id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-    name: "Analyst invoice",
-    status: Schemasstatus.Active,
-    taxIdentifier: "AB0123456789",
-  },
-  businessId: "biz_01gvcz4m28csa5kem2gqq5ymxn",
-  customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-}).then((res: UpdateBusinessResponse) => {
+  const res = await sdk.businesses.update({
+    businessInput: {
+      companyNumber: "123456789",
+      contacts: [
+        {
+          email: "weloveyourproduct@paddle.com",
+          name: "New Reactive dock",
+        },
+      ],
+      id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
+      taxIdentifier: "AB0123456789",
+    },
+    businessId: "biz_01gvcz4m28csa5kem2gqq5ymxn",
+    customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

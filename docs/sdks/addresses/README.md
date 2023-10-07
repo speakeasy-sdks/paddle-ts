@@ -26,32 +26,32 @@ If successful, your response includes a copy of the new address entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CreateAddressResponse } from "Paddle/dist/sdk/models/operations";
 import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.addresses.create({
-  addressCreateInput: {
-    city: "Astoria",
-    countryCode: CountryCode2.Kn,
-    description: "Paddle.com",
-    firstLine: "3811 Ditmars Blvd",
-    id: "add_01gm302t81w94gyjpjpqypkzkf",
-    postalCode: "11105-1803",
-    region: "NY",
-    secondLine: "Configuration Money",
-  },
-  customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-}).then((res: CreateAddressResponse) => {
+  const res = await sdk.addresses.create({
+    addressCreateInput: {
+      city: "Astoria",
+      countryCode: CountryCode2.Kn,
+      description: "Paddle.com",
+      firstLine: "3811 Ditmars Blvd",
+      id: "add_01gm302t81w94gyjpjpqypkzkf",
+      postalCode: "11105-1803",
+      region: "NY",
+    },
+    customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -76,22 +76,23 @@ Returns an address for a customer using its ID and related customer ID.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { GetAddressResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.addresses.get({
-  addressId: "add_01gvcz6r0t0g5cphhwd8n952gb",
-  customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-}).then((res: GetAddressResponse) => {
+  const res = await sdk.addresses.get({
+    addressId: "add_01gvcz6r0t0g5cphhwd8n952gb",
+    customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -118,28 +119,24 @@ By default, Paddle returns addresses that are `active`. Use the `status` query p
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ListAddressesResponse } from "Paddle/dist/sdk/models/operations";
 import { Status } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.addresses.list({
-  after: "Northeast Metal Canada",
-  customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-  id: "<ID>",
-  orderBy: "Data Response West",
-  perPage: 718303,
-  search: "upgrade",
-  status: Status.Archived,
-}).then((res: ListAddressesResponse) => {
+  const res = await sdk.addresses.list({
+    customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
+    search: "upgrade",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -166,34 +163,32 @@ If successful, your response includes a copy of the updated address entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { UpdateAddressResponse } from "Paddle/dist/sdk/models/operations";
 import { CountryCode2, Schemasstatus } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.addresses.update({
-  addressInput: {
-    city: "Astoria",
-    countryCode: CountryCode2.Td,
-    description: "Paddle.com",
-    firstLine: "3811 Ditmars Blvd",
-    id: "add_01gm302t81w94gyjpjpqypkzkf",
-    postalCode: "11105-1803",
-    region: "NY",
-    secondLine: "Rock",
-    status: Schemasstatus.Active,
-  },
-  addressId: "add_01gvcz6r0t0g5cphhwd8n952gb",
-  customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-}).then((res: UpdateAddressResponse) => {
+  const res = await sdk.addresses.update({
+    addressInput: {
+      city: "Astoria",
+      description: "Paddle.com",
+      firstLine: "3811 Ditmars Blvd",
+      id: "add_01gm302t81w94gyjpjpqypkzkf",
+      postalCode: "11105-1803",
+      region: "NY",
+    },
+    addressId: "add_01gvcz6r0t0g5cphhwd8n952gb",
+    customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

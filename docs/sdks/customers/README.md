@@ -25,24 +25,23 @@ If successful, your response includes a copy of the new customer entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CreateCustomerResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.customers.create({
-  email: "weloveyourproduct@paddle.com",
-  id: "ctm_01grnn4zta5a1mf02jjze7y2ys",
-  locale: "fr_CH",
-  name: "Configuration Money",
-}).then((res: CreateCustomerResponse) => {
+  const res = await sdk.customers.create({
+    email: "weloveyourproduct@paddle.com",
+    id: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -67,21 +66,22 @@ Returns a customer using its ID.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { GetCustomerResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.customers.get({
-  customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-}).then((res: GetCustomerResponse) => {
+  const res = await sdk.customers.get({
+    customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -108,27 +108,23 @@ By default, Paddle returns customers that are `active`. Use the `status` query p
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ListCustomersResponse } from "Paddle/dist/sdk/models/operations";
 import { Status } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.customers.list({
-  after: "Northeast Metal Canada",
-  id: "<ID>",
-  orderBy: "Data Response West",
-  perPage: 718303,
-  search: "upgrade",
-  status: Status.Archived,
-}).then((res: ListCustomersResponse) => {
+  const res = await sdk.customers.list({
+    search: "upgrade",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -163,22 +159,23 @@ The response is not paginated.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ListCreditBalancesResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.customers.listCreditBalances({
-  currencyCode: "EUR",
-  customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-}).then((res: ListCreditBalancesResponse) => {
+  const res = await sdk.customers.listCreditBalances({
+    currencyCode: "EUR",
+    customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -205,29 +202,27 @@ If successful, your response includes a copy of the updated customer entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { UpdateCustomerResponse } from "Paddle/dist/sdk/models/operations";
 import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.customers.update({
-  customerInput: {
-    email: "weloveyourproduct@paddle.com",
-    id: "ctm_01grnn4zta5a1mf02jjze7y2ys",
-    locale: "sk",
-    name: "Rock",
-    status: Schemasstatus.Active,
-  },
-  customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
-}).then((res: UpdateCustomerResponse) => {
+  const res = await sdk.customers.update({
+    customerInput: {
+      email: "weloveyourproduct@paddle.com",
+      id: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+    },
+    customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

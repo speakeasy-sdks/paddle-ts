@@ -24,35 +24,30 @@ If successful, your response includes a copy of the new discount entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CreateDiscountResponse } from "Paddle/dist/sdk/models/operations";
 import { CurrencyCode2, DiscountCreateType } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.discounts.create({
-  amount: "486.59",
-  code: "Configuration Money",
-  currencyCode: CurrencyCode2.Sgd,
-  description: "Business-focused zero tolerance project",
-  enabledForCheckout: false,
-  expiresAt: new Date("2024-10-12T07:20:50.52Z"),
-  id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
-  maximumRecurringIntervals: 376844,
-  recur: false,
-  restrictTo: [
-    "technology",
-  ],
-  type: DiscountCreateType.Flat,
-  usageLimit: 455222,
-}).then((res: CreateDiscountResponse) => {
+  const res = await sdk.discounts.create({
+    amount: "486.59",
+    description: "Multi-tiered motivating standardization",
+    expiresAt: new Date("2024-10-12T07:20:50.52Z"),
+    id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
+    restrictTo: [
+      "Money",
+    ],
+    type: DiscountCreateType.Percentage,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -77,21 +72,22 @@ Returns a discount using its ID.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { GetDiscountResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.discounts.get({
-  discountId: "dsc_01gt218xfk7yztpvgmcazkes83",
-}).then((res: GetDiscountResponse) => {
+  const res = await sdk.discounts.get({
+    discountId: "dsc_01gt218xfk7yztpvgmcazkes83",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -118,27 +114,23 @@ By default, Paddle returns discounts that are `active`. Use the `status` query p
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ListDiscountsResponse } from "Paddle/dist/sdk/models/operations";
 import { StatusDiscount } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.discounts.list({
-  after: "Northeast Metal Canada",
-  code: "BLACKFRIDAY",
-  id: "<ID>",
-  orderBy: "Data Response West",
-  perPage: 718303,
-  status: StatusDiscount.Used,
-}).then((res: ListDiscountsResponse) => {
+  const res = await sdk.discounts.list({
+    code: "BLACKFRIDAY",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -165,39 +157,30 @@ If successful, your response includes a copy of the updated discount entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { UpdateDiscountResponse } from "Paddle/dist/sdk/models/operations";
 import { CurrencyCode2, DiscountType, SchemasstatusDiscount } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.discounts.update({
-  discountInput: {
-    amount: "857.48",
-    code: "Rock",
-    currencyCode: CurrencyCode2.Gbp,
-    description: "Reactive zero tolerance definition",
-    enabledForCheckout: false,
-    expiresAt: new Date("2024-10-12T07:20:50.52Z"),
-    id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
-    maximumRecurringIntervals: 627690,
-    recur: false,
-    restrictTo: [
-      "Analyst",
-    ],
-    status: SchemasstatusDiscount.Archived,
-    type: DiscountType.Percentage,
-    usageLimit: 134151,
-  },
-  discountId: "dsc_01gt218xfk7yztpvgmcazkes83",
-}).then((res: UpdateDiscountResponse) => {
+  const res = await sdk.discounts.update({
+    discountInput: {
+      expiresAt: new Date("2024-10-12T07:20:50.52Z"),
+      id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
+      restrictTo: [
+        "Van",
+      ],
+    },
+    discountId: "dsc_01gt218xfk7yztpvgmcazkes83",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

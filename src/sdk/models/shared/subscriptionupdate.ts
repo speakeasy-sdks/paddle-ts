@@ -8,7 +8,6 @@ import { CollectionMode2 } from "./collectionmode2";
 import { CurrencyCode2 } from "./currencycode2";
 import { CustomData } from "./customdata";
 import { EffectiveFrom } from "./effectivefrom";
-import { SubscriptionUpdateItem } from "./subscriptionupdateitem";
 import { SubscriptionUpdateProrationBillingMode } from "./subscriptionupdateprorationbillingmode";
 import { Expose, Transform, Type } from "class-transformer";
 
@@ -97,10 +96,9 @@ export class SubscriptionUpdate extends SpeakeasyBase {
     /**
      * List of items on this subscription. Only recurring items may be added. Send the complete list of items that should be on this subscription, including existing items to retain.
      */
-    @SpeakeasyMetadata({ elemType: SubscriptionUpdateItem })
+    @SpeakeasyMetadata()
     @Expose({ name: "items" })
-    @Type(() => SubscriptionUpdateItem)
-    items?: SubscriptionUpdateItem[];
+    items?: Record<string, any>[];
 
     /**
      * RFC 3339 datetime string.

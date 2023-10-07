@@ -29,21 +29,22 @@ If successful, your response includes a copy of the invoice entity with the `sta
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CancelInvoiceResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.invoices.cancel({
-  invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
-}).then((res: CancelInvoiceResponse) => {
+  const res = await sdk.invoices.cancel({
+    invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -72,69 +73,59 @@ If successful, your response includes a copy of the new invoice entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CreateInvoiceResponse } from "Paddle/dist/sdk/models/operations";
-import { CurrencyCodeInvoice, InvoiceBillingPeriodType, Period1Interval, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
+import { CurrencyCodeInvoice, InvoiceBillingPeriodType, Period1Interval } from "Paddle/dist/sdk/models/shared";
 import { RFCDate } from "Paddle/dist/sdk/types";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
-
-sdk.invoices.create({
-  addressId: "add_01ghbkbv8s6kjram8fbfz49p45",
-  billingDetails: {
-    additionalInformation: "bluetooth Extended",
-    enableCheckout: false,
-    paymentTerms: {
-      frequency: 134365,
-      interval: Period1Interval.Year,
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
     },
-    purchaseOrderNumber: "shred",
-  },
-  billingPeriod: {
-    endsAt: new RFCDate("2022-02-17"),
-    startsAt: new RFCDate("2023-11-08"),
-    type: InvoiceBillingPeriodType.Service,
-  },
-  businessId: "biz_01ghbkcbs88yxj4fxecevjz9g7",
-  currencyCode: CurrencyCodeInvoice.Eur,
-  customData: {},
-  customerId: "ctm_01ghbkbbm326p19wh85fnr0xft",
-  details: {
-    lineItems: [
-      {
-        product: {
-          customData: {},
-          description: "Multi-channelled client-driven encryption",
-          id: "pro_01gsz97mq9pa4fkyy0wqenepkz",
-          imageUrl: "http://salty-shadowbox.org",
-          name: "quantify Polestar mobile",
-          taxCategory: TaxCategory1.SoftwareProgrammingServices,
+  });
+
+  const res = await sdk.invoices.create({
+    addressId: "add_01ghbkbv8s6kjram8fbfz49p45",
+    billingDetails: {
+      paymentTerms: {
+        frequency: 486589,
+        interval: Period1Interval.Week,
+      },
+    },
+    billingPeriod: {
+      endsAt: new RFCDate("2022-12-01"),
+      startsAt: new RFCDate("2023-07-30"),
+      type: InvoiceBillingPeriodType.Contract,
+    },
+    businessId: "biz_01ghbkcbs88yxj4fxecevjz9g7",
+    currencyCode: CurrencyCodeInvoice.Eur,
+    customData: {},
+    customerId: "ctm_01ghbkbbm326p19wh85fnr0xft",
+    details: {
+      lineItems: [
+        {
+          product: {
+            "South": "shred",
+          },
         },
-        quantity: 357021,
-        taxRate: "Fresh",
+      ],
+    },
+    items: [
+      {
+        price: {
+          productId: "pro_01ghbkd0frb9k95cnhwd1bxpvk",
+          unitPrice: {
+            amount: "376.84",
+            currencyCode: CurrencyCodeInvoice.Usd,
+          },
+        },
       },
     ],
-  },
-  items: [
-    {
-      price: {
-        productId: "pro_01ghbkd0frb9k95cnhwd1bxpvk",
-        unitPrice: {
-          amount: "17.76",
-          currencyCode: CurrencyCodeInvoice.Gbp,
-        },
-      },
-      quantity: 230313,
-    },
-  ],
-}).then((res: CreateInvoiceResponse) => {
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -159,21 +150,22 @@ Returns an invoice using its ID.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { GetInvoiceResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.invoices.get({
-  invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
-}).then((res: GetInvoiceResponse) => {
+  const res = await sdk.invoices.get({
+    invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -200,21 +192,22 @@ The link returned is not a permanent link. It expires at the date and time retur
 
 ```typescript
 import { Paddle } from "Paddle";
-import { GetInvoicePdfResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.invoices.getPdf({
-  invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
-}).then((res: GetInvoicePdfResponse) => {
+  const res = await sdk.invoices.getPdf({
+    invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -251,21 +244,22 @@ If successful, your response includes a copy of the invoice entity with the new 
 
 ```typescript
 import { Paddle } from "Paddle";
-import { IssueInvoiceResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.invoices.issueInvoice({
-  invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
-}).then((res: IssueInvoiceResponse) => {
+  const res = await sdk.invoices.issueInvoice({
+    invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -290,26 +284,23 @@ Returns a paginated list of invoices. Use the query parameters to page through r
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ListInvoicesResponse } from "Paddle/dist/sdk/models/operations";
 import { StatusInvoice } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.invoices.list({
-  after: "Northeast Metal Canada",
-  id: "<ID>",
-  perPage: 917416,
-  search: "upgrade",
-  status: StatusInvoice.Unpaid,
-}).then((res: ListInvoicesResponse) => {
+  const res = await sdk.invoices.list({
+    search: "upgrade",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -338,56 +329,52 @@ If successful, your response includes a copy of the updated invoice entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { UpdateInvoiceResponse } from "Paddle/dist/sdk/models/operations";
 import { CurrencyCodeInvoice, InvoiceForPatchBillingPeriodType, Period1Interval } from "Paddle/dist/sdk/models/shared";
 import { RFCDate } from "Paddle/dist/sdk/types";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.invoices.update({
-  invoiceForPatch: {
-    addressId: "add_01ghbm9egqcxtz4ap4dfg8dtaf",
-    billingDetails: {
-      additionalInformation: "New Reactive dock",
-      enableCheckout: false,
-      paymentTerms: {
-        frequency: 627690,
-        interval: Period1Interval.Month,
+  const res = await sdk.invoices.update({
+    invoiceForPatch: {
+      addressId: "add_01ghbm9egqcxtz4ap4dfg8dtaf",
+      billingDetails: {
+        paymentTerms: {
+          frequency: 857478,
+          interval: Period1Interval.Day,
+        },
       },
-      purchaseOrderNumber: "invoice Arizona",
-    },
-    billingPeriod: {
-      endsAt: new RFCDate("2021-11-01"),
-      startsAt: new RFCDate("2023-09-09"),
-      type: InvoiceForPatchBillingPeriodType.Contract,
-    },
-    businessId: "biz_01ghbmaszjgjd47g5f3d9vw7hg",
-    currencyCode: CurrencyCodeInvoice.Gbp,
-    customData: {},
-    customerId: "ctm_01ghbm8g2qxsjp07p5ywsy61cs",
-    items: [
-      {
-        price: {
-          productId: "pro_01ghbkd0frb9k95cnhwd1bxpvk",
-          unitPrice: {
-            amount: "369.18",
-            currencyCode: CurrencyCodeInvoice.Eur,
+      billingPeriod: {
+        endsAt: new RFCDate("2022-10-16"),
+        startsAt: new RFCDate("2021-01-18"),
+        type: InvoiceForPatchBillingPeriodType.Contract,
+      },
+      businessId: "biz_01ghbmaszjgjd47g5f3d9vw7hg",
+      customData: {},
+      customerId: "ctm_01ghbm8g2qxsjp07p5ywsy61cs",
+      items: [
+        {
+          price: {
+            productId: "pro_01ghbkd0frb9k95cnhwd1bxpvk",
+            unitPrice: {
+              amount: "708.46",
+              currencyCode: CurrencyCodeInvoice.Usd,
+            },
           },
         },
-        quantity: 788440,
-      },
-    ],
-  },
-  invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
-}).then((res: UpdateInvoiceResponse) => {
+      ],
+    },
+    invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

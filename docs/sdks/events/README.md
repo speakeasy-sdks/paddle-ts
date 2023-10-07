@@ -20,23 +20,20 @@ This is sometimes referred to as "the event stream."
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ListEventsResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.events.list({
-  after: "Northeast Metal Canada",
-  orderBy: "Data Response West",
-  perPage: 718303,
-}).then((res: ListEventsResponse) => {
+  const res = await sdk.events.list({});
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -63,19 +60,20 @@ The response is not paginated.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ListEventTypesResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.events.listTypes().then((res: ListEventTypesResponse) => {
+  const res = await sdk.events.listTypes();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

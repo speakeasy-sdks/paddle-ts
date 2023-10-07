@@ -5,29 +5,6 @@
 import { SpeakeasyMetadata } from "../../../internal/utils";
 import { classToPlain, Expose, Type } from "class-transformer";
 
-export class ErrorErrors extends Error {
-    @SpeakeasyMetadata()
-    @Expose({ name: "field" })
-    field: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message: string;
-
-    constructor(err?: ErrorErrors) {
-        super();
-        if (err) {
-            Object.assign(this, err);
-            this.message = JSON.stringify(
-                classToPlain(err, { exposeUnsetFields: false, excludeExtraneousValues: true })
-            );
-        }
-
-        this.name = "ErrorErrors";
-        Object.setPrototypeOf(this, ErrorErrors.prototype);
-    }
-}
-
 export class ErrorExtra extends Error {
     constructor(err?: ErrorExtra) {
         super();
@@ -56,10 +33,9 @@ export class ErrorT extends Error {
     @Expose({ name: "documentation_url" })
     documentationUrl: string;
 
-    @SpeakeasyMetadata({ elemType: ErrorErrors })
+    @SpeakeasyMetadata()
     @Expose({ name: "errors" })
-    @Type(() => ErrorErrors)
-    errors?: ErrorErrors[];
+    errors?: Record<string, any>[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "extra" })

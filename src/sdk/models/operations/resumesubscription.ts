@@ -5,28 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
-
-export class ResumeSubscriptionRequestBody3 extends SpeakeasyBase {}
-
-export class ResumeSubscriptionRequestBodyEffectiveFromEnum extends SpeakeasyBase {
-    /**
-     * When this scheduled change should take effect from. `immediately` is only allowed when canceling or resuming a paused subscription.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "effective_from" })
-    effectiveFrom: shared.EffectiveFromNullable;
-}
-
-export class ResumeSubscriptionRequestBodyEffectiveFromDate extends SpeakeasyBase {
-    /**
-     * RFC 3339 datetime string.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "effective_from" })
-    @Transform(({ value }) => new Date(value), { toClassOnly: true })
-    effectiveFrom: Date;
-}
+import { Expose, Type } from "class-transformer";
 
 export class ResumeSubscriptionRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })

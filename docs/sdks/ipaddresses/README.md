@@ -19,19 +19,20 @@ IP addresses returned are for the environment that you're making the request in.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { GetIpAddressesResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.ipAddresses.get().then((res: GetIpAddressesResponse) => {
+  const res = await sdk.ipAddresses.get();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

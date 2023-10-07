@@ -34,25 +34,24 @@ You cannot reactivate a canceled subscription.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CancelSubscriptionResponse } from "Paddle/dist/sdk/models/operations";
 import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.subscriptions.cancel({
-  requestBody: {
-    effectiveFrom: EffectiveFromNullable.NextBillingPeriod,
-  },
-  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
-}).then((res: CancelSubscriptionResponse) => {
+  const res = await sdk.subscriptions.cancel({
+    requestBody: {},
+    subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -84,31 +83,25 @@ Once created, to get details of a one-time charge:
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CreateSubscriptionChargeResponse } from "Paddle/dist/sdk/models/operations";
-import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.subscriptions.create({
-  subscriptionCharge: {
-    effectiveFrom: EffectiveFrom.NextBillingPeriod,
-    items: [
-      {
-        priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-        quantity: 5,
-      },
-    ],
-  },
-  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
-}).then((res: CreateSubscriptionChargeResponse) => {
+  const res = await sdk.subscriptions.create({
+    requestBody: {
+      "online": "Configuration",
+    },
+    subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -133,31 +126,25 @@ Previews a new one-off charge for a subscription. Use to preview the outcome of 
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CreateSubscriptionChargePreviewResponse } from "Paddle/dist/sdk/models/operations";
-import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.subscriptions.createPreview({
-  subscriptionCharge: {
-    effectiveFrom: EffectiveFrom.NextBillingPeriod,
-    items: [
-      {
-        priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-        quantity: 5,
-      },
-    ],
-  },
-  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
-}).then((res: CreateSubscriptionChargePreviewResponse) => {
+  const res = await sdk.subscriptions.createPreview({
+    requestBody: {
+      "phew": "Planner",
+    },
+    subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -184,23 +171,23 @@ Use the `include` parameter to include transaction information in the response.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { GetSubscriptionResponse } from "Paddle/dist/sdk/models/operations";
 import { IncludeSubscription } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.subscriptions.get({
-  include: IncludeSubscription.RecurringTransactionDetails,
-  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
-}).then((res: GetSubscriptionResponse) => {
+  const res = await sdk.subscriptions.get({
+    subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -232,21 +219,22 @@ You can use the returned `checkout.url`, or pass the returned transaction ID to 
 
 ```typescript
 import { Paddle } from "Paddle";
-import { GetSubscriptionUpdatePaymentMethodTransactionResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.subscriptions.getUpdatedPaymentMethodTransaction({
-  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
-}).then((res: GetSubscriptionUpdatePaymentMethodTransactionResponse) => {
+  const res = await sdk.subscriptions.getUpdatedPaymentMethodTransaction({
+    subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -271,27 +259,24 @@ Returns a paginated list of subscriptions. Use the query parameters to page thro
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ListSubscriptionsResponse } from "Paddle/dist/sdk/models/operations";
 import { StatusSubscription } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.subscriptions.list({
-  after: "Northeast Metal Canada",
-  customerId: "ctm_01gt25aq4b2zcfw12szwtjrbdt",
-  orderBy: "Data Response West",
-  perPage: 718303,
-  priceId: "pri_01gvne87kv8vbqa9jkfbmgtsed",
-  status: StatusSubscription.Trialing,
-}).then((res: ListSubscriptionsResponse) => {
+  const res = await sdk.subscriptions.list({
+    customerId: "ctm_01gt25aq4b2zcfw12szwtjrbdt",
+    priceId: "pri_01gvne87kv8vbqa9jkfbmgtsed",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -322,26 +307,26 @@ Pauses take place at the end of a subscription billing period. If successful, yo
 
 ```typescript
 import { Paddle } from "Paddle";
-import { PauseSubscriptionResponse } from "Paddle/dist/sdk/models/operations";
 import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.subscriptions.pause({
-  requestBody: {
-    effectiveFrom: EffectiveFromNullable.NextBillingPeriod,
-    resumeAt: new Date("2019-10-12T07:20:50.52Z"),
-  },
-  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
-}).then((res: PauseSubscriptionResponse) => {
+  const res = await sdk.subscriptions.pause({
+    requestBody: {
+      resumeAt: new Date("2019-10-12T07:20:50.52Z"),
+    },
+    subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -368,7 +353,6 @@ If successful, your response includes `immediate_transaction`, `next_transaction
 
 ```typescript
 import { Paddle } from "Paddle";
-import { PreviewSubscriptionResponse } from "Paddle/dist/sdk/models/operations";
 import {
   CollectionMode2,
   CurrencyCode2,
@@ -377,49 +361,43 @@ import {
   SubscriptionUpdateProrationBillingMode,
 } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.subscriptions.previewSubscription({
-  subscriptionUpdate: {
-    addressId: "add_01gm302t81w94gyjpjpqypkzkf",
-    billingDetails: {
-      additionalInformation: "watt",
-      enableCheckout: false,
-      paymentTerms: {
-        frequency: 727815,
-        interval: Period2Interval.Day,
+  const res = await sdk.subscriptions.previewSubscription({
+    subscriptionUpdate: {
+      addressId: "add_01gm302t81w94gyjpjpqypkzkf",
+      billingDetails: {
+        paymentTerms: {
+          frequency: 243733,
+          interval: Period2Interval.Month,
+        },
       },
-      purchaseOrderNumber: "Canyon fuchsia",
-    },
-    businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-    collectionMode: CollectionMode2.Manual,
-    currencyCode: CurrencyCode2.Gbp,
-    customData: {},
-    customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
-    discount: {
-      effectiveFrom: EffectiveFrom.Immediately,
-      id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
-    },
-    items: [
-      {
-        priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-        quantity: 6669.91,
+      businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
+      customData: {},
+      customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+      discount: {
+        effectiveFrom: EffectiveFrom.NextBillingPeriod,
+        id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
       },
-    ],
-    nextBilledAt: new Date("2024-10-12T07:20:50.52Z"),
-    prorationBillingMode: SubscriptionUpdateProrationBillingMode.ProratedImmediately,
-    scheduledChange: "support",
-  },
-  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
-}).then((res: PreviewSubscriptionResponse) => {
+      items: [
+        {
+          "Magnesium": "Corporate",
+        },
+      ],
+      nextBilledAt: new Date("2024-10-12T07:20:50.52Z"),
+    },
+    subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -448,23 +426,23 @@ If successful, Paddle returns a copy of the updated subscription entity. The sub
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ResumeSubscriptionResponse } from "Paddle/dist/sdk/models/operations";
-import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.subscriptions.resumeSubscription({
-  requestBody: {},
-  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
-}).then((res: ResumeSubscriptionResponse) => {
+  const res = await sdk.subscriptions.resumeSubscription({
+    requestBody: "Hyundai",
+    subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -497,7 +475,6 @@ If successful, your response includes a copy of the updated subscription entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { UpdateSubscriptionResponse } from "Paddle/dist/sdk/models/operations";
 import {
   CollectionMode2,
   CurrencyCode2,
@@ -506,49 +483,43 @@ import {
   SubscriptionUpdateProrationBillingMode,
 } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.subscriptions.update({
-  subscriptionUpdate: {
-    addressId: "add_01gm302t81w94gyjpjpqypkzkf",
-    billingDetails: {
-      additionalInformation: "New Reactive dock",
-      enableCheckout: false,
-      paymentTerms: {
-        frequency: 627690,
-        interval: Period2Interval.Month,
+  const res = await sdk.subscriptions.update({
+    subscriptionUpdate: {
+      addressId: "add_01gm302t81w94gyjpjpqypkzkf",
+      billingDetails: {
+        paymentTerms: {
+          frequency: 857478,
+          interval: Period2Interval.Day,
+        },
       },
-      purchaseOrderNumber: "invoice Arizona",
-    },
-    businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-    collectionMode: CollectionMode2.Automatic,
-    currencyCode: CurrencyCode2.Twd,
-    customData: {},
-    customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
-    discount: {
-      effectiveFrom: EffectiveFrom.NextBillingPeriod,
-      id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
-    },
-    items: [
-      {
-        priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-        quantity: 4468.63,
+      businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
+      customData: {},
+      customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+      discount: {
+        effectiveFrom: EffectiveFrom.Immediately,
+        id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
       },
-    ],
-    nextBilledAt: new Date("2024-10-12T07:20:50.52Z"),
-    prorationBillingMode: SubscriptionUpdateProrationBillingMode.ProratedNextBillingPeriod,
-    scheduledChange: "extend",
-  },
-  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
-}).then((res: UpdateSubscriptionResponse) => {
+      items: [
+        {
+          "East": "male",
+        },
+      ],
+      nextBilledAt: new Date("2024-10-12T07:20:50.52Z"),
+    },
+    subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

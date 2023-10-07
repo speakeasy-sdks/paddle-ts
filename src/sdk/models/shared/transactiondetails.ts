@@ -3,7 +3,6 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Product } from "./product";
 import { Totals1 } from "./totals1";
 import { TransactionItemProration } from "./transactionitemproration";
 import { TransactionPayoutTotals } from "./transactionpayouttotals";
@@ -36,8 +35,7 @@ export class TransactionDetailsTransactionLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "product" })
-    @Type(() => Product)
-    product?: Product;
+    product?: Record<string, any>;
 
     /**
      * How proration was calculated for this item. Populated when a transaction is created from a subscription change, where `proration_billing_mode` was `prorated_immediately` or `prorated_next_billing_period`. Set automatically by Paddle.

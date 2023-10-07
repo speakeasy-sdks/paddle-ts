@@ -35,14 +35,10 @@ export class Prices {
      * If successful, your response includes a copy of the new price entity.
      */
     async create(
-        req: shared.PriceCreate,
+        req: Record<string, any>,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
     ): Promise<operations.CreatePriceResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.PriceCreate(req);
-        }
-
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -513,7 +509,7 @@ export class Prices {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "priceUpdate", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);

@@ -30,30 +30,28 @@ If successful, your response includes a copy of the new notification setting ent
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CreateNotificationSettingResponse } from "Paddle/dist/sdk/models/operations";
 import { NotificationSettingCreateType } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.notifications.createSetting({
-  active: false,
-  apiVersion: 659672,
-  description: "Persistent next generation circuit",
-  destination: "between cyan",
-  includeSensitiveFields: false,
-  subscribedEvents: [
-    "input",
-  ],
-  type: NotificationSettingCreateType.Url,
-}).then((res: CreateNotificationSettingResponse) => {
+  const res = await sdk.notifications.createSetting({
+    description: "Profound maximized orchestration",
+    destination: "Forward",
+    subscribedEvents: [
+      "Volvo",
+    ],
+    type: NotificationSettingCreateType.Email,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -82,21 +80,22 @@ There's no way to recover a deleted notification setting. Deactivate a notificat
 
 ```typescript
 import { Paddle } from "Paddle";
-import { DeleteNotificationSettingResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.notifications.deleteSetting({
-  notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
-}).then((res: DeleteNotificationSettingResponse) => {
+  const res = await sdk.notifications.deleteSetting({
+    notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -121,21 +120,22 @@ Returns a notification using its ID.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { GetNotificationResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.notifications.get({
-  notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
-}).then((res: GetNotificationResponse) => {
+  const res = await sdk.notifications.get({
+    notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -160,21 +160,22 @@ Returns a notification setting (notification destination) using its ID.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { GetNotificationSettingResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.notifications.getSetting({
-  notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
-}).then((res: GetNotificationSettingResponse) => {
+  const res = await sdk.notifications.getSetting({
+    notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -199,30 +200,27 @@ Returns a paginated list of notifications. Use the query parameters to page thro
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ListNotificationsResponse } from "Paddle/dist/sdk/models/operations";
 import { StatusNotification } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.notifications.list({
-  after: "Northeast Metal Canada",
-  filter: "sub_01gw4rrmfrqcwkhjm04hr3ah4n",
-  from: "2023-04-18T17:03:26",
-  notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
-  orderBy: "orchid Van",
-  perPage: 86140,
-  search: "upgrade",
-  status: StatusNotification.Failed,
-  to: "2023-04-18T17:03:26",
-}).then((res: ListNotificationsResponse) => {
+  const res = await sdk.notifications.list({
+    filter: "sub_01gw4rrmfrqcwkhjm04hr3ah4n",
+    from: "2023-04-18T17:03:26",
+    notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
+    search: "upgrade",
+    to: "2023-04-18T17:03:26",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -247,23 +245,22 @@ Returns a paginated list of notification logs for a notification. A log includes
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ListNotificationLogsResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.notifications.listLogs({
-  after: "Wiley joule Rapids",
-  notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
-  perPage: 9396,
-}).then((res: ListNotificationLogsResponse) => {
+  const res = await sdk.notifications.listLogs({
+    notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -290,19 +287,20 @@ The response is not paginated.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ListNotificationSettingsResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.notifications.listSettings().then((res: ListNotificationSettingsResponse) => {
+  const res = await sdk.notifications.listSettings();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -330,21 +328,22 @@ The new notification replay is sent to the `destination` against the `notificati
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ReplayNotificationResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.notifications.replay({
-  notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
-}).then((res: ReplayNotificationResponse) => {
+  const res = await sdk.notifications.replay({
+    notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -369,26 +368,27 @@ Replay notifications by notification setting
 
 ```typescript
 import { Paddle } from "Paddle";
-import { PostNotificationSettingsNotificationSettingIdReplayResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.notifications.replayBySetting({
-  requestBody: {
-    filter: "txn_01h3cgmh9qn7yezn4rgze4nrg2",
-    from: new Date("2019-10-12T07:20:50.52Z"),
-    to: new Date("2019-10-12T07:20:50.52Z"),
-  },
-  notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
-}).then((res: PostNotificationSettingsNotificationSettingIdReplayResponse) => {
+  const res = await sdk.notifications.replayBySetting({
+    requestBody: {
+      filter: "txn_01h3cgmh9qn7yezn4rgze4nrg2",
+      from: new Date("2019-10-12T07:20:50.52Z"),
+      to: new Date("2019-10-12T07:20:50.52Z"),
+    },
+    notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -419,31 +419,27 @@ If successful, your response includes a copy of the updated notification setting
 
 ```typescript
 import { Paddle } from "Paddle";
-import { UpdateNotificationSettingResponse } from "Paddle/dist/sdk/models/operations";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.notifications.updateSettings({
-  notificationSettingUpdate: {
-    active: false,
-    apiVersion: 303975,
-    description: "Implemented clear-thinking firmware",
-    destination: "shame dimly esse",
-    includeSensitiveFields: false,
-    subscribedEvents: [
-      "quibusdam",
-    ],
-  },
-  notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
-}).then((res: UpdateNotificationSettingResponse) => {
+  const res = await sdk.notifications.updateSettings({
+    notificationSettingUpdate: {
+      subscribedEvents: [
+        "seize",
+      ],
+    },
+    notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

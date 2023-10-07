@@ -32,7 +32,6 @@ If successful, your response includes a copy of the new adjustment entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CreateAdjustmentResponse } from "Paddle/dist/sdk/models/operations";
 import {
   AdjustmentCreateAdjustmentItemType,
   CurrencyCode2,
@@ -42,49 +41,46 @@ import {
   SchemasstatusAdjustment,
 } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.adjustments.create({
-  action: Schemasaction.Refund,
-  currencyCode: CurrencyCode2.Jpy,
-  customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
-  id: "adj_01gya6twkp8y0tv1e19rsgst9m",
-  items: [
-    {
-      amount: "638.43",
-      id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
-      itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
-      type: AdjustmentCreateAdjustmentItemType.Full,
-    },
-  ],
-  payoutTotals: {
-    chargebackFee: {
-      amount: "1680",
-      original: {
-        amount: "1500",
-        currencyCode: CurrencyCodeChargeback.Usd,
+  const res = await sdk.adjustments.create({
+    action: Schemasaction.Refund,
+    customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+    id: "adj_01gya6twkp8y0tv1e19rsgst9m",
+    items: [
+      {
+        id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
+        itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
+        type: AdjustmentCreateAdjustmentItemType.Full,
       },
+    ],
+    payoutTotals: {
+      chargebackFee: {
+        amount: "1680",
+        original: {
+          amount: "1500",
+        },
+      },
+      earnings: "15120",
+      fee: "300",
+      subtotal: "15000",
+      tax: "1500",
+      total: "16500",
     },
-    currencyCode: CurrencyCodePayouts.Dkk,
-    earnings: "15120",
-    fee: "300",
-    subtotal: "15000",
-    tax: "1500",
-    total: "16500",
-  },
-  reason: "South",
-  status: SchemasstatusAdjustment.Rejected,
-  subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
-  transactionId: "grey",
-}).then((res: CreateAdjustmentResponse) => {
+    reason: "Configuration Money",
+    subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
+    transactionId: "blue",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -109,30 +105,25 @@ Returns a paginated list of adjustments. Use the query parameters to page throug
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ListAdjustmentsResponse } from "Paddle/dist/sdk/models/operations";
 import { Action, StatusAdjustment } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.adjustments.list({
-  action: Action.CreditReverse,
-  after: "compress",
-  customerId: "ctm_01gt25aq4b2zcfw12szwtjrbdt",
-  id: "<ID>",
-  orderBy: "Canada that orchid",
-  perPage: 282238,
-  status: StatusAdjustment.Approved,
-  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
-  transactionId: "txn_01gw225vv6tjbb5gnt062a3k5v",
-}).then((res: ListAdjustmentsResponse) => {
+  const res = await sdk.adjustments.list({
+    customerId: "ctm_01gt25aq4b2zcfw12szwtjrbdt",
+    subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+    transactionId: "txn_01gw225vv6tjbb5gnt062a3k5v",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

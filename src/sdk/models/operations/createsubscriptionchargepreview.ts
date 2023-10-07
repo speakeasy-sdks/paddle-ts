@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 
 export class CreateSubscriptionChargePreviewRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    subscriptionCharge?: shared.SubscriptionCharge;
+    requestBody?: Record<string, any>;
 
     /**
      * Paddle ID of the subscription entity to work with.

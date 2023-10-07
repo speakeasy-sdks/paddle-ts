@@ -26,33 +26,29 @@ If successful, your response includes a copy of the new product entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CreateProductResponse } from "Paddle/dist/sdk/models/operations";
-import { TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.products.create({
-  customData: {},
-  description: "Multi-tiered human-resource model",
-  imageUrl: "https://impartial-dump.com",
-  name: "Cambridgeshire grey technology",
-  taxCategory: TaxCategory1.DigitalGoods,
-}).then((res: CreateProductResponse) => {
+  const res = await sdk.products.create({
+    "online": "Configuration",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [shared.ProductCreate](../../models/shared/productcreate.md)        | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `request`                                                           | [Record<string, any>](../../models//.md)                            | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 | `retries`                                                           | [utils.RetryConfig](../../models/utils/retryconfig.md)              | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 | `config`                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)        | :heavy_minus_sign:                                                  | Available config options for making requests.                       |
 
@@ -72,23 +68,23 @@ Use the `include` parameter to include related price entities in the response.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { GetProductResponse } from "Paddle/dist/sdk/models/operations";
 import { IncludeProduct } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.products.get({
-  include: IncludeProduct.Prices,
-  productId: "pro_01gsz4vmqbjk3x4vvtafffd540",
-}).then((res: GetProductResponse) => {
+  const res = await sdk.products.get({
+    productId: "pro_01gsz4vmqbjk3x4vvtafffd540",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -117,28 +113,21 @@ Use the `include` parameter to include related price entities in the response.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ListProductsResponse } from "Paddle/dist/sdk/models/operations";
 import { IncludeProduct, Status, TaxCategory } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.products.list({
-  after: "Northeast Metal Canada",
-  id: "<ID>",
-  include: IncludeProduct.Prices,
-  orderBy: "Data Response West",
-  perPage: 718303,
-  status: Status.Archived,
-  taxCategory: TaxCategory.DigitalGoods,
-}).then((res: ListProductsResponse) => {
+  const res = await sdk.products.list({});
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -167,30 +156,25 @@ If successful, your response includes a copy of the updated product entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { UpdateProductResponse } from "Paddle/dist/sdk/models/operations";
-import { Schemasstatus, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.products.update({
-  productPatch: {
-    customData: {},
-    description: "Synchronised 3rd generation matrix",
-    imageUrl: "http://grand-pupa.org",
-    name: "Quality",
-    status: Schemasstatus.Active,
-    taxCategory: TaxCategory1.ProfessionalServices,
-  },
-  productId: "pro_01gsz4vmqbjk3x4vvtafffd540",
-}).then((res: UpdateProductResponse) => {
+  const res = await sdk.products.update({
+    requestBody: {
+      "Van": "East",
+    },
+    productId: "pro_01gsz4vmqbjk3x4vvtafffd540",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -34,95 +34,49 @@ Use the `include` parameter to include related entities in the response.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CreateTransactionResponse } from "Paddle/dist/sdk/models/operations";
-import {
-  CollectionMode2,
-  CountryCode2,
-  CurrencyCode2,
-  IncludeTransaction,
-  Period2Interval,
-  TaxMode1,
-} from "Paddle/dist/sdk/models/shared";
+import { CollectionMode2, CurrencyCode2, IncludeTransaction, Period2Interval } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.transactionService.create({
-  include: IncludeTransaction.AdjustmentsTotals,
-  transactionCreateInput: {
-    addressId: "bluetooth",
-    billedAt: new Date("2024-10-12T07:20:50.52Z"),
-    billingDetails: {
-      additionalInformation: "Money blue shred",
-      enableCheckout: false,
-      paymentTerms: {
-        frequency: 376844,
-        interval: Period2Interval.Year,
-      },
-      purchaseOrderNumber: "East orange Northwest",
-    },
-    billingPeriod: {
-      endsAt: new Date("2024-10-12T07:20:50.52Z"),
-      startsAt: new Date("2024-10-12T07:20:50.52Z"),
-    },
-    businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-    collectionMode: CollectionMode2.Manual,
-    currencyCode: CurrencyCode2.Try,
-    customData: {},
-    customerId: "Gasoline",
-    discountId: "dsc_01gv5kpg05xp104ek2fmgjwttf",
-    id: "txn_01h04vsbhqc62t8hmd4z3b578c",
-    items: [
-      {
-        price: {
-          billingCycle: {
-            frequency: 586220,
-            interval: Period2Interval.Year,
-          },
-          customData: {},
-          description: "Reverse-engineered human-resource time-frame",
-          id: "pri_01gsz8z1q1n00f12qt82y31smh",
-          productId: "pro_01gsz97mq9pa4fkyy0wqenepkz",
-          quantity: {
-            maximum: 100,
-            minimum: 1,
-          },
-          taxMode: TaxMode1.External,
-          trialPeriod: {
-            frequency: 357021,
-            interval: Period2Interval.Day,
-          },
-          unitPrice: {
-            amount: "259.63",
-            currencyCode: CurrencyCode2.Uah,
-          },
-          unitPriceOverrides: [
-            {
-              countryCodes: [
-                CountryCode2.Al,
-              ],
-              unitPrice: {
-                amount: "519.03",
-                currencyCode: CurrencyCode2.Czk,
-              },
-            },
-          ],
+  const res = await sdk.transactionService.create({
+    transactionCreateInput: {
+      billedAt: new Date("2024-10-12T07:20:50.52Z"),
+      billingDetails: {
+        paymentTerms: {
+          frequency: 486589,
+          interval: Period2Interval.Week,
         },
-        priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-        quantity: 207565,
       },
-    ],
-    status: "Fish",
-    subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
-  },
-}).then((res: CreateTransactionResponse) => {
+      billingPeriod: {
+        endsAt: new Date("2024-10-12T07:20:50.52Z"),
+        startsAt: new Date("2024-10-12T07:20:50.52Z"),
+      },
+      businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
+      customData: {},
+      discountId: "dsc_01gv5kpg05xp104ek2fmgjwttf",
+      id: "txn_01h04vsbhqc62t8hmd4z3b578c",
+      items: [
+        {
+          price: {
+            "Configuration": "Money",
+          },
+          priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
+          quantity: 786546,
+        },
+      ],
+      subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -149,23 +103,23 @@ Use the `include` parameter to include related entities in the response.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { GetTransactionResponse } from "Paddle/dist/sdk/models/operations";
 import { IncludeTransaction } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.transactionService.get({
-  include: IncludeTransaction.Customer,
-  transactionId: "txn_01gw225vv6tjbb5gnt062a3k5v",
-}).then((res: GetTransactionResponse) => {
+  const res = await sdk.transactionService.get({
+    transactionId: "txn_01gw225vv6tjbb5gnt062a3k5v",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -192,34 +146,28 @@ Use the `include` parameter to include related entities in the response.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { ListTransactionsResponse } from "Paddle/dist/sdk/models/operations";
 import { CollectionMode, IncludeTransaction, StatusTransaction } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.transactionService.list({
-  after: "Northeast Metal Canada",
-  billedAt: "2023-04-18T17:03:26",
-  collectionMode: CollectionMode.Manual,
-  createdAt: "2023-04-18T17:03:26",
-  customerId: "ctm_01gt25aq4b2zcfw12szwtjrbdt",
-  id: "<ID>",
-  include: IncludeTransaction.Business,
-  invoiceNumber: "ABC-12345",
-  orderBy: "Response West male",
-  perPage: 86140,
-  status: StatusTransaction.Billed,
-  subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
-  updatedAt: "2023-04-18T17:03:26",
-}).then((res: ListTransactionsResponse) => {
+  const res = await sdk.transactionService.list({
+    billedAt: "2023-04-18T17:03:26",
+    createdAt: "2023-04-18T17:03:26",
+    customerId: "ctm_01gt25aq4b2zcfw12szwtjrbdt",
+    invoiceNumber: "ABC-12345",
+    subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
+    updatedAt: "2023-04-18T17:03:26",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -260,78 +208,44 @@ Transaction previews do not create transactions, so no `id` is returned.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { PreviewTransactionResponse } from "Paddle/dist/sdk/models/operations";
-import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/dist/sdk/models/shared";
+import { CountryCode2, CurrencyCode2 } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
-
-sdk.transactionService.previewTransaction({
-  address: {
-    countryCode: CountryCode2.Hm,
-    postalCode: "11105-1803",
-  },
-  addressId: "add_01gm302t81w94gyjpjpqypkzkf",
-  adjustmentsTotals: {
-    otherBalances: [
-      "North",
-    ],
-  },
-  businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-  currencyCode: CurrencyCode2.Mxn,
-  customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
-  customerIpAddress: "Savings transmit tan",
-  discountId: "dsc_01gv5kpg05xp104ek2fmgjwttf",
-  ignoreTrials: false,
-  items: [
-    {
-      includeInTotals: false,
-      price: {
-        billingCycle: {
-          frequency: 409285,
-          interval: Period2Interval.Year,
-        },
-        customData: {},
-        description: "Down-sized upward-trending parallelism",
-        id: "pri_01gsz8z1q1n00f12qt82y31smh",
-        productId: "pro_01gsz97mq9pa4fkyy0wqenepkz",
-        quantity: {
-          maximum: 100,
-          minimum: 1,
-        },
-        taxMode: TaxMode1.AccountSetting,
-        trialPeriod: {
-          frequency: 274981,
-          interval: Period2Interval.Week,
-        },
-        unitPrice: {
-          amount: "533.25",
-          currencyCode: CurrencyCode2.Dkk,
-        },
-        unitPriceOverrides: [
-          {
-            countryCodes: [
-              CountryCode2.Je,
-            ],
-            unitPrice: {
-              amount: "250.01",
-              currencyCode: CurrencyCode2.Brl,
-            },
-          },
-        ],
-      },
-      priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-      quantity: 266235,
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
     },
-  ],
-}).then((res: PreviewTransactionResponse) => {
+  });
+
+  const res = await sdk.transactionService.previewTransaction({
+    address: {
+      countryCode: CountryCode2.Hm,
+      postalCode: "11105-1803",
+    },
+    addressId: "add_01gm302t81w94gyjpjpqypkzkf",
+    adjustmentsTotals: {
+      otherBalances: [
+        "North",
+      ],
+    },
+    businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
+    customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+    discountId: "dsc_01gv5kpg05xp104ek2fmgjwttf",
+    items: [
+      {
+        price: {
+          "Latin": "Savings",
+        },
+        priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
+        quantity: 540068,
+      },
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -366,37 +280,36 @@ Each line item includes `formatted_unit_totals` and `formatted_totals` objects t
 
 ```typescript
 import { Paddle } from "Paddle";
-import { PricePreviewResponse } from "Paddle/dist/sdk/models/operations";
 import { CountryCode2, CurrencyCode2 } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
-
-sdk.transactionService.pricePreview({
-  address: {
-    countryCode: CountryCode2.Vu,
-    postalCode: "11105-1803",
-  },
-  addressId: "add_01gm302t81w94gyjpjpqypkzkf",
-  businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-  currencyCode: CurrencyCode2.Eur,
-  customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
-  customerIpAddress: "disguise Northeast",
-  discountId: "dsc_01gv5kpg05xp104ek2fmgjwttf",
-  items: [
-    {
-      priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-      quantity: 100959,
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
     },
-  ],
-}).then((res: PricePreviewResponse) => {
+  });
+
+  const res = await sdk.transactionService.pricePreview({
+    address: {
+      countryCode: CountryCode2.Vu,
+      postalCode: "11105-1803",
+    },
+    addressId: "add_01gm302t81w94gyjpjpqypkzkf",
+    businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
+    customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+    discountId: "dsc_01gv5kpg05xp104ek2fmgjwttf",
+    items: [
+      {
+        priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
+        quantity: 276229,
+      },
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -432,88 +345,52 @@ If successful, your response includes a copy of the updated transaction entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { UpdateTransactionResponse } from "Paddle/dist/sdk/models/operations";
-import { CollectionMode2, CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/dist/sdk/models/shared";
+import { CollectionMode2, CurrencyCode2, Period2Interval } from "Paddle/dist/sdk/models/shared";
 
-const sdk = new Paddle({
-  security: {
-    bearerAuth: "YOUR_API_KEY",
-  },
-});
+(async() => {
+  const sdk = new Paddle({
+    security: {
+      bearerAuth: "YOUR_API_KEY",
+    },
+  });
 
-sdk.transactionService.update({
-  transactionUpdateInput: {
-    addressId: "add_01gm302t81w94gyjpjpqypkzkf",
-    billedAt: new Date("2024-10-12T07:20:50.52Z"),
-    billingDetails: {
-      additionalInformation: "New Reactive dock",
-      enableCheckout: false,
-      paymentTerms: {
-        frequency: 627690,
-        interval: Period2Interval.Month,
-      },
-      purchaseOrderNumber: "invoice Arizona",
-    },
-    billingPeriod: {
-      endsAt: new Date("2024-10-12T07:20:50.52Z"),
-      startsAt: new Date("2024-10-12T07:20:50.52Z"),
-    },
-    businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-    collectionMode: CollectionMode2.Automatic,
-    currencyCode: CurrencyCode2.Twd,
-    customData: {},
-    customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
-    discountId: "dsc_01gv5kpg05xp104ek2fmgjwttf",
-    id: "txn_01h04vsbhqc62t8hmd4z3b578c",
-    items: [
-      {
-        price: {
-          billingCycle: {
-            frequency: 499557,
-            interval: Period2Interval.Week,
-          },
-          customData: {},
-          description: "Horizontal dynamic productivity",
-          id: "pri_01gsz8z1q1n00f12qt82y31smh",
-          productId: "pro_01gsz97mq9pa4fkyy0wqenepkz",
-          quantity: {
-            maximum: 100,
-            minimum: 1,
-          },
-          taxMode: TaxMode1.AccountSetting,
-          trialPeriod: {
-            frequency: 366807,
-            interval: Period2Interval.Day,
-          },
-          unitPrice: {
-            amount: "644.71",
-            currencyCode: CurrencyCode2.Sgd,
-          },
-          unitPriceOverrides: [
-            {
-              countryCodes: [
-                CountryCode2.Za,
-              ],
-              unitPrice: {
-                amount: "889.84",
-                currencyCode: CurrencyCode2.Hkd,
-              },
-            },
-          ],
+  const res = await sdk.transactionService.update({
+    transactionUpdateInput: {
+      addressId: "add_01gm302t81w94gyjpjpqypkzkf",
+      billedAt: new Date("2024-10-12T07:20:50.52Z"),
+      billingDetails: {
+        paymentTerms: {
+          frequency: 857478,
+          interval: Period2Interval.Day,
         },
-        priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-        quantity: 302461,
       },
-    ],
-    status: "East",
-    subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
-  },
-  transactionId: "txn_01gw225vv6tjbb5gnt062a3k5v",
-}).then((res: UpdateTransactionResponse) => {
+      billingPeriod: {
+        endsAt: new Date("2024-10-12T07:20:50.52Z"),
+        startsAt: new Date("2024-10-12T07:20:50.52Z"),
+      },
+      businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
+      customData: {},
+      customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+      discountId: "dsc_01gv5kpg05xp104ek2fmgjwttf",
+      id: "txn_01h04vsbhqc62t8hmd4z3b578c",
+      items: [
+        {
+          price: {
+            "Rock": "Reactive",
+          },
+          priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
+          quantity: 991464,
+        },
+      ],
+      subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
+    },
+    transactionId: "txn_01gw225vv6tjbb5gnt062a3k5v",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
