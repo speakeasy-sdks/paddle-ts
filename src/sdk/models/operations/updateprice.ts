@@ -9,7 +9,7 @@ import { Expose, Type } from "class-transformer";
 
 export class UpdatePriceRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    requestBody?: Record<string, any>;
+    priceUpdate?: shared.PriceUpdate;
 
     /**
      * Paddle ID of the price entity to work with.
@@ -27,7 +27,8 @@ export class UpdatePrice200ApplicationJSON extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    data: Record<string, any>;
+    @Type(() => shared.Price)
+    data: shared.Price;
 
     /**
      * Information about this response.

@@ -15,6 +15,9 @@ export enum Period2Interval {
     Year = "year",
 }
 
+/**
+ * How often this price should be charged. `null` if price is non-recurring (one-time).
+ */
 export class Period2 extends SpeakeasyBase {
     /**
      * Amount of time.

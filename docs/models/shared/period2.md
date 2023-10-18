@@ -1,5 +1,7 @@
 # Period2
 
+How often this price should be charged. `null` if price is non-recurring (one-time).
+
 
 ## Fields
 

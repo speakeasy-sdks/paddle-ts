@@ -5,6 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AddressPreview } from "./addresspreview";
 import { CurrencyCode2 } from "./currencycode2";
+import { Price, PriceInput } from "./price";
 import { TransactionItemProration } from "./transactionitemproration";
 import { TransactionPreviewAdjustmentTotals } from "./transactionpreviewadjustmenttotals";
 import { TransactionPreviewDetails } from "./transactionpreviewdetails";
@@ -23,7 +24,8 @@ export class TransactionPreviewTransactionItemPreviewInput extends SpeakeasyBase
      */
     @SpeakeasyMetadata()
     @Expose({ name: "price" })
-    price?: Record<string, any>;
+    @Type(() => PriceInput)
+    price?: PriceInput;
 
     /**
      * Unique Paddle ID for this price, prefixed with `pri_`.
@@ -135,7 +137,8 @@ export class TransactionPreviewTransactionItemPreview extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "price" })
-    price?: Record<string, any>;
+    @Type(() => Price)
+    price?: Price;
 
     /**
      * Unique Paddle ID for this price, prefixed with `pri_`.

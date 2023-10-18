@@ -41,7 +41,14 @@ Use the `include` parameter to include related entities in the response.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CollectionMode2, CurrencyCode2, IncludeTransaction, Period2Interval } from "Paddle/dist/sdk/models/shared";
+import {
+  CollectionMode2,
+  CountryCode2,
+  CurrencyCode2,
+  IncludeTransaction,
+  Period2Interval,
+  TaxMode1,
+} from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -70,10 +77,39 @@ import { CollectionMode2, CurrencyCode2, IncludeTransaction, Period2Interval } f
       items: [
         {
           price: {
-            "Configuration": "Money",
+            billingCycle: {
+              frequency: 638424,
+              interval: Period2Interval.Year,
+            },
+            customData: {},
+            id: "pri_01gsz8z1q1n00f12qt82y31smh",
+            productId: "pro_01gsz97mq9pa4fkyy0wqenepkz",
+            quantity: {
+              maximum: 100,
+              minimum: 1,
+            },
+            trialPeriod: {
+              frequency: 417458,
+              interval: Period2Interval.Week,
+            },
+            unitPrice: {
+              amount: "134.36",
+              currencyCode: CurrencyCode2.Sgd,
+            },
+            unitPriceOverrides: [
+              {
+                countryCodes: [
+                  CountryCode2.Bb,
+                ],
+                unitPrice: {
+                  amount: "996.71",
+                  currencyCode: CurrencyCode2.Thb,
+                },
+              },
+            ],
           },
           priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-          quantity: 786546,
+          quantity: 376844,
         },
       ],
       subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
@@ -262,7 +298,7 @@ Transaction previews do not create transactions, so no `id` is returned.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CountryCode2, CurrencyCode2 } from "Paddle/dist/sdk/models/shared";
+import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -288,10 +324,39 @@ import { CountryCode2, CurrencyCode2 } from "Paddle/dist/sdk/models/shared";
     items: [
       {
         price: {
-          "Latin": "Savings",
+          billingCycle: {
+            frequency: 581016,
+            interval: Period2Interval.Month,
+          },
+          customData: {},
+          id: "pri_01gsz8z1q1n00f12qt82y31smh",
+          productId: "pro_01gsz97mq9pa4fkyy0wqenepkz",
+          quantity: {
+            maximum: 100,
+            minimum: 1,
+          },
+          trialPeriod: {
+            frequency: 403361,
+            interval: Period2Interval.Day,
+          },
+          unitPrice: {
+            amount: "162.30",
+            currencyCode: CurrencyCode2.Krw,
+          },
+          unitPriceOverrides: [
+            {
+              countryCodes: [
+                CountryCode2.Si,
+              ],
+              unitPrice: {
+                amount: "797.35",
+                currencyCode: CurrencyCode2.Jpy,
+              },
+            },
+          ],
         },
         priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-        quantity: 540068,
+        quantity: 409285,
       },
     ],
   });
@@ -399,7 +464,7 @@ If successful, your response includes a copy of the updated transaction entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CollectionMode2, CurrencyCode2, Period2Interval } from "Paddle/dist/sdk/models/shared";
+import { CollectionMode2, CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -430,10 +495,39 @@ import { CollectionMode2, CurrencyCode2, Period2Interval } from "Paddle/dist/sdk
       items: [
         {
           price: {
-            "Rock": "Reactive",
+            billingCycle: {
+              frequency: 597129,
+              interval: Period2Interval.Day,
+            },
+            customData: {},
+            id: "pri_01gsz8z1q1n00f12qt82y31smh",
+            productId: "pro_01gsz97mq9pa4fkyy0wqenepkz",
+            quantity: {
+              maximum: 100,
+              minimum: 1,
+            },
+            trialPeriod: {
+              frequency: 344620,
+              interval: Period2Interval.Month,
+            },
+            unitPrice: {
+              amount: "991.47",
+              currencyCode: CurrencyCode2.Dkk,
+            },
+            unitPriceOverrides: [
+              {
+                countryCodes: [
+                  CountryCode2.Mw,
+                ],
+                unitPrice: {
+                  amount: "684.20",
+                  currencyCode: CurrencyCode2.Jpy,
+                },
+              },
+            ],
           },
           priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-          quantity: 991464,
+          quantity: 443076,
         },
       ],
       subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",

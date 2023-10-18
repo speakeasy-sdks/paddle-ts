@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Price, PriceInput } from "./price";
 import { TransactionItemProration } from "./transactionitemproration";
 import { Expose, Type } from "class-transformer";
 
@@ -12,7 +13,8 @@ export class TransactionItemInput extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "price" })
-    price?: Record<string, any>;
+    @Type(() => PriceInput)
+    price?: PriceInput;
 
     /**
      * Unique Paddle ID for this price, prefixed with `pri_`.
@@ -35,7 +37,8 @@ export class TransactionItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "price" })
-    price?: Record<string, any>;
+    @Type(() => Price)
+    price?: Price;
 
     /**
      * Unique Paddle ID for this price, prefixed with `pri_`.

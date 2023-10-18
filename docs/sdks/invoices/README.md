@@ -73,7 +73,7 @@ If successful, your response includes a copy of the new invoice entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CurrencyCodeInvoice, InvoiceBillingPeriodType, Period1Interval } from "Paddle/dist/sdk/models/shared";
+import { CurrencyCodeInvoice, InvoiceBillingPeriodType, Period1Interval, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 import { RFCDate } from "Paddle/dist/sdk/types";
 
 (async() => {
@@ -104,7 +104,8 @@ import { RFCDate } from "Paddle/dist/sdk/types";
       lineItems: [
         {
           product: {
-            "South": "shred",
+            customData: {},
+            id: "pro_01gsz97mq9pa4fkyy0wqenepkz",
           },
         },
       ],
@@ -114,7 +115,7 @@ import { RFCDate } from "Paddle/dist/sdk/types";
         price: {
           productId: "pro_01ghbkd0frb9k95cnhwd1bxpvk",
           unitPrice: {
-            amount: "376.84",
+            amount: "134.36",
             currencyCode: CurrencyCodeInvoice.Usd,
           },
         },

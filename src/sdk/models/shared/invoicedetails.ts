@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Product, ProductInput } from "./product";
 import { Totals2 } from "./totals2";
 import { Expose, Type } from "class-transformer";
 
@@ -12,7 +13,8 @@ export class InvoiceDetailsLineItems extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "product" })
-    product?: Record<string, any>;
+    @Type(() => Product)
+    product?: Product;
 
     @SpeakeasyMetadata()
     @Expose({ name: "quantity" })
@@ -60,7 +62,8 @@ export class InvoiceDetailsLineItemsInput extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "product" })
-    product?: Record<string, any>;
+    @Type(() => ProductInput)
+    product?: ProductInput;
 
     @SpeakeasyMetadata()
     @Expose({ name: "quantity" })

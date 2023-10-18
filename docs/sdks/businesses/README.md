@@ -38,11 +38,11 @@ import { Paddle } from "Paddle";
       contacts: [
         {
           email: "weloveyourproduct@paddle.com",
-          name: "bluetooth Extended",
+          name: "online",
         },
       ],
       id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-      name: "blue",
+      name: "Configuration",
       taxIdentifier: "AB0123456789",
     },
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
@@ -178,7 +178,7 @@ import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
       contacts: [
         {
           email: "weloveyourproduct@paddle.com",
-          name: "New Reactive dock",
+          name: "Van",
         },
       ],
       id: "biz_01grrebrzaee2qj2fqqhmcyzaj",

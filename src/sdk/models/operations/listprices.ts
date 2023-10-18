@@ -61,9 +61,10 @@ export class ListPricesRequest extends SpeakeasyBase {
  * OK
  */
 export class ListPrices200ApplicationJSON extends SpeakeasyBase {
-    @SpeakeasyMetadata()
+    @SpeakeasyMetadata({ elemType: shared.PriceIncludes })
     @Expose({ name: "data" })
-    data: Record<string, any>[];
+    @Type(() => shared.PriceIncludes)
+    data: shared.PriceIncludes[];
 
     /**
      * Information about this response.

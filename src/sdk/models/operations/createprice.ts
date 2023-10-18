@@ -16,7 +16,8 @@ export class CreatePrice201ApplicationJSON extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    data: Record<string, any>;
+    @Type(() => shared.Price)
+    data: shared.Price;
 
     /**
      * Information about this response.

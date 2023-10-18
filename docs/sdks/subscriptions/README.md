@@ -83,6 +83,7 @@ Once created, to get details of a one-time charge:
 
 ```typescript
 import { Paddle } from "Paddle";
+import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -92,8 +93,14 @@ import { Paddle } from "Paddle";
   });
 
   const res = await sdk.subscriptions.create({
-    requestBody: {
-      "online": "Configuration",
+    subscriptionCharge: {
+      effectiveFrom: EffectiveFrom.NextBillingPeriod,
+      items: [
+        {
+          priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
+          quantity: 5,
+        },
+      ],
     },
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   });
@@ -126,6 +133,7 @@ Previews a new one-off charge for a subscription. Use to preview the outcome of 
 
 ```typescript
 import { Paddle } from "Paddle";
+import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -135,8 +143,14 @@ import { Paddle } from "Paddle";
   });
 
   const res = await sdk.subscriptions.createPreview({
-    requestBody: {
-      "phew": "Planner",
+    subscriptionCharge: {
+      effectiveFrom: EffectiveFrom.NextBillingPeriod,
+      items: [
+        {
+          priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
+          quantity: 5,
+        },
+      ],
     },
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   });
@@ -386,7 +400,7 @@ import {
       },
       items: [
         {
-          "Magnesium": "Corporate",
+          priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
         },
       ],
       nextBilledAt: new Date("2024-10-12T07:20:50.52Z"),
@@ -508,7 +522,7 @@ import {
       },
       items: [
         {
-          "East": "male",
+          priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
         },
       ],
       nextBilledAt: new Date("2024-10-12T07:20:50.52Z"),

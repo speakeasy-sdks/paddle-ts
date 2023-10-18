@@ -41,11 +41,11 @@ import { NotificationSettingCreateType } from "Paddle/dist/sdk/models/shared";
 
   const res = await sdk.notifications.createSetting({
     description: "Profound maximized orchestration",
-    destination: "Forward",
+    destination: "olive",
     subscribedEvents: [
-      "Volvo",
+      "between",
     ],
-    type: NotificationSettingCreateType.Email,
+    type: NotificationSettingCreateType.Url,
   });
 
   if (res.statusCode == 200) {

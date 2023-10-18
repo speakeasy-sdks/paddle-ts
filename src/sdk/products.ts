@@ -33,10 +33,14 @@ export class Products {
      * If successful, your response includes a copy of the new product entity.
      */
     async create(
-        req: Record<string, any>,
+        req: shared.ProductCreate,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateProductResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new shared.ProductCreate(req);
+        }
+
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -509,7 +513,7 @@ export class Products {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "productPatch", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);

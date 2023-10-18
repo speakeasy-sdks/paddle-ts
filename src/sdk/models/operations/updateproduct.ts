@@ -9,7 +9,7 @@ import { Expose, Type } from "class-transformer";
 
 export class UpdateProductRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    requestBody?: Record<string, any>;
+    productPatch?: shared.ProductPatch;
 
     /**
      * Paddle ID of the product entity to work with.
@@ -27,7 +27,8 @@ export class UpdateProduct200ApplicationJSON extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    data: Record<string, any>;
+    @Type(() => shared.Product)
+    data: shared.Product;
 
     /**
      * Information about this response.

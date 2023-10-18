@@ -72,9 +72,9 @@ import {
       tax: "1500",
       total: "16500",
     },
-    reason: "Configuration Money",
+    reason: "bluetooth",
     subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
-    transactionId: "blue",
+    transactionId: "Extended",
   });
 
   if (res.statusCode == 200) {

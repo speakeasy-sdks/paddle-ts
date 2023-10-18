@@ -30,7 +30,8 @@ export class GetPrice200ApplicationJSON extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    data: Record<string, any>;
+    @Type(() => shared.PriceIncludes)
+    data: shared.PriceIncludes;
 
     /**
      * Information about this response.

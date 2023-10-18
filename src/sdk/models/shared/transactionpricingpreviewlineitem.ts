@@ -3,6 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Price } from "./price";
+import { Product } from "./product";
 import { Totals2 } from "./totals2";
 import { TotalsFormatted } from "./totalsformatted";
 import { TransactionPricingPreviewLineItemDiscount } from "./transactionpricingpreviewlineitemdiscount";
@@ -43,14 +45,16 @@ export class TransactionPricingPreviewLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "price" })
-    price?: Record<string, any>;
+    @Type(() => Price)
+    price?: Price;
 
     /**
      * Represents a product entity.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "product" })
-    product?: Record<string, any>;
+    @Type(() => Product)
+    product?: Product;
 
     /**
      * Quantity of this preview line item.

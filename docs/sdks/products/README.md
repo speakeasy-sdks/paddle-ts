@@ -26,6 +26,7 @@ If successful, your response includes a copy of the new product entity.
 
 ```typescript
 import { Paddle } from "Paddle";
+import { TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -35,7 +36,9 @@ import { Paddle } from "Paddle";
   });
 
   const res = await sdk.products.create({
-    "online": "Configuration",
+    customData: {},
+    name: "online",
+    taxCategory: TaxCategory1.SoftwareProgrammingServices,
   });
 
   if (res.statusCode == 200) {
@@ -48,7 +51,7 @@ import { Paddle } from "Paddle";
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [Record<string, any>](../../models//.md)                            | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `request`                                                           | [shared.ProductCreate](../../models/shared/productcreate.md)        | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 | `retries`                                                           | [utils.RetryConfig](../../models/utils/retryconfig.md)              | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 | `config`                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)        | :heavy_minus_sign:                                                  | Available config options for making requests.                       |
 
@@ -156,6 +159,7 @@ If successful, your response includes a copy of the updated product entity.
 
 ```typescript
 import { Paddle } from "Paddle";
+import { Schemasstatus, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -165,8 +169,8 @@ import { Paddle } from "Paddle";
   });
 
   const res = await sdk.products.update({
-    requestBody: {
-      "Van": "East",
+    productPatch: {
+      customData: {},
     },
     productId: "pro_01gsz4vmqbjk3x4vvtafffd540",
   });

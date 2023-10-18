@@ -28,6 +28,7 @@ If successful, your response includes a copy of the new price entity.
 
 ```typescript
 import { Paddle } from "Paddle";
+import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -37,7 +38,36 @@ import { Paddle } from "Paddle";
   });
 
   const res = await sdk.prices.create({
-    "online": "Configuration",
+    billingCycle: {
+      frequency: 486589,
+      interval: Period2Interval.Week,
+    },
+    customData: {},
+    description: "Proactive systematic Graphical User Interface",
+    productId: "innovative",
+    quantity: {
+      maximum: 100,
+      minimum: 1,
+    },
+    trialPeriod: {
+      frequency: 786546,
+      interval: Period2Interval.Day,
+    },
+    unitPrice: {
+      amount: "996.71",
+      currencyCode: CurrencyCode2.Thb,
+    },
+    unitPriceOverrides: [
+      {
+        countryCodes: [
+          CountryCode2.Gw,
+        ],
+        unitPrice: {
+          amount: "951.07",
+          currencyCode: CurrencyCode2.Twd,
+        },
+      },
+    ],
   });
 
   if (res.statusCode == 200) {
@@ -50,7 +80,7 @@ import { Paddle } from "Paddle";
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [Record<string, any>](../../models//.md)                            | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `request`                                                           | [shared.PriceCreate](../../models/shared/pricecreate.md)            | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 | `retries`                                                           | [utils.RetryConfig](../../models/utils/retryconfig.md)              | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 | `config`                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)        | :heavy_minus_sign:                                                  | Available config options for making requests.                       |
 
@@ -158,6 +188,7 @@ If successful, your response includes a copy of the updated price entity.
 
 ```typescript
 import { Paddle } from "Paddle";
+import { CountryCode2, CurrencyCode2, Period2Interval, Schemasstatus, TaxMode1 } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -167,8 +198,35 @@ import { Paddle } from "Paddle";
   });
 
   const res = await sdk.prices.update({
-    requestBody: {
-      "Van": "East",
+    priceUpdate: {
+      billingCycle: {
+        frequency: 857478,
+        interval: Period2Interval.Day,
+      },
+      customData: {},
+      quantity: {
+        maximum: 100,
+        minimum: 1,
+      },
+      trialPeriod: {
+        frequency: 597129,
+        interval: Period2Interval.Day,
+      },
+      unitPrice: {
+        amount: "344.62",
+        currencyCode: CurrencyCode2.Rub,
+      },
+      unitPriceOverrides: [
+        {
+          countryCodes: [
+            CountryCode2.Za,
+          ],
+          unitPrice: {
+            amount: "270.32",
+            currencyCode: CurrencyCode2.Nzd,
+          },
+        },
+      ],
     },
     priceId: "pri_01gvne87kv8vbqa9jkfbmgtsed",
   });

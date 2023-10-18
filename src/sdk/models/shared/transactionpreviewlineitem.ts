@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Product } from "./product";
 import { Totals1 } from "./totals1";
 import { UnitTotals } from "./unittotals";
 import { Expose, Type } from "class-transformer";
@@ -23,7 +24,8 @@ export class TransactionPreviewLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "product" })
-    product?: Record<string, any>;
+    @Type(() => Product)
+    product?: Product;
 
     /**
      * Quantity of this transaction line item.
