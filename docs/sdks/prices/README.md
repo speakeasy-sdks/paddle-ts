@@ -44,27 +44,27 @@ import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/d
     },
     customData: {},
     description: "Proactive systematic Graphical User Interface",
-    productId: "innovative",
+    productId: "string",
     quantity: {
       maximum: 100,
       minimum: 1,
     },
     trialPeriod: {
-      frequency: 786546,
+      frequency: 288408,
       interval: Period2Interval.Day,
     },
     unitPrice: {
-      amount: "996.71",
-      currencyCode: CurrencyCode2.Thb,
+      amount: "786.55",
+      currencyCode: CurrencyCode2.Brl,
     },
     unitPriceOverrides: [
       {
         countryCodes: [
-          CountryCode2.Gw,
+          CountryCode2.Zm,
         ],
         unitPrice: {
-          amount: "951.07",
-          currencyCode: CurrencyCode2.Twd,
+          amount: "796.48",
+          currencyCode: CurrencyCode2.Hkd,
         },
       },
     ],
