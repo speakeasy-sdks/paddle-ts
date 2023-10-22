@@ -38,11 +38,11 @@ import { Paddle } from "Paddle";
       contacts: [
         {
           email: "weloveyourproduct@paddle.com",
-          name: "online",
+          name: "string",
         },
       ],
       id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-      name: "Configuration",
+      name: "string",
       taxIdentifier: "AB0123456789",
     },
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
@@ -178,7 +178,7 @@ import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
       contacts: [
         {
           email: "weloveyourproduct@paddle.com",
-          name: "Van",
+          name: "string",
         },
       ],
       id: "biz_01grrebrzaee2qj2fqqhmcyzaj",

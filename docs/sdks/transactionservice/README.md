@@ -261,7 +261,7 @@ import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/d
     addressId: "add_01gm302t81w94gyjpjpqypkzkf",
     adjustmentsTotals: {
       otherBalances: [
-        "North",
+        "string",
       ],
     },
     businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
@@ -271,8 +271,8 @@ import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/d
       {
         price: {
           billingCycle: {
-            frequency: 581016,
-            interval: Period2Interval.Month,
+            frequency: 12239,
+            interval: Period2Interval.Day,
           },
           customData: {},
           id: "pri_01gsz8z1q1n00f12qt82y31smh",
@@ -282,27 +282,27 @@ import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/d
             minimum: 1,
           },
           trialPeriod: {
-            frequency: 403361,
-            interval: Period2Interval.Day,
+            frequency: 581016,
+            interval: Period2Interval.Month,
           },
           unitPrice: {
-            amount: "162.30",
-            currencyCode: CurrencyCode2.Krw,
+            amount: "403.36",
+            currencyCode: CurrencyCode2.Cny,
           },
           unitPriceOverrides: [
             {
               countryCodes: [
-                CountryCode2.Si,
+                CountryCode2.Ch,
               ],
               unitPrice: {
-                amount: "797.35",
-                currencyCode: CurrencyCode2.Jpy,
+                amount: "540.07",
+                currencyCode: CurrencyCode2.Thb,
               },
             },
           ],
         },
         priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-        quantity: 409285,
+        quantity: 797348,
       },
     ],
   });

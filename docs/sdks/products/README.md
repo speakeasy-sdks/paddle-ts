@@ -37,8 +37,8 @@ import { TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 
   const res = await sdk.products.create({
     customData: {},
-    name: "online",
-    taxCategory: TaxCategory1.SoftwareProgrammingServices,
+    name: "string",
+    taxCategory: TaxCategory1.Saas,
   });
 
   if (res.statusCode == 200) {
