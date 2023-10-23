@@ -39,9 +39,9 @@ import { CurrencyCode2, DiscountCreateType } from "Paddle/dist/sdk/models/shared
     expiresAt: new Date("2024-10-12T07:20:50.52Z"),
     id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
     restrictTo: [
-      "Money",
+      "string",
     ],
-    type: DiscountCreateType.Percentage,
+    type: DiscountCreateType.FlatPerSeat,
   });
 
   if (res.statusCode == 200) {
@@ -171,7 +171,7 @@ import { CurrencyCode2, DiscountType, SchemasstatusDiscount } from "Paddle/dist/
       expiresAt: new Date("2024-10-12T07:20:50.52Z"),
       id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
       restrictTo: [
-        "Van",
+        "string",
       ],
     },
     discountId: "dsc_01gt218xfk7yztpvgmcazkes83",

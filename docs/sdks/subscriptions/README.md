@@ -449,7 +449,7 @@ import { Paddle } from "Paddle";
   });
 
   const res = await sdk.subscriptions.resumeSubscription({
-    requestBody: "Hyundai",
+    requestBody: "string",
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   });
 
