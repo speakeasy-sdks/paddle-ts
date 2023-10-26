@@ -41,11 +41,11 @@ import { NotificationSettingCreateType } from "Paddle/dist/sdk/models/shared";
 
   const res = await sdk.notifications.createSetting({
     description: "Profound maximized orchestration",
-    destination: "olive",
+    destination: "string",
     subscribedEvents: [
-      "between",
+      "string",
     ],
-    type: NotificationSettingCreateType.Url,
+    type: NotificationSettingCreateType.Email,
   });
 
   if (res.statusCode == 200) {
@@ -430,7 +430,7 @@ import { Paddle } from "Paddle";
   const res = await sdk.notifications.updateSettings({
     notificationSettingUpdate: {
       subscribedEvents: [
-        "seize",
+        "string",
       ],
     },
     notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
