@@ -41,6 +41,7 @@ import { Paddle } from "Paddle";
     invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -123,6 +124,7 @@ import { RFCDate } from "Paddle/dist/sdk/types";
     ],
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -162,6 +164,7 @@ import { Paddle } from "Paddle";
   const res = await sdk.invoices.get({
     invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -204,6 +207,7 @@ import { Paddle } from "Paddle";
   const res = await sdk.invoices.getPdf({
     invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -257,6 +261,7 @@ import { Paddle } from "Paddle";
     invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -297,6 +302,7 @@ import { StatusInvoice } from "Paddle/dist/sdk/models/shared";
   const res = await sdk.invoices.list({
     search: "upgrade",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -371,6 +377,7 @@ import { RFCDate } from "Paddle/dist/sdk/types";
     },
     invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
