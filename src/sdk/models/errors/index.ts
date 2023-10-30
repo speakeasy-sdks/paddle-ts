@@ -17,6 +17,7 @@ export * from "./createsubscriptionchargepreview";
 export * from "./createtransaction";
 export * from "./deletenotificationsetting";
 export * from "./error";
+export * from "./error1";
 export * from "./errorvalidation";
 export * from "./getaddress";
 export * from "./getbusiness";

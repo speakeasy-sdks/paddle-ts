@@ -39,10 +39,11 @@ import { CurrencyCode2, DiscountCreateType } from "Paddle/dist/sdk/models/shared
     expiresAt: new Date("2024-10-12T07:20:50.52Z"),
     id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
     restrictTo: [
-      "Money",
+      "string",
     ],
-    type: DiscountCreateType.Percentage,
+    type: DiscountCreateType.FlatPerSeat,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -83,6 +84,7 @@ import { Paddle } from "Paddle";
   const res = await sdk.discounts.get({
     discountId: "dsc_01gt218xfk7yztpvgmcazkes83",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -126,6 +128,7 @@ import { StatusDiscount } from "Paddle/dist/sdk/models/shared";
   const res = await sdk.discounts.list({
     code: "BLACKFRIDAY",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -171,11 +174,12 @@ import { CurrencyCode2, DiscountType, SchemasstatusDiscount } from "Paddle/dist/
       expiresAt: new Date("2024-10-12T07:20:50.52Z"),
       id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
       restrictTo: [
-        "Van",
+        "string",
       ],
     },
     discountId: "dsc_01gt218xfk7yztpvgmcazkes83",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
