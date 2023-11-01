@@ -48,6 +48,7 @@ import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -88,6 +89,7 @@ import { Paddle } from "Paddle";
     addressId: "add_01gvcz6r0t0g5cphhwd8n952gb",
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -132,6 +134,7 @@ import { Status } from "Paddle/dist/sdk/models/shared";
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
     search: "upgrade",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -184,6 +187,7 @@ import { CountryCode2, Schemasstatus } from "Paddle/dist/sdk/models/shared";
     addressId: "add_01gvcz6r0t0g5cphhwd8n952gb",
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

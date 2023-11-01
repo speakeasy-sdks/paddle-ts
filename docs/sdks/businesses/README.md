@@ -38,15 +38,16 @@ import { Paddle } from "Paddle";
       contacts: [
         {
           email: "weloveyourproduct@paddle.com",
-          name: "online",
+          name: "string",
         },
       ],
       id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-      name: "Configuration",
+      name: "string",
       taxIdentifier: "AB0123456789",
     },
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -88,6 +89,7 @@ import { Paddle } from "Paddle";
     businessId: "biz_01gvcz4m28csa5kem2gqq5ymxn",
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -132,6 +134,7 @@ import { Status } from "Paddle/dist/sdk/models/shared";
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
     search: "upgrade",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -178,7 +181,7 @@ import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
       contacts: [
         {
           email: "weloveyourproduct@paddle.com",
-          name: "Van",
+          name: "string",
         },
       ],
       id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
@@ -187,6 +190,7 @@ import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
     businessId: "biz_01gvcz4m28csa5kem2gqq5ymxn",
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
