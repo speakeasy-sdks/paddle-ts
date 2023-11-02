@@ -171,9 +171,9 @@ export class Subscriptions {
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.ErrorT);
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.Error1);
                     err.rawResponse = httpRes;
-                    throw new errors.ErrorT(err);
+                    throw new errors.Error1(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1163,9 +1163,9 @@ export class Subscriptions {
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.ErrorT);
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.Error1);
                     err.rawResponse = httpRes;
-                    throw new errors.ErrorT(err);
+                    throw new errors.Error1(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1477,9 +1477,9 @@ export class Subscriptions {
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.ErrorT);
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.Error1);
                     err.rawResponse = httpRes;
-                    throw new errors.ErrorT(err);
+                    throw new errors.Error1(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1670,9 +1670,9 @@ export class Subscriptions {
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.ErrorT);
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.Error1);
                     err.rawResponse = httpRes;
-                    throw new errors.ErrorT(err);
+                    throw new errors.Error1(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
