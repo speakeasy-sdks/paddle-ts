@@ -116,6 +116,7 @@ import {
     },
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -158,6 +159,7 @@ import { IncludeTransaction } from "Paddle/dist/sdk/models/shared";
   const res = await sdk.transactions.get({
     transactionId: "txn_01gw225vv6tjbb5gnt062a3k5v",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -206,6 +208,7 @@ import { Paddle } from "Paddle";
     transactionId: "txn_01gw225vv6tjbb5gnt062a3k5v",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -253,6 +256,7 @@ import { CollectionMode, IncludeTransaction, StatusTransaction } from "Paddle/di
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
     updatedAt: "2023-04-18T17:03:26",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -315,7 +319,7 @@ import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/d
     addressId: "add_01gm302t81w94gyjpjpqypkzkf",
     adjustmentsTotals: {
       otherBalances: [
-        "North",
+        "string",
       ],
     },
     businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
@@ -325,8 +329,8 @@ import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/d
       {
         price: {
           billingCycle: {
-            frequency: 581016,
-            interval: Period2Interval.Month,
+            frequency: 12239,
+            interval: Period2Interval.Day,
           },
           customData: {},
           id: "pri_01gsz8z1q1n00f12qt82y31smh",
@@ -336,30 +340,31 @@ import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/d
             minimum: 1,
           },
           trialPeriod: {
-            frequency: 403361,
-            interval: Period2Interval.Day,
+            frequency: 581016,
+            interval: Period2Interval.Month,
           },
           unitPrice: {
-            amount: "162.30",
-            currencyCode: CurrencyCode2.Krw,
+            amount: "403.36",
+            currencyCode: CurrencyCode2.Cny,
           },
           unitPriceOverrides: [
             {
               countryCodes: [
-                CountryCode2.Si,
+                CountryCode2.Ch,
               ],
               unitPrice: {
-                amount: "797.35",
-                currencyCode: CurrencyCode2.Jpy,
+                amount: "540.07",
+                currencyCode: CurrencyCode2.Thb,
               },
             },
           ],
         },
         priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-        quantity: 409285,
+        quantity: 797348,
       },
     ],
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -424,6 +429,7 @@ import { CountryCode2, CurrencyCode2 } from "Paddle/dist/sdk/models/shared";
       },
     ],
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -534,6 +540,7 @@ import { CollectionMode2, CountryCode2, CurrencyCode2, Period2Interval, TaxMode1
     },
     transactionId: "txn_01gw225vv6tjbb5gnt062a3k5v",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
