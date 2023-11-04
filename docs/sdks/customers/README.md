@@ -38,6 +38,7 @@ import { Paddle } from "Paddle";
     id: "ctm_01grnn4zta5a1mf02jjze7y2ys",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -77,6 +78,7 @@ import { Paddle } from "Paddle";
   const res = await sdk.customers.get({
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -120,6 +122,7 @@ import { Status } from "Paddle/dist/sdk/models/shared";
   const res = await sdk.customers.list({
     search: "upgrade",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -172,6 +175,7 @@ import { Paddle } from "Paddle";
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -218,6 +222,7 @@ import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
     },
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

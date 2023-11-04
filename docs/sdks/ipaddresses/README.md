@@ -29,6 +29,7 @@ import { Paddle } from "Paddle";
 
   const res = await sdk.ipAddresses.get();
 
+
   if (res.statusCode == 200) {
     // handle response
   }
