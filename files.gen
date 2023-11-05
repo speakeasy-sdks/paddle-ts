@@ -275,6 +275,7 @@ src/sdk/models/errors/getproduct.ts
 src/sdk/models/errors/listproducts.ts
 src/sdk/models/errors/updateproduct.ts
 src/sdk/models/errors/cancelsubscription.ts
+src/sdk/models/errors/error1.ts
 src/sdk/models/errors/createsubscriptioncharge.ts
 src/sdk/models/errors/createsubscriptionchargepreview.ts
 src/sdk/models/errors/getsubscription.ts
@@ -825,6 +826,7 @@ docs/models/errors/updateproduct400applicationjson.md
 docs/models/errors/cancelsubscription500applicationjson.md
 docs/models/errors/cancelsubscription401applicationjson.md
 docs/models/errors/cancelsubscription400applicationjson.md
+docs/models/errors/error1.md
 docs/models/errors/createsubscriptioncharge500applicationjson.md
 docs/models/errors/createsubscriptioncharge400applicationjson.md
 docs/models/errors/createsubscriptionchargepreview500applicationjson.md
