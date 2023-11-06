@@ -72,10 +72,11 @@ import {
       tax: "1500",
       total: "16500",
     },
-    reason: "bluetooth",
+    reason: "string",
     subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
-    transactionId: "Extended",
+    transactionId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -119,6 +120,7 @@ import { Action, StatusAdjustment } from "Paddle/dist/sdk/models/shared";
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
     transactionId: "txn_01gw225vv6tjbb5gnt062a3k5v",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
