@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RFCDate } from "../../types";
+import { RFCDate } from "../../../sdk/types";
 import { BillingDetails1 } from "./billingdetails1";
 import { CurrencyCodeInvoice } from "./currencycodeinvoice";
 import { CustomDataInvoice } from "./customdatainvoice";
@@ -14,13 +14,13 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * The billing period type is set to `billing` for subscriptions.
  */
-export enum InvoiceBillingPeriodType {
+export enum InvoiceType {
     Billing = "billing",
     Contract = "contract",
     Service = "service",
 }
 
-export class InvoiceBillingPeriod extends SpeakeasyBase {
+export class BillingPeriod extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "ends_at" })
     @Type(() => String)
@@ -38,10 +38,10 @@ export class InvoiceBillingPeriod extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: InvoiceBillingPeriodType;
+    type: InvoiceType;
 }
 
-export class InvoiceCheckout extends SpeakeasyBase {
+export class Checkout extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "url" })
     url: string;
@@ -74,8 +74,8 @@ export class Invoice extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "billing_period" })
-    @Type(() => InvoiceBillingPeriod)
-    billingPeriod?: InvoiceBillingPeriod;
+    @Type(() => BillingPeriod)
+    billingPeriod?: BillingPeriod;
 
     @SpeakeasyMetadata()
     @Expose({ name: "business_id" })
@@ -83,8 +83,8 @@ export class Invoice extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "checkout" })
-    @Type(() => InvoiceCheckout)
-    checkout?: InvoiceCheckout;
+    @Type(() => Checkout)
+    checkout?: Checkout;
 
     @SpeakeasyMetadata()
     @Expose({ name: "created_at" })
@@ -175,8 +175,8 @@ export class InvoiceInput extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "billing_period" })
-    @Type(() => InvoiceBillingPeriod)
-    billingPeriod?: InvoiceBillingPeriod;
+    @Type(() => BillingPeriod)
+    billingPeriod?: BillingPeriod;
 
     @SpeakeasyMetadata()
     @Expose({ name: "business_id" })

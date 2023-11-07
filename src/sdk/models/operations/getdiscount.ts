@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
@@ -18,7 +18,7 @@ export class GetDiscountRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class GetDiscount200ApplicationJSON extends SpeakeasyBase {
+export class GetDiscountResponseBody extends SpeakeasyBase {
     /**
      * Represents a discount entity.
      */
@@ -37,6 +37,12 @@ export class GetDiscount200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class GetDiscountResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetDiscountResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -57,10 +63,4 @@ export class GetDiscountResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    getDiscount200ApplicationJSONObject?: GetDiscount200ApplicationJSON;
 }

@@ -1,5 +1,5 @@
 # Subscriptions
-(*subscriptions*)
+(*.subscriptions*)
 
 ## Overview
 
@@ -47,6 +47,7 @@ import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
     requestBody: {},
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -105,6 +106,7 @@ import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -155,6 +157,7 @@ import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -197,6 +200,7 @@ import { IncludeSubscription } from "Paddle/dist/sdk/models/shared";
   const res = await sdk.subscriptions.get({
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -245,6 +249,7 @@ import { Paddle } from "Paddle";
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -286,6 +291,7 @@ import { StatusSubscription } from "Paddle/dist/sdk/models/shared";
     customerId: "ctm_01gt25aq4b2zcfw12szwtjrbdt",
     priceId: "pri_01gvne87kv8vbqa9jkfbmgtsed",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -336,6 +342,7 @@ import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
     },
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -408,6 +415,7 @@ import {
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -449,9 +457,10 @@ import { Paddle } from "Paddle";
   });
 
   const res = await sdk.subscriptions.resumeSubscription({
-    requestBody: "Hyundai",
+    requestBody: "string",
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -529,6 +538,7 @@ import {
     },
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

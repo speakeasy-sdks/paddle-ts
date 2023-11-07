@@ -1,5 +1,5 @@
 # Discounts
-(*discounts*)
+(*.discounts*)
 
 ## Overview
 
@@ -24,7 +24,7 @@ If successful, your response includes a copy of the new discount entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CurrencyCode2, DiscountCreateType } from "Paddle/dist/sdk/models/shared";
+import { CurrencyCode2, TypeT } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -39,10 +39,11 @@ import { CurrencyCode2, DiscountCreateType } from "Paddle/dist/sdk/models/shared
     expiresAt: new Date("2024-10-12T07:20:50.52Z"),
     id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
     restrictTo: [
-      "Money",
+      "string",
     ],
-    type: DiscountCreateType.Percentage,
+    type: TypeT.FlatPerSeat,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -52,11 +53,11 @@ import { CurrencyCode2, DiscountCreateType } from "Paddle/dist/sdk/models/shared
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [shared.DiscountCreateInput](../../models/shared/discountcreateinput.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `retries`                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                   | :heavy_minus_sign:                                                       | Configuration to override the default retry behavior of the client.      |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [shared.DiscountCreate](../../models/shared/discountcreate.md)      | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `retries`                                                           | [utils.RetryConfig](../../models/utils/retryconfig.md)              | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| `config`                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)        | :heavy_minus_sign:                                                  | Available config options for making requests.                       |
 
 
 ### Response
@@ -83,6 +84,7 @@ import { Paddle } from "Paddle";
   const res = await sdk.discounts.get({
     discountId: "dsc_01gt218xfk7yztpvgmcazkes83",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -127,6 +129,7 @@ import { StatusDiscount } from "Paddle/dist/sdk/models/shared";
     code: "BLACKFRIDAY",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -157,7 +160,7 @@ If successful, your response includes a copy of the updated discount entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CurrencyCode2, DiscountType, SchemasstatusDiscount } from "Paddle/dist/sdk/models/shared";
+import { CurrencyCode2, DiscountType, SchemaStatusDiscount } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -167,15 +170,16 @@ import { CurrencyCode2, DiscountType, SchemasstatusDiscount } from "Paddle/dist/
   });
 
   const res = await sdk.discounts.update({
-    discountInput: {
+    discount: {
       expiresAt: new Date("2024-10-12T07:20:50.52Z"),
       id: "dsc_01gv5kpg05xp104ek2fmgjwttf",
       restrictTo: [
-        "Van",
+        "string",
       ],
     },
     discountId: "dsc_01gt218xfk7yztpvgmcazkes83",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

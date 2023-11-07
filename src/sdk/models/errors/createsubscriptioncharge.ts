@@ -11,7 +11,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class CreateSubscriptionCharge500ApplicationJSON extends Error {
+export class CreateSubscriptionChargeSubscriptionsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -24,7 +24,7 @@ export class CreateSubscriptionCharge500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CreateSubscriptionCharge500ApplicationJSON) {
+    constructor(err?: CreateSubscriptionChargeSubscriptionsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -33,15 +33,15 @@ export class CreateSubscriptionCharge500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateSubscriptionCharge500ApplicationJSON";
-        Object.setPrototypeOf(this, CreateSubscriptionCharge500ApplicationJSON.prototype);
+        this.name = "CreateSubscriptionChargeSubscriptionsResponseBody";
+        Object.setPrototypeOf(this, CreateSubscriptionChargeSubscriptionsResponseBody.prototype);
     }
 }
 
 /**
  * Error response for validation
  */
-export class CreateSubscriptionCharge400ApplicationJSON extends Error {
+export class CreateSubscriptionChargeResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -54,7 +54,7 @@ export class CreateSubscriptionCharge400ApplicationJSON extends Error {
     @Type(() => ErrorValidation)
     error?: ErrorValidation;
 
-    constructor(err?: CreateSubscriptionCharge400ApplicationJSON) {
+    constructor(err?: CreateSubscriptionChargeResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -63,7 +63,7 @@ export class CreateSubscriptionCharge400ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateSubscriptionCharge400ApplicationJSON";
-        Object.setPrototypeOf(this, CreateSubscriptionCharge400ApplicationJSON.prototype);
+        this.name = "CreateSubscriptionChargeResponseBody";
+        Object.setPrototypeOf(this, CreateSubscriptionChargeResponseBody.prototype);
     }
 }

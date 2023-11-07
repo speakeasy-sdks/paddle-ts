@@ -1,5 +1,5 @@
 # Events
-(*events*)
+(*.events*)
 
 ## Overview
 
@@ -29,6 +29,7 @@ import { Paddle } from "Paddle";
   });
 
   const res = await sdk.events.list({});
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -69,6 +70,7 @@ import { Paddle } from "Paddle";
   });
 
   const res = await sdk.events.listTypes();
+
 
   if (res.statusCode == 200) {
     // handle response

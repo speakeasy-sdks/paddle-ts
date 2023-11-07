@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class GetSubscription500ApplicationJSON extends Error {
+export class GetSubscriptionSubscriptionsResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class GetSubscription500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetSubscription500ApplicationJSON) {
+    constructor(err?: GetSubscriptionSubscriptionsResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class GetSubscription500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetSubscription500ApplicationJSON";
-        Object.setPrototypeOf(this, GetSubscription500ApplicationJSON.prototype);
+        this.name = "GetSubscriptionSubscriptionsResponseResponseBody";
+        Object.setPrototypeOf(this, GetSubscriptionSubscriptionsResponseResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class GetSubscription404ApplicationJSON extends Error {
+export class GetSubscriptionSubscriptionsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class GetSubscription404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetSubscription404ApplicationJSON) {
+    constructor(err?: GetSubscriptionSubscriptionsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +62,15 @@ export class GetSubscription404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetSubscription404ApplicationJSON";
-        Object.setPrototypeOf(this, GetSubscription404ApplicationJSON.prototype);
+        this.name = "GetSubscriptionSubscriptionsResponseBody";
+        Object.setPrototypeOf(this, GetSubscriptionSubscriptionsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class GetSubscription401ApplicationJSON extends Error {
+export class GetSubscriptionResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +83,7 @@ export class GetSubscription401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetSubscription401ApplicationJSON) {
+    constructor(err?: GetSubscriptionResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,7 +92,7 @@ export class GetSubscription401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetSubscription401ApplicationJSON";
-        Object.setPrototypeOf(this, GetSubscription401ApplicationJSON.prototype);
+        this.name = "GetSubscriptionResponseBody";
+        Object.setPrototypeOf(this, GetSubscriptionResponseBody.prototype);
     }
 }

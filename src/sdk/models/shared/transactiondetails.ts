@@ -16,7 +16,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Information about line items for this transaction. Different from transaction `items` as they include totals calculated by Paddle. Considered the source of truth for line item totals.
  */
-export class TransactionDetailsTransactionLineItem extends SpeakeasyBase {
+export class TransactionLineItem extends SpeakeasyBase {
     /**
      * Unique Paddle ID for this transaction item, prefixed with `txnitm_`.
      */
@@ -118,10 +118,10 @@ export class TransactionDetails extends SpeakeasyBase {
     /**
      * Information about line items for this transaction. Different from transaction `items` as they include totals calculated by Paddle. Considered the source of truth for line item totals.
      */
-    @SpeakeasyMetadata({ elemType: TransactionDetailsTransactionLineItem })
+    @SpeakeasyMetadata({ elemType: TransactionLineItem })
     @Expose({ name: "line_items" })
-    @Type(() => TransactionDetailsTransactionLineItem)
-    lineItems?: TransactionDetailsTransactionLineItem[];
+    @Type(() => TransactionLineItem)
+    lineItems?: TransactionLineItem[];
 
     /**
      * Breakdown of the payout total for a transaction. `null` until the transaction is `completed`. Returned in your payout currency.

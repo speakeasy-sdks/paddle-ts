@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class PostNotificationSettingsNotificationSettingIdReplay500ApplicationJSON extends Error {
+export class PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,9 @@ export class PostNotificationSettingsNotificationSettingIdReplay500ApplicationJS
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: PostNotificationSettingsNotificationSettingIdReplay500ApplicationJSON) {
+    constructor(
+        err?: PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseResponseBody
+    ) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,10 +34,11 @@ export class PostNotificationSettingsNotificationSettingIdReplay500ApplicationJS
             );
         }
 
-        this.name = "PostNotificationSettingsNotificationSettingIdReplay500ApplicationJSON";
+        this.name =
+            "PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseResponseBody";
         Object.setPrototypeOf(
             this,
-            PostNotificationSettingsNotificationSettingIdReplay500ApplicationJSON.prototype
+            PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseResponseBody.prototype
         );
     }
 }
@@ -43,7 +46,7 @@ export class PostNotificationSettingsNotificationSettingIdReplay500ApplicationJS
 /**
  * General error response
  */
-export class PostNotificationSettingsNotificationSettingIdReplay404ApplicationJSON extends Error {
+export class PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -56,7 +59,9 @@ export class PostNotificationSettingsNotificationSettingIdReplay404ApplicationJS
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: PostNotificationSettingsNotificationSettingIdReplay404ApplicationJSON) {
+    constructor(
+        err?: PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseBody
+    ) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -65,10 +70,10 @@ export class PostNotificationSettingsNotificationSettingIdReplay404ApplicationJS
             );
         }
 
-        this.name = "PostNotificationSettingsNotificationSettingIdReplay404ApplicationJSON";
+        this.name = "PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseBody";
         Object.setPrototypeOf(
             this,
-            PostNotificationSettingsNotificationSettingIdReplay404ApplicationJSON.prototype
+            PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseBody.prototype
         );
     }
 }
@@ -76,7 +81,7 @@ export class PostNotificationSettingsNotificationSettingIdReplay404ApplicationJS
 /**
  * General error response
  */
-export class PostNotificationSettingsNotificationSettingIdReplay401ApplicationJSON extends Error {
+export class PostNotificationSettingsNotificationSettingIdReplayResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -89,7 +94,7 @@ export class PostNotificationSettingsNotificationSettingIdReplay401ApplicationJS
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: PostNotificationSettingsNotificationSettingIdReplay401ApplicationJSON) {
+    constructor(err?: PostNotificationSettingsNotificationSettingIdReplayResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -98,10 +103,10 @@ export class PostNotificationSettingsNotificationSettingIdReplay401ApplicationJS
             );
         }
 
-        this.name = "PostNotificationSettingsNotificationSettingIdReplay401ApplicationJSON";
+        this.name = "PostNotificationSettingsNotificationSettingIdReplayResponseBody";
         Object.setPrototypeOf(
             this,
-            PostNotificationSettingsNotificationSettingIdReplay401ApplicationJSON.prototype
+            PostNotificationSettingsNotificationSettingIdReplayResponseBody.prototype
         );
     }
 }

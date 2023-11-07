@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { CountryCode2 } from "./countrycode2";
-import { Schemasstatus } from "./schemasstatus";
+import { SchemaStatus } from "./schemastatus";
 import { Expose, Transform } from "class-transformer";
 
 /**
@@ -80,7 +80,7 @@ export class Address extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: Schemasstatus;
+    status?: SchemaStatus;
 
     /**
      * RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
@@ -156,5 +156,5 @@ export class AddressInput extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: Schemasstatus;
+    status?: SchemaStatus;
 }

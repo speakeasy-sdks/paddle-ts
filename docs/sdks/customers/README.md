@@ -1,5 +1,5 @@
 # Customers
-(*customers*)
+(*.customers*)
 
 ## Overview
 
@@ -38,6 +38,7 @@ import { Paddle } from "Paddle";
     id: "ctm_01grnn4zta5a1mf02jjze7y2ys",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -46,11 +47,11 @@ import { Paddle } from "Paddle";
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [shared.CustomerCreateInput](../../models/shared/customercreateinput.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `retries`                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                   | :heavy_minus_sign:                                                       | Configuration to override the default retry behavior of the client.      |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [shared.CustomerCreate](../../models/shared/customercreate.md)      | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `retries`                                                           | [utils.RetryConfig](../../models/utils/retryconfig.md)              | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| `config`                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)        | :heavy_minus_sign:                                                  | Available config options for making requests.                       |
 
 
 ### Response
@@ -77,6 +78,7 @@ import { Paddle } from "Paddle";
   const res = await sdk.customers.get({
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -120,6 +122,7 @@ import { Status } from "Paddle/dist/sdk/models/shared";
   const res = await sdk.customers.list({
     search: "upgrade",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -172,6 +175,7 @@ import { Paddle } from "Paddle";
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -202,7 +206,7 @@ If successful, your response includes a copy of the updated customer entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
+import { SchemaStatus } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -212,12 +216,13 @@ import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
   });
 
   const res = await sdk.customers.update({
-    customerInput: {
+    customer: {
       email: "weloveyourproduct@paddle.com",
       id: "ctm_01grnn4zta5a1mf02jjze7y2ys",
     },
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

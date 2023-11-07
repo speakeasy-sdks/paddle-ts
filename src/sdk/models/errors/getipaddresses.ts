@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class GetIpAddresses500ApplicationJSON extends Error {
+export class GetIpAddressesResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class GetIpAddresses500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetIpAddresses500ApplicationJSON) {
+    constructor(err?: GetIpAddressesResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,7 +32,7 @@ export class GetIpAddresses500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetIpAddresses500ApplicationJSON";
-        Object.setPrototypeOf(this, GetIpAddresses500ApplicationJSON.prototype);
+        this.name = "GetIpAddressesResponseBody";
+        Object.setPrototypeOf(this, GetIpAddressesResponseBody.prototype);
     }
 }

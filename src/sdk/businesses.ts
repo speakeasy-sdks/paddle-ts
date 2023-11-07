@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -48,11 +48,7 @@ export class Businesses {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-                req,
-                "businessCreateInput",
-                "json"
-            );
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "businessCreate", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -117,9 +113,9 @@ export class Businesses {
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createBusiness201ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateBusiness201ApplicationJSON
+                        operations.CreateBusinessResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -134,10 +130,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateBusiness400ApplicationJSON
+                        errors.CreateBusinessResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateBusiness400ApplicationJSON(err);
+                    throw new errors.CreateBusinessResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -151,10 +147,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateBusiness401ApplicationJSON
+                        errors.CreateBusinessBusinessesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateBusiness401ApplicationJSON(err);
+                    throw new errors.CreateBusinessBusinessesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -168,10 +164,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateBusiness403ApplicationJSON
+                        errors.CreateBusinessBusinessesResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateBusiness403ApplicationJSON(err);
+                    throw new errors.CreateBusinessBusinessesResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -185,10 +181,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateBusiness404ApplicationJSON
+                        errors.CreateBusinessBusinessesResponse404ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateBusiness404ApplicationJSON(err);
+                    throw new errors.CreateBusinessBusinessesResponse404ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -210,10 +206,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateBusiness500ApplicationJSON
+                        errors.CreateBusinessBusinessesResponse500ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateBusiness500ApplicationJSON(err);
+                    throw new errors.CreateBusinessBusinessesResponse500ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -306,9 +302,9 @@ export class Businesses {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getBusiness200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetBusiness200ApplicationJSON
+                        operations.GetBusinessResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -323,10 +319,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetBusiness401ApplicationJSON
+                        errors.GetBusinessResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetBusiness401ApplicationJSON(err);
+                    throw new errors.GetBusinessResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -340,10 +336,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetBusiness403ApplicationJSON
+                        errors.GetBusinessBusinessesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetBusiness403ApplicationJSON(err);
+                    throw new errors.GetBusinessBusinessesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -357,10 +353,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetBusiness404ApplicationJSON
+                        errors.GetBusinessBusinessesResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetBusiness404ApplicationJSON(err);
+                    throw new errors.GetBusinessBusinessesResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -382,10 +378,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetBusiness500ApplicationJSON
+                        errors.GetBusinessBusinessesResponse500ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetBusiness500ApplicationJSON(err);
+                    throw new errors.GetBusinessBusinessesResponse500ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -477,9 +473,9 @@ export class Businesses {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listBusinesses200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListBusinesses200ApplicationJSON
+                        operations.ListBusinessesResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -494,10 +490,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListBusinesses401ApplicationJSON
+                        errors.ListBusinessesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListBusinesses401ApplicationJSON(err);
+                    throw new errors.ListBusinessesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -511,10 +507,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListBusinesses403ApplicationJSON
+                        errors.ListBusinessesBusinessesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListBusinesses403ApplicationJSON(err);
+                    throw new errors.ListBusinessesBusinessesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -528,10 +524,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListBusinesses404ApplicationJSON
+                        errors.ListBusinessesBusinessesResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListBusinesses404ApplicationJSON(err);
+                    throw new errors.ListBusinessesBusinessesResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -553,10 +549,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListBusinesses500ApplicationJSON
+                        errors.ListBusinessesBusinessesResponse500ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListBusinesses500ApplicationJSON(err);
+                    throw new errors.ListBusinessesBusinessesResponse500ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -601,7 +597,7 @@ export class Businesses {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "businessInput", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "business", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -666,9 +662,9 @@ export class Businesses {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.updateBusiness200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.UpdateBusiness200ApplicationJSON
+                        operations.UpdateBusinessResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -683,10 +679,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateBusiness400ApplicationJSON
+                        errors.UpdateBusinessResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateBusiness400ApplicationJSON(err);
+                    throw new errors.UpdateBusinessResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -700,10 +696,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateBusiness401ApplicationJSON
+                        errors.UpdateBusinessBusinessesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateBusiness401ApplicationJSON(err);
+                    throw new errors.UpdateBusinessBusinessesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -717,10 +713,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateBusiness403ApplicationJSON
+                        errors.UpdateBusinessBusinessesResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateBusiness403ApplicationJSON(err);
+                    throw new errors.UpdateBusinessBusinessesResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -734,10 +730,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateBusiness404ApplicationJSON
+                        errors.UpdateBusinessBusinessesResponse404ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateBusiness404ApplicationJSON(err);
+                    throw new errors.UpdateBusinessBusinessesResponse404ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -759,10 +755,10 @@ export class Businesses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateBusiness500ApplicationJSON
+                        errors.UpdateBusinessBusinessesResponse500ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateBusiness500ApplicationJSON(err);
+                    throw new errors.UpdateBusinessBusinessesResponse500ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

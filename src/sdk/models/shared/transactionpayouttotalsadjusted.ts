@@ -10,7 +10,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Chargeback fee before conversion to the payout currency. `null` when the chargeback fee is the same as the payout currency.
  */
-export class TransactionPayoutTotalsAdjustedChargebackFeeOriginal extends SpeakeasyBase {
+export class TransactionPayoutTotalsAdjustedOriginal extends SpeakeasyBase {
     /**
      * Fee amount for this chargeback in the original currency.
      */
@@ -42,8 +42,8 @@ export class TransactionPayoutTotalsAdjustedChargebackFee extends SpeakeasyBase 
      */
     @SpeakeasyMetadata()
     @Expose({ name: "original" })
-    @Type(() => TransactionPayoutTotalsAdjustedChargebackFeeOriginal)
-    original?: TransactionPayoutTotalsAdjustedChargebackFeeOriginal;
+    @Type(() => TransactionPayoutTotalsAdjustedOriginal)
+    original?: TransactionPayoutTotalsAdjustedOriginal;
 }
 
 /**

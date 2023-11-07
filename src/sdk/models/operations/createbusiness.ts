@@ -3,13 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 export class CreateBusinessRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    businessCreateInput?: shared.BusinessCreateInput;
+    businessCreate?: shared.BusinessCreate;
 
     /**
      * Paddle ID of the customer entity to work with.
@@ -21,7 +21,7 @@ export class CreateBusinessRequest extends SpeakeasyBase {
 /**
  * Created
  */
-export class CreateBusiness201ApplicationJSON extends SpeakeasyBase {
+export class CreateBusinessResponseBody extends SpeakeasyBase {
     /**
      * Represents a business entity.
      */
@@ -40,6 +40,12 @@ export class CreateBusiness201ApplicationJSON extends SpeakeasyBase {
 }
 
 export class CreateBusinessResponse extends SpeakeasyBase {
+    /**
+     * Created
+     */
+    @SpeakeasyMetadata()
+    twoHundredAndOneApplicationJsonObject?: CreateBusinessResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -60,10 +66,4 @@ export class CreateBusinessResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * Created
-     */
-    @SpeakeasyMetadata()
-    createBusiness201ApplicationJSONObject?: CreateBusiness201ApplicationJSON;
 }

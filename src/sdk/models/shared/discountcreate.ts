@@ -9,7 +9,7 @@ import { Expose, Transform } from "class-transformer";
 /**
  * Type of discount.
  */
-export enum DiscountCreateType {
+export enum TypeT {
     Flat = "flat",
     FlatPerSeat = "flat_per_seat",
     Percentage = "percentage",
@@ -18,7 +18,7 @@ export enum DiscountCreateType {
 /**
  * Represents a discount entity.
  */
-export class DiscountCreateInput extends SpeakeasyBase {
+export class DiscountCreate extends SpeakeasyBase {
     /**
      * Amount to discount by. For `percentage` discounts, must be an amount between `0.01` and `100`. For `flat` and `flat_per_seat` discounts, amount in the lowest denomination for a currency.
      */
@@ -95,7 +95,7 @@ export class DiscountCreateInput extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: DiscountCreateType;
+    type: TypeT;
 
     /**
      * Maximum amount of times this discount can be used. This is an overall limit, rather than a per-customer limit. `null` if this discount can be used an unlimited amount of times.

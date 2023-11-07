@@ -9,7 +9,7 @@ import { CurrencyCode2 } from "./currencycode2";
 import { CustomData } from "./customdata";
 import { ItemSubscription } from "./itemsubscription";
 import { Period2 } from "./period2";
-import { SchemasstatusSubscription } from "./schemasstatussubscription";
+import { SchemaStatusSubscription } from "./schemastatussubscription";
 import { SubscriptionManagementUrls } from "./subscriptionmanagementurls";
 import { SubscriptionNextTransaction } from "./subscriptionnexttransaction";
 import { SubscriptionRecurringTransactionDetails } from "./subscriptionrecurringtransactiondetails";
@@ -218,7 +218,7 @@ export class SubscriptionIncludes extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: SchemasstatusSubscription;
+    status?: SchemaStatusSubscription;
 
     /**
      * RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.

@@ -9,7 +9,7 @@ import { Expose } from "class-transformer";
 /**
  * Represents an address entity.
  */
-export class AddressCreateInput extends SpeakeasyBase {
+export class AddressCreate extends SpeakeasyBase {
     /**
      * City of this address.
      */

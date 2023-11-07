@@ -9,7 +9,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Breakdown of the total adjustments by adjustment action.
  */
-export class TransactionAdjustmentsTotalsIncludeBreakdown extends SpeakeasyBase {
+export class Breakdown extends SpeakeasyBase {
     /**
      * Total amount of chargeback adjustments.
      */
@@ -41,8 +41,8 @@ export class TransactionAdjustmentsTotalsInclude extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "breakdown" })
-    @Type(() => TransactionAdjustmentsTotalsIncludeBreakdown)
-    breakdown?: TransactionAdjustmentsTotalsIncludeBreakdown;
+    @Type(() => Breakdown)
+    breakdown?: Breakdown;
 
     /**
      * Supported three-letter ISO 4217 currency code.

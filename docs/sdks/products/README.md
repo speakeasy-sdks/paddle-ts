@@ -1,5 +1,5 @@
 # Products
-(*products*)
+(*.products*)
 
 ## Overview
 
@@ -37,9 +37,10 @@ import { TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 
   const res = await sdk.products.create({
     customData: {},
-    name: "online",
-    taxCategory: TaxCategory1.SoftwareProgrammingServices,
+    name: "string",
+    taxCategory: TaxCategory1.Saas,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -84,6 +85,7 @@ import { IncludeProduct } from "Paddle/dist/sdk/models/shared";
     productId: "pro_01gsz4vmqbjk3x4vvtafffd540",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -127,6 +129,7 @@ import { IncludeProduct, Status, TaxCategory } from "Paddle/dist/sdk/models/shar
 
   const res = await sdk.products.list({});
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -159,7 +162,7 @@ If successful, your response includes a copy of the updated product entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { Schemasstatus, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
+import { SchemaStatus, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -174,6 +177,7 @@ import { Schemasstatus, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
     },
     productId: "pro_01gsz4vmqbjk3x4vvtafffd540",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

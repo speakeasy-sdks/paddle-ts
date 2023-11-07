@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class DeleteNotificationSetting500ApplicationJSON extends Error {
+export class DeleteNotificationSettingNotificationsResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class DeleteNotificationSetting500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: DeleteNotificationSetting500ApplicationJSON) {
+    constructor(err?: DeleteNotificationSettingNotificationsResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,18 @@ export class DeleteNotificationSetting500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "DeleteNotificationSetting500ApplicationJSON";
-        Object.setPrototypeOf(this, DeleteNotificationSetting500ApplicationJSON.prototype);
+        this.name = "DeleteNotificationSettingNotificationsResponseResponseBody";
+        Object.setPrototypeOf(
+            this,
+            DeleteNotificationSettingNotificationsResponseResponseBody.prototype
+        );
     }
 }
 
 /**
  * General error response
  */
-export class DeleteNotificationSetting404ApplicationJSON extends Error {
+export class DeleteNotificationSettingNotificationsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +56,7 @@ export class DeleteNotificationSetting404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: DeleteNotificationSetting404ApplicationJSON) {
+    constructor(err?: DeleteNotificationSettingNotificationsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +65,15 @@ export class DeleteNotificationSetting404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "DeleteNotificationSetting404ApplicationJSON";
-        Object.setPrototypeOf(this, DeleteNotificationSetting404ApplicationJSON.prototype);
+        this.name = "DeleteNotificationSettingNotificationsResponseBody";
+        Object.setPrototypeOf(this, DeleteNotificationSettingNotificationsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class DeleteNotificationSetting401ApplicationJSON extends Error {
+export class DeleteNotificationSettingResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +86,7 @@ export class DeleteNotificationSetting401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: DeleteNotificationSetting401ApplicationJSON) {
+    constructor(err?: DeleteNotificationSettingResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,7 +95,7 @@ export class DeleteNotificationSetting401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "DeleteNotificationSetting401ApplicationJSON";
-        Object.setPrototypeOf(this, DeleteNotificationSetting401ApplicationJSON.prototype);
+        this.name = "DeleteNotificationSettingResponseBody";
+        Object.setPrototypeOf(this, DeleteNotificationSettingResponseBody.prototype);
     }
 }

@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class ListSubscriptions500ApplicationJSON extends Error {
+export class ListSubscriptionsSubscriptionsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class ListSubscriptions500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListSubscriptions500ApplicationJSON) {
+    constructor(err?: ListSubscriptionsSubscriptionsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class ListSubscriptions500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListSubscriptions500ApplicationJSON";
-        Object.setPrototypeOf(this, ListSubscriptions500ApplicationJSON.prototype);
+        this.name = "ListSubscriptionsSubscriptionsResponseBody";
+        Object.setPrototypeOf(this, ListSubscriptionsSubscriptionsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class ListSubscriptions401ApplicationJSON extends Error {
+export class ListSubscriptionsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class ListSubscriptions401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListSubscriptions401ApplicationJSON) {
+    constructor(err?: ListSubscriptionsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,7 +62,7 @@ export class ListSubscriptions401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListSubscriptions401ApplicationJSON";
-        Object.setPrototypeOf(this, ListSubscriptions401ApplicationJSON.prototype);
+        this.name = "ListSubscriptionsResponseBody";
+        Object.setPrototypeOf(this, ListSubscriptionsResponseBody.prototype);
     }
 }

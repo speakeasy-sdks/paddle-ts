@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class ListCreditBalances500ApplicationJSON extends Error {
+export class ListCreditBalancesCustomersResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class ListCreditBalances500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListCreditBalances500ApplicationJSON) {
+    constructor(err?: ListCreditBalancesCustomersResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class ListCreditBalances500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListCreditBalances500ApplicationJSON";
-        Object.setPrototypeOf(this, ListCreditBalances500ApplicationJSON.prototype);
+        this.name = "ListCreditBalancesCustomersResponseResponseBody";
+        Object.setPrototypeOf(this, ListCreditBalancesCustomersResponseResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class ListCreditBalances404ApplicationJSON extends Error {
+export class ListCreditBalancesCustomersResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class ListCreditBalances404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListCreditBalances404ApplicationJSON) {
+    constructor(err?: ListCreditBalancesCustomersResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +62,15 @@ export class ListCreditBalances404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListCreditBalances404ApplicationJSON";
-        Object.setPrototypeOf(this, ListCreditBalances404ApplicationJSON.prototype);
+        this.name = "ListCreditBalancesCustomersResponseBody";
+        Object.setPrototypeOf(this, ListCreditBalancesCustomersResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class ListCreditBalances400ApplicationJSON extends Error {
+export class ListCreditBalancesResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +83,7 @@ export class ListCreditBalances400ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListCreditBalances400ApplicationJSON) {
+    constructor(err?: ListCreditBalancesResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,7 +92,7 @@ export class ListCreditBalances400ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListCreditBalances400ApplicationJSON";
-        Object.setPrototypeOf(this, ListCreditBalances400ApplicationJSON.prototype);
+        this.name = "ListCreditBalancesResponseBody";
+        Object.setPrototypeOf(this, ListCreditBalancesResponseBody.prototype);
     }
 }

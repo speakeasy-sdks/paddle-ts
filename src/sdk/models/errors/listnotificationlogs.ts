@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class ListNotificationLogs500ApplicationJSON extends Error {
+export class ListNotificationLogsNotificationsResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class ListNotificationLogs500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListNotificationLogs500ApplicationJSON) {
+    constructor(err?: ListNotificationLogsNotificationsResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,18 @@ export class ListNotificationLogs500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListNotificationLogs500ApplicationJSON";
-        Object.setPrototypeOf(this, ListNotificationLogs500ApplicationJSON.prototype);
+        this.name = "ListNotificationLogsNotificationsResponseResponseBody";
+        Object.setPrototypeOf(
+            this,
+            ListNotificationLogsNotificationsResponseResponseBody.prototype
+        );
     }
 }
 
 /**
  * General error response
  */
-export class ListNotificationLogs404ApplicationJSON extends Error {
+export class ListNotificationLogsNotificationsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +56,7 @@ export class ListNotificationLogs404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListNotificationLogs404ApplicationJSON) {
+    constructor(err?: ListNotificationLogsNotificationsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +65,15 @@ export class ListNotificationLogs404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListNotificationLogs404ApplicationJSON";
-        Object.setPrototypeOf(this, ListNotificationLogs404ApplicationJSON.prototype);
+        this.name = "ListNotificationLogsNotificationsResponseBody";
+        Object.setPrototypeOf(this, ListNotificationLogsNotificationsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class ListNotificationLogs401ApplicationJSON extends Error {
+export class ListNotificationLogsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +86,7 @@ export class ListNotificationLogs401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListNotificationLogs401ApplicationJSON) {
+    constructor(err?: ListNotificationLogsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,7 +95,7 @@ export class ListNotificationLogs401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListNotificationLogs401ApplicationJSON";
-        Object.setPrototypeOf(this, ListNotificationLogs401ApplicationJSON.prototype);
+        this.name = "ListNotificationLogsResponseBody";
+        Object.setPrototypeOf(this, ListNotificationLogsResponseBody.prototype);
     }
 }

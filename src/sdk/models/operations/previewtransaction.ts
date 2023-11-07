@@ -3,14 +3,14 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 /**
  * OK
  */
-export class PreviewTransaction200ApplicationJSON extends SpeakeasyBase {
+export class PreviewTransactionResponseBody extends SpeakeasyBase {
     /**
      * Represents a transaction entity when previewing.
      */
@@ -29,6 +29,12 @@ export class PreviewTransaction200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class PreviewTransactionResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: PreviewTransactionResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -49,10 +55,4 @@ export class PreviewTransactionResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    previewTransaction200ApplicationJSONObject?: PreviewTransaction200ApplicationJSON;
 }

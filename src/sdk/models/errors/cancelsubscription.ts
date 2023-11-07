@@ -11,7 +11,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class CancelSubscription500ApplicationJSON extends Error {
+export class CancelSubscriptionSubscriptionsResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -24,7 +24,7 @@ export class CancelSubscription500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CancelSubscription500ApplicationJSON) {
+    constructor(err?: CancelSubscriptionSubscriptionsResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -33,15 +33,15 @@ export class CancelSubscription500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CancelSubscription500ApplicationJSON";
-        Object.setPrototypeOf(this, CancelSubscription500ApplicationJSON.prototype);
+        this.name = "CancelSubscriptionSubscriptionsResponseResponseBody";
+        Object.setPrototypeOf(this, CancelSubscriptionSubscriptionsResponseResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class CancelSubscription401ApplicationJSON extends Error {
+export class CancelSubscriptionSubscriptionsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -54,7 +54,7 @@ export class CancelSubscription401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CancelSubscription401ApplicationJSON) {
+    constructor(err?: CancelSubscriptionSubscriptionsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -63,15 +63,15 @@ export class CancelSubscription401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CancelSubscription401ApplicationJSON";
-        Object.setPrototypeOf(this, CancelSubscription401ApplicationJSON.prototype);
+        this.name = "CancelSubscriptionSubscriptionsResponseBody";
+        Object.setPrototypeOf(this, CancelSubscriptionSubscriptionsResponseBody.prototype);
     }
 }
 
 /**
  * Error response for validation
  */
-export class CancelSubscription400ApplicationJSON extends Error {
+export class CancelSubscriptionResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -84,7 +84,7 @@ export class CancelSubscription400ApplicationJSON extends Error {
     @Type(() => ErrorValidation)
     error?: ErrorValidation;
 
-    constructor(err?: CancelSubscription400ApplicationJSON) {
+    constructor(err?: CancelSubscriptionResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -93,7 +93,7 @@ export class CancelSubscription400ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CancelSubscription400ApplicationJSON";
-        Object.setPrototypeOf(this, CancelSubscription400ApplicationJSON.prototype);
+        this.name = "CancelSubscriptionResponseBody";
+        Object.setPrototypeOf(this, CancelSubscriptionResponseBody.prototype);
     }
 }

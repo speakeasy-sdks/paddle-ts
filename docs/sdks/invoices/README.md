@@ -1,5 +1,5 @@
 # Invoices
-(*invoices*)
+(*.invoices*)
 
 ## Overview
 
@@ -41,6 +41,7 @@ import { Paddle } from "Paddle";
     invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -73,7 +74,7 @@ If successful, your response includes a copy of the new invoice entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CurrencyCodeInvoice, InvoiceBillingPeriodType, Period1Interval, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
+import { CurrencyCodeInvoice, Interval, InvoiceType, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 import { RFCDate } from "Paddle/dist/sdk/types";
 
 (async() => {
@@ -88,13 +89,13 @@ import { RFCDate } from "Paddle/dist/sdk/types";
     billingDetails: {
       paymentTerms: {
         frequency: 486589,
-        interval: Period1Interval.Week,
+        interval: Interval.Week,
       },
     },
     billingPeriod: {
       endsAt: new RFCDate("2022-12-01"),
       startsAt: new RFCDate("2023-07-30"),
-      type: InvoiceBillingPeriodType.Contract,
+      type: InvoiceType.Contract,
     },
     businessId: "biz_01ghbkcbs88yxj4fxecevjz9g7",
     currencyCode: CurrencyCodeInvoice.Eur,
@@ -122,6 +123,7 @@ import { RFCDate } from "Paddle/dist/sdk/types";
       },
     ],
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -162,6 +164,7 @@ import { Paddle } from "Paddle";
   const res = await sdk.invoices.get({
     invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -204,6 +207,7 @@ import { Paddle } from "Paddle";
   const res = await sdk.invoices.getPdf({
     invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -257,6 +261,7 @@ import { Paddle } from "Paddle";
     invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -298,6 +303,7 @@ import { StatusInvoice } from "Paddle/dist/sdk/models/shared";
     search: "upgrade",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -330,7 +336,7 @@ If successful, your response includes a copy of the updated invoice entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CurrencyCodeInvoice, InvoiceForPatchBillingPeriodType, Period1Interval } from "Paddle/dist/sdk/models/shared";
+import { CurrencyCodeInvoice, Interval, InvoiceForPatchType } from "Paddle/dist/sdk/models/shared";
 import { RFCDate } from "Paddle/dist/sdk/types";
 
 (async() => {
@@ -346,13 +352,13 @@ import { RFCDate } from "Paddle/dist/sdk/types";
       billingDetails: {
         paymentTerms: {
           frequency: 857478,
-          interval: Period1Interval.Day,
+          interval: Interval.Day,
         },
       },
       billingPeriod: {
         endsAt: new RFCDate("2022-10-16"),
         startsAt: new RFCDate("2021-01-18"),
-        type: InvoiceForPatchBillingPeriodType.Contract,
+        type: InvoiceForPatchType.Contract,
       },
       businessId: "biz_01ghbmaszjgjd47g5f3d9vw7hg",
       customData: {},
@@ -371,6 +377,7 @@ import { RFCDate } from "Paddle/dist/sdk/types";
     },
     invoiceId: "inv_01gt24rqm9618yds0pkaynrgx0",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

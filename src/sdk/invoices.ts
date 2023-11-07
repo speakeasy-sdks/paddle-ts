@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -100,9 +100,9 @@ export class Invoices {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.cancelInvoice200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CancelInvoice200ApplicationJSON
+                        operations.CancelInvoiceResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -117,10 +117,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CancelInvoice401ApplicationJSON
+                        errors.CancelInvoiceResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CancelInvoice401ApplicationJSON(err);
+                    throw new errors.CancelInvoiceResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -134,10 +134,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CancelInvoice404ApplicationJSON
+                        errors.CancelInvoiceInvoicesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CancelInvoice404ApplicationJSON(err);
+                    throw new errors.CancelInvoiceInvoicesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -159,10 +159,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CancelInvoice500ApplicationJSON
+                        errors.CancelInvoiceInvoicesResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CancelInvoice500ApplicationJSON(err);
+                    throw new errors.CancelInvoiceInvoicesResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -270,9 +270,9 @@ export class Invoices {
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createInvoice201ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateInvoice201ApplicationJSON
+                        operations.CreateInvoiceResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -287,10 +287,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateInvoice400ApplicationJSON
+                        errors.CreateInvoiceResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateInvoice400ApplicationJSON(err);
+                    throw new errors.CreateInvoiceResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -304,10 +304,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateInvoice401ApplicationJSON
+                        errors.CreateInvoiceInvoicesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateInvoice401ApplicationJSON(err);
+                    throw new errors.CreateInvoiceInvoicesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -329,10 +329,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateInvoice500ApplicationJSON
+                        errors.CreateInvoiceInvoicesResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateInvoice500ApplicationJSON(err);
+                    throw new errors.CreateInvoiceInvoicesResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -421,9 +421,9 @@ export class Invoices {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getInvoice200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetInvoice200ApplicationJSON
+                        operations.GetInvoiceResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -438,10 +438,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetInvoice401ApplicationJSON
+                        errors.GetInvoiceResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetInvoice401ApplicationJSON(err);
+                    throw new errors.GetInvoiceResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -455,10 +455,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetInvoice404ApplicationJSON
+                        errors.GetInvoiceInvoicesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetInvoice404ApplicationJSON(err);
+                    throw new errors.GetInvoiceInvoicesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -480,10 +480,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetInvoice500ApplicationJSON
+                        errors.GetInvoiceInvoicesResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetInvoice500ApplicationJSON(err);
+                    throw new errors.GetInvoiceInvoicesResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -574,9 +574,9 @@ export class Invoices {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getInvoicePdf200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetInvoicePdf200ApplicationJSON
+                        operations.GetInvoicePdfResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -591,10 +591,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetInvoicePdf401ApplicationJSON
+                        errors.GetInvoicePdfResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetInvoicePdf401ApplicationJSON(err);
+                    throw new errors.GetInvoicePdfResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -608,10 +608,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetInvoicePdf404ApplicationJSON
+                        errors.GetInvoicePdfInvoicesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetInvoicePdf404ApplicationJSON(err);
+                    throw new errors.GetInvoicePdfInvoicesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -633,10 +633,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetInvoicePdf500ApplicationJSON
+                        errors.GetInvoicePdfInvoicesResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetInvoicePdf500ApplicationJSON(err);
+                    throw new errors.GetInvoicePdfInvoicesResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -737,9 +737,9 @@ export class Invoices {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.issueInvoice200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.IssueInvoice200ApplicationJSON
+                        operations.IssueInvoiceResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -754,10 +754,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.IssueInvoice400ApplicationJSON
+                        errors.IssueInvoiceResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.IssueInvoice400ApplicationJSON(err);
+                    throw new errors.IssueInvoiceResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -771,10 +771,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.IssueInvoice401ApplicationJSON
+                        errors.IssueInvoiceInvoicesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.IssueInvoice401ApplicationJSON(err);
+                    throw new errors.IssueInvoiceInvoicesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -788,10 +788,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.IssueInvoice404ApplicationJSON
+                        errors.IssueInvoiceInvoicesResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.IssueInvoice404ApplicationJSON(err);
+                    throw new errors.IssueInvoiceInvoicesResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -805,10 +805,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.IssueInvoice422ApplicationJSON
+                        errors.IssueInvoiceInvoicesResponse422ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.IssueInvoice422ApplicationJSON(err);
+                    throw new errors.IssueInvoiceInvoicesResponse422ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -830,10 +830,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.IssueInvoice500ApplicationJSON
+                        errors.IssueInvoiceInvoicesResponse500ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.IssueInvoice500ApplicationJSON(err);
+                    throw new errors.IssueInvoiceInvoicesResponse500ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -923,9 +923,9 @@ export class Invoices {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listInvoices200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListInvoices200ApplicationJSON
+                        operations.ListInvoicesResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -940,10 +940,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListInvoices401ApplicationJSON
+                        errors.ListInvoicesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListInvoices401ApplicationJSON(err);
+                    throw new errors.ListInvoicesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -965,10 +965,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListInvoices500ApplicationJSON
+                        errors.ListInvoicesInvoicesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListInvoices500ApplicationJSON(err);
+                    throw new errors.ListInvoicesInvoicesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1076,9 +1076,9 @@ export class Invoices {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.updateInvoice200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.UpdateInvoice200ApplicationJSON
+                        operations.UpdateInvoiceResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -1093,10 +1093,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateInvoice400ApplicationJSON
+                        errors.UpdateInvoiceResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateInvoice400ApplicationJSON(err);
+                    throw new errors.UpdateInvoiceResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1110,10 +1110,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateInvoice401ApplicationJSON
+                        errors.UpdateInvoiceInvoicesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateInvoice401ApplicationJSON(err);
+                    throw new errors.UpdateInvoiceInvoicesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1127,10 +1127,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateInvoice404ApplicationJSON
+                        errors.UpdateInvoiceInvoicesResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateInvoice404ApplicationJSON(err);
+                    throw new errors.UpdateInvoiceInvoicesResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1144,10 +1144,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateInvoice422ApplicationJSON
+                        errors.UpdateInvoiceInvoicesResponse422ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateInvoice422ApplicationJSON(err);
+                    throw new errors.UpdateInvoiceInvoicesResponse422ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1169,10 +1169,10 @@ export class Invoices {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateInvoice500ApplicationJSON
+                        errors.UpdateInvoiceInvoicesResponse500ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateInvoice500ApplicationJSON(err);
+                    throw new errors.UpdateInvoiceInvoicesResponse500ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

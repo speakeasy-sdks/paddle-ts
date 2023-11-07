@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class GetDiscount404ApplicationJSON extends Error {
+export class GetDiscountResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class GetDiscount404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetDiscount404ApplicationJSON) {
+    constructor(err?: GetDiscountResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,7 +32,7 @@ export class GetDiscount404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetDiscount404ApplicationJSON";
-        Object.setPrototypeOf(this, GetDiscount404ApplicationJSON.prototype);
+        this.name = "GetDiscountResponseBody";
+        Object.setPrototypeOf(this, GetDiscountResponseBody.prototype);
     }
 }

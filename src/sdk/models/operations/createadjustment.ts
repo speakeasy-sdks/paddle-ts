@@ -3,14 +3,14 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 /**
  * Created
  */
-export class CreateAdjustment201ApplicationJSON extends SpeakeasyBase {
+export class CreateAdjustmentResponseBody extends SpeakeasyBase {
     /**
      * Represents an adjustment entity.
      */
@@ -29,6 +29,12 @@ export class CreateAdjustment201ApplicationJSON extends SpeakeasyBase {
 }
 
 export class CreateAdjustmentResponse extends SpeakeasyBase {
+    /**
+     * Created
+     */
+    @SpeakeasyMetadata()
+    twoHundredAndOneApplicationJsonObject?: CreateAdjustmentResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -49,10 +55,4 @@ export class CreateAdjustmentResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * Created
-     */
-    @SpeakeasyMetadata()
-    createAdjustment201ApplicationJSONObject?: CreateAdjustment201ApplicationJSON;
 }

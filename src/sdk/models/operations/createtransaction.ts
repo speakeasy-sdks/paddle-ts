@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
@@ -15,13 +15,13 @@ export class CreateTransactionRequest extends SpeakeasyBase {
     include?: shared.IncludeTransaction;
 
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    transactionCreateInput?: shared.TransactionCreateInput;
+    transactionCreate?: shared.TransactionCreate;
 }
 
 /**
  * Created
  */
-export class CreateTransaction201ApplicationJSON extends SpeakeasyBase {
+export class CreateTransactionResponseBody extends SpeakeasyBase {
     /**
      * Represents a transaction entity with included entitites.
      */
@@ -40,6 +40,12 @@ export class CreateTransaction201ApplicationJSON extends SpeakeasyBase {
 }
 
 export class CreateTransactionResponse extends SpeakeasyBase {
+    /**
+     * Created
+     */
+    @SpeakeasyMetadata()
+    twoHundredAndOneApplicationJsonObject?: CreateTransactionResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -60,10 +66,4 @@ export class CreateTransactionResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * Created
-     */
-    @SpeakeasyMetadata()
-    createTransaction201ApplicationJSONObject?: CreateTransaction201ApplicationJSON;
 }

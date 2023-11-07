@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
@@ -21,7 +21,7 @@ export class PreviewSubscriptionRequest extends SpeakeasyBase {
 /**
  * Details of the discount applied to this subscription.
  */
-export class PreviewSubscription200ApplicationJSONSubscriptionPreviewDiscount extends SpeakeasyBase {
+export class PreviewSubscriptionDiscount extends SpeakeasyBase {
     /**
      * RFC 3339 datetime string.
      */
@@ -49,7 +49,7 @@ export class PreviewSubscription200ApplicationJSONSubscriptionPreviewDiscount ex
 /**
  * Represents a subscription preview.
  */
-export class PreviewSubscription200ApplicationJSONSubscriptionPreview extends SpeakeasyBase {
+export class PreviewSubscriptionSubscriptionPreview extends SpeakeasyBase {
     /**
      * Unique Paddle ID for this address entity, prefixed with `add_`.
      */
@@ -132,8 +132,8 @@ export class PreviewSubscription200ApplicationJSONSubscriptionPreview extends Sp
      */
     @SpeakeasyMetadata()
     @Expose({ name: "discount" })
-    @Type(() => PreviewSubscription200ApplicationJSONSubscriptionPreviewDiscount)
-    discount?: PreviewSubscription200ApplicationJSONSubscriptionPreviewDiscount;
+    @Type(() => PreviewSubscriptionDiscount)
+    discount?: PreviewSubscriptionDiscount;
 
     /**
      * RFC 3339 datetime string.
@@ -220,7 +220,7 @@ export class PreviewSubscription200ApplicationJSONSubscriptionPreview extends Sp
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: shared.SchemasstatusSubscription;
+    status?: shared.SchemaStatusSubscription;
 
     /**
      * RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
@@ -234,11 +234,11 @@ export class PreviewSubscription200ApplicationJSONSubscriptionPreview extends Sp
 /**
  * OK
  */
-export class PreviewSubscription200ApplicationJSON extends SpeakeasyBase {
+export class PreviewSubscriptionResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => PreviewSubscription200ApplicationJSONSubscriptionPreview)
-    data: PreviewSubscription200ApplicationJSONSubscriptionPreview;
+    @Type(() => PreviewSubscriptionSubscriptionPreview)
+    data: PreviewSubscriptionSubscriptionPreview;
 
     /**
      * Information about this response.
@@ -272,5 +272,5 @@ export class PreviewSubscriptionResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    previewSubscription200ApplicationJSONObject?: PreviewSubscription200ApplicationJSON;
+    object?: PreviewSubscriptionResponseBody;
 }

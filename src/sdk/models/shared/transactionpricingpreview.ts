@@ -9,7 +9,7 @@ import { TransactionPricingPreviewDetails } from "./transactionpricingpreviewdet
 import { TransactionPricingPreviewItem } from "./transactionpricingpreviewitem";
 import { Expose, Type } from "class-transformer";
 
-export class TransactionPricingPreviewInput extends SpeakeasyBase {
+export class TransactionPricingPreview extends SpeakeasyBase {
     /**
      * Represents an address entity.
      */

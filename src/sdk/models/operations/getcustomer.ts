@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
@@ -18,7 +18,7 @@ export class GetCustomerRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class GetCustomer200ApplicationJSON extends SpeakeasyBase {
+export class GetCustomerResponseBody extends SpeakeasyBase {
     /**
      * Represents a customer entity with included entities.
      */
@@ -37,6 +37,12 @@ export class GetCustomer200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class GetCustomerResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetCustomerResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -57,10 +63,4 @@ export class GetCustomerResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    getCustomer200ApplicationJSONObject?: GetCustomer200ApplicationJSON;
 }

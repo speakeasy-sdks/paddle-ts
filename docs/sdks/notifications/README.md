@@ -1,5 +1,5 @@
 # Notifications
-(*notifications*)
+(*.notifications*)
 
 ## Overview
 
@@ -41,12 +41,13 @@ import { NotificationSettingCreateType } from "Paddle/dist/sdk/models/shared";
 
   const res = await sdk.notifications.createSetting({
     description: "Profound maximized orchestration",
-    destination: "olive",
+    destination: "string",
     subscribedEvents: [
-      "between",
+      "string",
     ],
-    type: NotificationSettingCreateType.Url,
+    type: NotificationSettingCreateType.Email,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -56,11 +57,11 @@ import { NotificationSettingCreateType } from "Paddle/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [shared.NotificationSettingCreateInput](../../models/shared/notificationsettingcreateinput.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `retries`                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [shared.NotificationSettingCreate](../../models/shared/notificationsettingcreate.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `retries`                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                   | Configuration to override the default retry behavior of the client.                  |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
@@ -91,6 +92,7 @@ import { Paddle } from "Paddle";
   const res = await sdk.notifications.deleteSetting({
     notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -132,6 +134,7 @@ import { Paddle } from "Paddle";
     notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -171,6 +174,7 @@ import { Paddle } from "Paddle";
   const res = await sdk.notifications.getSetting({
     notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -217,6 +221,7 @@ import { StatusNotification } from "Paddle/dist/sdk/models/shared";
     to: "2023-04-18T17:03:26",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -257,6 +262,7 @@ import { Paddle } from "Paddle";
     notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -296,6 +302,7 @@ import { Paddle } from "Paddle";
   });
 
   const res = await sdk.notifications.listSettings();
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -339,6 +346,7 @@ import { Paddle } from "Paddle";
   const res = await sdk.notifications.replay({
     notificationId: "ntf_01gt261ms8ew72a0vnm5p5ne2q",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -385,6 +393,7 @@ import { Paddle } from "Paddle";
     notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -430,11 +439,12 @@ import { Paddle } from "Paddle";
   const res = await sdk.notifications.updateSettings({
     notificationSettingUpdate: {
       subscribedEvents: [
-        "seize",
+        "string",
       ],
     },
     notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

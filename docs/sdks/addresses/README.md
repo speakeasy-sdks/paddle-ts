@@ -1,5 +1,5 @@
 # Addresses
-(*addresses*)
+(*.addresses*)
 
 ## Overview
 
@@ -36,7 +36,7 @@ import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
   });
 
   const res = await sdk.addresses.create({
-    addressCreateInput: {
+    addressCreate: {
       city: "Astoria",
       countryCode: CountryCode2.Kn,
       description: "Paddle.com",
@@ -47,6 +47,7 @@ import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
     },
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -88,6 +89,7 @@ import { Paddle } from "Paddle";
     addressId: "add_01gvcz6r0t0g5cphhwd8n952gb",
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -133,6 +135,7 @@ import { Status } from "Paddle/dist/sdk/models/shared";
     search: "upgrade",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -163,7 +166,7 @@ If successful, your response includes a copy of the updated address entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CountryCode2, Schemasstatus } from "Paddle/dist/sdk/models/shared";
+import { CountryCode2, SchemaStatus } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -173,7 +176,7 @@ import { CountryCode2, Schemasstatus } from "Paddle/dist/sdk/models/shared";
   });
 
   const res = await sdk.addresses.update({
-    addressInput: {
+    address: {
       city: "Astoria",
       description: "Paddle.com",
       firstLine: "3811 Ditmars Blvd",
@@ -184,6 +187,7 @@ import { CountryCode2, Schemasstatus } from "Paddle/dist/sdk/models/shared";
     addressId: "add_01gvcz6r0t0g5cphhwd8n952gb",
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class GetNotification500ApplicationJSON extends Error {
+export class GetNotificationNotificationsResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class GetNotification500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetNotification500ApplicationJSON) {
+    constructor(err?: GetNotificationNotificationsResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class GetNotification500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetNotification500ApplicationJSON";
-        Object.setPrototypeOf(this, GetNotification500ApplicationJSON.prototype);
+        this.name = "GetNotificationNotificationsResponseResponseBody";
+        Object.setPrototypeOf(this, GetNotificationNotificationsResponseResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class GetNotification404ApplicationJSON extends Error {
+export class GetNotificationNotificationsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class GetNotification404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetNotification404ApplicationJSON) {
+    constructor(err?: GetNotificationNotificationsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +62,15 @@ export class GetNotification404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetNotification404ApplicationJSON";
-        Object.setPrototypeOf(this, GetNotification404ApplicationJSON.prototype);
+        this.name = "GetNotificationNotificationsResponseBody";
+        Object.setPrototypeOf(this, GetNotificationNotificationsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class GetNotification401ApplicationJSON extends Error {
+export class GetNotificationResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +83,7 @@ export class GetNotification401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetNotification401ApplicationJSON) {
+    constructor(err?: GetNotificationResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,7 +92,7 @@ export class GetNotification401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetNotification401ApplicationJSON";
-        Object.setPrototypeOf(this, GetNotification401ApplicationJSON.prototype);
+        this.name = "GetNotificationResponseBody";
+        Object.setPrototypeOf(this, GetNotificationResponseBody.prototype);
     }
 }

@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class ListAdjustments500ApplicationJSON extends Error {
+export class ListAdjustmentsAdjustmentsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class ListAdjustments500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListAdjustments500ApplicationJSON) {
+    constructor(err?: ListAdjustmentsAdjustmentsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class ListAdjustments500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListAdjustments500ApplicationJSON";
-        Object.setPrototypeOf(this, ListAdjustments500ApplicationJSON.prototype);
+        this.name = "ListAdjustmentsAdjustmentsResponseBody";
+        Object.setPrototypeOf(this, ListAdjustmentsAdjustmentsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class ListAdjustments400ApplicationJSON extends Error {
+export class ListAdjustmentsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class ListAdjustments400ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListAdjustments400ApplicationJSON) {
+    constructor(err?: ListAdjustmentsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,7 +62,7 @@ export class ListAdjustments400ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListAdjustments400ApplicationJSON";
-        Object.setPrototypeOf(this, ListAdjustments400ApplicationJSON.prototype);
+        this.name = "ListAdjustmentsResponseBody";
+        Object.setPrototypeOf(this, ListAdjustmentsResponseBody.prototype);
     }
 }
