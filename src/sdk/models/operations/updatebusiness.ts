@@ -3,13 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 export class UpdateBusinessRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    businessInput?: shared.BusinessInput;
+    business?: shared.BusinessInput;
 
     /**
      * Paddle ID of the business entity to work with.
@@ -27,7 +27,7 @@ export class UpdateBusinessRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class UpdateBusiness200ApplicationJSON extends SpeakeasyBase {
+export class UpdateBusinessResponseBody extends SpeakeasyBase {
     /**
      * Represents a business entity.
      */
@@ -46,6 +46,12 @@ export class UpdateBusiness200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class UpdateBusinessResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: UpdateBusinessResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -66,10 +72,4 @@ export class UpdateBusinessResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    updateBusiness200ApplicationJSONObject?: UpdateBusiness200ApplicationJSON;
 }

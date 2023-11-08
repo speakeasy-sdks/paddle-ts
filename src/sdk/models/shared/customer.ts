@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Schemasstatus } from "./schemasstatus";
+import { SchemaStatus } from "./schemastatus";
 import { Expose, Transform } from "class-transformer";
 
 /**
@@ -61,7 +61,7 @@ export class Customer extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: Schemasstatus;
+    status?: SchemaStatus;
 
     /**
      * RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
@@ -109,5 +109,5 @@ export class CustomerInput extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: Schemasstatus;
+    status?: SchemaStatus;
 }

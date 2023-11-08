@@ -3,14 +3,14 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 /**
  * OK
  */
-export class ListNotificationSettings200ApplicationJSON extends SpeakeasyBase {
+export class ListNotificationSettingsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: shared.NotificationSettingComplete })
     @Expose({ name: "data" })
     @Type(() => shared.NotificationSettingComplete)
@@ -26,6 +26,12 @@ export class ListNotificationSettings200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class ListNotificationSettingsResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: ListNotificationSettingsResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -46,10 +52,4 @@ export class ListNotificationSettingsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    listNotificationSettings200ApplicationJSONObject?: ListNotificationSettings200ApplicationJSON;
 }

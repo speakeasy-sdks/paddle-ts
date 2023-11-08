@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class GetSubscriptionUpdatePaymentMethodTransaction500ApplicationJSON extends Error {
+export class GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponse500ResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,9 @@ export class GetSubscriptionUpdatePaymentMethodTransaction500ApplicationJSON ext
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetSubscriptionUpdatePaymentMethodTransaction500ApplicationJSON) {
+    constructor(
+        err?: GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponse500ResponseBody
+    ) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,10 +34,11 @@ export class GetSubscriptionUpdatePaymentMethodTransaction500ApplicationJSON ext
             );
         }
 
-        this.name = "GetSubscriptionUpdatePaymentMethodTransaction500ApplicationJSON";
+        this.name =
+            "GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponse500ResponseBody";
         Object.setPrototypeOf(
             this,
-            GetSubscriptionUpdatePaymentMethodTransaction500ApplicationJSON.prototype
+            GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponse500ResponseBody.prototype
         );
     }
 }
@@ -43,7 +46,7 @@ export class GetSubscriptionUpdatePaymentMethodTransaction500ApplicationJSON ext
 /**
  * General error response
  */
-export class GetSubscriptionUpdatePaymentMethodTransaction409ApplicationJSON extends Error {
+export class GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -56,7 +59,9 @@ export class GetSubscriptionUpdatePaymentMethodTransaction409ApplicationJSON ext
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetSubscriptionUpdatePaymentMethodTransaction409ApplicationJSON) {
+    constructor(
+        err?: GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseResponseBody
+    ) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -65,10 +70,11 @@ export class GetSubscriptionUpdatePaymentMethodTransaction409ApplicationJSON ext
             );
         }
 
-        this.name = "GetSubscriptionUpdatePaymentMethodTransaction409ApplicationJSON";
+        this.name =
+            "GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseResponseBody";
         Object.setPrototypeOf(
             this,
-            GetSubscriptionUpdatePaymentMethodTransaction409ApplicationJSON.prototype
+            GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseResponseBody.prototype
         );
     }
 }
@@ -76,7 +82,7 @@ export class GetSubscriptionUpdatePaymentMethodTransaction409ApplicationJSON ext
 /**
  * General error response
  */
-export class GetSubscriptionUpdatePaymentMethodTransaction403ApplicationJSON extends Error {
+export class GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -89,7 +95,7 @@ export class GetSubscriptionUpdatePaymentMethodTransaction403ApplicationJSON ext
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetSubscriptionUpdatePaymentMethodTransaction403ApplicationJSON) {
+    constructor(err?: GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -98,10 +104,10 @@ export class GetSubscriptionUpdatePaymentMethodTransaction403ApplicationJSON ext
             );
         }
 
-        this.name = "GetSubscriptionUpdatePaymentMethodTransaction403ApplicationJSON";
+        this.name = "GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseBody";
         Object.setPrototypeOf(
             this,
-            GetSubscriptionUpdatePaymentMethodTransaction403ApplicationJSON.prototype
+            GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseBody.prototype
         );
     }
 }
@@ -109,7 +115,7 @@ export class GetSubscriptionUpdatePaymentMethodTransaction403ApplicationJSON ext
 /**
  * General error response
  */
-export class GetSubscriptionUpdatePaymentMethodTransaction401ApplicationJSON extends Error {
+export class GetSubscriptionUpdatePaymentMethodTransactionResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -122,7 +128,7 @@ export class GetSubscriptionUpdatePaymentMethodTransaction401ApplicationJSON ext
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetSubscriptionUpdatePaymentMethodTransaction401ApplicationJSON) {
+    constructor(err?: GetSubscriptionUpdatePaymentMethodTransactionResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -131,10 +137,10 @@ export class GetSubscriptionUpdatePaymentMethodTransaction401ApplicationJSON ext
             );
         }
 
-        this.name = "GetSubscriptionUpdatePaymentMethodTransaction401ApplicationJSON";
+        this.name = "GetSubscriptionUpdatePaymentMethodTransactionResponseBody";
         Object.setPrototypeOf(
             this,
-            GetSubscriptionUpdatePaymentMethodTransaction401ApplicationJSON.prototype
+            GetSubscriptionUpdatePaymentMethodTransactionResponseBody.prototype
         );
     }
 }

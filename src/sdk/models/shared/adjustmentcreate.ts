@@ -5,8 +5,8 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AdjustmentPayoutTotals } from "./adjustmentpayouttotals";
 import { CurrencyCode2 } from "./currencycode2";
-import { Schemasaction } from "./schemasaction";
-import { SchemasstatusAdjustment } from "./schemasstatusadjustment";
+import { SchemaAction } from "./schemaaction";
+import { SchemaStatusAdjustment } from "./schemastatusadjustment";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -15,14 +15,14 @@ import { Expose, Type } from "class-transformer";
  * @remarks
  * Include `amount` when creating a `partial` adjustment.
  */
-export enum AdjustmentCreateAdjustmentItemType {
+export enum AdjustmentCreateType {
     Full = "full",
     Partial = "partial",
     Tax = "tax",
     Proration = "proration",
 }
 
-export class AdjustmentCreateAdjustmentItemInput extends SpeakeasyBase {
+export class AdjustmentCreateAdjustmentItem extends SpeakeasyBase {
     /**
      * Amount adjusted before tax for this transaction item. Required when adjustment type is `partial`.
      */
@@ -52,19 +52,19 @@ export class AdjustmentCreateAdjustmentItemInput extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: AdjustmentCreateAdjustmentItemType;
+    type: AdjustmentCreateType;
 }
 
 /**
  * Represents an adjustment entity.
  */
-export class AdjustmentCreateInput extends SpeakeasyBase {
+export class AdjustmentCreate extends SpeakeasyBase {
     /**
      * How this adjustment impacts the related transaction. `refund` adjustments must be approved by Paddle, and are created with the status `pending_approval`. `chargeback` and `chargeback_warning` adjustments are created automatically by Paddle.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "action" })
-    action: Schemasaction;
+    action: SchemaAction;
 
     /**
      * Supported three-letter ISO 4217 currency code.
@@ -90,10 +90,10 @@ export class AdjustmentCreateInput extends SpeakeasyBase {
     /**
      * List of items on this adjustment.
      */
-    @SpeakeasyMetadata({ elemType: AdjustmentCreateAdjustmentItemInput })
+    @SpeakeasyMetadata({ elemType: AdjustmentCreateAdjustmentItem })
     @Expose({ name: "items" })
-    @Type(() => AdjustmentCreateAdjustmentItemInput)
-    items: AdjustmentCreateAdjustmentItemInput[];
+    @Type(() => AdjustmentCreateAdjustmentItem)
+    items: AdjustmentCreateAdjustmentItem[];
 
     /**
      * Breakdown of how this adjustment affects your payout balance.
@@ -120,7 +120,7 @@ export class AdjustmentCreateInput extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: SchemasstatusAdjustment;
+    status?: SchemaStatusAdjustment;
 
     /**
      * Unique Paddle ID for this subscription entity, prefixed with `sub_`.

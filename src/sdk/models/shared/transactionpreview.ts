@@ -11,7 +11,7 @@ import { TransactionPreviewAdjustmentTotals } from "./transactionpreviewadjustme
 import { TransactionPreviewDetails } from "./transactionpreviewdetails";
 import { Expose, Type } from "class-transformer";
 
-export class TransactionPreviewTransactionItemPreviewInput extends SpeakeasyBase {
+export class TransactionPreviewTransactionItemPreview extends SpeakeasyBase {
     /**
      * Whether this item should be included in totals for this transaction preview. Typically used to exclude one-time charges from calculations.
      */
@@ -118,13 +118,13 @@ export class TransactionPreviewInput extends SpeakeasyBase {
     /**
      * List of items to preview transaction calculations for.
      */
-    @SpeakeasyMetadata({ elemType: TransactionPreviewTransactionItemPreviewInput })
+    @SpeakeasyMetadata({ elemType: TransactionPreviewTransactionItemPreview })
     @Expose({ name: "items" })
-    @Type(() => TransactionPreviewTransactionItemPreviewInput)
-    items: TransactionPreviewTransactionItemPreviewInput[];
+    @Type(() => TransactionPreviewTransactionItemPreview)
+    items: TransactionPreviewTransactionItemPreview[];
 }
 
-export class TransactionPreviewTransactionItemPreview extends SpeakeasyBase {
+export class TransactionItemPreview extends SpeakeasyBase {
     /**
      * Whether this item should be included in totals for this transaction preview. Typically used to exclude one-time charges from calculations.
      */
@@ -247,8 +247,8 @@ export class TransactionPreview extends SpeakeasyBase {
     /**
      * List of items to preview transaction calculations for.
      */
-    @SpeakeasyMetadata({ elemType: TransactionPreviewTransactionItemPreview })
+    @SpeakeasyMetadata({ elemType: TransactionItemPreview })
     @Expose({ name: "items" })
-    @Type(() => TransactionPreviewTransactionItemPreview)
-    items: TransactionPreviewTransactionItemPreview[];
+    @Type(() => TransactionItemPreview)
+    items: TransactionItemPreview[];
 }

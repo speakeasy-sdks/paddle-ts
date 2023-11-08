@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class CancelInvoice500ApplicationJSON extends Error {
+export class CancelInvoiceInvoicesResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class CancelInvoice500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CancelInvoice500ApplicationJSON) {
+    constructor(err?: CancelInvoiceInvoicesResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class CancelInvoice500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CancelInvoice500ApplicationJSON";
-        Object.setPrototypeOf(this, CancelInvoice500ApplicationJSON.prototype);
+        this.name = "CancelInvoiceInvoicesResponseResponseBody";
+        Object.setPrototypeOf(this, CancelInvoiceInvoicesResponseResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class CancelInvoice404ApplicationJSON extends Error {
+export class CancelInvoiceInvoicesResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class CancelInvoice404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CancelInvoice404ApplicationJSON) {
+    constructor(err?: CancelInvoiceInvoicesResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +62,15 @@ export class CancelInvoice404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CancelInvoice404ApplicationJSON";
-        Object.setPrototypeOf(this, CancelInvoice404ApplicationJSON.prototype);
+        this.name = "CancelInvoiceInvoicesResponseBody";
+        Object.setPrototypeOf(this, CancelInvoiceInvoicesResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class CancelInvoice401ApplicationJSON extends Error {
+export class CancelInvoiceResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +83,7 @@ export class CancelInvoice401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CancelInvoice401ApplicationJSON) {
+    constructor(err?: CancelInvoiceResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,7 +92,7 @@ export class CancelInvoice401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CancelInvoice401ApplicationJSON";
-        Object.setPrototypeOf(this, CancelInvoice401ApplicationJSON.prototype);
+        this.name = "CancelInvoiceResponseBody";
+        Object.setPrototypeOf(this, CancelInvoiceResponseBody.prototype);
     }
 }

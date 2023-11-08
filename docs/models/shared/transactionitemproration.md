@@ -5,7 +5,7 @@ How proration was calculated for this item. Populated when a transaction is crea
 
 ## Fields
 
-| Field                                           | Type                                            | Required                                        | Description                                     |
-| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| `billingPeriod`                                 | [TimePeriod](../../models/shared/timeperiod.md) | :heavy_minus_sign:                              | N/A                                             |
-| `rate`                                          | *string*                                        | :heavy_minus_sign:                              | Rate used to calculate proration.               |
+| Field                                                  | Type                                                   | Required                                               | Description                                            |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| `billingPeriod`                                        | [shared.TimePeriod](../../models/shared/timeperiod.md) | :heavy_minus_sign:                                     | N/A                                                    |
+| `rate`                                                 | *string*                                               | :heavy_minus_sign:                                     | Rate used to calculate proration.                      |

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
@@ -39,7 +39,7 @@ export class ListInvoicesRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class ListInvoices200ApplicationJSON extends SpeakeasyBase {
+export class ListInvoicesResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: shared.Invoice })
     @Expose({ name: "data" })
     @Type(() => shared.Invoice)
@@ -55,6 +55,12 @@ export class ListInvoices200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class ListInvoicesResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: ListInvoicesResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -75,10 +81,4 @@ export class ListInvoicesResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    listInvoices200ApplicationJSONObject?: ListInvoices200ApplicationJSON;
 }

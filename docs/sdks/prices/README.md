@@ -1,5 +1,5 @@
 # Prices
-(*prices*)
+(*.prices*)
 
 ## Overview
 
@@ -44,27 +44,27 @@ import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/d
     },
     customData: {},
     description: "Proactive systematic Graphical User Interface",
-    productId: "innovative",
+    productId: "string",
     quantity: {
       maximum: 100,
       minimum: 1,
     },
     trialPeriod: {
-      frequency: 786546,
+      frequency: 288408,
       interval: Period2Interval.Day,
     },
     unitPrice: {
-      amount: "996.71",
-      currencyCode: CurrencyCode2.Thb,
+      amount: "786.55",
+      currencyCode: CurrencyCode2.Brl,
     },
     unitPriceOverrides: [
       {
         countryCodes: [
-          CountryCode2.Gw,
+          CountryCode2.Zm,
         ],
         unitPrice: {
-          amount: "951.07",
-          currencyCode: CurrencyCode2.Twd,
+          amount: "796.48",
+          currencyCode: CurrencyCode2.Hkd,
         },
       },
     ],
@@ -88,7 +88,14 @@ import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/d
 ### Response
 
 **Promise<[operations.CreatePriceResponse](../../models/operations/createpriceresponse.md)>**
+### Errors
 
+| Error Object                                 | Status Code                                  | Content Type                                 |
+| -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
+| errors.CreatePriceResponseBody               | 400                                          | application/json                             |
+| errors.CreatePricePricesResponseBody         | 403                                          | application/json                             |
+| errors.CreatePricePricesResponseResponseBody | 500                                          | application/json                             |
+| errors.SDKError                              | 400-600                                      | */*                                          |
 
 ## get
 
@@ -131,7 +138,14 @@ import { IncludePrice } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.GetPriceResponse](../../models/operations/getpriceresponse.md)>**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| errors.GetPriceResponseBody               | 401                                       | application/json                          |
+| errors.GetPricePricesResponseBody         | 404                                       | application/json                          |
+| errors.GetPricePricesResponseResponseBody | 500                                       | application/json                          |
+| errors.SDKError                           | 400-600                                   | */*                                       |
 
 ## list
 
@@ -176,7 +190,13 @@ import { IncludePrice, Status } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.ListPricesResponse](../../models/operations/listpricesresponse.md)>**
+### Errors
 
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| errors.ListPricesResponseBody       | 401                                 | application/json                    |
+| errors.ListPricesPricesResponseBody | 500                                 | application/json                    |
+| errors.SDKError                     | 400-600                             | */*                                 |
 
 ## update
 
@@ -188,7 +208,7 @@ If successful, your response includes a copy of the updated price entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CountryCode2, CurrencyCode2, Period2Interval, Schemasstatus, TaxMode1 } from "Paddle/dist/sdk/models/shared";
+import { CountryCode2, CurrencyCode2, Period2Interval, SchemaStatus, TaxMode1 } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -249,4 +269,11 @@ import { CountryCode2, CurrencyCode2, Period2Interval, Schemasstatus, TaxMode1 }
 ### Response
 
 **Promise<[operations.UpdatePriceResponse](../../models/operations/updatepriceresponse.md)>**
+### Errors
 
+| Error Object                                 | Status Code                                  | Content Type                                 |
+| -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
+| errors.UpdatePriceResponseBody               | 401                                          | application/json                             |
+| errors.UpdatePricePricesResponseBody         | 404                                          | application/json                             |
+| errors.UpdatePricePricesResponseResponseBody | 500                                          | application/json                             |
+| errors.SDKError                              | 400-600                                      | */*                                          |

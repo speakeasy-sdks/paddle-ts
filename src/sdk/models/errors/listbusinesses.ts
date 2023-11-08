@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class ListBusinesses500ApplicationJSON extends Error {
+export class ListBusinessesBusinessesResponse500ResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class ListBusinesses500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListBusinesses500ApplicationJSON) {
+    constructor(err?: ListBusinessesBusinessesResponse500ResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class ListBusinesses500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListBusinesses500ApplicationJSON";
-        Object.setPrototypeOf(this, ListBusinesses500ApplicationJSON.prototype);
+        this.name = "ListBusinessesBusinessesResponse500ResponseBody";
+        Object.setPrototypeOf(this, ListBusinessesBusinessesResponse500ResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class ListBusinesses404ApplicationJSON extends Error {
+export class ListBusinessesBusinessesResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class ListBusinesses404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListBusinesses404ApplicationJSON) {
+    constructor(err?: ListBusinessesBusinessesResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +62,15 @@ export class ListBusinesses404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListBusinesses404ApplicationJSON";
-        Object.setPrototypeOf(this, ListBusinesses404ApplicationJSON.prototype);
+        this.name = "ListBusinessesBusinessesResponseResponseBody";
+        Object.setPrototypeOf(this, ListBusinessesBusinessesResponseResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class ListBusinesses403ApplicationJSON extends Error {
+export class ListBusinessesBusinessesResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +83,7 @@ export class ListBusinesses403ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListBusinesses403ApplicationJSON) {
+    constructor(err?: ListBusinessesBusinessesResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,15 +92,15 @@ export class ListBusinesses403ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListBusinesses403ApplicationJSON";
-        Object.setPrototypeOf(this, ListBusinesses403ApplicationJSON.prototype);
+        this.name = "ListBusinessesBusinessesResponseBody";
+        Object.setPrototypeOf(this, ListBusinessesBusinessesResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class ListBusinesses401ApplicationJSON extends Error {
+export class ListBusinessesResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -113,7 +113,7 @@ export class ListBusinesses401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListBusinesses401ApplicationJSON) {
+    constructor(err?: ListBusinessesResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -122,7 +122,7 @@ export class ListBusinesses401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListBusinesses401ApplicationJSON";
-        Object.setPrototypeOf(this, ListBusinesses401ApplicationJSON.prototype);
+        this.name = "ListBusinessesResponseBody";
+        Object.setPrototypeOf(this, ListBusinessesResponseBody.prototype);
     }
 }

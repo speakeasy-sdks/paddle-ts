@@ -3,11 +3,11 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class GetIpAddresses200ApplicationJSONData extends SpeakeasyBase {
+export class Data extends SpeakeasyBase {
     /**
      * List of Paddle IPv4 CIDRs.
      */
@@ -19,11 +19,11 @@ export class GetIpAddresses200ApplicationJSONData extends SpeakeasyBase {
 /**
  * OK
  */
-export class GetIpAddresses200ApplicationJSON extends SpeakeasyBase {
+export class GetIpAddressesResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => GetIpAddresses200ApplicationJSONData)
-    data: GetIpAddresses200ApplicationJSONData;
+    @Type(() => Data)
+    data: Data;
 
     /**
      * Information about this response.
@@ -35,6 +35,12 @@ export class GetIpAddresses200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class GetIpAddressesResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetIpAddressesResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -55,10 +61,4 @@ export class GetIpAddressesResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    getIpAddresses200ApplicationJSONObject?: GetIpAddresses200ApplicationJSON;
 }

@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class GetProduct500ApplicationJSON extends Error {
+export class GetProductProductsResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class GetProduct500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetProduct500ApplicationJSON) {
+    constructor(err?: GetProductProductsResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class GetProduct500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetProduct500ApplicationJSON";
-        Object.setPrototypeOf(this, GetProduct500ApplicationJSON.prototype);
+        this.name = "GetProductProductsResponseResponseBody";
+        Object.setPrototypeOf(this, GetProductProductsResponseResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class GetProduct404ApplicationJSON extends Error {
+export class GetProductProductsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class GetProduct404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetProduct404ApplicationJSON) {
+    constructor(err?: GetProductProductsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +62,15 @@ export class GetProduct404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetProduct404ApplicationJSON";
-        Object.setPrototypeOf(this, GetProduct404ApplicationJSON.prototype);
+        this.name = "GetProductProductsResponseBody";
+        Object.setPrototypeOf(this, GetProductProductsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class GetProduct401ApplicationJSON extends Error {
+export class GetProductResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +83,7 @@ export class GetProduct401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetProduct401ApplicationJSON) {
+    constructor(err?: GetProductResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,7 +92,7 @@ export class GetProduct401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetProduct401ApplicationJSON";
-        Object.setPrototypeOf(this, GetProduct401ApplicationJSON.prototype);
+        this.name = "GetProductResponseBody";
+        Object.setPrototypeOf(this, GetProductResponseBody.prototype);
     }
 }

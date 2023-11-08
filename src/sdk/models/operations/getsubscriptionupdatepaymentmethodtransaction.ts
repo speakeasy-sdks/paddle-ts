@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
@@ -15,7 +15,7 @@ export class GetSubscriptionUpdatePaymentMethodTransactionRequest extends Speake
     subscriptionId: string;
 }
 
-export class GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONTransactionCheckout extends SpeakeasyBase {
+export class Checkout extends SpeakeasyBase {
     /**
      * The URL built in order to execute a payment via a checkout. This can be `null` as we do have scenarios where a transaction can only be paid with a wire transfer or perhaps just not desired. When `collection_mode` is `automatic`, this URL will always be present. <br /><br /> It is built using the sellers approved domain along with the transaction ID param appended `?_ptxn={id}`
      */
@@ -27,7 +27,7 @@ export class GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONTran
 /**
  * The status of the transaction itself. This field can be updated via a `PATCH` but you can only set a transaction to be `billed` or `canceled` manually. All other statuses are automatic.
  */
-export enum GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONTransactionStatus {
+export enum Status {
     Draft = "draft",
     Ready = "ready",
     Billed = "billed",
@@ -36,7 +36,7 @@ export enum GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONTrans
     PastDue = "past_due",
 }
 
-export class GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONTransactionOutput extends SpeakeasyBase {
+export class Transaction extends SpeakeasyBase {
     /**
      * Represents an address entity.
      */
@@ -94,8 +94,8 @@ export class GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONTran
 
     @SpeakeasyMetadata()
     @Expose({ name: "checkout" })
-    @Type(() => GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONTransactionCheckout)
-    checkout?: GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONTransactionCheckout;
+    @Type(() => Checkout)
+    checkout?: Checkout;
 
     /**
      * Describes how the payment is collected. Manual mode is for invoicing where a customer is first sent an invoice and requires manual intervention on their end to initiate a payment and there are normally payment terms involved eg they have to pay within 30 days. Automatic payments are where there is not usually any action on the sellers part to initiate a payment eg a customer visits a website and purchases something via a checkout or when a recurring transaction for a subscription is paid for via a payment method that is stored on file.
@@ -210,7 +210,7 @@ export class GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONTran
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONTransactionStatus;
+    status?: Status;
 
     /**
      * ID of the Subscription that this transaction belongs to
@@ -230,14 +230,20 @@ export class GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONTran
 /**
  * OK
  */
-export class GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONOutput extends SpeakeasyBase {
+export class GetSubscriptionUpdatePaymentMethodTransactionResponseBodyOutput extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONTransactionOutput)
-    data?: GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONTransactionOutput;
+    @Type(() => Transaction)
+    data?: Transaction;
 }
 
 export class GetSubscriptionUpdatePaymentMethodTransactionResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetSubscriptionUpdatePaymentMethodTransactionResponseBodyOutput;
+
     /**
      * HTTP response content type for this operation
      */
@@ -258,10 +264,4 @@ export class GetSubscriptionUpdatePaymentMethodTransactionResponse extends Speak
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    getSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONObject?: GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONOutput;
 }

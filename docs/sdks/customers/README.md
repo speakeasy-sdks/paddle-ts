@@ -1,5 +1,5 @@
 # Customers
-(*customers*)
+(*.customers*)
 
 ## Overview
 
@@ -46,17 +46,25 @@ import { Paddle } from "Paddle";
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [shared.CustomerCreateInput](../../models/shared/customercreateinput.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `retries`                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                   | :heavy_minus_sign:                                                       | Configuration to override the default retry behavior of the client.      |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [shared.CustomerCreate](../../models/shared/customercreate.md)      | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `retries`                                                           | [utils.RetryConfig](../../models/utils/retryconfig.md)              | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| `config`                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)        | :heavy_minus_sign:                                                  | Available config options for making requests.                       |
 
 
 ### Response
 
 **Promise<[operations.CreateCustomerResponse](../../models/operations/createcustomerresponse.md)>**
+### Errors
 
+| Error Object                                          | Status Code                                           | Content Type                                          |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| errors.CreateCustomerResponseBody                     | 400                                                   | application/json                                      |
+| errors.CreateCustomerCustomersResponseBody            | 401                                                   | application/json                                      |
+| errors.CreateCustomerCustomersResponseResponseBody    | 403                                                   | application/json                                      |
+| errors.CreateCustomerCustomersResponse500ResponseBody | 500                                                   | application/json                                      |
+| errors.SDKError                                       | 400-600                                               | */*                                                   |
 
 ## get
 
@@ -96,7 +104,15 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.GetCustomerResponse](../../models/operations/getcustomerresponse.md)>**
+### Errors
 
+| Error Object                                       | Status Code                                        | Content Type                                       |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| errors.GetCustomerResponseBody                     | 401                                                | application/json                                   |
+| errors.GetCustomerCustomersResponseBody            | 403                                                | application/json                                   |
+| errors.GetCustomerCustomersResponseResponseBody    | 404                                                | application/json                                   |
+| errors.GetCustomerCustomersResponse500ResponseBody | 500                                                | application/json                                   |
+| errors.SDKError                                    | 400-600                                            | */*                                                |
 
 ## list
 
@@ -139,7 +155,15 @@ import { Status } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.ListCustomersResponse](../../models/operations/listcustomersresponse.md)>**
+### Errors
 
+| Error Object                                         | Status Code                                          | Content Type                                         |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| errors.ListCustomersResponseBody                     | 401                                                  | application/json                                     |
+| errors.ListCustomersCustomersResponseBody            | 403                                                  | application/json                                     |
+| errors.ListCustomersCustomersResponseResponseBody    | 404                                                  | application/json                                     |
+| errors.ListCustomersCustomersResponse500ResponseBody | 500                                                  | application/json                                     |
+| errors.SDKError                                      | 400-600                                              | */*                                                  |
 
 ## listCreditBalances
 
@@ -190,7 +214,14 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.ListCreditBalancesResponse](../../models/operations/listcreditbalancesresponse.md)>**
+### Errors
 
+| Error Object                                           | Status Code                                            | Content Type                                           |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| errors.ListCreditBalancesResponseBody                  | 400                                                    | application/json                                       |
+| errors.ListCreditBalancesCustomersResponseBody         | 404                                                    | application/json                                       |
+| errors.ListCreditBalancesCustomersResponseResponseBody | 500                                                    | application/json                                       |
+| errors.SDKError                                        | 400-600                                                | */*                                                    |
 
 ## update
 
@@ -202,7 +233,7 @@ If successful, your response includes a copy of the updated customer entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
+import { SchemaStatus } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -212,7 +243,7 @@ import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
   });
 
   const res = await sdk.customers.update({
-    customerInput: {
+    customer: {
       email: "weloveyourproduct@paddle.com",
       id: "ctm_01grnn4zta5a1mf02jjze7y2ys",
     },
@@ -237,4 +268,13 @@ import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.UpdateCustomerResponse](../../models/operations/updatecustomerresponse.md)>**
+### Errors
 
+| Error Object                                          | Status Code                                           | Content Type                                          |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| errors.UpdateCustomerResponseBody                     | 400                                                   | application/json                                      |
+| errors.UpdateCustomerCustomersResponseBody            | 401                                                   | application/json                                      |
+| errors.UpdateCustomerCustomersResponseResponseBody    | 403                                                   | application/json                                      |
+| errors.UpdateCustomerCustomersResponse404ResponseBody | 404                                                   | application/json                                      |
+| errors.UpdateCustomerCustomersResponse500ResponseBody | 500                                                   | application/json                                      |
+| errors.SDKError                                       | 400-600                                               | */*                                                   |

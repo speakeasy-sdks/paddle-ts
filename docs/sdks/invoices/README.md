@@ -1,5 +1,5 @@
 # Invoices
-(*invoices*)
+(*.invoices*)
 
 ## Overview
 
@@ -59,7 +59,14 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.CancelInvoiceResponse](../../models/operations/cancelinvoiceresponse.md)>**
+### Errors
 
+| Error Object                                     | Status Code                                      | Content Type                                     |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| errors.CancelInvoiceResponseBody                 | 401                                              | application/json                                 |
+| errors.CancelInvoiceInvoicesResponseBody         | 404                                              | application/json                                 |
+| errors.CancelInvoiceInvoicesResponseResponseBody | 500                                              | application/json                                 |
+| errors.SDKError                                  | 400-600                                          | */*                                              |
 
 ## create
 
@@ -73,7 +80,7 @@ If successful, your response includes a copy of the new invoice entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CurrencyCodeInvoice, InvoiceBillingPeriodType, Period1Interval, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
+import { CurrencyCodeInvoice, Interval, InvoiceType, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 import { RFCDate } from "Paddle/dist/sdk/types";
 
 (async() => {
@@ -88,13 +95,13 @@ import { RFCDate } from "Paddle/dist/sdk/types";
     billingDetails: {
       paymentTerms: {
         frequency: 486589,
-        interval: Period1Interval.Week,
+        interval: Interval.Week,
       },
     },
     billingPeriod: {
       endsAt: new RFCDate("2022-12-01"),
       startsAt: new RFCDate("2023-07-30"),
-      type: InvoiceBillingPeriodType.Contract,
+      type: InvoiceType.Contract,
     },
     businessId: "biz_01ghbkcbs88yxj4fxecevjz9g7",
     currencyCode: CurrencyCodeInvoice.Eur,
@@ -141,7 +148,14 @@ import { RFCDate } from "Paddle/dist/sdk/types";
 ### Response
 
 **Promise<[operations.CreateInvoiceResponse](../../models/operations/createinvoiceresponse.md)>**
+### Errors
 
+| Error Object                                     | Status Code                                      | Content Type                                     |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| errors.CreateInvoiceResponseBody                 | 400                                              | application/json                                 |
+| errors.CreateInvoiceInvoicesResponseBody         | 401                                              | application/json                                 |
+| errors.CreateInvoiceInvoicesResponseResponseBody | 500                                              | application/json                                 |
+| errors.SDKError                                  | 400-600                                          | */*                                              |
 
 ## get
 
@@ -181,7 +195,14 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.GetInvoiceResponse](../../models/operations/getinvoiceresponse.md)>**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| errors.GetInvoiceResponseBody                 | 401                                           | application/json                              |
+| errors.GetInvoiceInvoicesResponseBody         | 404                                           | application/json                              |
+| errors.GetInvoiceInvoicesResponseResponseBody | 500                                           | application/json                              |
+| errors.SDKError                               | 400-600                                       | */*                                           |
 
 ## getPdf
 
@@ -223,7 +244,14 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.GetInvoicePdfResponse](../../models/operations/getinvoicepdfresponse.md)>**
+### Errors
 
+| Error Object                                     | Status Code                                      | Content Type                                     |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| errors.GetInvoicePdfResponseBody                 | 401                                              | application/json                                 |
+| errors.GetInvoicePdfInvoicesResponseBody         | 404                                              | application/json                                 |
+| errors.GetInvoicePdfInvoicesResponseResponseBody | 500                                              | application/json                                 |
+| errors.SDKError                                  | 400-600                                          | */*                                              |
 
 ## issueInvoice
 
@@ -275,7 +303,16 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.IssueInvoiceResponse](../../models/operations/issueinvoiceresponse.md)>**
+### Errors
 
+| Error Object                                       | Status Code                                        | Content Type                                       |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| errors.IssueInvoiceResponseBody                    | 400                                                | application/json                                   |
+| errors.IssueInvoiceInvoicesResponseBody            | 401                                                | application/json                                   |
+| errors.IssueInvoiceInvoicesResponseResponseBody    | 404                                                | application/json                                   |
+| errors.IssueInvoiceInvoicesResponse422ResponseBody | 422                                                | application/json                                   |
+| errors.IssueInvoiceInvoicesResponse500ResponseBody | 500                                                | application/json                                   |
+| errors.SDKError                                    | 400-600                                            | */*                                                |
 
 ## list
 
@@ -316,7 +353,13 @@ import { StatusInvoice } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.ListInvoicesResponse](../../models/operations/listinvoicesresponse.md)>**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| errors.ListInvoicesResponseBody         | 401                                     | application/json                        |
+| errors.ListInvoicesInvoicesResponseBody | 500                                     | application/json                        |
+| errors.SDKError                         | 400-600                                 | */*                                     |
 
 ## update
 
@@ -330,7 +373,7 @@ If successful, your response includes a copy of the updated invoice entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CurrencyCodeInvoice, InvoiceForPatchBillingPeriodType, Period1Interval } from "Paddle/dist/sdk/models/shared";
+import { CurrencyCodeInvoice, Interval, InvoiceForPatchType } from "Paddle/dist/sdk/models/shared";
 import { RFCDate } from "Paddle/dist/sdk/types";
 
 (async() => {
@@ -346,13 +389,13 @@ import { RFCDate } from "Paddle/dist/sdk/types";
       billingDetails: {
         paymentTerms: {
           frequency: 857478,
-          interval: Period1Interval.Day,
+          interval: Interval.Day,
         },
       },
       billingPeriod: {
         endsAt: new RFCDate("2022-10-16"),
         startsAt: new RFCDate("2021-01-18"),
-        type: InvoiceForPatchBillingPeriodType.Contract,
+        type: InvoiceForPatchType.Contract,
       },
       businessId: "biz_01ghbmaszjgjd47g5f3d9vw7hg",
       customData: {},
@@ -390,4 +433,13 @@ import { RFCDate } from "Paddle/dist/sdk/types";
 ### Response
 
 **Promise<[operations.UpdateInvoiceResponse](../../models/operations/updateinvoiceresponse.md)>**
+### Errors
 
+| Error Object                                        | Status Code                                         | Content Type                                        |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| errors.UpdateInvoiceResponseBody                    | 400                                                 | application/json                                    |
+| errors.UpdateInvoiceInvoicesResponseBody            | 401                                                 | application/json                                    |
+| errors.UpdateInvoiceInvoicesResponseResponseBody    | 404                                                 | application/json                                    |
+| errors.UpdateInvoiceInvoicesResponse422ResponseBody | 422                                                 | application/json                                    |
+| errors.UpdateInvoiceInvoicesResponse500ResponseBody | 500                                                 | application/json                                    |
+| errors.SDKError                                     | 400-600                                             | */*                                                 |

@@ -1,5 +1,5 @@
 # IPAddresses
-(*ipAddresses*)
+(*.ipAddresses*)
 
 ## Overview
 
@@ -46,4 +46,9 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.GetIpAddressesResponse](../../models/operations/getipaddressesresponse.md)>**
+### Errors
 
+| Error Object                      | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.GetIpAddressesResponseBody | 500                               | application/json                  |
+| errors.SDKError                   | 400-600                           | */*                               |

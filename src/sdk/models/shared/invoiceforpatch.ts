@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RFCDate } from "../../types";
+import { RFCDate } from "../../../sdk/types";
 import { BillingDetails1 } from "./billingdetails1";
 import { CurrencyCodeInvoice } from "./currencycodeinvoice";
 import { CustomDataInvoice } from "./customdatainvoice";
@@ -13,7 +13,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * The billing period type is set to `billing` for subscriptions.
  */
-export enum InvoiceForPatchBillingPeriodType {
+export enum InvoiceForPatchType {
     Billing = "billing",
     Contract = "contract",
     Service = "service",
@@ -37,7 +37,7 @@ export class InvoiceForPatchBillingPeriod extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: InvoiceForPatchBillingPeriodType;
+    type: InvoiceForPatchType;
 }
 
 export class InvoiceForPatch extends SpeakeasyBase {

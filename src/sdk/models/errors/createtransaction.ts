@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class CreateTransaction500ApplicationJSON extends Error {
+export class CreateTransactionTransactionsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class CreateTransaction500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CreateTransaction500ApplicationJSON) {
+    constructor(err?: CreateTransactionTransactionsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class CreateTransaction500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateTransaction500ApplicationJSON";
-        Object.setPrototypeOf(this, CreateTransaction500ApplicationJSON.prototype);
+        this.name = "CreateTransactionTransactionsResponseBody";
+        Object.setPrototypeOf(this, CreateTransactionTransactionsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class CreateTransaction401ApplicationJSON extends Error {
+export class CreateTransactionResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class CreateTransaction401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CreateTransaction401ApplicationJSON) {
+    constructor(err?: CreateTransactionResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,7 +62,7 @@ export class CreateTransaction401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateTransaction401ApplicationJSON";
-        Object.setPrototypeOf(this, CreateTransaction401ApplicationJSON.prototype);
+        this.name = "CreateTransactionResponseBody";
+        Object.setPrototypeOf(this, CreateTransactionResponseBody.prototype);
     }
 }

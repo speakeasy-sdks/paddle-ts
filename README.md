@@ -29,7 +29,14 @@ yarn add https://github.com/speakeasy-sdks/paddle-ts
 <!-- Start SDK Example Usage -->
 ```typescript
 import { Paddle } from "Paddle";
-import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
+import {
+    AdjustmentCreateType,
+    CurrencyCode2,
+    CurrencyCodeChargeback,
+    CurrencyCodePayouts,
+    SchemaAction,
+    SchemaStatusAdjustment,
+} from "Paddle/dist/sdk/models/shared";
 
 (async () => {
     const sdk = new Paddle({
@@ -38,17 +45,33 @@ import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
         },
     });
 
-    const res = await sdk.addresses.create({
-        addressCreateInput: {
-            city: "Astoria",
-            countryCode: CountryCode2.Kn,
-            description: "Paddle.com",
-            firstLine: "3811 Ditmars Blvd",
-            id: "add_01gm302t81w94gyjpjpqypkzkf",
-            postalCode: "11105-1803",
-            region: "NY",
+    const res = await sdk.adjustments.create({
+        action: SchemaAction.Refund,
+        customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+        id: "adj_01gya6twkp8y0tv1e19rsgst9m",
+        items: [
+            {
+                id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
+                itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
+                type: AdjustmentCreateType.Full,
+            },
+        ],
+        payoutTotals: {
+            chargebackFee: {
+                amount: "1680",
+                original: {
+                    amount: "1500",
+                },
+            },
+            earnings: "15120",
+            fee: "300",
+            subtotal: "15000",
+            tax: "1500",
+            total: "16500",
         },
-        customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
+        reason: "string",
+        subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
+        transactionId: "string",
     });
 
     if (res.statusCode == 200) {
@@ -63,26 +86,12 @@ import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
 ## Available Resources and Operations
 
 
-### [addresses](docs/sdks/addresses/README.md)
-
-* [create](docs/sdks/addresses/README.md#create) - Create an address for a customer
-* [get](docs/sdks/addresses/README.md#get) - Get an address for a customer
-* [list](docs/sdks/addresses/README.md#list) - List addresses for a customer
-* [update](docs/sdks/addresses/README.md#update) - Update an address for a customer
-
-### [adjustments](docs/sdks/adjustments/README.md)
+### [.adjustments](docs/sdks/adjustments/README.md)
 
 * [create](docs/sdks/adjustments/README.md#create) - Create an adjustment
 * [list](docs/sdks/adjustments/README.md#list) - List adjustments
 
-### [businesses](docs/sdks/businesses/README.md)
-
-* [create](docs/sdks/businesses/README.md#create) - Create a business for a customer
-* [get](docs/sdks/businesses/README.md#get) - Get a business for a customer
-* [list](docs/sdks/businesses/README.md#list) - List businesses for a customer
-* [update](docs/sdks/businesses/README.md#update) - Update a business for a customer
-
-### [customers](docs/sdks/customers/README.md)
+### [.customers](docs/sdks/customers/README.md)
 
 * [create](docs/sdks/customers/README.md#create) - Create a customer
 * [get](docs/sdks/customers/README.md#get) - Get a customer
@@ -90,23 +99,33 @@ import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
 * [listCreditBalances](docs/sdks/customers/README.md#listcreditbalances) - List credit balances for a customer
 * [update](docs/sdks/customers/README.md#update) - Update a customer
 
-### [discounts](docs/sdks/discounts/README.md)
+### [.addresses](docs/sdks/addresses/README.md)
+
+* [create](docs/sdks/addresses/README.md#create) - Create an address for a customer
+* [get](docs/sdks/addresses/README.md#get) - Get an address for a customer
+* [list](docs/sdks/addresses/README.md#list) - List addresses for a customer
+* [update](docs/sdks/addresses/README.md#update) - Update an address for a customer
+
+### [.businesses](docs/sdks/businesses/README.md)
+
+* [create](docs/sdks/businesses/README.md#create) - Create a business for a customer
+* [get](docs/sdks/businesses/README.md#get) - Get a business for a customer
+* [list](docs/sdks/businesses/README.md#list) - List businesses for a customer
+* [update](docs/sdks/businesses/README.md#update) - Update a business for a customer
+
+### [.discounts](docs/sdks/discounts/README.md)
 
 * [create](docs/sdks/discounts/README.md#create) - Create a discount
 * [get](docs/sdks/discounts/README.md#get) - Get a discount
 * [list](docs/sdks/discounts/README.md#list) - List discounts
 * [update](docs/sdks/discounts/README.md#update) - Update a discount
 
-### [events](docs/sdks/events/README.md)
+### [.events](docs/sdks/events/README.md)
 
 * [list](docs/sdks/events/README.md#list) - List events
 * [listTypes](docs/sdks/events/README.md#listtypes) - List events types
 
-### [ipAddresses](docs/sdks/ipaddresses/README.md)
-
-* [get](docs/sdks/ipaddresses/README.md#get) - Get Paddle IP addresses
-
-### [invoices](docs/sdks/invoices/README.md)
+### [.invoices](docs/sdks/invoices/README.md)
 
 * [cancel](docs/sdks/invoices/README.md#cancel) - Cancel an invoice
 * [create](docs/sdks/invoices/README.md#create) - Create a draft invoice
@@ -116,7 +135,11 @@ import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
 * [list](docs/sdks/invoices/README.md#list) - List invoices
 * [update](docs/sdks/invoices/README.md#update) - Update a draft invoice
 
-### [notifications](docs/sdks/notifications/README.md)
+### [.ipAddresses](docs/sdks/ipaddresses/README.md)
+
+* [get](docs/sdks/ipaddresses/README.md#get) - Get Paddle IP addresses
+
+### [.notifications](docs/sdks/notifications/README.md)
 
 * [createSetting](docs/sdks/notifications/README.md#createsetting) - Create a notification setting
 * [deleteSetting](docs/sdks/notifications/README.md#deletesetting) - Delete a notification setting
@@ -129,21 +152,40 @@ import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
 * [replayBySetting](docs/sdks/notifications/README.md#replaybysetting) - Replay notifications by notification setting
 * [updateSettings](docs/sdks/notifications/README.md#updatesettings) - Update a notification setting
 
-### [prices](docs/sdks/prices/README.md)
+### [.prices](docs/sdks/prices/README.md)
 
 * [create](docs/sdks/prices/README.md#create) - Create a price
 * [get](docs/sdks/prices/README.md#get) - Get a price
 * [list](docs/sdks/prices/README.md#list) - List prices
 * [update](docs/sdks/prices/README.md#update) - Update a price
 
-### [products](docs/sdks/products/README.md)
+### [.transactions](docs/sdks/transactions/README.md)
+
+* [create](docs/sdks/transactions/README.md#create) - Create a transaction
+* [get](docs/sdks/transactions/README.md#get) - Get a transaction
+* [getInvoice](docs/sdks/transactions/README.md#getinvoice) - Get a PDF invoice for a transaction
+* [list](docs/sdks/transactions/README.md#list) - List transactions
+* [previewTransaction](docs/sdks/transactions/README.md#previewtransaction) - Preview a transaction
+* [pricePreview](docs/sdks/transactions/README.md#pricepreview) - Preview prices
+* [update](docs/sdks/transactions/README.md#update) - Update a transaction
+
+### [.transactionService](docs/sdks/transactionservice/README.md)
+
+* [create](docs/sdks/transactionservice/README.md#create) - Create a transaction
+* [get](docs/sdks/transactionservice/README.md#get) - Get a transaction
+* [list](docs/sdks/transactionservice/README.md#list) - List transactions
+* [previewTransaction](docs/sdks/transactionservice/README.md#previewtransaction) - Preview a transaction
+* [pricePreview](docs/sdks/transactionservice/README.md#pricepreview) - Preview prices
+* [update](docs/sdks/transactionservice/README.md#update) - Update a transaction
+
+### [.products](docs/sdks/products/README.md)
 
 * [create](docs/sdks/products/README.md#create) - Create a product
 * [get](docs/sdks/products/README.md#get) - Get a product
 * [list](docs/sdks/products/README.md#list) - List products
 * [update](docs/sdks/products/README.md#update) - Update a product
 
-### [subscriptions](docs/sdks/subscriptions/README.md)
+### [.subscriptions](docs/sdks/subscriptions/README.md)
 
 * [cancel](docs/sdks/subscriptions/README.md#cancel) - Cancel a subscription
 * [create](docs/sdks/subscriptions/README.md#create) - Create a one-time charge for a subscription
@@ -155,25 +197,6 @@ import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
 * [previewSubscription](docs/sdks/subscriptions/README.md#previewsubscription) - Preview an update to a subscription
 * [resumeSubscription](docs/sdks/subscriptions/README.md#resumesubscription) - Resume a paused subscription
 * [update](docs/sdks/subscriptions/README.md#update) - Update a subscription
-
-### [transactions](docs/sdks/transactions/README.md)
-
-* [create](docs/sdks/transactions/README.md#create) - Create a transaction
-* [get](docs/sdks/transactions/README.md#get) - Get a transaction
-* [getInvoice](docs/sdks/transactions/README.md#getinvoice) - Get a PDF invoice for a transaction
-* [list](docs/sdks/transactions/README.md#list) - List transactions
-* [previewTransaction](docs/sdks/transactions/README.md#previewtransaction) - Preview a transaction
-* [pricePreview](docs/sdks/transactions/README.md#pricepreview) - Preview prices
-* [update](docs/sdks/transactions/README.md#update) - Update a transaction
-
-### [transactionService](docs/sdks/transactionservice/README.md)
-
-* [create](docs/sdks/transactionservice/README.md#create) - Create a transaction
-* [get](docs/sdks/transactionservice/README.md#get) - Get a transaction
-* [list](docs/sdks/transactionservice/README.md#list) - List transactions
-* [previewTransaction](docs/sdks/transactionservice/README.md#previewtransaction) - Preview a transaction
-* [pricePreview](docs/sdks/transactionservice/README.md#pricepreview) - Preview prices
-* [update](docs/sdks/transactionservice/README.md#update) - Update a transaction
 <!-- End SDK Available Operations -->
 
 
@@ -193,6 +216,472 @@ return value of `next` is `null`, then there are no more pages to be fetched.
 
 Here's an example of one such pagination call:
 <!-- End Pagination -->
+
+
+
+<!-- Start Retries -->
+# Retries
+
+Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+
+To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
+
+
+## Example
+
+```typescript
+import { Paddle } from "Paddle";
+import {
+    AdjustmentCreateType,
+    CurrencyCode2,
+    CurrencyCodeChargeback,
+    CurrencyCodePayouts,
+    SchemaAction,
+    SchemaStatusAdjustment,
+} from "Paddle/dist/sdk/models/shared";
+
+(async () => {
+    const sdk = new Paddle({
+        security: {
+            bearerAuth: "YOUR_API_KEY",
+        },
+    });
+
+    const res = await sdk.adjustments.create(
+        {
+            action: SchemaAction.Refund,
+            customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+            id: "adj_01gya6twkp8y0tv1e19rsgst9m",
+            items: [
+                {
+                    id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
+                    itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
+                    type: AdjustmentCreateType.Full,
+                },
+            ],
+            payoutTotals: {
+                chargebackFee: {
+                    amount: "1680",
+                    original: {
+                        amount: "1500",
+                    },
+                },
+                earnings: "15120",
+                fee: "300",
+                subtotal: "15000",
+                tax: "1500",
+                total: "16500",
+            },
+            reason: "string",
+            subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
+            transactionId: "string",
+        },
+        {
+            strategy: "backoff",
+            backoff: {
+                initialInterval: 1,
+                maxInterval: 50,
+                exponent: 1.1,
+                maxElapsedTime: 100,
+            },
+            retryConnectionErrors: false,
+        }
+    );
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+
+If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
+
+
+## Example
+
+```typescript
+import { Paddle } from "Paddle";
+import {
+    AdjustmentCreateType,
+    CurrencyCode2,
+    CurrencyCodeChargeback,
+    CurrencyCodePayouts,
+    SchemaAction,
+    SchemaStatusAdjustment,
+} from "Paddle/dist/sdk/models/shared";
+
+(async () => {
+    const sdk = new Paddle({
+        retry_config: {
+            strategy: "backoff",
+            backoff: {
+                initialInterval: 1,
+                maxInterval: 50,
+                exponent: 1.1,
+                maxElapsedTime: 100,
+            },
+            retryConnectionErrors: false,
+        },
+        security: {
+            bearerAuth: "YOUR_API_KEY",
+        },
+    });
+
+    const res = await sdk.adjustments.create({
+        action: SchemaAction.Refund,
+        customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+        id: "adj_01gya6twkp8y0tv1e19rsgst9m",
+        items: [
+            {
+                id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
+                itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
+                type: AdjustmentCreateType.Full,
+            },
+        ],
+        payoutTotals: {
+            chargebackFee: {
+                amount: "1680",
+                original: {
+                    amount: "1500",
+                },
+            },
+            earnings: "15120",
+            fee: "300",
+            subtotal: "15000",
+            tax: "1500",
+            total: "16500",
+        },
+        reason: "string",
+        subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
+        transactionId: "string",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+
+
+<!-- End Retries -->
+
+
+
+<!-- Start Error Handling -->
+# Error Handling
+
+Handling errors in your SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| errors.CreateAdjustmentResponseBody                       | 400                                                       | application/json                                          |
+| errors.CreateAdjustmentAdjustmentsResponseBody            | 404                                                       | application/json                                          |
+| errors.CreateAdjustmentAdjustmentsResponseResponseBody    | 409                                                       | application/json                                          |
+| errors.CreateAdjustmentAdjustmentsResponse500ResponseBody | 500                                                       | application/json                                          |
+| errors.SDKError                                           | 400-600                                                   | */*                                                       |
+
+
+## Example
+
+```typescript
+import { Paddle } from "Paddle";
+import {
+    AdjustmentCreateType,
+    CurrencyCode2,
+    CurrencyCodeChargeback,
+    CurrencyCodePayouts,
+    SchemaAction,
+    SchemaStatusAdjustment,
+} from "Paddle/dist/sdk/models/shared";
+
+(async () => {
+    const sdk = new Paddle({
+        security: {
+            bearerAuth: "YOUR_API_KEY",
+        },
+    });
+
+    let res;
+    try {
+        res = await sdk.adjustments.create({
+            action: SchemaAction.Refund,
+            customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+            id: "adj_01gya6twkp8y0tv1e19rsgst9m",
+            items: [
+                {
+                    id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
+                    itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
+                    type: AdjustmentCreateType.Full,
+                },
+            ],
+            payoutTotals: {
+                chargebackFee: {
+                    amount: "1680",
+                    original: {
+                        amount: "1500",
+                    },
+                },
+                earnings: "15120",
+                fee: "300",
+                subtotal: "15000",
+                tax: "1500",
+                total: "16500",
+            },
+            reason: "string",
+            subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
+            transactionId: "string",
+        });
+    } catch (e) {
+        if (e instanceof errors.CreateAdjustmentResponseBody) {
+            console.error(e); // handle exception
+        } else if (e instanceof errors.CreateAdjustmentAdjustmentsResponseBody) {
+            console.error(e); // handle exception
+        } else if (e instanceof errors.CreateAdjustmentAdjustmentsResponseResponseBody) {
+            console.error(e); // handle exception
+        } else if (e instanceof errors.CreateAdjustmentAdjustmentsResponse500ResponseBody) {
+            console.error(e); // handle exception
+        } else if (e instanceof errors.SDKError) {
+            console.error(e); // handle exception
+        }
+    }
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Error Handling -->
+
+
+
+<!-- Start Server Selection -->
+# Server Selection
+
+## Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.paddle.com` | None |
+| 1 | `https://sandbox-api.paddle.com` | None |
+
+For example:
+
+```typescript
+import { Paddle } from "Paddle";
+import {
+    AdjustmentCreateType,
+    CurrencyCode2,
+    CurrencyCodeChargeback,
+    CurrencyCodePayouts,
+    SchemaAction,
+    SchemaStatusAdjustment,
+} from "Paddle/dist/sdk/models/shared";
+
+(async () => {
+    const sdk = new Paddle({
+        serverIdx: 1,
+        security: {
+            bearerAuth: "YOUR_API_KEY",
+        },
+    });
+
+    const res = await sdk.adjustments.create({
+        action: SchemaAction.Refund,
+        customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+        id: "adj_01gya6twkp8y0tv1e19rsgst9m",
+        items: [
+            {
+                id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
+                itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
+                type: AdjustmentCreateType.Full,
+            },
+        ],
+        payoutTotals: {
+            chargebackFee: {
+                amount: "1680",
+                original: {
+                    amount: "1500",
+                },
+            },
+            earnings: "15120",
+            fee: "300",
+            subtotal: "15000",
+            tax: "1500",
+            total: "16500",
+        },
+        reason: "string",
+        subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
+        transactionId: "string",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+
+
+## Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
+
+```typescript
+import { Paddle } from "Paddle";
+import {
+    AdjustmentCreateType,
+    CurrencyCode2,
+    CurrencyCodeChargeback,
+    CurrencyCodePayouts,
+    SchemaAction,
+    SchemaStatusAdjustment,
+} from "Paddle/dist/sdk/models/shared";
+
+(async () => {
+    const sdk = new Paddle({
+        serverURL: "https://api.paddle.com",
+        security: {
+            bearerAuth: "YOUR_API_KEY",
+        },
+    });
+
+    const res = await sdk.adjustments.create({
+        action: SchemaAction.Refund,
+        customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+        id: "adj_01gya6twkp8y0tv1e19rsgst9m",
+        items: [
+            {
+                id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
+                itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
+                type: AdjustmentCreateType.Full,
+            },
+        ],
+        payoutTotals: {
+            chargebackFee: {
+                amount: "1680",
+                original: {
+                    amount: "1500",
+                },
+            },
+            earnings: "15120",
+            fee: "300",
+            subtotal: "15000",
+            tax: "1500",
+            total: "16500",
+        },
+        reason: "string",
+        subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
+        transactionId: "string",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Server Selection -->
+
+
+
+<!-- Start Custom HTTP Client -->
+# Custom HTTP Client
+
+The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+
+
+For example, you could specify a header for every request that your sdk makes as follows:
+
+```typescript
+from Paddle import Paddle;
+import axios;
+
+const httpClient = axios.create({
+    headers: {'x-custom-header': 'someValue'}
+})
+
+
+const sdk = new Paddle({defaultClient: httpClient});
+```
+
+
+<!-- End Custom HTTP Client -->
+
+
+
+<!-- Start Authentication -->
+
+# Authentication
+
+## Per-Client Security Schemes
+
+Your SDK supports the following security scheme globally:
+
+| Name         | Type         | Scheme       |
+| ------------ | ------------ | ------------ |
+| `bearerAuth` | http         | HTTP Bearer  |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+
+```typescript
+import { Paddle } from "Paddle";
+import {
+    AdjustmentCreateType,
+    CurrencyCode2,
+    CurrencyCodeChargeback,
+    CurrencyCodePayouts,
+    SchemaAction,
+    SchemaStatusAdjustment,
+} from "Paddle/dist/sdk/models/shared";
+
+(async () => {
+    const sdk = new Paddle({
+        security: {
+            bearerAuth: "YOUR_API_KEY",
+        },
+    });
+
+    const res = await sdk.adjustments.create({
+        action: SchemaAction.Refund,
+        customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+        id: "adj_01gya6twkp8y0tv1e19rsgst9m",
+        items: [
+            {
+                id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
+                itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
+                type: AdjustmentCreateType.Full,
+            },
+        ],
+        payoutTotals: {
+            chargebackFee: {
+                amount: "1680",
+                original: {
+                    amount: "1500",
+                },
+            },
+            earnings: "15120",
+            fee: "300",
+            subtotal: "15000",
+            tax: "1500",
+            total: "16500",
+        },
+        reason: "string",
+        subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
+        transactionId: "string",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Authentication -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

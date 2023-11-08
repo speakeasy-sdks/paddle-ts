@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { CustomData } from "./customdata";
-import { Schemasstatus } from "./schemasstatus";
+import { SchemaStatus } from "./schemastatus";
 import { TaxCategory1 } from "./taxcategory1";
 import { Expose, Type } from "class-transformer";
 
@@ -43,7 +43,7 @@ export class ProductPatch extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: Schemasstatus;
+    status?: SchemaStatus;
 
     /**
      * Tax category for this product. Used for charging the correct rate of tax. Selected tax category must be enabled on your Paddle account.

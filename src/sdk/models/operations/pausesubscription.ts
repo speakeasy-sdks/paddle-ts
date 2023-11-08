@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
@@ -38,7 +38,7 @@ export class PauseSubscriptionRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class PauseSubscription200ApplicationJSON extends SpeakeasyBase {
+export class PauseSubscriptionResponseBody extends SpeakeasyBase {
     /**
      * Represents a subscription entity.
      */
@@ -57,6 +57,12 @@ export class PauseSubscription200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class PauseSubscriptionResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: PauseSubscriptionResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -77,10 +83,4 @@ export class PauseSubscriptionResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    pauseSubscription200ApplicationJSONObject?: PauseSubscription200ApplicationJSON;
 }

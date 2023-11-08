@@ -1,5 +1,5 @@
 # Notifications
-(*notifications*)
+(*.notifications*)
 
 ## Overview
 
@@ -41,11 +41,11 @@ import { NotificationSettingCreateType } from "Paddle/dist/sdk/models/shared";
 
   const res = await sdk.notifications.createSetting({
     description: "Profound maximized orchestration",
-    destination: "olive",
+    destination: "string",
     subscribedEvents: [
-      "between",
+      "string",
     ],
-    type: NotificationSettingCreateType.Url,
+    type: NotificationSettingCreateType.Email,
   });
 
   if (res.statusCode == 200) {
@@ -56,17 +56,24 @@ import { NotificationSettingCreateType } from "Paddle/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [shared.NotificationSettingCreateInput](../../models/shared/notificationsettingcreateinput.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `retries`                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [shared.NotificationSettingCreate](../../models/shared/notificationsettingcreate.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `retries`                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                   | Configuration to override the default retry behavior of the client.                  |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
 
 **Promise<[operations.CreateNotificationSettingResponse](../../models/operations/createnotificationsettingresponse.md)>**
+### Errors
 
+| Error Object                                                      | Status Code                                                       | Content Type                                                      |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| errors.CreateNotificationSettingResponseBody                      | 400                                                               | application/json                                                  |
+| errors.CreateNotificationSettingNotificationsResponseBody         | 401                                                               | application/json                                                  |
+| errors.CreateNotificationSettingNotificationsResponseResponseBody | 500                                                               | application/json                                                  |
+| errors.SDKError                                                   | 400-600                                                           | */*                                                               |
 
 ## deleteSetting
 
@@ -110,7 +117,14 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.DeleteNotificationSettingResponse](../../models/operations/deletenotificationsettingresponse.md)>**
+### Errors
 
+| Error Object                                                      | Status Code                                                       | Content Type                                                      |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| errors.DeleteNotificationSettingResponseBody                      | 401                                                               | application/json                                                  |
+| errors.DeleteNotificationSettingNotificationsResponseBody         | 404                                                               | application/json                                                  |
+| errors.DeleteNotificationSettingNotificationsResponseResponseBody | 500                                                               | application/json                                                  |
+| errors.SDKError                                                   | 400-600                                                           | */*                                                               |
 
 ## get
 
@@ -150,7 +164,14 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.GetNotificationResponse](../../models/operations/getnotificationresponse.md)>**
+### Errors
 
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| errors.GetNotificationResponseBody                      | 401                                                     | application/json                                        |
+| errors.GetNotificationNotificationsResponseBody         | 404                                                     | application/json                                        |
+| errors.GetNotificationNotificationsResponseResponseBody | 500                                                     | application/json                                        |
+| errors.SDKError                                         | 400-600                                                 | */*                                                     |
 
 ## getSetting
 
@@ -190,7 +211,14 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.GetNotificationSettingResponse](../../models/operations/getnotificationsettingresponse.md)>**
+### Errors
 
+| Error Object                                                   | Status Code                                                    | Content Type                                                   |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| errors.GetNotificationSettingResponseBody                      | 401                                                            | application/json                                               |
+| errors.GetNotificationSettingNotificationsResponseBody         | 404                                                            | application/json                                               |
+| errors.GetNotificationSettingNotificationsResponseResponseBody | 500                                                            | application/json                                               |
+| errors.SDKError                                                | 400-600                                                        | */*                                                            |
 
 ## list
 
@@ -235,7 +263,13 @@ import { StatusNotification } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.ListNotificationsResponse](../../models/operations/listnotificationsresponse.md)>**
+### Errors
 
+| Error Object                                      | Status Code                                       | Content Type                                      |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| errors.ListNotificationsResponseBody              | 401                                               | application/json                                  |
+| errors.ListNotificationsNotificationsResponseBody | 500                                               | application/json                                  |
+| errors.SDKError                                   | 400-600                                           | */*                                               |
 
 ## listLogs
 
@@ -275,7 +309,14 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.ListNotificationLogsResponse](../../models/operations/listnotificationlogsresponse.md)>**
+### Errors
 
+| Error Object                                                 | Status Code                                                  | Content Type                                                 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| errors.ListNotificationLogsResponseBody                      | 401                                                          | application/json                                             |
+| errors.ListNotificationLogsNotificationsResponseBody         | 404                                                          | application/json                                             |
+| errors.ListNotificationLogsNotificationsResponseResponseBody | 500                                                          | application/json                                             |
+| errors.SDKError                                              | 400-600                                                      | */*                                                          |
 
 ## listSettings
 
@@ -314,7 +355,13 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.ListNotificationSettingsResponse](../../models/operations/listnotificationsettingsresponse.md)>**
+### Errors
 
+| Error Object                                             | Status Code                                              | Content Type                                             |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| errors.ListNotificationSettingsResponseBody              | 401                                                      | application/json                                         |
+| errors.ListNotificationSettingsNotificationsResponseBody | 500                                                      | application/json                                         |
+| errors.SDKError                                          | 400-600                                                  | */*                                                      |
 
 ## replay
 
@@ -358,7 +405,14 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.ReplayNotificationResponse](../../models/operations/replaynotificationresponse.md)>**
+### Errors
 
+| Error Object                                               | Status Code                                                | Content Type                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| errors.ReplayNotificationResponseBody                      | 401                                                        | application/json                                           |
+| errors.ReplayNotificationNotificationsResponseBody         | 404                                                        | application/json                                           |
+| errors.ReplayNotificationNotificationsResponseResponseBody | 500                                                        | application/json                                           |
+| errors.SDKError                                            | 400-600                                                    | */*                                                        |
 
 ## replayBySetting
 
@@ -403,7 +457,14 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.PostNotificationSettingsNotificationSettingIdReplayResponse](../../models/operations/postnotificationsettingsnotificationsettingidreplayresponse.md)>**
+### Errors
 
+| Error Object                                                                                | Status Code                                                                                 | Content Type                                                                                |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| errors.PostNotificationSettingsNotificationSettingIdReplayResponseBody                      | 401                                                                                         | application/json                                                                            |
+| errors.PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseBody         | 404                                                                                         | application/json                                                                            |
+| errors.PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseResponseBody | 500                                                                                         | application/json                                                                            |
+| errors.SDKError                                                                             | 400-600                                                                                     | */*                                                                                         |
 
 ## updateSettings
 
@@ -430,7 +491,7 @@ import { Paddle } from "Paddle";
   const res = await sdk.notifications.updateSettings({
     notificationSettingUpdate: {
       subscribedEvents: [
-        "seize",
+        "string",
       ],
     },
     notificationSettingId: "ntfset_01gt21c5pdx9q1e4mh1xrsjjn6",
@@ -454,4 +515,12 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.UpdateNotificationSettingResponse](../../models/operations/updatenotificationsettingresponse.md)>**
+### Errors
 
+| Error Object                                                         | Status Code                                                          | Content Type                                                         |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| errors.UpdateNotificationSettingResponseBody                         | 400                                                                  | application/json                                                     |
+| errors.UpdateNotificationSettingNotificationsResponseBody            | 401                                                                  | application/json                                                     |
+| errors.UpdateNotificationSettingNotificationsResponseResponseBody    | 404                                                                  | application/json                                                     |
+| errors.UpdateNotificationSettingNotificationsResponse500ResponseBody | 500                                                                  | application/json                                                     |
+| errors.SDKError                                                      | 400-600                                                              | */*                                                                  |

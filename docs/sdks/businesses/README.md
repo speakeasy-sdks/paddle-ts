@@ -1,5 +1,5 @@
 # Businesses
-(*businesses*)
+(*.businesses*)
 
 ## Overview
 
@@ -33,16 +33,16 @@ import { Paddle } from "Paddle";
   });
 
   const res = await sdk.businesses.create({
-    businessCreateInput: {
+    businessCreate: {
       companyNumber: "123456789",
       contacts: [
         {
           email: "weloveyourproduct@paddle.com",
-          name: "online",
+          name: "string",
         },
       ],
       id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
-      name: "Configuration",
+      name: "string",
       taxIdentifier: "AB0123456789",
     },
     customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
@@ -66,7 +66,16 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.CreateBusinessResponse](../../models/operations/createbusinessresponse.md)>**
+### Errors
 
+| Error Object                                           | Status Code                                            | Content Type                                           |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| errors.CreateBusinessResponseBody                      | 400                                                    | application/json                                       |
+| errors.CreateBusinessBusinessesResponseBody            | 401                                                    | application/json                                       |
+| errors.CreateBusinessBusinessesResponseResponseBody    | 403                                                    | application/json                                       |
+| errors.CreateBusinessBusinessesResponse404ResponseBody | 404                                                    | application/json                                       |
+| errors.CreateBusinessBusinessesResponse500ResponseBody | 500                                                    | application/json                                       |
+| errors.SDKError                                        | 400-600                                                | */*                                                    |
 
 ## get
 
@@ -107,7 +116,15 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.GetBusinessResponse](../../models/operations/getbusinessresponse.md)>**
+### Errors
 
+| Error Object                                        | Status Code                                         | Content Type                                        |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| errors.GetBusinessResponseBody                      | 401                                                 | application/json                                    |
+| errors.GetBusinessBusinessesResponseBody            | 403                                                 | application/json                                    |
+| errors.GetBusinessBusinessesResponseResponseBody    | 404                                                 | application/json                                    |
+| errors.GetBusinessBusinessesResponse500ResponseBody | 500                                                 | application/json                                    |
+| errors.SDKError                                     | 400-600                                             | */*                                                 |
 
 ## list
 
@@ -151,7 +168,15 @@ import { Status } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.ListBusinessesResponse](../../models/operations/listbusinessesresponse.md)>**
+### Errors
 
+| Error Object                                           | Status Code                                            | Content Type                                           |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| errors.ListBusinessesResponseBody                      | 401                                                    | application/json                                       |
+| errors.ListBusinessesBusinessesResponseBody            | 403                                                    | application/json                                       |
+| errors.ListBusinessesBusinessesResponseResponseBody    | 404                                                    | application/json                                       |
+| errors.ListBusinessesBusinessesResponse500ResponseBody | 500                                                    | application/json                                       |
+| errors.SDKError                                        | 400-600                                                | */*                                                    |
 
 ## update
 
@@ -163,7 +188,7 @@ If successful, your response includes a copy of the updated business entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
+import { SchemaStatus } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -173,12 +198,12 @@ import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
   });
 
   const res = await sdk.businesses.update({
-    businessInput: {
+    business: {
       companyNumber: "123456789",
       contacts: [
         {
           email: "weloveyourproduct@paddle.com",
-          name: "Van",
+          name: "string",
         },
       ],
       id: "biz_01grrebrzaee2qj2fqqhmcyzaj",
@@ -206,4 +231,13 @@ import { Schemasstatus } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.UpdateBusinessResponse](../../models/operations/updatebusinessresponse.md)>**
+### Errors
 
+| Error Object                                           | Status Code                                            | Content Type                                           |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| errors.UpdateBusinessResponseBody                      | 400                                                    | application/json                                       |
+| errors.UpdateBusinessBusinessesResponseBody            | 401                                                    | application/json                                       |
+| errors.UpdateBusinessBusinessesResponseResponseBody    | 403                                                    | application/json                                       |
+| errors.UpdateBusinessBusinessesResponse404ResponseBody | 404                                                    | application/json                                       |
+| errors.UpdateBusinessBusinessesResponse500ResponseBody | 500                                                    | application/json                                       |
+| errors.SDKError                                        | 400-600                                                | */*                                                    |

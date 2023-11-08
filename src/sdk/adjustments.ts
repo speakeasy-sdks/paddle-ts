@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -41,12 +41,12 @@ export class Adjustments {
      * If successful, your response includes a copy of the new adjustment entity.
      */
     async create(
-        req: shared.AdjustmentCreateInput,
+        req: shared.AdjustmentCreate,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateAdjustmentResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.AdjustmentCreateInput(req);
+            req = new shared.AdjustmentCreate(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -123,9 +123,9 @@ export class Adjustments {
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createAdjustment201ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateAdjustment201ApplicationJSON
+                        operations.CreateAdjustmentResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -140,10 +140,10 @@ export class Adjustments {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateAdjustment400ApplicationJSON
+                        errors.CreateAdjustmentResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateAdjustment400ApplicationJSON(err);
+                    throw new errors.CreateAdjustmentResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -157,10 +157,10 @@ export class Adjustments {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateAdjustment404ApplicationJSON
+                        errors.CreateAdjustmentAdjustmentsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateAdjustment404ApplicationJSON(err);
+                    throw new errors.CreateAdjustmentAdjustmentsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -174,10 +174,10 @@ export class Adjustments {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateAdjustment409ApplicationJSON
+                        errors.CreateAdjustmentAdjustmentsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateAdjustment409ApplicationJSON(err);
+                    throw new errors.CreateAdjustmentAdjustmentsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -199,10 +199,10 @@ export class Adjustments {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateAdjustment500ApplicationJSON
+                        errors.CreateAdjustmentAdjustmentsResponse500ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateAdjustment500ApplicationJSON(err);
+                    throw new errors.CreateAdjustmentAdjustmentsResponse500ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -292,9 +292,9 @@ export class Adjustments {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listAdjustments200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListAdjustments200ApplicationJSON
+                        operations.ListAdjustmentsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -309,10 +309,10 @@ export class Adjustments {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListAdjustments400ApplicationJSON
+                        errors.ListAdjustmentsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListAdjustments400ApplicationJSON(err);
+                    throw new errors.ListAdjustmentsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -334,10 +334,10 @@ export class Adjustments {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListAdjustments500ApplicationJSON
+                        errors.ListAdjustmentsAdjustmentsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListAdjustments500ApplicationJSON(err);
+                    throw new errors.ListAdjustmentsAdjustmentsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

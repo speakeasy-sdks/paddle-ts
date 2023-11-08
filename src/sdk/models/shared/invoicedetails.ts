@@ -7,7 +7,7 @@ import { Product, ProductInput } from "./product";
 import { Totals2 } from "./totals2";
 import { Expose, Type } from "class-transformer";
 
-export class InvoiceDetailsLineItems extends SpeakeasyBase {
+export class LineItems extends SpeakeasyBase {
     /**
      * Represents a product entity.
      */
@@ -42,10 +42,10 @@ export class InvoiceDetailsLineItems extends SpeakeasyBase {
 }
 
 export class InvoiceDetails extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: InvoiceDetailsLineItems })
+    @SpeakeasyMetadata({ elemType: LineItems })
     @Expose({ name: "line_items" })
-    @Type(() => InvoiceDetailsLineItems)
-    lineItems?: InvoiceDetailsLineItems[];
+    @Type(() => LineItems)
+    lineItems?: LineItems[];
 
     /**
      * The financial breakdown of a charge in the lowest denomination of a currency (eg cents for USD).
@@ -56,7 +56,7 @@ export class InvoiceDetails extends SpeakeasyBase {
     totals?: Totals2;
 }
 
-export class InvoiceDetailsLineItemsInput extends SpeakeasyBase {
+export class InvoiceDetailsLineItems extends SpeakeasyBase {
     /**
      * Represents a product entity.
      */
@@ -75,8 +75,8 @@ export class InvoiceDetailsLineItemsInput extends SpeakeasyBase {
 }
 
 export class InvoiceDetailsInput extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: InvoiceDetailsLineItemsInput })
+    @SpeakeasyMetadata({ elemType: InvoiceDetailsLineItems })
     @Expose({ name: "line_items" })
-    @Type(() => InvoiceDetailsLineItemsInput)
-    lineItems?: InvoiceDetailsLineItemsInput[];
+    @Type(() => InvoiceDetailsLineItems)
+    lineItems?: InvoiceDetailsLineItems[];
 }

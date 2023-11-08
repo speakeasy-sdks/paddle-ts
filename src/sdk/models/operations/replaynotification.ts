@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
@@ -15,7 +15,7 @@ export class ReplayNotificationRequest extends SpeakeasyBase {
     notificationId: string;
 }
 
-export class ReplayNotification202ApplicationJSONData extends SpeakeasyBase {
+export class ReplayNotificationData extends SpeakeasyBase {
     /**
      * Unique Paddle ID for this notification, prefixed with `ntf_`.
      */
@@ -27,11 +27,11 @@ export class ReplayNotification202ApplicationJSONData extends SpeakeasyBase {
 /**
  * Accepted
  */
-export class ReplayNotification202ApplicationJSON extends SpeakeasyBase {
+export class ReplayNotificationResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => ReplayNotification202ApplicationJSONData)
-    data?: ReplayNotification202ApplicationJSONData;
+    @Type(() => ReplayNotificationData)
+    data?: ReplayNotificationData;
 
     /**
      * Information about this response.
@@ -43,6 +43,12 @@ export class ReplayNotification202ApplicationJSON extends SpeakeasyBase {
 }
 
 export class ReplayNotificationResponse extends SpeakeasyBase {
+    /**
+     * Accepted
+     */
+    @SpeakeasyMetadata()
+    twoHundredAndTwoApplicationJsonObject?: ReplayNotificationResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -63,10 +69,4 @@ export class ReplayNotificationResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * Accepted
-     */
-    @SpeakeasyMetadata()
-    replayNotification202ApplicationJSONObject?: ReplayNotification202ApplicationJSON;
 }

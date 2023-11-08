@@ -8,7 +8,7 @@ import { CollectionMode2 } from "./collectionmode2";
 import { CurrencyCode2 } from "./currencycode2";
 import { CustomData } from "./customdata";
 import { OriginTransaction } from "./origintransaction";
-import { SchemasstatusTransaction } from "./schemasstatustransaction";
+import { SchemaStatusTransaction } from "./schemastatustransaction";
 import { TimePeriod } from "./timeperiod";
 import { TransactionDetails } from "./transactiondetails";
 import { TransactionItem } from "./transactionitem";
@@ -175,7 +175,7 @@ export class Transaction1 extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: SchemasstatusTransaction;
+    status?: SchemaStatusTransaction;
 
     /**
      * Unique Paddle ID for this subscription entity, prefixed with `sub_`.

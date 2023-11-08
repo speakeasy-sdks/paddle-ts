@@ -1,5 +1,5 @@
 # TransactionService
-(*transactionService*)
+(*.transactionService*)
 
 ### Available Operations
 
@@ -51,7 +51,7 @@ import {
   });
 
   const res = await sdk.transactionService.create({
-    transactionCreateInput: {
+    transactionCreate: {
       billedAt: new Date("2024-10-12T07:20:50.52Z"),
       billingDetails: {
         paymentTerms: {
@@ -127,7 +127,13 @@ import {
 ### Response
 
 **Promise<[operations.CreateTransactionResponse](../../models/operations/createtransactionresponse.md)>**
+### Errors
 
+| Error Object                                     | Status Code                                      | Content Type                                     |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| errors.CreateTransactionResponseBody             | 401                                              | application/json                                 |
+| errors.CreateTransactionTransactionsResponseBody | 500                                              | application/json                                 |
+| errors.SDKError                                  | 400-600                                          | */*                                              |
 
 ## get
 
@@ -170,7 +176,14 @@ import { IncludeTransaction } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.GetTransactionResponse](../../models/operations/gettransactionresponse.md)>**
+### Errors
 
+| Error Object                                                    | Status Code                                                     | Content Type                                                    |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| errors.GetTransactionResponseBody                               | 401                                                             | application/json                                                |
+| errors.GetTransactionTransactionsResponseBody                   | 404                                                             | application/json                                                |
+| errors.GetTransactionTransactionsTransactionServiceResponseBody | 500                                                             | application/json                                                |
+| errors.SDKError                                                 | 400-600                                                         | */*                                                             |
 
 ## list
 
@@ -218,7 +231,13 @@ import { CollectionMode, IncludeTransaction, StatusTransaction } from "Paddle/di
 ### Response
 
 **Promise<[operations.ListTransactionsResponse](../../models/operations/listtransactionsresponse.md)>**
+### Errors
 
+| Error Object                                    | Status Code                                     | Content Type                                    |
+| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| errors.ListTransactionsResponseBody             | 401                                             | application/json                                |
+| errors.ListTransactionsTransactionsResponseBody | 500                                             | application/json                                |
+| errors.SDKError                                 | 400-600                                         | */*                                             |
 
 ## previewTransaction
 
@@ -261,7 +280,7 @@ import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/d
     addressId: "add_01gm302t81w94gyjpjpqypkzkf",
     adjustmentsTotals: {
       otherBalances: [
-        "North",
+        "string",
       ],
     },
     businessId: "biz_01grrebrzaee2qj2fqqhmcyzaj",
@@ -271,8 +290,8 @@ import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/d
       {
         price: {
           billingCycle: {
-            frequency: 581016,
-            interval: Period2Interval.Month,
+            frequency: 12239,
+            interval: Period2Interval.Day,
           },
           customData: {},
           id: "pri_01gsz8z1q1n00f12qt82y31smh",
@@ -282,27 +301,27 @@ import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/d
             minimum: 1,
           },
           trialPeriod: {
-            frequency: 403361,
-            interval: Period2Interval.Day,
+            frequency: 581016,
+            interval: Period2Interval.Month,
           },
           unitPrice: {
-            amount: "162.30",
-            currencyCode: CurrencyCode2.Krw,
+            amount: "403.36",
+            currencyCode: CurrencyCode2.Cny,
           },
           unitPriceOverrides: [
             {
               countryCodes: [
-                CountryCode2.Si,
+                CountryCode2.Ch,
               ],
               unitPrice: {
-                amount: "797.35",
-                currencyCode: CurrencyCode2.Jpy,
+                amount: "540.07",
+                currencyCode: CurrencyCode2.Thb,
               },
             },
           ],
         },
         priceId: "pri_01gsz8z1q1n00f12qt82y31smh",
-        quantity: 409285,
+        quantity: 797348,
       },
     ],
   });
@@ -325,7 +344,13 @@ import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/d
 ### Response
 
 **Promise<[operations.PreviewTransactionResponse](../../models/operations/previewtransactionresponse.md)>**
+### Errors
 
+| Error Object                                      | Status Code                                       | Content Type                                      |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| errors.PreviewTransactionResponseBody             | 401                                               | application/json                                  |
+| errors.PreviewTransactionTransactionsResponseBody | 500                                               | application/json                                  |
+| errors.SDKError                                   | 400-600                                           | */*                                               |
 
 ## pricePreview
 
@@ -379,17 +404,23 @@ import { CountryCode2, CurrencyCode2 } from "Paddle/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [shared.TransactionPricingPreviewInput](../../models/shared/transactionpricingpreviewinput.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `retries`                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [shared.TransactionPricingPreview](../../models/shared/transactionpricingpreview.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `retries`                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                   | Configuration to override the default retry behavior of the client.                  |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
 
 **Promise<[operations.PricePreviewResponse](../../models/operations/pricepreviewresponse.md)>**
+### Errors
 
+| Error Object                                | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| errors.PricePreviewResponseBody             | 401                                         | application/json                            |
+| errors.PricePreviewTransactionsResponseBody | 500                                         | application/json                            |
+| errors.SDKError                             | 400-600                                     | */*                                         |
 
 ## update
 
@@ -420,7 +451,7 @@ import { CollectionMode2, CountryCode2, CurrencyCode2, Period2Interval, TaxMode1
   });
 
   const res = await sdk.transactionService.update({
-    transactionUpdateInput: {
+    transactionUpdate: {
       addressId: "add_01gm302t81w94gyjpjpqypkzkf",
       billedAt: new Date("2024-10-12T07:20:50.52Z"),
       billingDetails: {
@@ -499,4 +530,11 @@ import { CollectionMode2, CountryCode2, CurrencyCode2, Period2Interval, TaxMode1
 ### Response
 
 **Promise<[operations.UpdateTransactionResponse](../../models/operations/updatetransactionresponse.md)>**
+### Errors
 
+| Error Object                                                       | Status Code                                                        | Content Type                                                       |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| errors.UpdateTransactionResponseBody                               | 401                                                                | application/json                                                   |
+| errors.UpdateTransactionTransactionsResponseBody                   | 404                                                                | application/json                                                   |
+| errors.UpdateTransactionTransactionsTransactionServiceResponseBody | 500                                                                | application/json                                                   |
+| errors.SDKError                                                    | 400-600                                                            | */*                                                                |

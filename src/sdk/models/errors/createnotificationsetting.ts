@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class CreateNotificationSetting500ApplicationJSON extends Error {
+export class CreateNotificationSettingNotificationsResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class CreateNotificationSetting500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CreateNotificationSetting500ApplicationJSON) {
+    constructor(err?: CreateNotificationSettingNotificationsResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,18 @@ export class CreateNotificationSetting500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateNotificationSetting500ApplicationJSON";
-        Object.setPrototypeOf(this, CreateNotificationSetting500ApplicationJSON.prototype);
+        this.name = "CreateNotificationSettingNotificationsResponseResponseBody";
+        Object.setPrototypeOf(
+            this,
+            CreateNotificationSettingNotificationsResponseResponseBody.prototype
+        );
     }
 }
 
 /**
  * General error response
  */
-export class CreateNotificationSetting401ApplicationJSON extends Error {
+export class CreateNotificationSettingNotificationsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +56,7 @@ export class CreateNotificationSetting401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CreateNotificationSetting401ApplicationJSON) {
+    constructor(err?: CreateNotificationSettingNotificationsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +65,15 @@ export class CreateNotificationSetting401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateNotificationSetting401ApplicationJSON";
-        Object.setPrototypeOf(this, CreateNotificationSetting401ApplicationJSON.prototype);
+        this.name = "CreateNotificationSettingNotificationsResponseBody";
+        Object.setPrototypeOf(this, CreateNotificationSettingNotificationsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class CreateNotificationSetting400ApplicationJSON extends Error {
+export class CreateNotificationSettingResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +86,7 @@ export class CreateNotificationSetting400ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CreateNotificationSetting400ApplicationJSON) {
+    constructor(err?: CreateNotificationSettingResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,7 +95,7 @@ export class CreateNotificationSetting400ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateNotificationSetting400ApplicationJSON";
-        Object.setPrototypeOf(this, CreateNotificationSetting400ApplicationJSON.prototype);
+        this.name = "CreateNotificationSettingResponseBody";
+        Object.setPrototypeOf(this, CreateNotificationSettingResponseBody.prototype);
     }
 }

@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class ListNotificationSettings500ApplicationJSON extends Error {
+export class ListNotificationSettingsNotificationsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class ListNotificationSettings500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListNotificationSettings500ApplicationJSON) {
+    constructor(err?: ListNotificationSettingsNotificationsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class ListNotificationSettings500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListNotificationSettings500ApplicationJSON";
-        Object.setPrototypeOf(this, ListNotificationSettings500ApplicationJSON.prototype);
+        this.name = "ListNotificationSettingsNotificationsResponseBody";
+        Object.setPrototypeOf(this, ListNotificationSettingsNotificationsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class ListNotificationSettings401ApplicationJSON extends Error {
+export class ListNotificationSettingsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class ListNotificationSettings401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListNotificationSettings401ApplicationJSON) {
+    constructor(err?: ListNotificationSettingsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,7 +62,7 @@ export class ListNotificationSettings401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListNotificationSettings401ApplicationJSON";
-        Object.setPrototypeOf(this, ListNotificationSettings401ApplicationJSON.prototype);
+        this.name = "ListNotificationSettingsResponseBody";
+        Object.setPrototypeOf(this, ListNotificationSettingsResponseBody.prototype);
     }
 }

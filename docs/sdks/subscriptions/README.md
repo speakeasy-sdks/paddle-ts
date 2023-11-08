@@ -1,5 +1,5 @@
 # Subscriptions
-(*subscriptions*)
+(*.subscriptions*)
 
 ## Overview
 
@@ -66,7 +66,15 @@ import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.CancelSubscriptionResponse](../../models/operations/cancelsubscriptionresponse.md)>**
+### Errors
 
+| Error Object                                               | Status Code                                                | Content Type                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| errors.CancelSubscriptionResponseBody                      | 400                                                        | application/json                                           |
+| errors.CancelSubscriptionSubscriptionsResponseBody         | 401                                                        | application/json                                           |
+| errors.Error1                                              | 409                                                        | application/json                                           |
+| errors.CancelSubscriptionSubscriptionsResponseResponseBody | 500                                                        | application/json                                           |
+| errors.SDKError                                            | 400-600                                                    | */*                                                        |
 
 ## create
 
@@ -123,7 +131,13 @@ import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.CreateSubscriptionChargeResponse](../../models/operations/createsubscriptionchargeresponse.md)>**
+### Errors
 
+| Error Object                                             | Status Code                                              | Content Type                                             |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| errors.CreateSubscriptionChargeResponseBody              | 400                                                      | application/json                                         |
+| errors.CreateSubscriptionChargeSubscriptionsResponseBody | 500                                                      | application/json                                         |
+| errors.SDKError                                          | 400-600                                                  | */*                                                      |
 
 ## createPreview
 
@@ -173,7 +187,13 @@ import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.CreateSubscriptionChargePreviewResponse](../../models/operations/createsubscriptionchargepreviewresponse.md)>**
+### Errors
 
+| Error Object                                                    | Status Code                                                     | Content Type                                                    |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| errors.CreateSubscriptionChargePreviewResponseBody              | 400                                                             | application/json                                                |
+| errors.CreateSubscriptionChargePreviewSubscriptionsResponseBody | 500                                                             | application/json                                                |
+| errors.SDKError                                                 | 400-600                                                         | */*                                                             |
 
 ## get
 
@@ -216,7 +236,14 @@ import { IncludeSubscription } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.GetSubscriptionResponse](../../models/operations/getsubscriptionresponse.md)>**
+### Errors
 
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| errors.GetSubscriptionResponseBody                      | 401                                                     | application/json                                        |
+| errors.GetSubscriptionSubscriptionsResponseBody         | 404                                                     | application/json                                        |
+| errors.GetSubscriptionSubscriptionsResponseResponseBody | 500                                                     | application/json                                        |
+| errors.SDKError                                         | 400-600                                                 | */*                                                     |
 
 ## getUpdatedPaymentMethodTransaction
 
@@ -263,7 +290,15 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.GetSubscriptionUpdatePaymentMethodTransactionResponse](../../models/operations/getsubscriptionupdatepaymentmethodtransactionresponse.md)>**
+### Errors
 
+| Error Object                                                                             | Status Code                                                                              | Content Type                                                                             |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| errors.GetSubscriptionUpdatePaymentMethodTransactionResponseBody                         | 401                                                                                      | application/json                                                                         |
+| errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseBody            | 403                                                                                      | application/json                                                                         |
+| errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseResponseBody    | 409                                                                                      | application/json                                                                         |
+| errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponse500ResponseBody | 500                                                                                      | application/json                                                                         |
+| errors.SDKError                                                                          | 400-600                                                                                  | */*                                                                                      |
 
 ## list
 
@@ -305,7 +340,13 @@ import { StatusSubscription } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.ListSubscriptionsResponse](../../models/operations/listsubscriptionsresponse.md)>**
+### Errors
 
+| Error Object                                      | Status Code                                       | Content Type                                      |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| errors.ListSubscriptionsResponseBody              | 401                                               | application/json                                  |
+| errors.ListSubscriptionsSubscriptionsResponseBody | 500                                               | application/json                                  |
+| errors.SDKError                                   | 400-600                                           | */*                                               |
 
 ## pause
 
@@ -355,7 +396,15 @@ import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.PauseSubscriptionResponse](../../models/operations/pausesubscriptionresponse.md)>**
+### Errors
 
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| errors.PauseSubscriptionResponseBody                      | 400                                                       | application/json                                          |
+| errors.PauseSubscriptionSubscriptionsResponseBody         | 401                                                       | application/json                                          |
+| errors.Error1                                             | 409                                                       | application/json                                          |
+| errors.PauseSubscriptionSubscriptionsResponseResponseBody | 500                                                       | application/json                                          |
+| errors.SDKError                                           | 400-600                                                   | */*                                                       |
 
 ## previewSubscription
 
@@ -426,7 +475,11 @@ import {
 ### Response
 
 **Promise<[operations.PreviewSubscriptionResponse](../../models/operations/previewsubscriptionresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## resumeSubscription
 
@@ -449,7 +502,7 @@ import { Paddle } from "Paddle";
   });
 
   const res = await sdk.subscriptions.resumeSubscription({
-    requestBody: "Hyundai",
+    requestBody: "string",
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   });
 
@@ -471,7 +524,15 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.ResumeSubscriptionResponse](../../models/operations/resumesubscriptionresponse.md)>**
+### Errors
 
+| Error Object                                               | Status Code                                                | Content Type                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| errors.ResumeSubscriptionResponseBody                      | 400                                                        | application/json                                           |
+| errors.ResumeSubscriptionSubscriptionsResponseBody         | 401                                                        | application/json                                           |
+| errors.Error1                                              | 409                                                        | application/json                                           |
+| errors.ResumeSubscriptionSubscriptionsResponseResponseBody | 500                                                        | application/json                                           |
+| errors.SDKError                                            | 400-600                                                    | */*                                                        |
 
 ## update
 
@@ -548,4 +609,12 @@ import {
 ### Response
 
 **Promise<[operations.UpdateSubscriptionResponse](../../models/operations/updatesubscriptionresponse.md)>**
+### Errors
 
+| Error Object                                               | Status Code                                                | Content Type                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| errors.UpdateSubscriptionResponseBody                      | 400                                                        | application/json                                           |
+| errors.UpdateSubscriptionSubscriptionsResponseBody         | 401                                                        | application/json                                           |
+| errors.Error1                                              | 409                                                        | application/json                                           |
+| errors.UpdateSubscriptionSubscriptionsResponseResponseBody | 500                                                        | application/json                                           |
+| errors.SDKError                                            | 400-600                                                    | */*                                                        |

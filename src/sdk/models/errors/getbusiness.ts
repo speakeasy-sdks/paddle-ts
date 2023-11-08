@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class GetBusiness500ApplicationJSON extends Error {
+export class GetBusinessBusinessesResponse500ResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class GetBusiness500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetBusiness500ApplicationJSON) {
+    constructor(err?: GetBusinessBusinessesResponse500ResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class GetBusiness500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetBusiness500ApplicationJSON";
-        Object.setPrototypeOf(this, GetBusiness500ApplicationJSON.prototype);
+        this.name = "GetBusinessBusinessesResponse500ResponseBody";
+        Object.setPrototypeOf(this, GetBusinessBusinessesResponse500ResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class GetBusiness404ApplicationJSON extends Error {
+export class GetBusinessBusinessesResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class GetBusiness404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetBusiness404ApplicationJSON) {
+    constructor(err?: GetBusinessBusinessesResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +62,15 @@ export class GetBusiness404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetBusiness404ApplicationJSON";
-        Object.setPrototypeOf(this, GetBusiness404ApplicationJSON.prototype);
+        this.name = "GetBusinessBusinessesResponseResponseBody";
+        Object.setPrototypeOf(this, GetBusinessBusinessesResponseResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class GetBusiness403ApplicationJSON extends Error {
+export class GetBusinessBusinessesResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +83,7 @@ export class GetBusiness403ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetBusiness403ApplicationJSON) {
+    constructor(err?: GetBusinessBusinessesResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,15 +92,15 @@ export class GetBusiness403ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetBusiness403ApplicationJSON";
-        Object.setPrototypeOf(this, GetBusiness403ApplicationJSON.prototype);
+        this.name = "GetBusinessBusinessesResponseBody";
+        Object.setPrototypeOf(this, GetBusinessBusinessesResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class GetBusiness401ApplicationJSON extends Error {
+export class GetBusinessResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -113,7 +113,7 @@ export class GetBusiness401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetBusiness401ApplicationJSON) {
+    constructor(err?: GetBusinessResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -122,7 +122,7 @@ export class GetBusiness401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetBusiness401ApplicationJSON";
-        Object.setPrototypeOf(this, GetBusiness401ApplicationJSON.prototype);
+        this.name = "GetBusinessResponseBody";
+        Object.setPrototypeOf(this, GetBusinessResponseBody.prototype);
     }
 }

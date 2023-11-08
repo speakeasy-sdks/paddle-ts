@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { Addresses } from "./addresses";
 import { Adjustments } from "./adjustments";
 import { Businesses } from "./businesses";
@@ -11,7 +12,6 @@ import { Discounts } from "./discounts";
 import { Events } from "./events";
 import { Invoices } from "./invoices";
 import { IPAddresses } from "./ipaddresses";
-import * as shared from "./models/shared";
 import { Notifications } from "./notifications";
 import { Prices } from "./prices";
 import { Products } from "./products";
@@ -71,9 +71,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.0";
-    sdkVersion = "0.13.1";
-    genVersion = "2.161.0";
-    userAgent = "speakeasy-sdk/typescript 0.13.1 2.161.0 1.0 Paddle";
+    sdkVersion = "0.14.0";
+    genVersion = "2.183.0";
+    userAgent = "speakeasy-sdk/typescript 0.14.0 2.183.0 1.0 Paddle";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -90,27 +90,27 @@ export class SDKConfiguration {
  */
 export class Paddle {
     /**
-     * Work with addresses for a customer.
-     *
-     * @see {@link https://paddle.stoplight.io/docs/next-gen-billing/entities/customers#address-object} - Addresses - Paddle Developer Center
-     */
-    public addresses: Addresses;
-    /**
      * Work with adjustments.
      */
     public adjustments: Adjustments;
-    /**
-     * Work with businesses for a customer.
-     *
-     * @see {@link https://paddle.stoplight.io/docs/next-gen-billing/entities/customers#business-object} - Businesses - Paddle Developer Center
-     */
-    public businesses: Businesses;
     /**
      * Work with customers.
      *
      * @see {@link https://paddle.stoplight.io/docs/next-gen-billing/entities/customers} - Customers - Paddle Developer Center
      */
     public customers: Customers;
+    /**
+     * Work with addresses for a customer.
+     *
+     * @see {@link https://paddle.stoplight.io/docs/next-gen-billing/entities/customers#address-object} - Addresses - Paddle Developer Center
+     */
+    public addresses: Addresses;
+    /**
+     * Work with businesses for a customer.
+     *
+     * @see {@link https://paddle.stoplight.io/docs/next-gen-billing/entities/customers#business-object} - Businesses - Paddle Developer Center
+     */
+    public businesses: Businesses;
     /**
      * Work with discounts.
      *
@@ -122,15 +122,15 @@ export class Paddle {
      */
     public events: Events;
     /**
-     * Get Paddle IP addresses.
-     */
-    public ipAddresses: IPAddresses;
-    /**
      * Work with invoices.
      *
      * @see {@link https://paddle.stoplight.io/docs/next-gen-billing/entities/invoices} - Invoices - Paddle Developer Center
      */
     public invoices: Invoices;
+    /**
+     * Get Paddle IP addresses.
+     */
+    public ipAddresses: IPAddresses;
     /**
      * Work with notifications and notification settings.
      */
@@ -141,6 +141,13 @@ export class Paddle {
      * @see {@link https://paddle.stoplight.io/docs/next-gen-billing/entities/prices} - Prices - Paddle Developer Center
      */
     public prices: Prices;
+    /**
+     * Work with transactions.
+     *
+     * @see {@link https://paddle.stoplight.io/docs/next-gen-billing/entities/transactions} - Transactions - Paddle Developer Center
+     */
+    public transactions: Transactions;
+    public transactionService: TransactionService;
     /**
      * Work with products.
      *
@@ -153,13 +160,6 @@ export class Paddle {
      * @see {@link https://paddle.stoplight.io/docs/next-gen-billing/entities/subscriptions} - Subscriptions - Paddle Developer Center
      */
     public subscriptions: Subscriptions;
-    /**
-     * Work with transactions.
-     *
-     * @see {@link https://paddle.stoplight.io/docs/next-gen-billing/entities/transactions} - Transactions - Paddle Developer Center
-     */
-    public transactions: Transactions;
-    public transactionService: TransactionService;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -179,19 +179,19 @@ export class Paddle {
             retryConfig: props?.retryConfig,
         });
 
-        this.addresses = new Addresses(this.sdkConfiguration);
         this.adjustments = new Adjustments(this.sdkConfiguration);
-        this.businesses = new Businesses(this.sdkConfiguration);
         this.customers = new Customers(this.sdkConfiguration);
+        this.addresses = new Addresses(this.sdkConfiguration);
+        this.businesses = new Businesses(this.sdkConfiguration);
         this.discounts = new Discounts(this.sdkConfiguration);
         this.events = new Events(this.sdkConfiguration);
-        this.ipAddresses = new IPAddresses(this.sdkConfiguration);
         this.invoices = new Invoices(this.sdkConfiguration);
+        this.ipAddresses = new IPAddresses(this.sdkConfiguration);
         this.notifications = new Notifications(this.sdkConfiguration);
         this.prices = new Prices(this.sdkConfiguration);
-        this.products = new Products(this.sdkConfiguration);
-        this.subscriptions = new Subscriptions(this.sdkConfiguration);
         this.transactions = new Transactions(this.sdkConfiguration);
         this.transactionService = new TransactionService(this.sdkConfiguration);
+        this.products = new Products(this.sdkConfiguration);
+        this.subscriptions = new Subscriptions(this.sdkConfiguration);
     }
 }

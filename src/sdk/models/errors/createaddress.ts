@@ -11,7 +11,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class CreateAddress500ApplicationJSON extends Error {
+export class CreateAddressAddressesResponse500ResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -24,7 +24,7 @@ export class CreateAddress500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CreateAddress500ApplicationJSON) {
+    constructor(err?: CreateAddressAddressesResponse500ResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -33,15 +33,15 @@ export class CreateAddress500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateAddress500ApplicationJSON";
-        Object.setPrototypeOf(this, CreateAddress500ApplicationJSON.prototype);
+        this.name = "CreateAddressAddressesResponse500ResponseBody";
+        Object.setPrototypeOf(this, CreateAddressAddressesResponse500ResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class CreateAddress404ApplicationJSON extends Error {
+export class CreateAddressAddressesResponse404ResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -54,7 +54,7 @@ export class CreateAddress404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CreateAddress404ApplicationJSON) {
+    constructor(err?: CreateAddressAddressesResponse404ResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -63,15 +63,15 @@ export class CreateAddress404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateAddress404ApplicationJSON";
-        Object.setPrototypeOf(this, CreateAddress404ApplicationJSON.prototype);
+        this.name = "CreateAddressAddressesResponse404ResponseBody";
+        Object.setPrototypeOf(this, CreateAddressAddressesResponse404ResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class CreateAddress403ApplicationJSON extends Error {
+export class CreateAddressAddressesResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -84,7 +84,7 @@ export class CreateAddress403ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CreateAddress403ApplicationJSON) {
+    constructor(err?: CreateAddressAddressesResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -93,15 +93,15 @@ export class CreateAddress403ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateAddress403ApplicationJSON";
-        Object.setPrototypeOf(this, CreateAddress403ApplicationJSON.prototype);
+        this.name = "CreateAddressAddressesResponseResponseBody";
+        Object.setPrototypeOf(this, CreateAddressAddressesResponseResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class CreateAddress401ApplicationJSON extends Error {
+export class CreateAddressAddressesResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -114,7 +114,7 @@ export class CreateAddress401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CreateAddress401ApplicationJSON) {
+    constructor(err?: CreateAddressAddressesResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -123,15 +123,15 @@ export class CreateAddress401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateAddress401ApplicationJSON";
-        Object.setPrototypeOf(this, CreateAddress401ApplicationJSON.prototype);
+        this.name = "CreateAddressAddressesResponseBody";
+        Object.setPrototypeOf(this, CreateAddressAddressesResponseBody.prototype);
     }
 }
 
 /**
  * Error response for validation
  */
-export class CreateAddress400ApplicationJSON extends Error {
+export class CreateAddressResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -144,7 +144,7 @@ export class CreateAddress400ApplicationJSON extends Error {
     @Type(() => ErrorValidation)
     error?: ErrorValidation;
 
-    constructor(err?: CreateAddress400ApplicationJSON) {
+    constructor(err?: CreateAddressResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -153,7 +153,7 @@ export class CreateAddress400ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateAddress400ApplicationJSON";
-        Object.setPrototypeOf(this, CreateAddress400ApplicationJSON.prototype);
+        this.name = "CreateAddressResponseBody";
+        Object.setPrototypeOf(this, CreateAddressResponseBody.prototype);
     }
 }

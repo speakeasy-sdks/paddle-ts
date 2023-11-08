@@ -7,8 +7,8 @@ import { AdjustmentItemTotals } from "./adjustmentitemtotals";
 import { AdjustmentPayoutTotals } from "./adjustmentpayouttotals";
 import { AdjustmentTotals } from "./adjustmenttotals";
 import { CurrencyCode2 } from "./currencycode2";
-import { Schemasaction } from "./schemasaction";
-import { SchemasstatusAdjustment } from "./schemasstatusadjustment";
+import { SchemaAction } from "./schemaaction";
+import { SchemaStatusAdjustment } from "./schemastatusadjustment";
 import { TransactionItemProration } from "./transactionitemproration";
 import { Expose, Transform, Type } from "class-transformer";
 
@@ -18,14 +18,14 @@ import { Expose, Transform, Type } from "class-transformer";
  * @remarks
  * Include `amount` when creating a `partial` adjustment.
  */
-export enum Adjustment2AdjustmentItemType {
+export enum Adjustment2Type {
     Full = "full",
     Partial = "partial",
     Tax = "tax",
     Proration = "proration",
 }
 
-export class Adjustment2AdjustmentItem extends SpeakeasyBase {
+export class AdjustmentItem extends SpeakeasyBase {
     /**
      * Amount adjusted before tax for this transaction item. Required when adjustment type is `partial`.
      */
@@ -71,7 +71,7 @@ export class Adjustment2AdjustmentItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: Adjustment2AdjustmentItemType;
+    type: Adjustment2Type;
 }
 
 /**
@@ -83,7 +83,7 @@ export class Adjustment2 extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "action" })
-    action?: Schemasaction;
+    action?: SchemaAction;
 
     /**
      * RFC 3339 datetime string of when this entity was created. Set automatically by Paddle.
@@ -132,10 +132,10 @@ export class Adjustment2 extends SpeakeasyBase {
     /**
      * List of items on this adjustment.
      */
-    @SpeakeasyMetadata({ elemType: Adjustment2AdjustmentItem })
+    @SpeakeasyMetadata({ elemType: AdjustmentItem })
     @Expose({ name: "items" })
-    @Type(() => Adjustment2AdjustmentItem)
-    items?: Adjustment2AdjustmentItem[];
+    @Type(() => AdjustmentItem)
+    items?: AdjustmentItem[];
 
     /**
      * Breakdown of how this adjustment affects your payout balance.
@@ -162,7 +162,7 @@ export class Adjustment2 extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: SchemasstatusAdjustment;
+    status?: SchemaStatusAdjustment;
 
     /**
      * Unique Paddle ID for this subscription entity, prefixed with `sub_`.

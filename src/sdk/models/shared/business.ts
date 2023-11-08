@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Schemasstatus } from "./schemasstatus";
+import { SchemaStatus } from "./schemastatus";
 import { Expose, Transform, Type } from "class-transformer";
 
 export class BusinessContacts extends SpeakeasyBase {
@@ -68,7 +68,7 @@ export class Business extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: Schemasstatus;
+    status?: SchemaStatus;
 
     /**
      * Tax or VAT Number for this business.
@@ -124,7 +124,7 @@ export class BusinessInput extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: Schemasstatus;
+    status?: SchemaStatus;
 
     /**
      * Tax or VAT Number for this business.

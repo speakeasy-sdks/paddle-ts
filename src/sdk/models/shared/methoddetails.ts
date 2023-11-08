@@ -8,7 +8,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Type of credit or debit card used to pay.
  */
-export enum MethodDetailsCardType {
+export enum MethodDetailsSchemasType {
     Visa = "visa",
     Mastercard = "mastercard",
     Maestro = "maestro",
@@ -24,7 +24,7 @@ export enum MethodDetailsCardType {
 /**
  * Information about the credit or debit card used to pay. Only returned when `type` is `card`.
  */
-export class MethodDetailsCard extends SpeakeasyBase {
+export class Card extends SpeakeasyBase {
     /**
      * Month of the expiry date of the card used to pay.
      */
@@ -51,7 +51,7 @@ export class MethodDetailsCard extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type?: MethodDetailsCardType;
+    type?: MethodDetailsSchemasType;
 }
 
 /**
@@ -78,8 +78,8 @@ export class MethodDetails extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "card" })
-    @Type(() => MethodDetailsCard)
-    card?: MethodDetailsCard;
+    @Type(() => Card)
+    card?: Card;
 
     /**
      * Type of payment method used for this payment attempt.

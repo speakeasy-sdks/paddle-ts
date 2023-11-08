@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
@@ -15,7 +15,7 @@ export class GetInvoicePdfRequest extends SpeakeasyBase {
     invoiceId: string;
 }
 
-export class GetInvoicePdf200ApplicationJSONData extends SpeakeasyBase {
+export class GetInvoicePdfData extends SpeakeasyBase {
     /**
      * URL of the requested resource.
      */
@@ -27,11 +27,11 @@ export class GetInvoicePdf200ApplicationJSONData extends SpeakeasyBase {
 /**
  * OK
  */
-export class GetInvoicePdf200ApplicationJSON extends SpeakeasyBase {
+export class GetInvoicePdfResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => GetInvoicePdf200ApplicationJSONData)
-    data: GetInvoicePdf200ApplicationJSONData;
+    @Type(() => GetInvoicePdfData)
+    data: GetInvoicePdfData;
 
     /**
      * Information about this response.
@@ -43,6 +43,12 @@ export class GetInvoicePdf200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class GetInvoicePdfResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetInvoicePdfResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -63,10 +69,4 @@ export class GetInvoicePdfResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    getInvoicePdf200ApplicationJSONObject?: GetInvoicePdf200ApplicationJSON;
 }

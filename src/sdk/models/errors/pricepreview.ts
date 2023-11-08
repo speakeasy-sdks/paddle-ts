@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class PricePreview500ApplicationJSON extends Error {
+export class PricePreviewTransactionsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class PricePreview500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: PricePreview500ApplicationJSON) {
+    constructor(err?: PricePreviewTransactionsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class PricePreview500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "PricePreview500ApplicationJSON";
-        Object.setPrototypeOf(this, PricePreview500ApplicationJSON.prototype);
+        this.name = "PricePreviewTransactionsResponseBody";
+        Object.setPrototypeOf(this, PricePreviewTransactionsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class PricePreview401ApplicationJSON extends Error {
+export class PricePreviewResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class PricePreview401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: PricePreview401ApplicationJSON) {
+    constructor(err?: PricePreviewResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,7 +62,7 @@ export class PricePreview401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "PricePreview401ApplicationJSON";
-        Object.setPrototypeOf(this, PricePreview401ApplicationJSON.prototype);
+        this.name = "PricePreviewResponseBody";
+        Object.setPrototypeOf(this, PricePreviewResponseBody.prototype);
     }
 }

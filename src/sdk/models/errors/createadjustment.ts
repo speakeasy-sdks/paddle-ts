@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class CreateAdjustment500ApplicationJSON extends Error {
+export class CreateAdjustmentAdjustmentsResponse500ResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class CreateAdjustment500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CreateAdjustment500ApplicationJSON) {
+    constructor(err?: CreateAdjustmentAdjustmentsResponse500ResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class CreateAdjustment500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateAdjustment500ApplicationJSON";
-        Object.setPrototypeOf(this, CreateAdjustment500ApplicationJSON.prototype);
+        this.name = "CreateAdjustmentAdjustmentsResponse500ResponseBody";
+        Object.setPrototypeOf(this, CreateAdjustmentAdjustmentsResponse500ResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class CreateAdjustment409ApplicationJSON extends Error {
+export class CreateAdjustmentAdjustmentsResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class CreateAdjustment409ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CreateAdjustment409ApplicationJSON) {
+    constructor(err?: CreateAdjustmentAdjustmentsResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +62,15 @@ export class CreateAdjustment409ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateAdjustment409ApplicationJSON";
-        Object.setPrototypeOf(this, CreateAdjustment409ApplicationJSON.prototype);
+        this.name = "CreateAdjustmentAdjustmentsResponseResponseBody";
+        Object.setPrototypeOf(this, CreateAdjustmentAdjustmentsResponseResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class CreateAdjustment404ApplicationJSON extends Error {
+export class CreateAdjustmentAdjustmentsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +83,7 @@ export class CreateAdjustment404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CreateAdjustment404ApplicationJSON) {
+    constructor(err?: CreateAdjustmentAdjustmentsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,15 +92,15 @@ export class CreateAdjustment404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateAdjustment404ApplicationJSON";
-        Object.setPrototypeOf(this, CreateAdjustment404ApplicationJSON.prototype);
+        this.name = "CreateAdjustmentAdjustmentsResponseBody";
+        Object.setPrototypeOf(this, CreateAdjustmentAdjustmentsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class CreateAdjustment400ApplicationJSON extends Error {
+export class CreateAdjustmentResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -113,7 +113,7 @@ export class CreateAdjustment400ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CreateAdjustment400ApplicationJSON) {
+    constructor(err?: CreateAdjustmentResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -122,7 +122,7 @@ export class CreateAdjustment400ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateAdjustment400ApplicationJSON";
-        Object.setPrototypeOf(this, CreateAdjustment400ApplicationJSON.prototype);
+        this.name = "CreateAdjustmentResponseBody";
+        Object.setPrototypeOf(this, CreateAdjustmentResponseBody.prototype);
     }
 }

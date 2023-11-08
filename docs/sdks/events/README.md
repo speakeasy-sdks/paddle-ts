@@ -1,5 +1,5 @@
 # Events
-(*events*)
+(*.events*)
 
 ## Overview
 
@@ -48,7 +48,13 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.ListEventsResponse](../../models/operations/listeventsresponse.md)>**
+### Errors
 
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| errors.ListEventsResponseBody       | 401                                 | application/json                    |
+| errors.ListEventsEventsResponseBody | 500                                 | application/json                    |
+| errors.SDKError                     | 400-600                             | */*                                 |
 
 ## listTypes
 
@@ -87,4 +93,10 @@ import { Paddle } from "Paddle";
 ### Response
 
 **Promise<[operations.ListEventTypesResponse](../../models/operations/listeventtypesresponse.md)>**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| errors.ListEventTypesResponseBody       | 401                                     | application/json                        |
+| errors.ListEventTypesEventsResponseBody | 500                                     | application/json                        |
+| errors.SDKError                         | 400-600                                 | */*                                     |

@@ -3,7 +3,14 @@
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
+import {
+    AdjustmentCreateType,
+    CurrencyCode2,
+    CurrencyCodeChargeback,
+    CurrencyCodePayouts,
+    SchemaAction,
+    SchemaStatusAdjustment,
+} from "Paddle/dist/sdk/models/shared";
 
 (async () => {
     const sdk = new Paddle({
@@ -12,17 +19,33 @@ import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
         },
     });
 
-    const res = await sdk.addresses.create({
-        addressCreateInput: {
-            city: "Astoria",
-            countryCode: CountryCode2.Kn,
-            description: "Paddle.com",
-            firstLine: "3811 Ditmars Blvd",
-            id: "add_01gm302t81w94gyjpjpqypkzkf",
-            postalCode: "11105-1803",
-            region: "NY",
+    const res = await sdk.adjustments.create({
+        action: SchemaAction.Refund,
+        customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
+        id: "adj_01gya6twkp8y0tv1e19rsgst9m",
+        items: [
+            {
+                id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
+                itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
+                type: AdjustmentCreateType.Full,
+            },
+        ],
+        payoutTotals: {
+            chargebackFee: {
+                amount: "1680",
+                original: {
+                    amount: "1500",
+                },
+            },
+            earnings: "15120",
+            fee: "300",
+            subtotal: "15000",
+            tax: "1500",
+            total: "16500",
         },
-        customerId: "ctm_01gw1xk43eqy2rrf0cs93zvm6t",
+        reason: "string",
+        subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
+        transactionId: "string",
     });
 
     if (res.statusCode == 200) {

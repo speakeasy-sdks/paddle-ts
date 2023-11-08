@@ -1,5 +1,5 @@
 # Products
-(*products*)
+(*.products*)
 
 ## Overview
 
@@ -37,8 +37,8 @@ import { TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 
   const res = await sdk.products.create({
     customData: {},
-    name: "online",
-    taxCategory: TaxCategory1.SoftwareProgrammingServices,
+    name: "string",
+    taxCategory: TaxCategory1.Saas,
   });
 
   if (res.statusCode == 200) {
@@ -59,7 +59,14 @@ import { TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.CreateProductResponse](../../models/operations/createproductresponse.md)>**
+### Errors
 
+| Error Object                                     | Status Code                                      | Content Type                                     |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| errors.CreateProductResponseBody                 | 400                                              | application/json                                 |
+| errors.CreateProductProductsResponseBody         | 401                                              | application/json                                 |
+| errors.CreateProductProductsResponseResponseBody | 500                                              | application/json                                 |
+| errors.SDKError                                  | 400-600                                          | */*                                              |
 
 ## get
 
@@ -102,7 +109,14 @@ import { IncludeProduct } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.GetProductResponse](../../models/operations/getproductresponse.md)>**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| errors.GetProductResponseBody                 | 401                                           | application/json                              |
+| errors.GetProductProductsResponseBody         | 404                                           | application/json                              |
+| errors.GetProductProductsResponseResponseBody | 500                                           | application/json                              |
+| errors.SDKError                               | 400-600                                       | */*                                           |
 
 ## list
 
@@ -145,7 +159,13 @@ import { IncludeProduct, Status, TaxCategory } from "Paddle/dist/sdk/models/shar
 ### Response
 
 **Promise<[operations.ListProductsResponse](../../models/operations/listproductsresponse.md)>**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| errors.ListProductsResponseBody         | 401                                     | application/json                        |
+| errors.ListProductsProductsResponseBody | 500                                     | application/json                        |
+| errors.SDKError                         | 400-600                                 | */*                                     |
 
 ## update
 
@@ -159,7 +179,7 @@ If successful, your response includes a copy of the updated product entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { Schemasstatus, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
+import { SchemaStatus, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -193,4 +213,12 @@ import { Schemasstatus, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 ### Response
 
 **Promise<[operations.UpdateProductResponse](../../models/operations/updateproductresponse.md)>**
+### Errors
 
+| Error Object                                        | Status Code                                         | Content Type                                        |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| errors.UpdateProductResponseBody                    | 400                                                 | application/json                                    |
+| errors.UpdateProductProductsResponseBody            | 401                                                 | application/json                                    |
+| errors.UpdateProductProductsResponseResponseBody    | 404                                                 | application/json                                    |
+| errors.UpdateProductProductsResponse500ResponseBody | 500                                                 | application/json                                    |
+| errors.SDKError                                     | 400-600                                             | */*                                                 |

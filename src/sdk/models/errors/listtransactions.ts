@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class ListTransactions500ApplicationJSON extends Error {
+export class ListTransactionsTransactionsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class ListTransactions500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListTransactions500ApplicationJSON) {
+    constructor(err?: ListTransactionsTransactionsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class ListTransactions500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListTransactions500ApplicationJSON";
-        Object.setPrototypeOf(this, ListTransactions500ApplicationJSON.prototype);
+        this.name = "ListTransactionsTransactionsResponseBody";
+        Object.setPrototypeOf(this, ListTransactionsTransactionsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class ListTransactions401ApplicationJSON extends Error {
+export class ListTransactionsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class ListTransactions401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListTransactions401ApplicationJSON) {
+    constructor(err?: ListTransactionsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,7 +62,7 @@ export class ListTransactions401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListTransactions401ApplicationJSON";
-        Object.setPrototypeOf(this, ListTransactions401ApplicationJSON.prototype);
+        this.name = "ListTransactionsResponseBody";
+        Object.setPrototypeOf(this, ListTransactionsResponseBody.prototype);
     }
 }

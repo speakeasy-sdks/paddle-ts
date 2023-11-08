@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class ReplayNotification500ApplicationJSON extends Error {
+export class ReplayNotificationNotificationsResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class ReplayNotification500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ReplayNotification500ApplicationJSON) {
+    constructor(err?: ReplayNotificationNotificationsResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class ReplayNotification500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ReplayNotification500ApplicationJSON";
-        Object.setPrototypeOf(this, ReplayNotification500ApplicationJSON.prototype);
+        this.name = "ReplayNotificationNotificationsResponseResponseBody";
+        Object.setPrototypeOf(this, ReplayNotificationNotificationsResponseResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class ReplayNotification404ApplicationJSON extends Error {
+export class ReplayNotificationNotificationsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class ReplayNotification404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ReplayNotification404ApplicationJSON) {
+    constructor(err?: ReplayNotificationNotificationsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +62,15 @@ export class ReplayNotification404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ReplayNotification404ApplicationJSON";
-        Object.setPrototypeOf(this, ReplayNotification404ApplicationJSON.prototype);
+        this.name = "ReplayNotificationNotificationsResponseBody";
+        Object.setPrototypeOf(this, ReplayNotificationNotificationsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class ReplayNotification401ApplicationJSON extends Error {
+export class ReplayNotificationResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +83,7 @@ export class ReplayNotification401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ReplayNotification401ApplicationJSON) {
+    constructor(err?: ReplayNotificationResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,7 +92,7 @@ export class ReplayNotification401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ReplayNotification401ApplicationJSON";
-        Object.setPrototypeOf(this, ReplayNotification401ApplicationJSON.prototype);
+        this.name = "ReplayNotificationResponseBody";
+        Object.setPrototypeOf(this, ReplayNotificationResponseBody.prototype);
     }
 }
