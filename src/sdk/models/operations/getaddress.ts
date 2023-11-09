@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
@@ -24,7 +24,7 @@ export class GetAddressRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class GetAddress200ApplicationJSON extends SpeakeasyBase {
+export class GetAddressResponseBody extends SpeakeasyBase {
     /**
      * Represents an address entity.
      */
@@ -43,6 +43,12 @@ export class GetAddress200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class GetAddressResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetAddressResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -63,10 +69,4 @@ export class GetAddressResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    getAddress200ApplicationJSONObject?: GetAddress200ApplicationJSON;
 }

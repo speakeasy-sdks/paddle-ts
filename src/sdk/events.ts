@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -41,7 +41,7 @@ export class Events {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/events";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/events";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -73,7 +73,7 @@ export class Events {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url + queryParams,
+                url: operationUrl + queryParams,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -97,9 +97,9 @@ export class Events {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listEvents200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListEvents200ApplicationJSON
+                        operations.ListEventsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -114,10 +114,10 @@ export class Events {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListEvents401ApplicationJSON
+                        errors.ListEventsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListEvents401ApplicationJSON(err);
+                    throw new errors.ListEventsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -139,10 +139,10 @@ export class Events {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListEvents500ApplicationJSON
+                        errors.ListEventsEventsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListEvents500ApplicationJSON(err);
+                    throw new errors.ListEventsEventsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -173,7 +173,7 @@ export class Events {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/event-types";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/event-types";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -204,7 +204,7 @@ export class Events {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -228,9 +228,9 @@ export class Events {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listEventTypes200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListEventTypes200ApplicationJSON
+                        operations.ListEventTypesResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -245,10 +245,10 @@ export class Events {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListEventTypes401ApplicationJSON
+                        errors.ListEventTypesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListEventTypes401ApplicationJSON(err);
+                    throw new errors.ListEventTypesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -270,10 +270,10 @@ export class Events {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListEventTypes500ApplicationJSON
+                        errors.ListEventTypesEventsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListEventTypes500ApplicationJSON(err);
+                    throw new errors.ListEventTypesEventsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

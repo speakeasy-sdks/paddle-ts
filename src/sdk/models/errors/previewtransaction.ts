@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class PreviewTransaction500ApplicationJSON extends Error {
+export class PreviewTransactionTransactionsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class PreviewTransaction500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: PreviewTransaction500ApplicationJSON) {
+    constructor(err?: PreviewTransactionTransactionsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class PreviewTransaction500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "PreviewTransaction500ApplicationJSON";
-        Object.setPrototypeOf(this, PreviewTransaction500ApplicationJSON.prototype);
+        this.name = "PreviewTransactionTransactionsResponseBody";
+        Object.setPrototypeOf(this, PreviewTransactionTransactionsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class PreviewTransaction401ApplicationJSON extends Error {
+export class PreviewTransactionResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class PreviewTransaction401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: PreviewTransaction401ApplicationJSON) {
+    constructor(err?: PreviewTransactionResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,7 +62,7 @@ export class PreviewTransaction401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "PreviewTransaction401ApplicationJSON";
-        Object.setPrototypeOf(this, PreviewTransaction401ApplicationJSON.prototype);
+        this.name = "PreviewTransactionResponseBody";
+        Object.setPrototypeOf(this, PreviewTransactionResponseBody.prototype);
     }
 }

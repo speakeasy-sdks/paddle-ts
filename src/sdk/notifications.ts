@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -31,19 +31,19 @@ export class Notifications {
      * If successful, your response includes a copy of the new notification setting entity. Use the returned `endpoint_secret_key` for webhook signature verification.
      */
     async createSetting(
-        req: shared.NotificationSettingCreateInput,
+        req: shared.NotificationSettingCreate,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateNotificationSettingResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.NotificationSettingCreateInput(req);
+            req = new shared.NotificationSettingCreate(req);
         }
 
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/notification-settings";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/notification-settings";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -88,7 +88,7 @@ export class Notifications {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -114,9 +114,9 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createNotificationSetting201ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateNotificationSetting201ApplicationJSON
+                        operations.CreateNotificationSettingResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -131,10 +131,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateNotificationSetting400ApplicationJSON
+                        errors.CreateNotificationSettingResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateNotificationSetting400ApplicationJSON(err);
+                    throw new errors.CreateNotificationSettingResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -148,10 +148,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateNotificationSetting401ApplicationJSON
+                        errors.CreateNotificationSettingNotificationsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateNotificationSetting401ApplicationJSON(err);
+                    throw new errors.CreateNotificationSettingNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -173,10 +173,12 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateNotificationSetting500ApplicationJSON
+                        errors.CreateNotificationSettingNotificationsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateNotificationSetting500ApplicationJSON(err);
+                    throw new errors.CreateNotificationSettingNotificationsResponseResponseBody(
+                        err
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -214,7 +216,7 @@ export class Notifications {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/notification-settings/{notification_setting_id}",
             req
@@ -249,7 +251,7 @@ export class Notifications {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "delete",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -278,10 +280,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.DeleteNotificationSetting401ApplicationJSON
+                        errors.DeleteNotificationSettingResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.DeleteNotificationSetting401ApplicationJSON(err);
+                    throw new errors.DeleteNotificationSettingResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -295,10 +297,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.DeleteNotificationSetting404ApplicationJSON
+                        errors.DeleteNotificationSettingNotificationsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.DeleteNotificationSetting404ApplicationJSON(err);
+                    throw new errors.DeleteNotificationSettingNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -320,10 +322,12 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.DeleteNotificationSetting500ApplicationJSON
+                        errors.DeleteNotificationSettingNotificationsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.DeleteNotificationSetting500ApplicationJSON(err);
+                    throw new errors.DeleteNotificationSettingNotificationsResponseResponseBody(
+                        err
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -357,7 +361,11 @@ export class Notifications {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/notifications/{notification_id}", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/notifications/{notification_id}",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -388,7 +396,7 @@ export class Notifications {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -412,9 +420,9 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getNotification200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetNotification200ApplicationJSON
+                        operations.GetNotificationResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -429,10 +437,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetNotification401ApplicationJSON
+                        errors.GetNotificationResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetNotification401ApplicationJSON(err);
+                    throw new errors.GetNotificationResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -446,10 +454,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetNotification404ApplicationJSON
+                        errors.GetNotificationNotificationsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetNotification404ApplicationJSON(err);
+                    throw new errors.GetNotificationNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -471,10 +479,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetNotification500ApplicationJSON
+                        errors.GetNotificationNotificationsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetNotification500ApplicationJSON(err);
+                    throw new errors.GetNotificationNotificationsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -508,7 +516,7 @@ export class Notifications {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/notification-settings/{notification_setting_id}",
             req
@@ -543,7 +551,7 @@ export class Notifications {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -568,9 +576,9 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getNotificationSetting200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetNotificationSetting200ApplicationJSON
+                        operations.GetNotificationSettingResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -585,10 +593,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetNotificationSetting401ApplicationJSON
+                        errors.GetNotificationSettingResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetNotificationSetting401ApplicationJSON(err);
+                    throw new errors.GetNotificationSettingResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -602,10 +610,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetNotificationSetting404ApplicationJSON
+                        errors.GetNotificationSettingNotificationsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetNotificationSetting404ApplicationJSON(err);
+                    throw new errors.GetNotificationSettingNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -627,10 +635,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetNotificationSetting500ApplicationJSON
+                        errors.GetNotificationSettingNotificationsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetNotificationSetting500ApplicationJSON(err);
+                    throw new errors.GetNotificationSettingNotificationsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -664,7 +672,7 @@ export class Notifications {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/notifications";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/notifications";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -696,7 +704,7 @@ export class Notifications {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url + queryParams,
+                url: operationUrl + queryParams,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -720,9 +728,9 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listNotifications200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListNotifications200ApplicationJSON
+                        operations.ListNotificationsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -737,10 +745,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListNotifications401ApplicationJSON
+                        errors.ListNotificationsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListNotifications401ApplicationJSON(err);
+                    throw new errors.ListNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -762,10 +770,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListNotifications500ApplicationJSON
+                        errors.ListNotificationsNotificationsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListNotifications500ApplicationJSON(err);
+                    throw new errors.ListNotificationsNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -799,7 +807,7 @@ export class Notifications {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/notifications/{notification_id}/logs",
             req
@@ -835,7 +843,7 @@ export class Notifications {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url + queryParams,
+                url: operationUrl + queryParams,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -860,9 +868,9 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listNotificationLogs200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListNotificationLogs200ApplicationJSON
+                        operations.ListNotificationLogsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -877,10 +885,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListNotificationLogs401ApplicationJSON
+                        errors.ListNotificationLogsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListNotificationLogs401ApplicationJSON(err);
+                    throw new errors.ListNotificationLogsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -894,10 +902,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListNotificationLogs404ApplicationJSON
+                        errors.ListNotificationLogsNotificationsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListNotificationLogs404ApplicationJSON(err);
+                    throw new errors.ListNotificationLogsNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -919,10 +927,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListNotificationLogs500ApplicationJSON
+                        errors.ListNotificationLogsNotificationsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListNotificationLogs500ApplicationJSON(err);
+                    throw new errors.ListNotificationLogsNotificationsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -953,7 +961,7 @@ export class Notifications {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/notification-settings";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/notification-settings";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -984,7 +992,7 @@ export class Notifications {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -1009,9 +1017,9 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listNotificationSettings200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListNotificationSettings200ApplicationJSON
+                        operations.ListNotificationSettingsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -1026,10 +1034,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListNotificationSettings401ApplicationJSON
+                        errors.ListNotificationSettingsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListNotificationSettings401ApplicationJSON(err);
+                    throw new errors.ListNotificationSettingsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1051,10 +1059,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListNotificationSettings500ApplicationJSON
+                        errors.ListNotificationSettingsNotificationsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListNotificationSettings500ApplicationJSON(err);
+                    throw new errors.ListNotificationSettingsNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1092,7 +1100,7 @@ export class Notifications {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/notifications/{notification_id}/replay",
             req
@@ -1127,7 +1135,7 @@ export class Notifications {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -1152,9 +1160,9 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 202:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.replayNotification202ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredAndTwoApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ReplayNotification202ApplicationJSON
+                        operations.ReplayNotificationResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -1169,10 +1177,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ReplayNotification401ApplicationJSON
+                        errors.ReplayNotificationResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ReplayNotification401ApplicationJSON(err);
+                    throw new errors.ReplayNotificationResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1186,10 +1194,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ReplayNotification404ApplicationJSON
+                        errors.ReplayNotificationNotificationsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ReplayNotification404ApplicationJSON(err);
+                    throw new errors.ReplayNotificationNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1211,10 +1219,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ReplayNotification500ApplicationJSON
+                        errors.ReplayNotificationNotificationsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ReplayNotification500ApplicationJSON(err);
+                    throw new errors.ReplayNotificationNotificationsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1245,7 +1253,7 @@ export class Notifications {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/notification-settings/{notification_setting_id}/replay",
             req
@@ -1294,7 +1302,7 @@ export class Notifications {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -1324,10 +1332,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.PostNotificationSettingsNotificationSettingIdReplay401ApplicationJSON
+                        errors.PostNotificationSettingsNotificationSettingIdReplayResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.PostNotificationSettingsNotificationSettingIdReplay401ApplicationJSON(
+                    throw new errors.PostNotificationSettingsNotificationSettingIdReplayResponseBody(
                         err
                     );
                 } else {
@@ -1343,10 +1351,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.PostNotificationSettingsNotificationSettingIdReplay404ApplicationJSON
+                        errors.PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.PostNotificationSettingsNotificationSettingIdReplay404ApplicationJSON(
+                    throw new errors.PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseBody(
                         err
                     );
                 } else {
@@ -1370,10 +1378,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.PostNotificationSettingsNotificationSettingIdReplay500ApplicationJSON
+                        errors.PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.PostNotificationSettingsNotificationSettingIdReplay500ApplicationJSON(
+                    throw new errors.PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseResponseBody(
                         err
                     );
                 } else {
@@ -1415,7 +1423,7 @@ export class Notifications {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/notification-settings/{notification_setting_id}",
             req
@@ -1468,7 +1476,7 @@ export class Notifications {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "patch",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -1494,9 +1502,9 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.updateNotificationSetting200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.UpdateNotificationSetting200ApplicationJSON
+                        operations.UpdateNotificationSettingResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -1511,10 +1519,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateNotificationSetting400ApplicationJSON
+                        errors.UpdateNotificationSettingResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateNotificationSetting400ApplicationJSON(err);
+                    throw new errors.UpdateNotificationSettingResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1528,10 +1536,10 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateNotificationSetting401ApplicationJSON
+                        errors.UpdateNotificationSettingNotificationsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateNotificationSetting401ApplicationJSON(err);
+                    throw new errors.UpdateNotificationSettingNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1545,10 +1553,12 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateNotificationSetting404ApplicationJSON
+                        errors.UpdateNotificationSettingNotificationsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateNotificationSetting404ApplicationJSON(err);
+                    throw new errors.UpdateNotificationSettingNotificationsResponseResponseBody(
+                        err
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1570,10 +1580,12 @@ export class Notifications {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateNotificationSetting500ApplicationJSON
+                        errors.UpdateNotificationSettingNotificationsResponse500ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateNotificationSetting500ApplicationJSON(err);
+                    throw new errors.UpdateNotificationSettingNotificationsResponse500ResponseBody(
+                        err
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

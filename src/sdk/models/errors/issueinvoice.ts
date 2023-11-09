@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class IssueInvoice500ApplicationJSON extends Error {
+export class IssueInvoiceInvoicesResponse500ResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class IssueInvoice500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: IssueInvoice500ApplicationJSON) {
+    constructor(err?: IssueInvoiceInvoicesResponse500ResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class IssueInvoice500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "IssueInvoice500ApplicationJSON";
-        Object.setPrototypeOf(this, IssueInvoice500ApplicationJSON.prototype);
+        this.name = "IssueInvoiceInvoicesResponse500ResponseBody";
+        Object.setPrototypeOf(this, IssueInvoiceInvoicesResponse500ResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class IssueInvoice422ApplicationJSON extends Error {
+export class IssueInvoiceInvoicesResponse422ResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class IssueInvoice422ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: IssueInvoice422ApplicationJSON) {
+    constructor(err?: IssueInvoiceInvoicesResponse422ResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +62,15 @@ export class IssueInvoice422ApplicationJSON extends Error {
             );
         }
 
-        this.name = "IssueInvoice422ApplicationJSON";
-        Object.setPrototypeOf(this, IssueInvoice422ApplicationJSON.prototype);
+        this.name = "IssueInvoiceInvoicesResponse422ResponseBody";
+        Object.setPrototypeOf(this, IssueInvoiceInvoicesResponse422ResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class IssueInvoice404ApplicationJSON extends Error {
+export class IssueInvoiceInvoicesResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +83,7 @@ export class IssueInvoice404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: IssueInvoice404ApplicationJSON) {
+    constructor(err?: IssueInvoiceInvoicesResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,15 +92,15 @@ export class IssueInvoice404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "IssueInvoice404ApplicationJSON";
-        Object.setPrototypeOf(this, IssueInvoice404ApplicationJSON.prototype);
+        this.name = "IssueInvoiceInvoicesResponseResponseBody";
+        Object.setPrototypeOf(this, IssueInvoiceInvoicesResponseResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class IssueInvoice401ApplicationJSON extends Error {
+export class IssueInvoiceInvoicesResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -113,7 +113,7 @@ export class IssueInvoice401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: IssueInvoice401ApplicationJSON) {
+    constructor(err?: IssueInvoiceInvoicesResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -122,15 +122,15 @@ export class IssueInvoice401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "IssueInvoice401ApplicationJSON";
-        Object.setPrototypeOf(this, IssueInvoice401ApplicationJSON.prototype);
+        this.name = "IssueInvoiceInvoicesResponseBody";
+        Object.setPrototypeOf(this, IssueInvoiceInvoicesResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class IssueInvoice400ApplicationJSON extends Error {
+export class IssueInvoiceResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -143,7 +143,7 @@ export class IssueInvoice400ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: IssueInvoice400ApplicationJSON) {
+    constructor(err?: IssueInvoiceResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -152,7 +152,7 @@ export class IssueInvoice400ApplicationJSON extends Error {
             );
         }
 
-        this.name = "IssueInvoice400ApplicationJSON";
-        Object.setPrototypeOf(this, IssueInvoice400ApplicationJSON.prototype);
+        this.name = "IssueInvoiceResponseBody";
+        Object.setPrototypeOf(this, IssueInvoiceResponseBody.prototype);
     }
 }

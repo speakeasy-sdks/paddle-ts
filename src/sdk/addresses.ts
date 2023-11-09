@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -45,16 +45,16 @@ export class Addresses {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/customers/{customer_id}/addresses", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/customers/{customer_id}/addresses",
+            req
+        );
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-                req,
-                "addressCreateInput",
-                "json"
-            );
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "addressCreate", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -94,7 +94,7 @@ export class Addresses {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -119,9 +119,9 @@ export class Addresses {
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createAddress201ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateAddress201ApplicationJSON
+                        operations.CreateAddressResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -136,10 +136,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateAddress400ApplicationJSON
+                        errors.CreateAddressResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateAddress400ApplicationJSON(err);
+                    throw new errors.CreateAddressResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -153,10 +153,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateAddress401ApplicationJSON
+                        errors.CreateAddressAddressesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateAddress401ApplicationJSON(err);
+                    throw new errors.CreateAddressAddressesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -170,10 +170,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateAddress403ApplicationJSON
+                        errors.CreateAddressAddressesResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateAddress403ApplicationJSON(err);
+                    throw new errors.CreateAddressAddressesResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -187,10 +187,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateAddress404ApplicationJSON
+                        errors.CreateAddressAddressesResponse404ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateAddress404ApplicationJSON(err);
+                    throw new errors.CreateAddressAddressesResponse404ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -212,10 +212,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateAddress500ApplicationJSON
+                        errors.CreateAddressAddressesResponse500ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateAddress500ApplicationJSON(err);
+                    throw new errors.CreateAddressAddressesResponse500ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -249,7 +249,7 @@ export class Addresses {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/customers/{customer_id}/addresses/{address_id}",
             req
@@ -284,7 +284,7 @@ export class Addresses {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -308,9 +308,9 @@ export class Addresses {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getAddress200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetAddress200ApplicationJSON
+                        operations.GetAddressResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -325,10 +325,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetAddress400ApplicationJSON
+                        errors.GetAddressResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetAddress400ApplicationJSON(err);
+                    throw new errors.GetAddressResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -342,10 +342,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetAddress401ApplicationJSON
+                        errors.GetAddressAddressesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetAddress401ApplicationJSON(err);
+                    throw new errors.GetAddressAddressesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -359,10 +359,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetAddress403ApplicationJSON
+                        errors.GetAddressAddressesResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetAddress403ApplicationJSON(err);
+                    throw new errors.GetAddressAddressesResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -376,10 +376,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetAddress404ApplicationJSON
+                        errors.GetAddressAddressesResponse404ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetAddress404ApplicationJSON(err);
+                    throw new errors.GetAddressAddressesResponse404ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -401,10 +401,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetAddress500ApplicationJSON
+                        errors.GetAddressAddressesResponse500ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetAddress500ApplicationJSON(err);
+                    throw new errors.GetAddressAddressesResponse500ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -440,7 +440,11 @@ export class Addresses {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/customers/{customer_id}/addresses", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/customers/{customer_id}/addresses",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -472,7 +476,7 @@ export class Addresses {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url + queryParams,
+                url: operationUrl + queryParams,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -496,9 +500,9 @@ export class Addresses {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listAddresses200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListAddresses200ApplicationJSON
+                        operations.ListAddressesResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -513,10 +517,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListAddresses401ApplicationJSON
+                        errors.ListAddressesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListAddresses401ApplicationJSON(err);
+                    throw new errors.ListAddressesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -530,10 +534,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListAddresses403ApplicationJSON
+                        errors.ListAddressesAddressesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListAddresses403ApplicationJSON(err);
+                    throw new errors.ListAddressesAddressesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -547,10 +551,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListAddresses404ApplicationJSON
+                        errors.ListAddressesAddressesResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListAddresses404ApplicationJSON(err);
+                    throw new errors.ListAddressesAddressesResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -572,10 +576,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListAddresses500ApplicationJSON
+                        errors.ListAddressesAddressesResponse500ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListAddresses500ApplicationJSON(err);
+                    throw new errors.ListAddressesAddressesResponse500ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -611,7 +615,7 @@ export class Addresses {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/customers/{customer_id}/addresses/{address_id}",
             req
@@ -620,7 +624,7 @@ export class Addresses {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "addressInput", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "address", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -660,7 +664,7 @@ export class Addresses {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "patch",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -685,9 +689,9 @@ export class Addresses {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.updateAddress200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.UpdateAddress200ApplicationJSON
+                        operations.UpdateAddressResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -702,10 +706,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateAddress400ApplicationJSON
+                        errors.UpdateAddressResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateAddress400ApplicationJSON(err);
+                    throw new errors.UpdateAddressResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -719,10 +723,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateAddress401ApplicationJSON
+                        errors.UpdateAddressAddressesResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateAddress401ApplicationJSON(err);
+                    throw new errors.UpdateAddressAddressesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -736,10 +740,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateAddress403ApplicationJSON
+                        errors.UpdateAddressAddressesResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateAddress403ApplicationJSON(err);
+                    throw new errors.UpdateAddressAddressesResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -753,10 +757,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateAddress404ApplicationJSON
+                        errors.UpdateAddressAddressesResponse404ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateAddress404ApplicationJSON(err);
+                    throw new errors.UpdateAddressAddressesResponse404ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -778,10 +782,10 @@ export class Addresses {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateAddress500ApplicationJSON
+                        errors.UpdateAddressAddressesResponse500ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateAddress500ApplicationJSON(err);
+                    throw new errors.UpdateAddressAddressesResponse500ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

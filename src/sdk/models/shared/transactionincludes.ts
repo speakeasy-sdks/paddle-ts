@@ -13,7 +13,7 @@ import { CustomData } from "./customdata";
 import { Customer } from "./customer";
 import { Discount } from "./discount";
 import { OriginTransaction } from "./origintransaction";
-import { SchemasstatusTransaction } from "./schemasstatustransaction";
+import { SchemaStatusTransaction } from "./schemastatustransaction";
 import { TimePeriod } from "./timeperiod";
 import { TransactionAdjustmentsTotalsInclude } from "./transactionadjustmentstotalsinclude";
 import { TransactionDetails } from "./transactiondetails";
@@ -229,7 +229,7 @@ export class TransactionIncludes extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: SchemasstatusTransaction;
+    status?: SchemaStatusTransaction;
 
     /**
      * Unique Paddle ID for this subscription entity, prefixed with `sub_`.

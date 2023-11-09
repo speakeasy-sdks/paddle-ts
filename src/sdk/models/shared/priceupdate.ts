@@ -7,7 +7,7 @@ import { CustomData } from "./customdata";
 import { Money2 } from "./money2";
 import { Period2 } from "./period2";
 import { PriceQuantity } from "./pricequantity";
-import { Schemasstatus } from "./schemasstatus";
+import { SchemaStatus } from "./schemastatus";
 import { TaxMode1 } from "./taxmode1";
 import { UnitPriceOverride } from "./unitpriceoverride";
 import { Expose, Type } from "class-transformer";
@@ -49,7 +49,7 @@ export class PriceUpdate extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: Schemasstatus;
+    status?: SchemaStatus;
 
     /**
      * How tax is calculated for this price.

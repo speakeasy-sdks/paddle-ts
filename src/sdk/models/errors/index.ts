@@ -55,6 +55,7 @@ export * from "./previewtransaction";
 export * from "./pricepreview";
 export * from "./replaynotification";
 export * from "./resumesubscription";
+export * from "./sdkerror";
 export * from "./updateaddress";
 export * from "./updatebusiness";
 export * from "./updatecustomer";
@@ -65,5 +66,3 @@ export * from "./updateprice";
 export * from "./updateproduct";
 export * from "./updatesubscription";
 export * from "./updatetransaction";
-
-export * from "./sdkerror";

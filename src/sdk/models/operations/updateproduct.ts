@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
@@ -21,7 +21,7 @@ export class UpdateProductRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class UpdateProduct200ApplicationJSON extends SpeakeasyBase {
+export class UpdateProductResponseBody extends SpeakeasyBase {
     /**
      * Represents a product entity.
      */
@@ -40,6 +40,12 @@ export class UpdateProduct200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class UpdateProductResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: UpdateProductResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -60,10 +66,4 @@ export class UpdateProductResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    updateProduct200ApplicationJSONObject?: UpdateProduct200ApplicationJSON;
 }

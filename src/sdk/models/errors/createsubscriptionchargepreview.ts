@@ -11,7 +11,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class CreateSubscriptionChargePreview500ApplicationJSON extends Error {
+export class CreateSubscriptionChargePreviewSubscriptionsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -24,7 +24,7 @@ export class CreateSubscriptionChargePreview500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: CreateSubscriptionChargePreview500ApplicationJSON) {
+    constructor(err?: CreateSubscriptionChargePreviewSubscriptionsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -33,15 +33,18 @@ export class CreateSubscriptionChargePreview500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateSubscriptionChargePreview500ApplicationJSON";
-        Object.setPrototypeOf(this, CreateSubscriptionChargePreview500ApplicationJSON.prototype);
+        this.name = "CreateSubscriptionChargePreviewSubscriptionsResponseBody";
+        Object.setPrototypeOf(
+            this,
+            CreateSubscriptionChargePreviewSubscriptionsResponseBody.prototype
+        );
     }
 }
 
 /**
  * Error response for validation
  */
-export class CreateSubscriptionChargePreview400ApplicationJSON extends Error {
+export class CreateSubscriptionChargePreviewResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -54,7 +57,7 @@ export class CreateSubscriptionChargePreview400ApplicationJSON extends Error {
     @Type(() => ErrorValidation)
     error?: ErrorValidation;
 
-    constructor(err?: CreateSubscriptionChargePreview400ApplicationJSON) {
+    constructor(err?: CreateSubscriptionChargePreviewResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -63,7 +66,7 @@ export class CreateSubscriptionChargePreview400ApplicationJSON extends Error {
             );
         }
 
-        this.name = "CreateSubscriptionChargePreview400ApplicationJSON";
-        Object.setPrototypeOf(this, CreateSubscriptionChargePreview400ApplicationJSON.prototype);
+        this.name = "CreateSubscriptionChargePreviewResponseBody";
+        Object.setPrototypeOf(this, CreateSubscriptionChargePreviewResponseBody.prototype);
     }
 }

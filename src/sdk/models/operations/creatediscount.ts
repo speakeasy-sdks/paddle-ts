@@ -3,14 +3,14 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 /**
  * OK
  */
-export class CreateDiscount200ApplicationJSON extends SpeakeasyBase {
+export class CreateDiscountResponseBody extends SpeakeasyBase {
     /**
      * Represents a discount entity.
      */
@@ -51,5 +51,5 @@ export class CreateDiscountResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    createDiscount200ApplicationJSONObject?: CreateDiscount200ApplicationJSON;
+    object?: CreateDiscountResponseBody;
 }

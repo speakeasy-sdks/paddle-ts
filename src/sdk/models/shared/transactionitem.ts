@@ -3,33 +3,9 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Price, PriceInput } from "./price";
+import { Price } from "./price";
 import { TransactionItemProration } from "./transactionitemproration";
 import { Expose, Type } from "class-transformer";
-
-export class TransactionItemInput extends SpeakeasyBase {
-    /**
-     * Represents a price entity.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "price" })
-    @Type(() => PriceInput)
-    price?: PriceInput;
-
-    /**
-     * Unique Paddle ID for this price, prefixed with `pri_`.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "price_id" })
-    priceId: string;
-
-    /**
-     * Quantity of this item on the transaction.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "quantity" })
-    quantity: number;
-}
 
 export class TransactionItem extends SpeakeasyBase {
     /**

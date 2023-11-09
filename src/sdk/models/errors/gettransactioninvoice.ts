@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class GetTransactionInvoice500ApplicationJSON extends Error {
+export class GetTransactionInvoiceTransactionsResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class GetTransactionInvoice500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetTransactionInvoice500ApplicationJSON) {
+    constructor(err?: GetTransactionInvoiceTransactionsResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,18 @@ export class GetTransactionInvoice500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetTransactionInvoice500ApplicationJSON";
-        Object.setPrototypeOf(this, GetTransactionInvoice500ApplicationJSON.prototype);
+        this.name = "GetTransactionInvoiceTransactionsResponseResponseBody";
+        Object.setPrototypeOf(
+            this,
+            GetTransactionInvoiceTransactionsResponseResponseBody.prototype
+        );
     }
 }
 
 /**
  * General error response
  */
-export class GetTransactionInvoice404ApplicationJSON extends Error {
+export class GetTransactionInvoiceTransactionsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +56,7 @@ export class GetTransactionInvoice404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetTransactionInvoice404ApplicationJSON) {
+    constructor(err?: GetTransactionInvoiceTransactionsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +65,15 @@ export class GetTransactionInvoice404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetTransactionInvoice404ApplicationJSON";
-        Object.setPrototypeOf(this, GetTransactionInvoice404ApplicationJSON.prototype);
+        this.name = "GetTransactionInvoiceTransactionsResponseBody";
+        Object.setPrototypeOf(this, GetTransactionInvoiceTransactionsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class GetTransactionInvoice401ApplicationJSON extends Error {
+export class GetTransactionInvoiceResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +86,7 @@ export class GetTransactionInvoice401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetTransactionInvoice401ApplicationJSON) {
+    constructor(err?: GetTransactionInvoiceResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,7 +95,7 @@ export class GetTransactionInvoice401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetTransactionInvoice401ApplicationJSON";
-        Object.setPrototypeOf(this, GetTransactionInvoice401ApplicationJSON.prototype);
+        this.name = "GetTransactionInvoiceResponseBody";
+        Object.setPrototypeOf(this, GetTransactionInvoiceResponseBody.prototype);
     }
 }

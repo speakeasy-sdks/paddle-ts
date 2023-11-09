@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class GetCustomer500ApplicationJSON extends Error {
+export class GetCustomerCustomersResponse500ResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class GetCustomer500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetCustomer500ApplicationJSON) {
+    constructor(err?: GetCustomerCustomersResponse500ResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class GetCustomer500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetCustomer500ApplicationJSON";
-        Object.setPrototypeOf(this, GetCustomer500ApplicationJSON.prototype);
+        this.name = "GetCustomerCustomersResponse500ResponseBody";
+        Object.setPrototypeOf(this, GetCustomerCustomersResponse500ResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class GetCustomer404ApplicationJSON extends Error {
+export class GetCustomerCustomersResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class GetCustomer404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetCustomer404ApplicationJSON) {
+    constructor(err?: GetCustomerCustomersResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +62,15 @@ export class GetCustomer404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetCustomer404ApplicationJSON";
-        Object.setPrototypeOf(this, GetCustomer404ApplicationJSON.prototype);
+        this.name = "GetCustomerCustomersResponseResponseBody";
+        Object.setPrototypeOf(this, GetCustomerCustomersResponseResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class GetCustomer403ApplicationJSON extends Error {
+export class GetCustomerCustomersResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +83,7 @@ export class GetCustomer403ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetCustomer403ApplicationJSON) {
+    constructor(err?: GetCustomerCustomersResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,15 +92,15 @@ export class GetCustomer403ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetCustomer403ApplicationJSON";
-        Object.setPrototypeOf(this, GetCustomer403ApplicationJSON.prototype);
+        this.name = "GetCustomerCustomersResponseBody";
+        Object.setPrototypeOf(this, GetCustomerCustomersResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class GetCustomer401ApplicationJSON extends Error {
+export class GetCustomerResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -113,7 +113,7 @@ export class GetCustomer401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetCustomer401ApplicationJSON) {
+    constructor(err?: GetCustomerResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -122,7 +122,7 @@ export class GetCustomer401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetCustomer401ApplicationJSON";
-        Object.setPrototypeOf(this, GetCustomer401ApplicationJSON.prototype);
+        this.name = "GetCustomerResponseBody";
+        Object.setPrototypeOf(this, GetCustomerResponseBody.prototype);
     }
 }

@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class UpdatePrice500ApplicationJSON extends Error {
+export class UpdatePricePricesResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class UpdatePrice500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: UpdatePrice500ApplicationJSON) {
+    constructor(err?: UpdatePricePricesResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class UpdatePrice500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "UpdatePrice500ApplicationJSON";
-        Object.setPrototypeOf(this, UpdatePrice500ApplicationJSON.prototype);
+        this.name = "UpdatePricePricesResponseResponseBody";
+        Object.setPrototypeOf(this, UpdatePricePricesResponseResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class UpdatePrice404ApplicationJSON extends Error {
+export class UpdatePricePricesResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class UpdatePrice404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: UpdatePrice404ApplicationJSON) {
+    constructor(err?: UpdatePricePricesResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +62,15 @@ export class UpdatePrice404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "UpdatePrice404ApplicationJSON";
-        Object.setPrototypeOf(this, UpdatePrice404ApplicationJSON.prototype);
+        this.name = "UpdatePricePricesResponseBody";
+        Object.setPrototypeOf(this, UpdatePricePricesResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class UpdatePrice401ApplicationJSON extends Error {
+export class UpdatePriceResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +83,7 @@ export class UpdatePrice401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: UpdatePrice401ApplicationJSON) {
+    constructor(err?: UpdatePriceResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,7 +92,7 @@ export class UpdatePrice401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "UpdatePrice401ApplicationJSON";
-        Object.setPrototypeOf(this, UpdatePrice401ApplicationJSON.prototype);
+        this.name = "UpdatePriceResponseBody";
+        Object.setPrototypeOf(this, UpdatePriceResponseBody.prototype);
     }
 }

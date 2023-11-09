@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -47,7 +47,7 @@ export class Subscriptions {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/subscriptions/{subscription_id}/cancel",
             req
@@ -96,7 +96,7 @@ export class Subscriptions {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -122,9 +122,9 @@ export class Subscriptions {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.cancelSubscription200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CancelSubscription200ApplicationJSON
+                        operations.CancelSubscriptionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -139,10 +139,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CancelSubscription400ApplicationJSON
+                        errors.CancelSubscriptionResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CancelSubscription400ApplicationJSON(err);
+                    throw new errors.CancelSubscriptionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -156,10 +156,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CancelSubscription401ApplicationJSON
+                        errors.CancelSubscriptionSubscriptionsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CancelSubscription401ApplicationJSON(err);
+                    throw new errors.CancelSubscriptionSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -171,9 +171,9 @@ export class Subscriptions {
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.ErrorT);
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.Error1);
                     err.rawResponse = httpRes;
-                    throw new errors.ErrorT(err);
+                    throw new errors.Error1(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -195,10 +195,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CancelSubscription500ApplicationJSON
+                        errors.CancelSubscriptionSubscriptionsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CancelSubscription500ApplicationJSON(err);
+                    throw new errors.CancelSubscriptionSubscriptionsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -239,7 +239,7 @@ export class Subscriptions {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/subscriptions/{subscription_id}/charge",
             req
@@ -292,7 +292,7 @@ export class Subscriptions {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -318,9 +318,9 @@ export class Subscriptions {
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createSubscriptionCharge201ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateSubscriptionCharge201ApplicationJSON
+                        operations.CreateSubscriptionChargeResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -335,10 +335,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateSubscriptionCharge400ApplicationJSON
+                        errors.CreateSubscriptionChargeResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateSubscriptionCharge400ApplicationJSON(err);
+                    throw new errors.CreateSubscriptionChargeResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -360,10 +360,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateSubscriptionCharge500ApplicationJSON
+                        errors.CreateSubscriptionChargeSubscriptionsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateSubscriptionCharge500ApplicationJSON(err);
+                    throw new errors.CreateSubscriptionChargeSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -397,7 +397,7 @@ export class Subscriptions {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/subscriptions/{subscription_id}/charge/preview",
             req
@@ -450,7 +450,7 @@ export class Subscriptions {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -476,11 +476,10 @@ export class Subscriptions {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createSubscriptionChargePreview200ApplicationJSONObject =
-                        utils.objectToClass(
-                            JSON.parse(decodedRes),
-                            operations.CreateSubscriptionChargePreview200ApplicationJSON
-                        );
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.CreateSubscriptionChargePreviewResponseBody
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -494,10 +493,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateSubscriptionChargePreview400ApplicationJSON
+                        errors.CreateSubscriptionChargePreviewResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateSubscriptionChargePreview400ApplicationJSON(err);
+                    throw new errors.CreateSubscriptionChargePreviewResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -519,10 +518,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateSubscriptionChargePreview500ApplicationJSON
+                        errors.CreateSubscriptionChargePreviewSubscriptionsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateSubscriptionChargePreview500ApplicationJSON(err);
+                    throw new errors.CreateSubscriptionChargePreviewSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -558,7 +557,11 @@ export class Subscriptions {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/subscriptions/{subscription_id}", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/subscriptions/{subscription_id}",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -590,7 +593,7 @@ export class Subscriptions {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url + queryParams,
+                url: operationUrl + queryParams,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -614,9 +617,9 @@ export class Subscriptions {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getSubscription200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetSubscription200ApplicationJSON
+                        operations.GetSubscriptionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -631,10 +634,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetSubscription401ApplicationJSON
+                        errors.GetSubscriptionResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetSubscription401ApplicationJSON(err);
+                    throw new errors.GetSubscriptionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -648,10 +651,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetSubscription404ApplicationJSON
+                        errors.GetSubscriptionSubscriptionsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetSubscription404ApplicationJSON(err);
+                    throw new errors.GetSubscriptionSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -673,10 +676,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetSubscription500ApplicationJSON
+                        errors.GetSubscriptionSubscriptionsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetSubscription500ApplicationJSON(err);
+                    throw new errors.GetSubscriptionSubscriptionsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -717,7 +720,7 @@ export class Subscriptions {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/subscriptions/{subscription_id}/update-payment-method-transaction",
             req
@@ -752,7 +755,7 @@ export class Subscriptions {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -777,11 +780,10 @@ export class Subscriptions {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONObject =
-                        utils.objectToClass(
-                            JSON.parse(decodedRes),
-                            operations.GetSubscriptionUpdatePaymentMethodTransaction200ApplicationJSONOutput
-                        );
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetSubscriptionUpdatePaymentMethodTransactionResponseBodyOutput
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -795,12 +797,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetSubscriptionUpdatePaymentMethodTransaction401ApplicationJSON
+                        errors.GetSubscriptionUpdatePaymentMethodTransactionResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetSubscriptionUpdatePaymentMethodTransaction401ApplicationJSON(
-                        err
-                    );
+                    throw new errors.GetSubscriptionUpdatePaymentMethodTransactionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -814,10 +814,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetSubscriptionUpdatePaymentMethodTransaction403ApplicationJSON
+                        errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetSubscriptionUpdatePaymentMethodTransaction403ApplicationJSON(
+                    throw new errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseBody(
                         err
                     );
                 } else {
@@ -833,10 +833,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetSubscriptionUpdatePaymentMethodTransaction409ApplicationJSON
+                        errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetSubscriptionUpdatePaymentMethodTransaction409ApplicationJSON(
+                    throw new errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseResponseBody(
                         err
                     );
                 } else {
@@ -860,10 +860,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetSubscriptionUpdatePaymentMethodTransaction500ApplicationJSON
+                        errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponse500ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetSubscriptionUpdatePaymentMethodTransaction500ApplicationJSON(
+                    throw new errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponse500ResponseBody(
                         err
                     );
                 } else {
@@ -899,7 +899,7 @@ export class Subscriptions {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/subscriptions";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/subscriptions";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -931,7 +931,7 @@ export class Subscriptions {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url + queryParams,
+                url: operationUrl + queryParams,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -955,9 +955,9 @@ export class Subscriptions {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listSubscriptions200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListSubscriptions200ApplicationJSON
+                        operations.ListSubscriptionsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -972,10 +972,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListSubscriptions401ApplicationJSON
+                        errors.ListSubscriptionsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListSubscriptions401ApplicationJSON(err);
+                    throw new errors.ListSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -997,10 +997,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListSubscriptions500ApplicationJSON
+                        errors.ListSubscriptionsSubscriptionsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListSubscriptions500ApplicationJSON(err);
+                    throw new errors.ListSubscriptionsSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1040,7 +1040,7 @@ export class Subscriptions {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/subscriptions/{subscription_id}/pause",
             req
@@ -1089,7 +1089,7 @@ export class Subscriptions {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -1114,9 +1114,9 @@ export class Subscriptions {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.pauseSubscription200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.PauseSubscription200ApplicationJSON
+                        operations.PauseSubscriptionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -1131,10 +1131,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.PauseSubscription400ApplicationJSON
+                        errors.PauseSubscriptionResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.PauseSubscription400ApplicationJSON(err);
+                    throw new errors.PauseSubscriptionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1148,10 +1148,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.PauseSubscription401ApplicationJSON
+                        errors.PauseSubscriptionSubscriptionsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.PauseSubscription401ApplicationJSON(err);
+                    throw new errors.PauseSubscriptionSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1163,9 +1163,9 @@ export class Subscriptions {
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.ErrorT);
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.Error1);
                     err.rawResponse = httpRes;
-                    throw new errors.ErrorT(err);
+                    throw new errors.Error1(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1187,10 +1187,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.PauseSubscription500ApplicationJSON
+                        errors.PauseSubscriptionSubscriptionsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.PauseSubscription500ApplicationJSON(err);
+                    throw new errors.PauseSubscriptionSubscriptionsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1226,7 +1226,7 @@ export class Subscriptions {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/subscriptions/{subscription_id}/preview",
             req
@@ -1279,7 +1279,7 @@ export class Subscriptions {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "patch",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -1304,9 +1304,9 @@ export class Subscriptions {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.previewSubscription200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.PreviewSubscription200ApplicationJSON
+                        operations.PreviewSubscriptionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -1353,7 +1353,7 @@ export class Subscriptions {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/subscriptions/{subscription_id}/resume",
             req
@@ -1402,7 +1402,7 @@ export class Subscriptions {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -1428,9 +1428,9 @@ export class Subscriptions {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.resumeSubscription200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ResumeSubscription200ApplicationJSON
+                        operations.ResumeSubscriptionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -1445,10 +1445,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ResumeSubscription400ApplicationJSON
+                        errors.ResumeSubscriptionResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ResumeSubscription400ApplicationJSON(err);
+                    throw new errors.ResumeSubscriptionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1462,10 +1462,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ResumeSubscription401ApplicationJSON
+                        errors.ResumeSubscriptionSubscriptionsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ResumeSubscription401ApplicationJSON(err);
+                    throw new errors.ResumeSubscriptionSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1477,9 +1477,9 @@ export class Subscriptions {
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.ErrorT);
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.Error1);
                     err.rawResponse = httpRes;
-                    throw new errors.ErrorT(err);
+                    throw new errors.Error1(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1501,10 +1501,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ResumeSubscription500ApplicationJSON
+                        errors.ResumeSubscriptionSubscriptionsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ResumeSubscription500ApplicationJSON(err);
+                    throw new errors.ResumeSubscriptionSubscriptionsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1546,7 +1546,11 @@ export class Subscriptions {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/subscriptions/{subscription_id}", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/subscriptions/{subscription_id}",
+            req
+        );
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -1595,7 +1599,7 @@ export class Subscriptions {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "patch",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -1621,9 +1625,9 @@ export class Subscriptions {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.updateSubscription200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.UpdateSubscription200ApplicationJSON
+                        operations.UpdateSubscriptionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -1638,10 +1642,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateSubscription400ApplicationJSON
+                        errors.UpdateSubscriptionResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateSubscription400ApplicationJSON(err);
+                    throw new errors.UpdateSubscriptionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1655,10 +1659,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateSubscription401ApplicationJSON
+                        errors.UpdateSubscriptionSubscriptionsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateSubscription401ApplicationJSON(err);
+                    throw new errors.UpdateSubscriptionSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1670,9 +1674,9 @@ export class Subscriptions {
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.ErrorT);
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.Error1);
                     err.rawResponse = httpRes;
-                    throw new errors.ErrorT(err);
+                    throw new errors.Error1(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1694,10 +1698,10 @@ export class Subscriptions {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateSubscription500ApplicationJSON
+                        errors.UpdateSubscriptionSubscriptionsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateSubscription500ApplicationJSON(err);
+                    throw new errors.UpdateSubscriptionSubscriptionsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

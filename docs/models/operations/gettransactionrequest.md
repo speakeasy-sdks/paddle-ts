@@ -1,9 +1,0 @@
-# GetTransactionRequest
-
-
-## Fields
-
-| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `include`                                                              | [shared.IncludeTransaction](../../models/shared/includetransaction.md) | :heavy_minus_sign:                                                     | Include related entities in the response.                              |                                                                        |
-| `transactionId`                                                        | *string*                                                               | :heavy_check_mark:                                                     | Paddle ID of the transaction entity to work with.                      | txn_01gw225vv6tjbb5gnt062a3k5v                                         |

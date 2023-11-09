@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class GetInvoicePdf500ApplicationJSON extends Error {
+export class GetInvoicePdfInvoicesResponseResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class GetInvoicePdf500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetInvoicePdf500ApplicationJSON) {
+    constructor(err?: GetInvoicePdfInvoicesResponseResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class GetInvoicePdf500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetInvoicePdf500ApplicationJSON";
-        Object.setPrototypeOf(this, GetInvoicePdf500ApplicationJSON.prototype);
+        this.name = "GetInvoicePdfInvoicesResponseResponseBody";
+        Object.setPrototypeOf(this, GetInvoicePdfInvoicesResponseResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class GetInvoicePdf404ApplicationJSON extends Error {
+export class GetInvoicePdfInvoicesResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class GetInvoicePdf404ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetInvoicePdf404ApplicationJSON) {
+    constructor(err?: GetInvoicePdfInvoicesResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,15 +62,15 @@ export class GetInvoicePdf404ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetInvoicePdf404ApplicationJSON";
-        Object.setPrototypeOf(this, GetInvoicePdf404ApplicationJSON.prototype);
+        this.name = "GetInvoicePdfInvoicesResponseBody";
+        Object.setPrototypeOf(this, GetInvoicePdfInvoicesResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class GetInvoicePdf401ApplicationJSON extends Error {
+export class GetInvoicePdfResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -83,7 +83,7 @@ export class GetInvoicePdf401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: GetInvoicePdf401ApplicationJSON) {
+    constructor(err?: GetInvoicePdfResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -92,7 +92,7 @@ export class GetInvoicePdf401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "GetInvoicePdf401ApplicationJSON";
-        Object.setPrototypeOf(this, GetInvoicePdf401ApplicationJSON.prototype);
+        this.name = "GetInvoicePdfResponseBody";
+        Object.setPrototypeOf(this, GetInvoicePdfResponseBody.prototype);
     }
 }

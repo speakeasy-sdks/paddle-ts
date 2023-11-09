@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
-export class BusinessCreateContacts extends SpeakeasyBase {
+export class Contacts extends SpeakeasyBase {
     /**
      * Email address for this entity.
      */
@@ -24,7 +24,7 @@ export class BusinessCreateContacts extends SpeakeasyBase {
 /**
  * Represents a business entity.
  */
-export class BusinessCreateInput extends SpeakeasyBase {
+export class BusinessCreate extends SpeakeasyBase {
     /**
      * Company number for this business.
      */
@@ -35,10 +35,10 @@ export class BusinessCreateInput extends SpeakeasyBase {
     /**
      * List of contacts related to this business, typically used for sending invoices.
      */
-    @SpeakeasyMetadata({ elemType: BusinessCreateContacts })
+    @SpeakeasyMetadata({ elemType: Contacts })
     @Expose({ name: "contacts" })
-    @Type(() => BusinessCreateContacts)
-    contacts?: BusinessCreateContacts[];
+    @Type(() => Contacts)
+    contacts?: Contacts[];
 
     /**
      * Unique Paddle ID for this business entity, prefixed with `biz_`.

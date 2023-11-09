@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { CountryCode2 } from "./countrycode2";
-import { Schemasstatus } from "./schemasstatus";
+import { SchemaStatus } from "./schemastatus";
 import { Expose, Transform } from "class-transformer";
 
 /**
@@ -80,7 +80,7 @@ export class Address extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: Schemasstatus;
+    status?: SchemaStatus;
 
     /**
      * RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
@@ -89,72 +89,4 @@ export class Address extends SpeakeasyBase {
     @Expose({ name: "updated_at" })
     @Transform(({ value }) => new Date(value), { toClassOnly: true })
     updatedAt?: Date;
-}
-
-/**
- * Represents an address entity.
- */
-export class AddressInput extends SpeakeasyBase {
-    /**
-     * City of this address.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "city" })
-    city?: string;
-
-    /**
-     * Supported two-letter ISO 3166-1 alpha-2 country code.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "country_code" })
-    countryCode?: CountryCode2;
-
-    /**
-     * Memorable description for this address.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "description" })
-    description?: string;
-
-    /**
-     * First line of this address.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "first_line" })
-    firstLine?: string;
-
-    /**
-     * Unique Paddle ID for this address entity, prefixed with `add_`.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "id" })
-    id?: string;
-
-    /**
-     * ZIP or postal code of this address. Required for some countries.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "postal_code" })
-    postalCode?: string;
-
-    /**
-     * State, county, or region of this address.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "region" })
-    region?: string;
-
-    /**
-     * Second line of this address.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "second_line" })
-    secondLine?: string;
-
-    /**
-     * Whether this entity can be used in Paddle.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "status" })
-    status?: Schemasstatus;
 }

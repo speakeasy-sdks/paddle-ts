@@ -33,12 +33,12 @@ If successful, your response includes a copy of the new adjustment entity.
 ```typescript
 import { Paddle } from "Paddle";
 import {
-  AdjustmentCreateAdjustmentItemType,
+  AdjustmentCreateType,
   CurrencyCode2,
   CurrencyCodeChargeback,
   CurrencyCodePayouts,
-  Schemasaction,
-  SchemasstatusAdjustment,
+  SchemaAction,
+  SchemaStatusAdjustment,
 } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
@@ -49,14 +49,14 @@ import {
   });
 
   const res = await sdk.adjustments.create({
-    action: Schemasaction.Refund,
+    action: SchemaAction.Refund,
     customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
     id: "adj_01gya6twkp8y0tv1e19rsgst9m",
     items: [
       {
         id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
         itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
-        type: AdjustmentCreateAdjustmentItemType.Full,
+        type: AdjustmentCreateType.Full,
       },
     ],
     payoutTotals: {
@@ -72,9 +72,9 @@ import {
       tax: "1500",
       total: "16500",
     },
-    reason: "bluetooth",
+    reason: "string",
     subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
-    transactionId: "Extended",
+    transactionId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -85,17 +85,25 @@ import {
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [shared.AdjustmentCreateInput](../../models/shared/adjustmentcreateinput.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `retries`                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                       | :heavy_minus_sign:                                                           | Configuration to override the default retry behavior of the client.          |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `request`                                                              | [shared.AdjustmentCreate](../../sdk/models/shared/adjustmentcreate.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
+| `retries`                                                              | [utils.RetryConfig](../../internal/utils/retryconfig.md)               | :heavy_minus_sign:                                                     | Configuration to override the default retry behavior of the client.    |
+| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
 
 
 ### Response
 
-**Promise<[operations.CreateAdjustmentResponse](../../models/operations/createadjustmentresponse.md)>**
+**Promise<[operations.CreateAdjustmentResponse](../../sdk/models/operations/createadjustmentresponse.md)>**
+### Errors
 
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| errors.CreateAdjustmentResponseBody                       | 400                                                       | application/json                                          |
+| errors.CreateAdjustmentAdjustmentsResponseBody            | 404                                                       | application/json                                          |
+| errors.CreateAdjustmentAdjustmentsResponseResponseBody    | 409                                                       | application/json                                          |
+| errors.CreateAdjustmentAdjustmentsResponse500ResponseBody | 500                                                       | application/json                                          |
+| errors.SDKError                                           | 400-600                                                   | */*                                                       |
 
 ## list
 
@@ -128,14 +136,20 @@ import { Action, StatusAdjustment } from "Paddle/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.ListAdjustmentsRequest](../../models/operations/listadjustmentsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `retries`                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                 | :heavy_minus_sign:                                                                     | Configuration to override the default retry behavior of the client.                    |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.ListAdjustmentsRequest](../../sdk/models/operations/listadjustmentsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `retries`                                                                                  | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                   | :heavy_minus_sign:                                                                         | Configuration to override the default retry behavior of the client.                        |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
 
-**Promise<[operations.ListAdjustmentsResponse](../../models/operations/listadjustmentsresponse.md)>**
+**Promise<[operations.ListAdjustmentsResponse](../../sdk/models/operations/listadjustmentsresponse.md)>**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| errors.ListAdjustmentsResponseBody            | 400                                           | application/json                              |
+| errors.ListAdjustmentsAdjustmentsResponseBody | 500                                           | application/json                              |
+| errors.SDKError                               | 400-600                                       | */*                                           |

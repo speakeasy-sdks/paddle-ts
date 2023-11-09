@@ -36,7 +36,7 @@ import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
   });
 
   const res = await sdk.addresses.create({
-    addressCreateInput: {
+    addressCreate: {
       city: "Astoria",
       countryCode: CountryCode2.Kn,
       description: "Paddle.com",
@@ -56,17 +56,26 @@ import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.CreateAddressRequest](../../models/operations/createaddressrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `retries`                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                             | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.CreateAddressRequest](../../sdk/models/operations/createaddressrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `retries`                                                                              | [utils.RetryConfig](../../internal/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                     | Configuration to override the default retry behavior of the client.                    |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
 
-**Promise<[operations.CreateAddressResponse](../../models/operations/createaddressresponse.md)>**
+**Promise<[operations.CreateAddressResponse](../../sdk/models/operations/createaddressresponse.md)>**
+### Errors
 
+| Error Object                                         | Status Code                                          | Content Type                                         |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| errors.CreateAddressResponseBody                     | 400                                                  | application/json                                     |
+| errors.CreateAddressAddressesResponseBody            | 401                                                  | application/json                                     |
+| errors.CreateAddressAddressesResponseResponseBody    | 403                                                  | application/json                                     |
+| errors.CreateAddressAddressesResponse404ResponseBody | 404                                                  | application/json                                     |
+| errors.CreateAddressAddressesResponse500ResponseBody | 500                                                  | application/json                                     |
+| errors.SDKError                                      | 400-600                                              | */*                                                  |
 
 ## get
 
@@ -97,17 +106,26 @@ import { Paddle } from "Paddle";
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.GetAddressRequest](../../models/operations/getaddressrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `retries`                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                       | :heavy_minus_sign:                                                           | Configuration to override the default retry behavior of the client.          |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.GetAddressRequest](../../sdk/models/operations/getaddressrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `retries`                                                                        | [utils.RetryConfig](../../internal/utils/retryconfig.md)                         | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
 
-**Promise<[operations.GetAddressResponse](../../models/operations/getaddressresponse.md)>**
+**Promise<[operations.GetAddressResponse](../../sdk/models/operations/getaddressresponse.md)>**
+### Errors
 
+| Error Object                                      | Status Code                                       | Content Type                                      |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| errors.GetAddressResponseBody                     | 400                                               | application/json                                  |
+| errors.GetAddressAddressesResponseBody            | 401                                               | application/json                                  |
+| errors.GetAddressAddressesResponseResponseBody    | 403                                               | application/json                                  |
+| errors.GetAddressAddressesResponse404ResponseBody | 404                                               | application/json                                  |
+| errors.GetAddressAddressesResponse500ResponseBody | 500                                               | application/json                                  |
+| errors.SDKError                                   | 400-600                                           | */*                                               |
 
 ## list
 
@@ -141,17 +159,25 @@ import { Status } from "Paddle/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.ListAddressesRequest](../../models/operations/listaddressesrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `retries`                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                             | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.ListAddressesRequest](../../sdk/models/operations/listaddressesrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `retries`                                                                              | [utils.RetryConfig](../../internal/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                     | Configuration to override the default retry behavior of the client.                    |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
 
-**Promise<[operations.ListAddressesResponse](../../models/operations/listaddressesresponse.md)>**
+**Promise<[operations.ListAddressesResponse](../../sdk/models/operations/listaddressesresponse.md)>**
+### Errors
 
+| Error Object                                         | Status Code                                          | Content Type                                         |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| errors.ListAddressesResponseBody                     | 401                                                  | application/json                                     |
+| errors.ListAddressesAddressesResponseBody            | 403                                                  | application/json                                     |
+| errors.ListAddressesAddressesResponseResponseBody    | 404                                                  | application/json                                     |
+| errors.ListAddressesAddressesResponse500ResponseBody | 500                                                  | application/json                                     |
+| errors.SDKError                                      | 400-600                                              | */*                                                  |
 
 ## update
 
@@ -163,7 +189,7 @@ If successful, your response includes a copy of the updated address entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CountryCode2, Schemasstatus } from "Paddle/dist/sdk/models/shared";
+import { CountryCode2, SchemaStatus } from "Paddle/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Paddle({
@@ -173,7 +199,7 @@ import { CountryCode2, Schemasstatus } from "Paddle/dist/sdk/models/shared";
   });
 
   const res = await sdk.addresses.update({
-    addressInput: {
+    address: {
       city: "Astoria",
       description: "Paddle.com",
       firstLine: "3811 Ditmars Blvd",
@@ -193,14 +219,23 @@ import { CountryCode2, Schemasstatus } from "Paddle/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.UpdateAddressRequest](../../models/operations/updateaddressrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `retries`                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                             | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.UpdateAddressRequest](../../sdk/models/operations/updateaddressrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `retries`                                                                              | [utils.RetryConfig](../../internal/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                     | Configuration to override the default retry behavior of the client.                    |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
 
-**Promise<[operations.UpdateAddressResponse](../../models/operations/updateaddressresponse.md)>**
+**Promise<[operations.UpdateAddressResponse](../../sdk/models/operations/updateaddressresponse.md)>**
+### Errors
 
+| Error Object                                         | Status Code                                          | Content Type                                         |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| errors.UpdateAddressResponseBody                     | 400                                                  | application/json                                     |
+| errors.UpdateAddressAddressesResponseBody            | 401                                                  | application/json                                     |
+| errors.UpdateAddressAddressesResponseResponseBody    | 403                                                  | application/json                                     |
+| errors.UpdateAddressAddressesResponse404ResponseBody | 404                                                  | application/json                                     |
+| errors.UpdateAddressAddressesResponse500ResponseBody | 500                                                  | application/json                                     |
+| errors.SDKError                                      | 400-600                                              | */*                                                  |

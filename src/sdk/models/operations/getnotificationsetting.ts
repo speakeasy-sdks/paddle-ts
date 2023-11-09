@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
@@ -20,7 +20,7 @@ export class GetNotificationSettingRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class GetNotificationSetting200ApplicationJSON extends SpeakeasyBase {
+export class GetNotificationSettingResponseBody extends SpeakeasyBase {
     /**
      * Represents a notification destination.
      */
@@ -39,6 +39,12 @@ export class GetNotificationSetting200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class GetNotificationSettingResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetNotificationSettingResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -59,10 +65,4 @@ export class GetNotificationSettingResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    getNotificationSetting200ApplicationJSONObject?: GetNotificationSetting200ApplicationJSON;
 }

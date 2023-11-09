@@ -4,13 +4,13 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Event } from "./event";
-import { SchemasstatusNotification } from "./schemasstatusnotification";
+import { SchemaStatusNotification } from "./schemastatusnotification";
 import { Expose, Transform, Type } from "class-transformer";
 
 /**
  * Describes how this notification was created.
  */
-export enum NotificationOrigin {
+export enum Origin {
     Event = "event",
     Replay = "replay",
 }
@@ -62,7 +62,7 @@ export class Notification extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "origin" })
-    origin?: NotificationOrigin;
+    origin?: Origin;
 
     /**
      * Represents an event entity.
@@ -93,7 +93,7 @@ export class Notification extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: SchemasstatusNotification;
+    status?: SchemaStatusNotification;
 
     /**
      * How many times delivery of this notification has been attempted. Automatically incremented by Paddle after an attempt.

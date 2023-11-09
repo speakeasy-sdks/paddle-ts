@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { EffectiveFrom } from "./effectivefrom";
 import { Expose, Type } from "class-transformer";
 
-export class SubscriptionChargeItems extends SpeakeasyBase {
+export class Items extends SpeakeasyBase {
     /**
      * Unique Paddle ID for this price, prefixed with `pri_`.
      */
@@ -30,8 +30,8 @@ export class SubscriptionCharge extends SpeakeasyBase {
     @Expose({ name: "effective_from" })
     effectiveFrom: EffectiveFrom;
 
-    @SpeakeasyMetadata({ elemType: SubscriptionChargeItems })
+    @SpeakeasyMetadata({ elemType: Items })
     @Expose({ name: "items" })
-    @Type(() => SubscriptionChargeItems)
-    items: SubscriptionChargeItems[];
+    @Type(() => Items)
+    items: Items[];
 }

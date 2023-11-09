@@ -3,13 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 export class CreateAddressRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    addressCreateInput?: shared.AddressCreateInput;
+    addressCreate?: shared.AddressCreate;
 
     /**
      * Paddle ID of the customer entity to work with.
@@ -21,7 +21,7 @@ export class CreateAddressRequest extends SpeakeasyBase {
 /**
  * Created
  */
-export class CreateAddress201ApplicationJSON extends SpeakeasyBase {
+export class CreateAddressResponseBody extends SpeakeasyBase {
     /**
      * Represents an address entity.
      */
@@ -40,6 +40,12 @@ export class CreateAddress201ApplicationJSON extends SpeakeasyBase {
 }
 
 export class CreateAddressResponse extends SpeakeasyBase {
+    /**
+     * Created
+     */
+    @SpeakeasyMetadata()
+    twoHundredAndOneApplicationJsonObject?: CreateAddressResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -60,10 +66,4 @@ export class CreateAddressResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * Created
-     */
-    @SpeakeasyMetadata()
-    createAddress201ApplicationJSONObject?: CreateAddress201ApplicationJSON;
 }

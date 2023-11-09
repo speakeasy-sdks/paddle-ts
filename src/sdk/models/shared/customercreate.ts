@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * Represents a customer entity.
  */
-export class CustomerCreateInput extends SpeakeasyBase {
+export class CustomerCreate extends SpeakeasyBase {
     /**
      * Email address for this entity.
      */

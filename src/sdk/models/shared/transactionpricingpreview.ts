@@ -5,11 +5,10 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AddressPreview } from "./addresspreview";
 import { CurrencyCode2 } from "./currencycode2";
-import { TransactionPricingPreviewDetails } from "./transactionpricingpreviewdetails";
 import { TransactionPricingPreviewItem } from "./transactionpricingpreviewitem";
 import { Expose, Type } from "class-transformer";
 
-export class TransactionPricingPreviewInput extends SpeakeasyBase {
+export class TransactionPricingPreview extends SpeakeasyBase {
     /**
      * Represents an address entity.
      */
@@ -67,64 +66,4 @@ export class TransactionPricingPreviewInput extends SpeakeasyBase {
     @Expose({ name: "items" })
     @Type(() => TransactionPricingPreviewItem)
     items: TransactionPricingPreviewItem[];
-}
-
-export class TransactionPricingPreviewOutput extends SpeakeasyBase {
-    /**
-     * Represents an address entity.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "address" })
-    @Type(() => AddressPreview)
-    address?: AddressPreview;
-
-    /**
-     * Unique Paddle ID for this address entity, prefixed with `add_`.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "address_id" })
-    addressId?: string;
-
-    /**
-     * Unique Paddle ID for this business entity, prefixed with `biz_`.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "business_id" })
-    businessId?: string;
-
-    /**
-     * Supported three-letter ISO 4217 currency code.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "currency_code" })
-    currencyCode?: CurrencyCode2;
-
-    /**
-     * Unique Paddle ID for this customer entity, prefixed with `ctm_`.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "customer_id" })
-    customerId?: string;
-
-    /**
-     * IP address for this transaction preview. Send one of `address_id`, `customer_ip_address`, or the `address` object when previewing.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "customer_ip_address" })
-    customerIpAddress?: string;
-
-    /**
-     * Calculated totals for a price preview, including discounts, tax, and currency conversion.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "details" })
-    @Type(() => TransactionPricingPreviewDetails)
-    details?: TransactionPricingPreviewDetails;
-
-    /**
-     * Unique Paddle ID for this discount, prefixed with `dsc_`.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "discount_id" })
-    discountId?: string;
 }

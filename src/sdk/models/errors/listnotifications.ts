@@ -10,7 +10,7 @@ import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 /**
  * General error response
  */
-export class ListNotifications500ApplicationJSON extends Error {
+export class ListNotificationsNotificationsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -23,7 +23,7 @@ export class ListNotifications500ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListNotifications500ApplicationJSON) {
+    constructor(err?: ListNotificationsNotificationsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -32,15 +32,15 @@ export class ListNotifications500ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListNotifications500ApplicationJSON";
-        Object.setPrototypeOf(this, ListNotifications500ApplicationJSON.prototype);
+        this.name = "ListNotificationsNotificationsResponseBody";
+        Object.setPrototypeOf(this, ListNotificationsNotificationsResponseBody.prototype);
     }
 }
 
 /**
  * General error response
  */
-export class ListNotifications401ApplicationJSON extends Error {
+export class ListNotificationsResponseBody extends Error {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -53,7 +53,7 @@ export class ListNotifications401ApplicationJSON extends Error {
     @Type(() => ErrorT)
     error?: ErrorT;
 
-    constructor(err?: ListNotifications401ApplicationJSON) {
+    constructor(err?: ListNotificationsResponseBody) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -62,7 +62,7 @@ export class ListNotifications401ApplicationJSON extends Error {
             );
         }
 
-        this.name = "ListNotifications401ApplicationJSON";
-        Object.setPrototypeOf(this, ListNotifications401ApplicationJSON.prototype);
+        this.name = "ListNotificationsResponseBody";
+        Object.setPrototypeOf(this, ListNotificationsResponseBody.prototype);
     }
 }

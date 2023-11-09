@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Schemasstatus } from "./schemasstatus";
+import { SchemaStatus } from "./schemastatus";
 import { Expose, Transform } from "class-transformer";
 
 /**
@@ -61,7 +61,7 @@ export class Customer extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: Schemasstatus;
+    status?: SchemaStatus;
 
     /**
      * RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
@@ -70,44 +70,4 @@ export class Customer extends SpeakeasyBase {
     @Expose({ name: "updated_at" })
     @Transform(({ value }) => new Date(value), { toClassOnly: true })
     updatedAt?: Date;
-}
-
-/**
- * Represents a customer entity.
- */
-export class CustomerInput extends SpeakeasyBase {
-    /**
-     * Email address for this entity.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "email" })
-    email?: string;
-
-    /**
-     * Unique Paddle ID for this customer entity, prefixed with `ctm_`.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "id" })
-    id?: string;
-
-    /**
-     * Valid IETF BCP 47 short form locale tag. If omitted, defaults to `en`.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "locale" })
-    locale?: string;
-
-    /**
-     * Full name.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "name" })
-    name?: string;
-
-    /**
-     * Whether this entity can be used in Paddle.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "status" })
-    status?: Schemasstatus;
 }

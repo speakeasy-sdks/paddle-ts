@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
@@ -15,7 +15,7 @@ export class GetTransactionInvoiceRequest extends SpeakeasyBase {
     transactionId: string;
 }
 
-export class GetTransactionInvoice200ApplicationJSONData extends SpeakeasyBase {
+export class GetTransactionInvoiceData extends SpeakeasyBase {
     /**
      * URL of the requested resource.
      */
@@ -27,11 +27,11 @@ export class GetTransactionInvoice200ApplicationJSONData extends SpeakeasyBase {
 /**
  * OK
  */
-export class GetTransactionInvoice200ApplicationJSON extends SpeakeasyBase {
+export class GetTransactionInvoiceResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => GetTransactionInvoice200ApplicationJSONData)
-    data: GetTransactionInvoice200ApplicationJSONData;
+    @Type(() => GetTransactionInvoiceData)
+    data: GetTransactionInvoiceData;
 
     /**
      * Information about this response.
@@ -43,6 +43,12 @@ export class GetTransactionInvoice200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class GetTransactionInvoiceResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetTransactionInvoiceResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -63,10 +69,4 @@ export class GetTransactionInvoiceResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    getTransactionInvoice200ApplicationJSONObject?: GetTransactionInvoice200ApplicationJSON;
 }

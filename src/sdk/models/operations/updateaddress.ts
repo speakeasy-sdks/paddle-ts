@@ -3,13 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 export class UpdateAddressRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    addressInput?: shared.AddressInput;
+    address?: shared.AddressInput;
 
     /**
      * Paddle ID of the address entity to work with.
@@ -27,7 +27,7 @@ export class UpdateAddressRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class UpdateAddress200ApplicationJSON extends SpeakeasyBase {
+export class UpdateAddressResponseBody extends SpeakeasyBase {
     /**
      * Represents an address entity.
      */
@@ -46,6 +46,12 @@ export class UpdateAddress200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class UpdateAddressResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: UpdateAddressResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -66,10 +72,4 @@ export class UpdateAddressResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    updateAddress200ApplicationJSONObject?: UpdateAddress200ApplicationJSON;
 }

@@ -8,7 +8,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * New or changed entity.
  */
-export class EventData extends SpeakeasyBase {}
+export class Data extends SpeakeasyBase {}
 
 /**
  * Represents an event entity.
@@ -19,8 +19,8 @@ export class Event extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => EventData)
-    data?: EventData;
+    @Type(() => Data)
+    data?: Data;
 
     /**
      * Unique Paddle ID for this event, prefixed with `evt_`.

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -31,19 +31,19 @@ export class Discounts {
      * If successful, your response includes a copy of the new discount entity.
      */
     async create(
-        req: shared.DiscountCreateInput,
+        req: shared.DiscountCreate,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateDiscountResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.DiscountCreateInput(req);
+            req = new shared.DiscountCreate(req);
         }
 
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/discounts";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/discounts";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -88,7 +88,7 @@ export class Discounts {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -112,9 +112,9 @@ export class Discounts {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createDiscount200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateDiscount200ApplicationJSON
+                        operations.CreateDiscountResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -157,7 +157,7 @@ export class Discounts {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/discounts/{discount_id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/discounts/{discount_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -188,7 +188,7 @@ export class Discounts {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -212,9 +212,9 @@ export class Discounts {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDiscount200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDiscount200ApplicationJSON
+                        operations.GetDiscountResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -229,10 +229,10 @@ export class Discounts {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetDiscount404ApplicationJSON
+                        errors.GetDiscountResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetDiscount404ApplicationJSON(err);
+                    throw new errors.GetDiscountResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -276,7 +276,7 @@ export class Discounts {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/discounts";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/discounts";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -308,7 +308,7 @@ export class Discounts {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url + queryParams,
+                url: operationUrl + queryParams,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -331,9 +331,9 @@ export class Discounts {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listDiscounts200ApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListDiscounts200ApplicationJSON
+                        operations.ListDiscountsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -378,12 +378,12 @@ export class Discounts {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/discounts/{discount_id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/discounts/{discount_id}", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "discountInput", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "discount", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -423,7 +423,7 @@ export class Discounts {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "patch",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -448,9 +448,9 @@ export class Discounts {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.updateDiscount200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.UpdateDiscount200ApplicationJSON
+                        operations.UpdateDiscountResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -465,10 +465,10 @@ export class Discounts {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateDiscount404ApplicationJSON
+                        errors.UpdateDiscountResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateDiscount404ApplicationJSON(err);
+                    throw new errors.UpdateDiscountResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

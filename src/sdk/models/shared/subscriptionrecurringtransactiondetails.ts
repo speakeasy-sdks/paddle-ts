@@ -8,7 +8,7 @@ import { TransactionPreviewLineItem } from "./transactionpreviewlineitem";
 import { TransactionTotals } from "./transactiontotals";
 import { Expose, Type } from "class-transformer";
 
-export class SubscriptionRecurringTransactionDetailsTaxRatesUsed extends SpeakeasyBase {
+export class TaxRatesUsed extends SpeakeasyBase {
     /**
      * Rate used to calculate tax for this transaction preview.
      */
@@ -40,10 +40,10 @@ export class SubscriptionRecurringTransactionDetails extends SpeakeasyBase {
     /**
      * List of tax rates applied to this transaction preview.
      */
-    @SpeakeasyMetadata({ elemType: SubscriptionRecurringTransactionDetailsTaxRatesUsed })
+    @SpeakeasyMetadata({ elemType: TaxRatesUsed })
     @Expose({ name: "tax_rates_used" })
-    @Type(() => SubscriptionRecurringTransactionDetailsTaxRatesUsed)
-    taxRatesUsed?: SubscriptionRecurringTransactionDetailsTaxRatesUsed[];
+    @Type(() => TaxRatesUsed)
+    taxRatesUsed?: TaxRatesUsed[];
 
     /**
      * Breakdown of the total for a transaction.

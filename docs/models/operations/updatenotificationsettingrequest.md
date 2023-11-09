@@ -1,9 +1,0 @@
-# UpdateNotificationSettingRequest
-
-
-## Fields
-
-| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `notificationSettingUpdate`                                                           | [shared.NotificationSettingUpdate](../../models/shared/notificationsettingupdate.md)  | :heavy_minus_sign:                                                                    | N/A                                                                                   |                                                                                       |
-| `notificationSettingId`                                                               | *string*                                                                              | :heavy_check_mark:                                                                    | Paddle ID of the notification setting entity (notification destination) to work with. | ntfset_01gt21c5pdx9q1e4mh1xrsjjn6                                                     |

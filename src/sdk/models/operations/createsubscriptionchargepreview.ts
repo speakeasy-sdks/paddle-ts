@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
@@ -21,7 +21,7 @@ export class CreateSubscriptionChargePreviewRequest extends SpeakeasyBase {
 /**
  * Details of the discount applied to this subscription.
  */
-export class CreateSubscriptionChargePreview200ApplicationJSONSubscriptionPreviewDiscount extends SpeakeasyBase {
+export class Discount extends SpeakeasyBase {
     /**
      * RFC 3339 datetime string.
      */
@@ -49,7 +49,7 @@ export class CreateSubscriptionChargePreview200ApplicationJSONSubscriptionPrevie
 /**
  * Represents a subscription preview.
  */
-export class CreateSubscriptionChargePreview200ApplicationJSONSubscriptionPreview extends SpeakeasyBase {
+export class SubscriptionPreview extends SpeakeasyBase {
     /**
      * Unique Paddle ID for this address entity, prefixed with `add_`.
      */
@@ -132,8 +132,8 @@ export class CreateSubscriptionChargePreview200ApplicationJSONSubscriptionPrevie
      */
     @SpeakeasyMetadata()
     @Expose({ name: "discount" })
-    @Type(() => CreateSubscriptionChargePreview200ApplicationJSONSubscriptionPreviewDiscount)
-    discount?: CreateSubscriptionChargePreview200ApplicationJSONSubscriptionPreviewDiscount;
+    @Type(() => Discount)
+    discount?: Discount;
 
     /**
      * RFC 3339 datetime string.
@@ -220,7 +220,7 @@ export class CreateSubscriptionChargePreview200ApplicationJSONSubscriptionPrevie
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: shared.SchemasstatusSubscription;
+    status?: shared.SchemaStatusSubscription;
 
     /**
      * RFC 3339 datetime string of when this entity was updated. Set automatically by Paddle.
@@ -234,11 +234,11 @@ export class CreateSubscriptionChargePreview200ApplicationJSONSubscriptionPrevie
 /**
  * OK
  */
-export class CreateSubscriptionChargePreview200ApplicationJSON extends SpeakeasyBase {
+export class CreateSubscriptionChargePreviewResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => CreateSubscriptionChargePreview200ApplicationJSONSubscriptionPreview)
-    data: CreateSubscriptionChargePreview200ApplicationJSONSubscriptionPreview;
+    @Type(() => SubscriptionPreview)
+    data: SubscriptionPreview;
 
     /**
      * Information about this response.
@@ -250,6 +250,12 @@ export class CreateSubscriptionChargePreview200ApplicationJSON extends Speakeasy
 }
 
 export class CreateSubscriptionChargePreviewResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: CreateSubscriptionChargePreviewResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -270,10 +276,4 @@ export class CreateSubscriptionChargePreviewResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    createSubscriptionChargePreview200ApplicationJSONObject?: CreateSubscriptionChargePreview200ApplicationJSON;
 }

@@ -16,7 +16,7 @@ export enum NotificationSettingCreateType {
 /**
  * Represents a notification destination.
  */
-export class NotificationSettingCreateInput extends SpeakeasyBase {
+export class NotificationSettingCreate extends SpeakeasyBase {
     /**
      * Whether Paddle should try to deliver events to this notification destination.
      */

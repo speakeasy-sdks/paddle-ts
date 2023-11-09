@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -45,7 +45,7 @@ export class Products {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/products";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/products";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -90,7 +90,7 @@ export class Products {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -115,9 +115,9 @@ export class Products {
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createProduct201ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateProduct201ApplicationJSON
+                        operations.CreateProductResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -132,10 +132,10 @@ export class Products {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateProduct400ApplicationJSON
+                        errors.CreateProductResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateProduct400ApplicationJSON(err);
+                    throw new errors.CreateProductResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -149,10 +149,10 @@ export class Products {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateProduct401ApplicationJSON
+                        errors.CreateProductProductsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateProduct401ApplicationJSON(err);
+                    throw new errors.CreateProductProductsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -174,10 +174,10 @@ export class Products {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.CreateProduct500ApplicationJSON
+                        errors.CreateProductProductsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.CreateProduct500ApplicationJSON(err);
+                    throw new errors.CreateProductProductsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -213,7 +213,7 @@ export class Products {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/products/{product_id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/products/{product_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -245,7 +245,7 @@ export class Products {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url + queryParams,
+                url: operationUrl + queryParams,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -269,9 +269,9 @@ export class Products {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProduct200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProduct200ApplicationJSON
+                        operations.GetProductResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -286,10 +286,10 @@ export class Products {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetProduct401ApplicationJSON
+                        errors.GetProductResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetProduct401ApplicationJSON(err);
+                    throw new errors.GetProductResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -303,10 +303,10 @@ export class Products {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetProduct404ApplicationJSON
+                        errors.GetProductProductsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetProduct404ApplicationJSON(err);
+                    throw new errors.GetProductProductsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -328,10 +328,10 @@ export class Products {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.GetProduct500ApplicationJSON
+                        errors.GetProductProductsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.GetProduct500ApplicationJSON(err);
+                    throw new errors.GetProductProductsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -369,7 +369,7 @@ export class Products {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/products";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/products";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -401,7 +401,7 @@ export class Products {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url + queryParams,
+                url: operationUrl + queryParams,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -425,9 +425,9 @@ export class Products {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listProducts200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListProducts200ApplicationJSON
+                        operations.ListProductsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -442,10 +442,10 @@ export class Products {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListProducts401ApplicationJSON
+                        errors.ListProductsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListProducts401ApplicationJSON(err);
+                    throw new errors.ListProductsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -467,10 +467,10 @@ export class Products {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.ListProducts500ApplicationJSON
+                        errors.ListProductsProductsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.ListProducts500ApplicationJSON(err);
+                    throw new errors.ListProductsProductsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -508,7 +508,7 @@ export class Products {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/products/{product_id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/products/{product_id}", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -553,7 +553,7 @@ export class Products {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "patch",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -578,9 +578,9 @@ export class Products {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.updateProduct200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.UpdateProduct200ApplicationJSON
+                        operations.UpdateProductResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -595,10 +595,10 @@ export class Products {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateProduct400ApplicationJSON
+                        errors.UpdateProductResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateProduct400ApplicationJSON(err);
+                    throw new errors.UpdateProductResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -612,10 +612,10 @@ export class Products {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateProduct401ApplicationJSON
+                        errors.UpdateProductProductsResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateProduct401ApplicationJSON(err);
+                    throw new errors.UpdateProductProductsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -629,10 +629,10 @@ export class Products {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateProduct404ApplicationJSON
+                        errors.UpdateProductProductsResponseResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateProduct404ApplicationJSON(err);
+                    throw new errors.UpdateProductProductsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -654,10 +654,10 @@ export class Products {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        errors.UpdateProduct500ApplicationJSON
+                        errors.UpdateProductProductsResponse500ResponseBody
                     );
                     err.rawResponse = httpRes;
-                    throw new errors.UpdateProduct500ApplicationJSON(err);
+                    throw new errors.UpdateProductProductsResponse500ResponseBody(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

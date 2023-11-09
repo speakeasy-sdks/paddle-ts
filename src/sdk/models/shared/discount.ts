@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { CurrencyCode2 } from "./currencycode2";
-import { SchemasstatusDiscount } from "./schemasstatusdiscount";
+import { SchemaStatusDiscount } from "./schemastatusdiscount";
 import { Expose, Transform } from "class-transformer";
 
 /**
@@ -104,7 +104,7 @@ export class Discount extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: SchemasstatusDiscount;
+    status?: SchemaStatusDiscount;
 
     /**
      * How many times this discount has been redeemed. Automatically incremented by Paddle when an order completes.
@@ -216,7 +216,7 @@ export class DiscountInput extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: SchemasstatusDiscount;
+    status?: SchemaStatusDiscount;
 
     /**
      * Type of discount.

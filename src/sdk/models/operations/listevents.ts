@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
@@ -30,7 +30,7 @@ export class ListEventsRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class ListEvents200ApplicationJSON extends SpeakeasyBase {
+export class ListEventsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: shared.Event })
     @Expose({ name: "data" })
     @Type(() => shared.Event)
@@ -46,6 +46,12 @@ export class ListEvents200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class ListEventsResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: ListEventsResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -66,10 +72,4 @@ export class ListEventsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    listEvents200ApplicationJSONObject?: ListEvents200ApplicationJSON;
 }

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
@@ -24,7 +24,7 @@ export class ListCreditBalancesRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class ListCreditBalances200ApplicationJSON extends SpeakeasyBase {
+export class ListCreditBalancesResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: shared.CreditBalance })
     @Expose({ name: "data" })
     @Type(() => shared.CreditBalance)
@@ -40,6 +40,12 @@ export class ListCreditBalances200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class ListCreditBalancesResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: ListCreditBalancesResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -60,10 +66,4 @@ export class ListCreditBalancesResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    listCreditBalances200ApplicationJSONObject?: ListCreditBalances200ApplicationJSON;
 }

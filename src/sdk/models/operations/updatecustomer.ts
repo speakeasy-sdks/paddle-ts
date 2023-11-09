@@ -3,13 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 export class UpdateCustomerRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    customerInput?: shared.CustomerInput;
+    customer?: shared.CustomerInput;
 
     /**
      * Paddle ID of the customer entity to work with.
@@ -21,7 +21,7 @@ export class UpdateCustomerRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class UpdateCustomer200ApplicationJSON extends SpeakeasyBase {
+export class UpdateCustomerResponseBody extends SpeakeasyBase {
     /**
      * Represents a customer entity.
      */
@@ -40,6 +40,12 @@ export class UpdateCustomer200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class UpdateCustomerResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: UpdateCustomerResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -60,10 +66,4 @@ export class UpdateCustomerResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    updateCustomer200ApplicationJSONObject?: UpdateCustomer200ApplicationJSON;
 }

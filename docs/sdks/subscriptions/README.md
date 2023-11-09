@@ -56,17 +56,25 @@ import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.CancelSubscriptionRequest](../../models/operations/cancelsubscriptionrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `retries`                                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                                       | :heavy_minus_sign:                                                                           | Configuration to override the default retry behavior of the client.                          |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.CancelSubscriptionRequest](../../sdk/models/operations/cancelsubscriptionrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `retries`                                                                                        | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                               | Configuration to override the default retry behavior of the client.                              |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
 
-**Promise<[operations.CancelSubscriptionResponse](../../models/operations/cancelsubscriptionresponse.md)>**
+**Promise<[operations.CancelSubscriptionResponse](../../sdk/models/operations/cancelsubscriptionresponse.md)>**
+### Errors
 
+| Error Object                                               | Status Code                                                | Content Type                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| errors.CancelSubscriptionResponseBody                      | 400                                                        | application/json                                           |
+| errors.CancelSubscriptionSubscriptionsResponseBody         | 401                                                        | application/json                                           |
+| errors.Error1                                              | 409                                                        | application/json                                           |
+| errors.CancelSubscriptionSubscriptionsResponseResponseBody | 500                                                        | application/json                                           |
+| errors.SDKError                                            | 400-600                                                    | */*                                                        |
 
 ## create
 
@@ -113,17 +121,23 @@ import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.CreateSubscriptionChargeRequest](../../models/operations/createsubscriptionchargerequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `retries`                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                       | Configuration to override the default retry behavior of the client.                                      |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                    | [operations.CreateSubscriptionChargeRequest](../../sdk/models/operations/createsubscriptionchargerequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
+| `retries`                                                                                                    | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                     | :heavy_minus_sign:                                                                                           | Configuration to override the default retry behavior of the client.                                          |
+| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
 
 
 ### Response
 
-**Promise<[operations.CreateSubscriptionChargeResponse](../../models/operations/createsubscriptionchargeresponse.md)>**
+**Promise<[operations.CreateSubscriptionChargeResponse](../../sdk/models/operations/createsubscriptionchargeresponse.md)>**
+### Errors
 
+| Error Object                                             | Status Code                                              | Content Type                                             |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| errors.CreateSubscriptionChargeResponseBody              | 400                                                      | application/json                                         |
+| errors.CreateSubscriptionChargeSubscriptionsResponseBody | 500                                                      | application/json                                         |
+| errors.SDKError                                          | 400-600                                                  | */*                                                      |
 
 ## createPreview
 
@@ -163,17 +177,23 @@ import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                                              | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                              | [operations.CreateSubscriptionChargePreviewRequest](../../models/operations/createsubscriptionchargepreviewrequest.md) | :heavy_check_mark:                                                                                                     | The request object to use for the request.                                                                             |
-| `retries`                                                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                 | :heavy_minus_sign:                                                                                                     | Configuration to override the default retry behavior of the client.                                                    |
-| `config`                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                           | :heavy_minus_sign:                                                                                                     | Available config options for making requests.                                                                          |
+| Parameter                                                                                                                  | Type                                                                                                                       | Required                                                                                                                   | Description                                                                                                                |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                  | [operations.CreateSubscriptionChargePreviewRequest](../../sdk/models/operations/createsubscriptionchargepreviewrequest.md) | :heavy_check_mark:                                                                                                         | The request object to use for the request.                                                                                 |
+| `retries`                                                                                                                  | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                   | :heavy_minus_sign:                                                                                                         | Configuration to override the default retry behavior of the client.                                                        |
+| `config`                                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                               | :heavy_minus_sign:                                                                                                         | Available config options for making requests.                                                                              |
 
 
 ### Response
 
-**Promise<[operations.CreateSubscriptionChargePreviewResponse](../../models/operations/createsubscriptionchargepreviewresponse.md)>**
+**Promise<[operations.CreateSubscriptionChargePreviewResponse](../../sdk/models/operations/createsubscriptionchargepreviewresponse.md)>**
+### Errors
 
+| Error Object                                                    | Status Code                                                     | Content Type                                                    |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| errors.CreateSubscriptionChargePreviewResponseBody              | 400                                                             | application/json                                                |
+| errors.CreateSubscriptionChargePreviewSubscriptionsResponseBody | 500                                                             | application/json                                                |
+| errors.SDKError                                                 | 400-600                                                         | */*                                                             |
 
 ## get
 
@@ -206,17 +226,24 @@ import { IncludeSubscription } from "Paddle/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetSubscriptionRequest](../../models/operations/getsubscriptionrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `retries`                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                 | :heavy_minus_sign:                                                                     | Configuration to override the default retry behavior of the client.                    |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.GetSubscriptionRequest](../../sdk/models/operations/getsubscriptionrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `retries`                                                                                  | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                   | :heavy_minus_sign:                                                                         | Configuration to override the default retry behavior of the client.                        |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
 
-**Promise<[operations.GetSubscriptionResponse](../../models/operations/getsubscriptionresponse.md)>**
+**Promise<[operations.GetSubscriptionResponse](../../sdk/models/operations/getsubscriptionresponse.md)>**
+### Errors
 
+| Error Object                                            | Status Code                                             | Content Type                                            |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| errors.GetSubscriptionResponseBody                      | 401                                                     | application/json                                        |
+| errors.GetSubscriptionSubscriptionsResponseBody         | 404                                                     | application/json                                        |
+| errors.GetSubscriptionSubscriptionsResponseResponseBody | 500                                                     | application/json                                        |
+| errors.SDKError                                         | 400-600                                                 | */*                                                     |
 
 ## getUpdatedPaymentMethodTransaction
 
@@ -253,17 +280,25 @@ import { Paddle } from "Paddle";
 
 ### Parameters
 
-| Parameter                                                                                                                                          | Type                                                                                                                                               | Required                                                                                                                                           | Description                                                                                                                                        |
-| -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                                          | [operations.GetSubscriptionUpdatePaymentMethodTransactionRequest](../../models/operations/getsubscriptionupdatepaymentmethodtransactionrequest.md) | :heavy_check_mark:                                                                                                                                 | The request object to use for the request.                                                                                                         |
-| `retries`                                                                                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                                             | :heavy_minus_sign:                                                                                                                                 | Configuration to override the default retry behavior of the client.                                                                                |
-| `config`                                                                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                                       | :heavy_minus_sign:                                                                                                                                 | Available config options for making requests.                                                                                                      |
+| Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                              | [operations.GetSubscriptionUpdatePaymentMethodTransactionRequest](../../sdk/models/operations/getsubscriptionupdatepaymentmethodtransactionrequest.md) | :heavy_check_mark:                                                                                                                                     | The request object to use for the request.                                                                                                             |
+| `retries`                                                                                                                                              | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                                               | :heavy_minus_sign:                                                                                                                                     | Configuration to override the default retry behavior of the client.                                                                                    |
+| `config`                                                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                                           | :heavy_minus_sign:                                                                                                                                     | Available config options for making requests.                                                                                                          |
 
 
 ### Response
 
-**Promise<[operations.GetSubscriptionUpdatePaymentMethodTransactionResponse](../../models/operations/getsubscriptionupdatepaymentmethodtransactionresponse.md)>**
+**Promise<[operations.GetSubscriptionUpdatePaymentMethodTransactionResponse](../../sdk/models/operations/getsubscriptionupdatepaymentmethodtransactionresponse.md)>**
+### Errors
 
+| Error Object                                                                             | Status Code                                                                              | Content Type                                                                             |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| errors.GetSubscriptionUpdatePaymentMethodTransactionResponseBody                         | 401                                                                                      | application/json                                                                         |
+| errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseBody            | 403                                                                                      | application/json                                                                         |
+| errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseResponseBody    | 409                                                                                      | application/json                                                                         |
+| errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponse500ResponseBody | 500                                                                                      | application/json                                                                         |
+| errors.SDKError                                                                          | 400-600                                                                                  | */*                                                                                      |
 
 ## list
 
@@ -295,17 +330,23 @@ import { StatusSubscription } from "Paddle/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.ListSubscriptionsRequest](../../models/operations/listsubscriptionsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `retries`                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                     | :heavy_minus_sign:                                                                         | Configuration to override the default retry behavior of the client.                        |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.ListSubscriptionsRequest](../../sdk/models/operations/listsubscriptionsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `retries`                                                                                      | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                       | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
 
-**Promise<[operations.ListSubscriptionsResponse](../../models/operations/listsubscriptionsresponse.md)>**
+**Promise<[operations.ListSubscriptionsResponse](../../sdk/models/operations/listsubscriptionsresponse.md)>**
+### Errors
 
+| Error Object                                      | Status Code                                       | Content Type                                      |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| errors.ListSubscriptionsResponseBody              | 401                                               | application/json                                  |
+| errors.ListSubscriptionsSubscriptionsResponseBody | 500                                               | application/json                                  |
+| errors.SDKError                                   | 400-600                                           | */*                                               |
 
 ## pause
 
@@ -345,17 +386,25 @@ import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.PauseSubscriptionRequest](../../models/operations/pausesubscriptionrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `retries`                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                     | :heavy_minus_sign:                                                                         | Configuration to override the default retry behavior of the client.                        |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.PauseSubscriptionRequest](../../sdk/models/operations/pausesubscriptionrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `retries`                                                                                      | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                       | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
 
-**Promise<[operations.PauseSubscriptionResponse](../../models/operations/pausesubscriptionresponse.md)>**
+**Promise<[operations.PauseSubscriptionResponse](../../sdk/models/operations/pausesubscriptionresponse.md)>**
+### Errors
 
+| Error Object                                              | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| errors.PauseSubscriptionResponseBody                      | 400                                                       | application/json                                          |
+| errors.PauseSubscriptionSubscriptionsResponseBody         | 401                                                       | application/json                                          |
+| errors.Error1                                             | 409                                                       | application/json                                          |
+| errors.PauseSubscriptionSubscriptionsResponseResponseBody | 500                                                       | application/json                                          |
+| errors.SDKError                                           | 400-600                                                   | */*                                                       |
 
 ## previewSubscription
 
@@ -416,17 +465,21 @@ import {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.PreviewSubscriptionRequest](../../models/operations/previewsubscriptionrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `retries`                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.PreviewSubscriptionRequest](../../sdk/models/operations/previewsubscriptionrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `retries`                                                                                          | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                           | :heavy_minus_sign:                                                                                 | Configuration to override the default retry behavior of the client.                                |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
 
-**Promise<[operations.PreviewSubscriptionResponse](../../models/operations/previewsubscriptionresponse.md)>**
+**Promise<[operations.PreviewSubscriptionResponse](../../sdk/models/operations/previewsubscriptionresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## resumeSubscription
 
@@ -449,7 +502,7 @@ import { Paddle } from "Paddle";
   });
 
   const res = await sdk.subscriptions.resumeSubscription({
-    requestBody: "Hyundai",
+    requestBody: "string",
     subscriptionId: "sub_01gvne45dvdhg5gdxrz6hh511r",
   });
 
@@ -461,17 +514,25 @@ import { Paddle } from "Paddle";
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.ResumeSubscriptionRequest](../../models/operations/resumesubscriptionrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `retries`                                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                                       | :heavy_minus_sign:                                                                           | Configuration to override the default retry behavior of the client.                          |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.ResumeSubscriptionRequest](../../sdk/models/operations/resumesubscriptionrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `retries`                                                                                        | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                               | Configuration to override the default retry behavior of the client.                              |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
 
-**Promise<[operations.ResumeSubscriptionResponse](../../models/operations/resumesubscriptionresponse.md)>**
+**Promise<[operations.ResumeSubscriptionResponse](../../sdk/models/operations/resumesubscriptionresponse.md)>**
+### Errors
 
+| Error Object                                               | Status Code                                                | Content Type                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| errors.ResumeSubscriptionResponseBody                      | 400                                                        | application/json                                           |
+| errors.ResumeSubscriptionSubscriptionsResponseBody         | 401                                                        | application/json                                           |
+| errors.Error1                                              | 409                                                        | application/json                                           |
+| errors.ResumeSubscriptionSubscriptionsResponseResponseBody | 500                                                        | application/json                                           |
+| errors.SDKError                                            | 400-600                                                    | */*                                                        |
 
 ## update
 
@@ -538,14 +599,22 @@ import {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.UpdateSubscriptionRequest](../../models/operations/updatesubscriptionrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `retries`                                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                                       | :heavy_minus_sign:                                                                           | Configuration to override the default retry behavior of the client.                          |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.UpdateSubscriptionRequest](../../sdk/models/operations/updatesubscriptionrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `retries`                                                                                        | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                               | Configuration to override the default retry behavior of the client.                              |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
 
-**Promise<[operations.UpdateSubscriptionResponse](../../models/operations/updatesubscriptionresponse.md)>**
+**Promise<[operations.UpdateSubscriptionResponse](../../sdk/models/operations/updatesubscriptionresponse.md)>**
+### Errors
 
+| Error Object                                               | Status Code                                                | Content Type                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| errors.UpdateSubscriptionResponseBody                      | 400                                                        | application/json                                           |
+| errors.UpdateSubscriptionSubscriptionsResponseBody         | 401                                                        | application/json                                           |
+| errors.Error1                                              | 409                                                        | application/json                                           |
+| errors.UpdateSubscriptionSubscriptionsResponseResponseBody | 500                                                        | application/json                                           |
+| errors.SDKError                                            | 400-600                                                    | */*                                                        |

@@ -10,7 +10,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Chargeback fee before conversion to the payout currency. `null` when the chargeback fee is the same as the payout currency.
  */
-export class AdjustmentPayoutTotalsChargebackFeeOriginal extends SpeakeasyBase {
+export class Original extends SpeakeasyBase {
     /**
      * Fee amount for this chargeback in the original currency.
      */
@@ -29,7 +29,7 @@ export class AdjustmentPayoutTotalsChargebackFeeOriginal extends SpeakeasyBase {
 /**
  * Chargeback fees incurred for this adjustment. Only returned when the adjustment `action` is `chargeback` or `chargeback_warning`.
  */
-export class AdjustmentPayoutTotalsChargebackFee extends SpeakeasyBase {
+export class ChargebackFee extends SpeakeasyBase {
     /**
      * Chargeback fee converted into the payout currency.
      */
@@ -42,8 +42,8 @@ export class AdjustmentPayoutTotalsChargebackFee extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "original" })
-    @Type(() => AdjustmentPayoutTotalsChargebackFeeOriginal)
-    original?: AdjustmentPayoutTotalsChargebackFeeOriginal;
+    @Type(() => Original)
+    original?: Original;
 }
 
 /**
@@ -55,8 +55,8 @@ export class AdjustmentPayoutTotals extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "chargeback_fee" })
-    @Type(() => AdjustmentPayoutTotalsChargebackFee)
-    chargebackFee?: AdjustmentPayoutTotalsChargebackFee;
+    @Type(() => ChargebackFee)
+    chargebackFee?: ChargebackFee;
 
     /**
      * Supported three-letter ISO 4217 currency code for payouts from Paddle.

@@ -8,13 +8,13 @@ import { CollectionMode2 } from "./collectionmode2";
 import { CurrencyCode2 } from "./currencycode2";
 import { CustomData } from "./customdata";
 import { TimePeriod } from "./timeperiod";
-import { TransactionItemInput } from "./transactionitem";
+import { TransactionItemInput } from "./transactioniteminput";
 import { Expose, Transform, Type } from "class-transformer";
 
 /**
  * Represents a transaction entity.
  */
-export class TransactionUpdateInput extends SpeakeasyBase {
+export class TransactionUpdate extends SpeakeasyBase {
     /**
      * Unique Paddle ID for this address entity, prefixed with `add_`.
      */
