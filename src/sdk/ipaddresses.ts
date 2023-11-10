@@ -75,7 +75,7 @@ export class IPAddresses {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -83,21 +83,21 @@ export class IPAddresses {
 
         const res: operations.GetIpAddressesResponse = new operations.GetIpAddressesResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetIpAddressesResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -113,7 +113,7 @@ export class IPAddresses {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetIpAddressesResponseBody
@@ -122,7 +122,7 @@ export class IPAddresses {
                     throw new errors.GetIpAddressesResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

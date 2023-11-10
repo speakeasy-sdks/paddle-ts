@@ -105,7 +105,7 @@ export class Subscriptions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -114,21 +114,21 @@ export class Subscriptions {
         const res: operations.CancelSubscriptionResponse =
             new operations.CancelSubscriptionResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CancelSubscriptionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -136,7 +136,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.CancelSubscriptionResponseBody
@@ -145,7 +145,7 @@ export class Subscriptions {
                     throw new errors.CancelSubscriptionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -153,7 +153,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.CancelSubscriptionSubscriptionsResponseBody
@@ -162,7 +162,7 @@ export class Subscriptions {
                     throw new errors.CancelSubscriptionSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -170,13 +170,13 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 409:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(JSON.parse(decodedRes), errors.Error1);
                     err.rawResponse = httpRes;
                     throw new errors.Error1(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -192,7 +192,7 @@ export class Subscriptions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.CancelSubscriptionSubscriptionsResponseResponseBody
@@ -201,7 +201,7 @@ export class Subscriptions {
                     throw new errors.CancelSubscriptionSubscriptionsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -301,7 +301,7 @@ export class Subscriptions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -310,21 +310,21 @@ export class Subscriptions {
         const res: operations.CreateSubscriptionChargeResponse =
             new operations.CreateSubscriptionChargeResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateSubscriptionChargeResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -332,7 +332,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.CreateSubscriptionChargeResponseBody
@@ -341,7 +341,7 @@ export class Subscriptions {
                     throw new errors.CreateSubscriptionChargeResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -357,7 +357,7 @@ export class Subscriptions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.CreateSubscriptionChargeSubscriptionsResponseBody
@@ -366,7 +366,7 @@ export class Subscriptions {
                     throw new errors.CreateSubscriptionChargeSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -459,7 +459,7 @@ export class Subscriptions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -468,21 +468,21 @@ export class Subscriptions {
         const res: operations.CreateSubscriptionChargePreviewResponse =
             new operations.CreateSubscriptionChargePreviewResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateSubscriptionChargePreviewResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -490,7 +490,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.CreateSubscriptionChargePreviewResponseBody
@@ -499,7 +499,7 @@ export class Subscriptions {
                     throw new errors.CreateSubscriptionChargePreviewResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -515,7 +515,7 @@ export class Subscriptions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.CreateSubscriptionChargePreviewSubscriptionsResponseBody
@@ -524,7 +524,7 @@ export class Subscriptions {
                     throw new errors.CreateSubscriptionChargePreviewSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -601,7 +601,7 @@ export class Subscriptions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -609,21 +609,21 @@ export class Subscriptions {
 
         const res: operations.GetSubscriptionResponse = new operations.GetSubscriptionResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetSubscriptionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -631,7 +631,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetSubscriptionResponseBody
@@ -640,7 +640,7 @@ export class Subscriptions {
                     throw new errors.GetSubscriptionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -648,7 +648,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetSubscriptionSubscriptionsResponseBody
@@ -657,7 +657,7 @@ export class Subscriptions {
                     throw new errors.GetSubscriptionSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -673,7 +673,7 @@ export class Subscriptions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetSubscriptionSubscriptionsResponseResponseBody
@@ -682,7 +682,7 @@ export class Subscriptions {
                     throw new errors.GetSubscriptionSubscriptionsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -763,7 +763,7 @@ export class Subscriptions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -772,21 +772,21 @@ export class Subscriptions {
         const res: operations.GetSubscriptionUpdatePaymentMethodTransactionResponse =
             new operations.GetSubscriptionUpdatePaymentMethodTransactionResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetSubscriptionUpdatePaymentMethodTransactionResponseBodyOutput
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -794,7 +794,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetSubscriptionUpdatePaymentMethodTransactionResponseBody
@@ -803,7 +803,7 @@ export class Subscriptions {
                     throw new errors.GetSubscriptionUpdatePaymentMethodTransactionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -811,7 +811,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseBody
@@ -822,7 +822,7 @@ export class Subscriptions {
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -830,7 +830,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 409:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseResponseBody
@@ -841,7 +841,7 @@ export class Subscriptions {
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -857,7 +857,7 @@ export class Subscriptions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponse500ResponseBody
@@ -868,7 +868,7 @@ export class Subscriptions {
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -939,7 +939,7 @@ export class Subscriptions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -947,21 +947,21 @@ export class Subscriptions {
 
         const res: operations.ListSubscriptionsResponse = new operations.ListSubscriptionsResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListSubscriptionsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -969,7 +969,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ListSubscriptionsResponseBody
@@ -978,7 +978,7 @@ export class Subscriptions {
                     throw new errors.ListSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -994,7 +994,7 @@ export class Subscriptions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ListSubscriptionsSubscriptionsResponseBody
@@ -1003,7 +1003,7 @@ export class Subscriptions {
                     throw new errors.ListSubscriptionsSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1098,7 +1098,7 @@ export class Subscriptions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -1106,21 +1106,21 @@ export class Subscriptions {
 
         const res: operations.PauseSubscriptionResponse = new operations.PauseSubscriptionResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.PauseSubscriptionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1128,7 +1128,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.PauseSubscriptionResponseBody
@@ -1137,7 +1137,7 @@ export class Subscriptions {
                     throw new errors.PauseSubscriptionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1145,7 +1145,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.PauseSubscriptionSubscriptionsResponseBody
@@ -1154,7 +1154,7 @@ export class Subscriptions {
                     throw new errors.PauseSubscriptionSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1162,13 +1162,13 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 409:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(JSON.parse(decodedRes), errors.Error1);
                     err.rawResponse = httpRes;
                     throw new errors.Error1(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1184,7 +1184,7 @@ export class Subscriptions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.PauseSubscriptionSubscriptionsResponseResponseBody
@@ -1193,7 +1193,7 @@ export class Subscriptions {
                     throw new errors.PauseSubscriptionSubscriptionsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1288,7 +1288,7 @@ export class Subscriptions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -1297,20 +1297,20 @@ export class Subscriptions {
         const res: operations.PreviewSubscriptionResponse =
             new operations.PreviewSubscriptionResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.PreviewSubscriptionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1411,7 +1411,7 @@ export class Subscriptions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -1420,21 +1420,21 @@ export class Subscriptions {
         const res: operations.ResumeSubscriptionResponse =
             new operations.ResumeSubscriptionResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ResumeSubscriptionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1442,7 +1442,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ResumeSubscriptionResponseBody
@@ -1451,7 +1451,7 @@ export class Subscriptions {
                     throw new errors.ResumeSubscriptionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1459,7 +1459,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ResumeSubscriptionSubscriptionsResponseBody
@@ -1468,7 +1468,7 @@ export class Subscriptions {
                     throw new errors.ResumeSubscriptionSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1476,13 +1476,13 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 409:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(JSON.parse(decodedRes), errors.Error1);
                     err.rawResponse = httpRes;
                     throw new errors.Error1(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1498,7 +1498,7 @@ export class Subscriptions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ResumeSubscriptionSubscriptionsResponseResponseBody
@@ -1507,7 +1507,7 @@ export class Subscriptions {
                     throw new errors.ResumeSubscriptionSubscriptionsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1608,7 +1608,7 @@ export class Subscriptions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -1617,21 +1617,21 @@ export class Subscriptions {
         const res: operations.UpdateSubscriptionResponse =
             new operations.UpdateSubscriptionResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.UpdateSubscriptionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1639,7 +1639,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.UpdateSubscriptionResponseBody
@@ -1648,7 +1648,7 @@ export class Subscriptions {
                     throw new errors.UpdateSubscriptionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1656,7 +1656,7 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.UpdateSubscriptionSubscriptionsResponseBody
@@ -1665,7 +1665,7 @@ export class Subscriptions {
                     throw new errors.UpdateSubscriptionSubscriptionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1673,13 +1673,13 @@ export class Subscriptions {
                 }
                 break;
             case httpRes?.status == 409:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(JSON.parse(decodedRes), errors.Error1);
                     err.rawResponse = httpRes;
                     throw new errors.Error1(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1695,7 +1695,7 @@ export class Subscriptions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.UpdateSubscriptionSubscriptionsResponseResponseBody
@@ -1704,7 +1704,7 @@ export class Subscriptions {
                     throw new errors.UpdateSubscriptionSubscriptionsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

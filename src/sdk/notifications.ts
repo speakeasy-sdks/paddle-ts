@@ -97,7 +97,7 @@ export class Notifications {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -106,21 +106,21 @@ export class Notifications {
         const res: operations.CreateNotificationSettingResponse =
             new operations.CreateNotificationSettingResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateNotificationSettingResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -128,7 +128,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.CreateNotificationSettingResponseBody
@@ -137,7 +137,7 @@ export class Notifications {
                     throw new errors.CreateNotificationSettingResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -145,7 +145,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.CreateNotificationSettingNotificationsResponseBody
@@ -154,7 +154,7 @@ export class Notifications {
                     throw new errors.CreateNotificationSettingNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -170,7 +170,7 @@ export class Notifications {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.CreateNotificationSettingNotificationsResponseResponseBody
@@ -181,7 +181,7 @@ export class Notifications {
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -259,7 +259,7 @@ export class Notifications {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -268,7 +268,7 @@ export class Notifications {
         const res: operations.DeleteNotificationSettingResponse =
             new operations.DeleteNotificationSettingResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
@@ -277,7 +277,7 @@ export class Notifications {
             case httpRes?.status == 200:
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.DeleteNotificationSettingResponseBody
@@ -286,7 +286,7 @@ export class Notifications {
                     throw new errors.DeleteNotificationSettingResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -294,7 +294,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.DeleteNotificationSettingNotificationsResponseBody
@@ -303,7 +303,7 @@ export class Notifications {
                     throw new errors.DeleteNotificationSettingNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -319,7 +319,7 @@ export class Notifications {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.DeleteNotificationSettingNotificationsResponseResponseBody
@@ -330,7 +330,7 @@ export class Notifications {
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -404,7 +404,7 @@ export class Notifications {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -412,21 +412,21 @@ export class Notifications {
 
         const res: operations.GetNotificationResponse = new operations.GetNotificationResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetNotificationResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -434,7 +434,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetNotificationResponseBody
@@ -443,7 +443,7 @@ export class Notifications {
                     throw new errors.GetNotificationResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -451,7 +451,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetNotificationNotificationsResponseBody
@@ -460,7 +460,7 @@ export class Notifications {
                     throw new errors.GetNotificationNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -476,7 +476,7 @@ export class Notifications {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetNotificationNotificationsResponseResponseBody
@@ -485,7 +485,7 @@ export class Notifications {
                     throw new errors.GetNotificationNotificationsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -559,7 +559,7 @@ export class Notifications {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -568,21 +568,21 @@ export class Notifications {
         const res: operations.GetNotificationSettingResponse =
             new operations.GetNotificationSettingResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetNotificationSettingResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -590,7 +590,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetNotificationSettingResponseBody
@@ -599,7 +599,7 @@ export class Notifications {
                     throw new errors.GetNotificationSettingResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -607,7 +607,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetNotificationSettingNotificationsResponseBody
@@ -616,7 +616,7 @@ export class Notifications {
                     throw new errors.GetNotificationSettingNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -632,7 +632,7 @@ export class Notifications {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetNotificationSettingNotificationsResponseResponseBody
@@ -641,7 +641,7 @@ export class Notifications {
                     throw new errors.GetNotificationSettingNotificationsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -712,7 +712,7 @@ export class Notifications {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -720,21 +720,21 @@ export class Notifications {
 
         const res: operations.ListNotificationsResponse = new operations.ListNotificationsResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListNotificationsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -742,7 +742,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ListNotificationsResponseBody
@@ -751,7 +751,7 @@ export class Notifications {
                     throw new errors.ListNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -767,7 +767,7 @@ export class Notifications {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ListNotificationsNotificationsResponseBody
@@ -776,7 +776,7 @@ export class Notifications {
                     throw new errors.ListNotificationsNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -851,7 +851,7 @@ export class Notifications {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -860,21 +860,21 @@ export class Notifications {
         const res: operations.ListNotificationLogsResponse =
             new operations.ListNotificationLogsResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListNotificationLogsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -882,7 +882,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ListNotificationLogsResponseBody
@@ -891,7 +891,7 @@ export class Notifications {
                     throw new errors.ListNotificationLogsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -899,7 +899,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ListNotificationLogsNotificationsResponseBody
@@ -908,7 +908,7 @@ export class Notifications {
                     throw new errors.ListNotificationLogsNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -924,7 +924,7 @@ export class Notifications {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ListNotificationLogsNotificationsResponseResponseBody
@@ -933,7 +933,7 @@ export class Notifications {
                     throw new errors.ListNotificationLogsNotificationsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1000,7 +1000,7 @@ export class Notifications {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -1009,21 +1009,21 @@ export class Notifications {
         const res: operations.ListNotificationSettingsResponse =
             new operations.ListNotificationSettingsResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListNotificationSettingsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1031,7 +1031,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ListNotificationSettingsResponseBody
@@ -1040,7 +1040,7 @@ export class Notifications {
                     throw new errors.ListNotificationSettingsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1056,7 +1056,7 @@ export class Notifications {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ListNotificationSettingsNotificationsResponseBody
@@ -1065,7 +1065,7 @@ export class Notifications {
                     throw new errors.ListNotificationSettingsNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1143,7 +1143,7 @@ export class Notifications {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -1152,21 +1152,21 @@ export class Notifications {
         const res: operations.ReplayNotificationResponse =
             new operations.ReplayNotificationResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 202:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredAndTwoApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ReplayNotificationResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1174,7 +1174,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ReplayNotificationResponseBody
@@ -1183,7 +1183,7 @@ export class Notifications {
                     throw new errors.ReplayNotificationResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1191,7 +1191,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ReplayNotificationNotificationsResponseBody
@@ -1200,7 +1200,7 @@ export class Notifications {
                     throw new errors.ReplayNotificationNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1216,7 +1216,7 @@ export class Notifications {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ReplayNotificationNotificationsResponseResponseBody
@@ -1225,7 +1225,7 @@ export class Notifications {
                     throw new errors.ReplayNotificationNotificationsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1311,7 +1311,7 @@ export class Notifications {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -1320,7 +1320,7 @@ export class Notifications {
         const res: operations.PostNotificationSettingsNotificationSettingIdReplayResponse =
             new operations.PostNotificationSettingsNotificationSettingIdReplayResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
@@ -1329,7 +1329,7 @@ export class Notifications {
             case httpRes?.status == 200:
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.PostNotificationSettingsNotificationSettingIdReplayResponseBody
@@ -1340,7 +1340,7 @@ export class Notifications {
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1348,7 +1348,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseBody
@@ -1359,7 +1359,7 @@ export class Notifications {
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1375,7 +1375,7 @@ export class Notifications {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseResponseBody
@@ -1386,7 +1386,7 @@ export class Notifications {
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1485,7 +1485,7 @@ export class Notifications {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -1494,21 +1494,21 @@ export class Notifications {
         const res: operations.UpdateNotificationSettingResponse =
             new operations.UpdateNotificationSettingResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.UpdateNotificationSettingResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1516,7 +1516,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.UpdateNotificationSettingResponseBody
@@ -1525,7 +1525,7 @@ export class Notifications {
                     throw new errors.UpdateNotificationSettingResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1533,7 +1533,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.UpdateNotificationSettingNotificationsResponseBody
@@ -1542,7 +1542,7 @@ export class Notifications {
                     throw new errors.UpdateNotificationSettingNotificationsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1550,7 +1550,7 @@ export class Notifications {
                 }
                 break;
             case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.UpdateNotificationSettingNotificationsResponseResponseBody
@@ -1561,7 +1561,7 @@ export class Notifications {
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1577,7 +1577,7 @@ export class Notifications {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.UpdateNotificationSettingNotificationsResponse500ResponseBody
@@ -1588,7 +1588,7 @@ export class Notifications {
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

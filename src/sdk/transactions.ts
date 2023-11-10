@@ -116,7 +116,7 @@ export class Transactions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -124,21 +124,21 @@ export class Transactions {
 
         const res: operations.CreateTransactionResponse = new operations.CreateTransactionResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateTransactionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -146,7 +146,7 @@ export class Transactions {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.CreateTransactionResponseBody
@@ -155,7 +155,7 @@ export class Transactions {
                     throw new errors.CreateTransactionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -171,7 +171,7 @@ export class Transactions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.CreateTransactionTransactionsResponseBody
@@ -180,7 +180,7 @@ export class Transactions {
                     throw new errors.CreateTransactionTransactionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -257,7 +257,7 @@ export class Transactions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -265,21 +265,21 @@ export class Transactions {
 
         const res: operations.GetTransactionResponse = new operations.GetTransactionResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetTransactionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -287,7 +287,7 @@ export class Transactions {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetTransactionResponseBody
@@ -296,7 +296,7 @@ export class Transactions {
                     throw new errors.GetTransactionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -304,7 +304,7 @@ export class Transactions {
                 }
                 break;
             case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetTransactionTransactionsResponseBody
@@ -313,7 +313,7 @@ export class Transactions {
                     throw new errors.GetTransactionTransactionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -329,7 +329,7 @@ export class Transactions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetTransactionTransactionsTransactionServiceResponseBody
@@ -338,7 +338,7 @@ export class Transactions {
                     throw new errors.GetTransactionTransactionsTransactionServiceResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -419,7 +419,7 @@ export class Transactions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -428,21 +428,21 @@ export class Transactions {
         const res: operations.GetTransactionInvoiceResponse =
             new operations.GetTransactionInvoiceResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetTransactionInvoiceResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -450,7 +450,7 @@ export class Transactions {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetTransactionInvoiceResponseBody
@@ -459,7 +459,7 @@ export class Transactions {
                     throw new errors.GetTransactionInvoiceResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -467,7 +467,7 @@ export class Transactions {
                 }
                 break;
             case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetTransactionInvoiceTransactionsResponseBody
@@ -476,7 +476,7 @@ export class Transactions {
                     throw new errors.GetTransactionInvoiceTransactionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -492,7 +492,7 @@ export class Transactions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.GetTransactionInvoiceTransactionsResponseResponseBody
@@ -501,7 +501,7 @@ export class Transactions {
                     throw new errors.GetTransactionInvoiceTransactionsResponseResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -574,7 +574,7 @@ export class Transactions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -582,21 +582,21 @@ export class Transactions {
 
         const res: operations.ListTransactionsResponse = new operations.ListTransactionsResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListTransactionsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -604,7 +604,7 @@ export class Transactions {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ListTransactionsResponseBody
@@ -613,7 +613,7 @@ export class Transactions {
                     throw new errors.ListTransactionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -629,7 +629,7 @@ export class Transactions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.ListTransactionsTransactionsResponseBody
@@ -638,7 +638,7 @@ export class Transactions {
                     throw new errors.ListTransactionsTransactionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -739,7 +739,7 @@ export class Transactions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -748,21 +748,21 @@ export class Transactions {
         const res: operations.PreviewTransactionResponse =
             new operations.PreviewTransactionResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
                 headers: utils.getHeadersFromResponse(httpRes.headers),
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.PreviewTransactionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -770,7 +770,7 @@ export class Transactions {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.PreviewTransactionResponseBody
@@ -779,7 +779,7 @@ export class Transactions {
                     throw new errors.PreviewTransactionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -795,7 +795,7 @@ export class Transactions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.PreviewTransactionTransactionsResponseBody
@@ -804,7 +804,7 @@ export class Transactions {
                     throw new errors.PreviewTransactionTransactionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -899,7 +899,7 @@ export class Transactions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -907,21 +907,21 @@ export class Transactions {
 
         const res: operations.PricePreviewResponse = new operations.PricePreviewResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.PricePreviewResponseBodyOutput
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -929,7 +929,7 @@ export class Transactions {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.PricePreviewResponseBody
@@ -938,7 +938,7 @@ export class Transactions {
                     throw new errors.PricePreviewResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -954,7 +954,7 @@ export class Transactions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.PricePreviewTransactionsResponseBody
@@ -963,7 +963,7 @@ export class Transactions {
                     throw new errors.PricePreviewTransactionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1067,7 +1067,7 @@ export class Transactions {
             });
         }, new utils.Retries(retryConfig, ["4xx", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -1075,21 +1075,21 @@ export class Transactions {
 
         const res: operations.UpdateTransactionResponse = new operations.UpdateTransactionResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.UpdateTransactionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1097,7 +1097,7 @@ export class Transactions {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.UpdateTransactionResponseBody
@@ -1106,7 +1106,7 @@ export class Transactions {
                     throw new errors.UpdateTransactionResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1114,7 +1114,7 @@ export class Transactions {
                 }
                 break;
             case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.UpdateTransactionTransactionsResponseBody
@@ -1123,7 +1123,7 @@ export class Transactions {
                     throw new errors.UpdateTransactionTransactionsResponseBody(err);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1139,7 +1139,7 @@ export class Transactions {
                     httpRes
                 );
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     const err = utils.objectToClass(
                         JSON.parse(decodedRes),
                         errors.UpdateTransactionTransactionsTransactionServiceResponseBody
@@ -1150,7 +1150,7 @@ export class Transactions {
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
