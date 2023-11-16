@@ -55,7 +55,7 @@ export class UpdateNotificationSettingResponse extends SpeakeasyBase {
     contentType: string;
 
     @SpeakeasyMetadata()
-    headers?: Record<string, string[]>;
+    headers: Record<string, string[]>;
 
     /**
      * HTTP response status code for this operation
@@ -67,5 +67,5 @@ export class UpdateNotificationSettingResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }
