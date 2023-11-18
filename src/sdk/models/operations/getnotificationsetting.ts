@@ -40,12 +40,6 @@ export class GetNotificationSettingResponseBody extends SpeakeasyBase {
 
 export class GetNotificationSettingResponse extends SpeakeasyBase {
     /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    twoHundredApplicationJsonObject?: GetNotificationSettingResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
@@ -65,4 +59,10 @@ export class GetNotificationSettingResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    object?: GetNotificationSettingResponseBody;
 }

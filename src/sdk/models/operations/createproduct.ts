@@ -30,12 +30,6 @@ export class CreateProductResponseBody extends SpeakeasyBase {
 
 export class CreateProductResponse extends SpeakeasyBase {
     /**
-     * Created
-     */
-    @SpeakeasyMetadata()
-    twoHundredAndOneApplicationJsonObject?: CreateProductResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
@@ -55,4 +49,10 @@ export class CreateProductResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * Created
+     */
+    @SpeakeasyMetadata()
+    object?: CreateProductResponseBody;
 }

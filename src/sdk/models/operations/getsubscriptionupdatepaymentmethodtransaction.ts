@@ -230,7 +230,7 @@ export class Transaction extends SpeakeasyBase {
 /**
  * OK
  */
-export class GetSubscriptionUpdatePaymentMethodTransactionResponseBodyOutput extends SpeakeasyBase {
+export class GetSubscriptionUpdatePaymentMethodTransactionResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
     @Type(() => Transaction)
@@ -238,12 +238,6 @@ export class GetSubscriptionUpdatePaymentMethodTransactionResponseBodyOutput ext
 }
 
 export class GetSubscriptionUpdatePaymentMethodTransactionResponse extends SpeakeasyBase {
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    twoHundredApplicationJsonObject?: GetSubscriptionUpdatePaymentMethodTransactionResponseBodyOutput;
-
     /**
      * HTTP response content type for this operation
      */
@@ -264,4 +258,10 @@ export class GetSubscriptionUpdatePaymentMethodTransactionResponse extends Speak
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    object?: GetSubscriptionUpdatePaymentMethodTransactionResponseBody;
 }

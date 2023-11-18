@@ -1,4 +1,4 @@
-# SchemasErrors
+# Errors
 
 
 ## Fields

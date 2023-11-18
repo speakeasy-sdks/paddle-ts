@@ -113,7 +113,7 @@ export class Customers {
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredAndOneApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateCustomerResponseBody
                     );
@@ -281,7 +281,7 @@ export class Customers {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetCustomerResponseBody
                     );
@@ -452,7 +452,7 @@ export class Customers {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListCustomersResponseBody
                     );
@@ -636,7 +636,7 @@ export class Customers {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListCreditBalancesResponseBody
                     );
@@ -804,7 +804,7 @@ export class Customers {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.UpdateCustomerResponseBody
                     );

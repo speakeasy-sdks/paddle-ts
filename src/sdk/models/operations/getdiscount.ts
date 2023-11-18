@@ -38,12 +38,6 @@ export class GetDiscountResponseBody extends SpeakeasyBase {
 
 export class GetDiscountResponse extends SpeakeasyBase {
     /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    twoHundredApplicationJsonObject?: GetDiscountResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
@@ -63,4 +57,10 @@ export class GetDiscountResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    object?: GetDiscountResponseBody;
 }

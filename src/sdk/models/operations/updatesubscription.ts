@@ -41,12 +41,6 @@ export class UpdateSubscriptionResponseBody extends SpeakeasyBase {
 
 export class UpdateSubscriptionResponse extends SpeakeasyBase {
     /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    twoHundredApplicationJsonObject?: UpdateSubscriptionResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
@@ -66,4 +60,10 @@ export class UpdateSubscriptionResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    object?: UpdateSubscriptionResponseBody;
 }

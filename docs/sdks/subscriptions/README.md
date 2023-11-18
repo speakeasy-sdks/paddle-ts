@@ -72,7 +72,7 @@ import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | errors.CancelSubscriptionResponseBody                      | 400                                                        | application/json                                           |
 | errors.CancelSubscriptionSubscriptionsResponseBody         | 401                                                        | application/json                                           |
-| errors.Error1                                              | 409                                                        | application/json                                           |
+| errors.ErrorT                                              | 409                                                        | application/json                                           |
 | errors.CancelSubscriptionSubscriptionsResponseResponseBody | 500                                                        | application/json                                           |
 | errors.SDKError                                            | 400-600                                                    | */*                                                        |
 
@@ -402,7 +402,7 @@ import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
 | errors.PauseSubscriptionResponseBody                      | 400                                                       | application/json                                          |
 | errors.PauseSubscriptionSubscriptionsResponseBody         | 401                                                       | application/json                                          |
-| errors.Error1                                             | 409                                                       | application/json                                          |
+| errors.ErrorT                                             | 409                                                       | application/json                                          |
 | errors.PauseSubscriptionSubscriptionsResponseResponseBody | 500                                                       | application/json                                          |
 | errors.SDKError                                           | 400-600                                                   | */*                                                       |
 
@@ -530,7 +530,7 @@ import { Paddle } from "Paddle";
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | errors.ResumeSubscriptionResponseBody                      | 400                                                        | application/json                                           |
 | errors.ResumeSubscriptionSubscriptionsResponseBody         | 401                                                        | application/json                                           |
-| errors.Error1                                              | 409                                                        | application/json                                           |
+| errors.ErrorT                                              | 409                                                        | application/json                                           |
 | errors.ResumeSubscriptionSubscriptionsResponseResponseBody | 500                                                        | application/json                                           |
 | errors.SDKError                                            | 400-600                                                    | */*                                                        |
 
@@ -615,6 +615,6 @@ import {
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | errors.UpdateSubscriptionResponseBody                      | 400                                                        | application/json                                           |
 | errors.UpdateSubscriptionSubscriptionsResponseBody         | 401                                                        | application/json                                           |
-| errors.Error1                                              | 409                                                        | application/json                                           |
+| errors.ErrorT                                              | 409                                                        | application/json                                           |
 | errors.UpdateSubscriptionSubscriptionsResponseResponseBody | 500                                                        | application/json                                           |
 | errors.SDKError                                            | 400-600                                                    | */*                                                        |

@@ -1,4 +1,4 @@
-# GetSubscriptionUpdatePaymentMethodTransactionResponseBodyOutput
+# GetSubscriptionUpdatePaymentMethodTransactionResponseBody
 
 OK
 

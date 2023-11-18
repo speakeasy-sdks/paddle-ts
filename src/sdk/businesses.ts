@@ -117,7 +117,7 @@ export class Businesses {
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredAndOneApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateBusinessResponseBody
                     );
@@ -306,7 +306,7 @@ export class Businesses {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetBusinessResponseBody
                     );
@@ -481,7 +481,7 @@ export class Businesses {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListBusinessesResponseBody
                     );
@@ -670,7 +670,7 @@ export class Businesses {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.UpdateBusinessResponseBody
                     );

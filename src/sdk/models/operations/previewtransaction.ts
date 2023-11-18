@@ -30,12 +30,6 @@ export class PreviewTransactionResponseBody extends SpeakeasyBase {
 
 export class PreviewTransactionResponse extends SpeakeasyBase {
     /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    twoHundredApplicationJsonObject?: PreviewTransactionResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
@@ -55,4 +49,10 @@ export class PreviewTransactionResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    object?: PreviewTransactionResponseBody;
 }

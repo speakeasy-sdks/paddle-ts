@@ -1,5 +1,7 @@
 # ErrorT
 
+If the subscription is locked and can not be changed. This happens 30 min before the renewal time.
+
 
 ## Fields
 

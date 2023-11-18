@@ -35,12 +35,6 @@ export class GetInvoiceResponseBody extends SpeakeasyBase {
 
 export class GetInvoiceResponse extends SpeakeasyBase {
     /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    twoHundredApplicationJsonObject?: GetInvoiceResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
@@ -60,4 +54,10 @@ export class GetInvoiceResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    object?: GetInvoiceResponseBody;
 }

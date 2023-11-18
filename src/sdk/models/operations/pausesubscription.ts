@@ -58,12 +58,6 @@ export class PauseSubscriptionResponseBody extends SpeakeasyBase {
 
 export class PauseSubscriptionResponse extends SpeakeasyBase {
     /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    twoHundredApplicationJsonObject?: PauseSubscriptionResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
@@ -83,4 +77,10 @@ export class PauseSubscriptionResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    object?: PauseSubscriptionResponseBody;
 }

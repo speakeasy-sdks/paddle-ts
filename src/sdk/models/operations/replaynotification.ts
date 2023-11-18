@@ -44,12 +44,6 @@ export class ReplayNotificationResponseBody extends SpeakeasyBase {
 
 export class ReplayNotificationResponse extends SpeakeasyBase {
     /**
-     * Accepted
-     */
-    @SpeakeasyMetadata()
-    twoHundredAndTwoApplicationJsonObject?: ReplayNotificationResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
@@ -69,4 +63,10 @@ export class ReplayNotificationResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * Accepted
+     */
+    @SpeakeasyMetadata()
+    object?: ReplayNotificationResponseBody;
 }

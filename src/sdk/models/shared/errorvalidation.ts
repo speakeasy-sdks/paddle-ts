@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
-export class SchemasErrors extends SpeakeasyBase {
+export class Errors extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "field" })
     field: string;
@@ -28,10 +28,10 @@ export class ErrorValidation extends SpeakeasyBase {
     @Expose({ name: "documentation_url" })
     documentationUrl: string;
 
-    @SpeakeasyMetadata({ elemType: SchemasErrors })
+    @SpeakeasyMetadata({ elemType: Errors })
     @Expose({ name: "errors" })
-    @Type(() => SchemasErrors)
-    errors: SchemasErrors[];
+    @Type(() => Errors)
+    errors: Errors[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "type" })

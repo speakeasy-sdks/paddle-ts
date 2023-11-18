@@ -251,12 +251,6 @@ export class CreateSubscriptionChargePreviewResponseBody extends SpeakeasyBase {
 
 export class CreateSubscriptionChargePreviewResponse extends SpeakeasyBase {
     /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    twoHundredApplicationJsonObject?: CreateSubscriptionChargePreviewResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
@@ -276,4 +270,10 @@ export class CreateSubscriptionChargePreviewResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    object?: CreateSubscriptionChargePreviewResponseBody;
 }

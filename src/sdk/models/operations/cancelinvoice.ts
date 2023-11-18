@@ -35,12 +35,6 @@ export class CancelInvoiceResponseBody extends SpeakeasyBase {
 
 export class CancelInvoiceResponse extends SpeakeasyBase {
     /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    twoHundredApplicationJsonObject?: CancelInvoiceResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
@@ -60,4 +54,10 @@ export class CancelInvoiceResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    object?: CancelInvoiceResponseBody;
 }

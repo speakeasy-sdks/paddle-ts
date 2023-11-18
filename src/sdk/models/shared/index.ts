@@ -39,6 +39,7 @@ export * from "./discountcreate";
 export * from "./effectivefrom";
 export * from "./effectivefromnullable";
 export * from "./errorcode";
+export * from "./errorvalidation";
 export * from "./event";
 export * from "./eventtype";
 export * from "./includeprice";

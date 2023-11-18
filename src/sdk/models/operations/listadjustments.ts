@@ -83,12 +83,6 @@ export class ListAdjustmentsResponseBody extends SpeakeasyBase {
 
 export class ListAdjustmentsResponse extends SpeakeasyBase {
     /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    twoHundredApplicationJsonObject?: ListAdjustmentsResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
@@ -108,4 +102,10 @@ export class ListAdjustmentsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    object?: ListAdjustmentsResponseBody;
 }

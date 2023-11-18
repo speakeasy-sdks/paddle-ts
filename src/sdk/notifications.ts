@@ -114,7 +114,7 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredAndOneApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateNotificationSettingResponseBody
                     );
@@ -420,7 +420,7 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetNotificationResponseBody
                     );
@@ -576,7 +576,7 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetNotificationSettingResponseBody
                     );
@@ -728,7 +728,7 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListNotificationsResponseBody
                     );
@@ -868,7 +868,7 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListNotificationLogsResponseBody
                     );
@@ -1017,7 +1017,7 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListNotificationSettingsResponseBody
                     );
@@ -1160,7 +1160,7 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 202:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredAndTwoApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ReplayNotificationResponseBody
                     );
@@ -1502,7 +1502,7 @@ export class Notifications {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.UpdateNotificationSettingResponseBody
                     );

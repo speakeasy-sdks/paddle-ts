@@ -126,7 +126,7 @@ export class TransactionService {
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredAndOneApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateTransactionResponseBody
                     );
@@ -267,7 +267,7 @@ export class TransactionService {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetTransactionResponseBody
                     );
@@ -421,7 +421,7 @@ export class TransactionService {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListTransactionsResponseBody
                     );
@@ -587,7 +587,7 @@ export class TransactionService {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.PreviewTransactionResponseBody
                     );
@@ -746,9 +746,9 @@ export class TransactionService {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.PricePreviewResponseBodyOutput
+                        operations.PricePreviewResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -914,7 +914,7 @@ export class TransactionService {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.UpdateTransactionResponseBody
                     );

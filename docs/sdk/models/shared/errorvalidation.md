@@ -1,4 +1,4 @@
-# Error1
+# ErrorValidation
 
 
 ## Fields
@@ -8,6 +8,5 @@
 | `code`                                                  | *string*                                                | :heavy_check_mark:                                      | N/A                                                     |
 | `detail`                                                | *string*                                                | :heavy_check_mark:                                      | N/A                                                     |
 | `documentationUrl`                                      | *string*                                                | :heavy_check_mark:                                      | N/A                                                     |
-| `errors`                                                | [errors.Errors](../../../sdk/models/errors/errors.md)[] | :heavy_minus_sign:                                      | N/A                                                     |
-| `extra`                                                 | [errors.Extra](../../../sdk/models/errors/extra.md)     | :heavy_minus_sign:                                      | N/A                                                     |
+| `errors`                                                | [shared.Errors](../../../sdk/models/shared/errors.md)[] | :heavy_check_mark:                                      | N/A                                                     |
 | `type`                                                  | *string*                                                | :heavy_check_mark:                                      | N/A                                                     |

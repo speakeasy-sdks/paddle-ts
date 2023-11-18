@@ -47,12 +47,6 @@ export class ListNotificationLogsResponseBody extends SpeakeasyBase {
 
 export class ListNotificationLogsResponse extends SpeakeasyBase {
     /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    twoHundredApplicationJsonObject?: ListNotificationLogsResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
@@ -72,4 +66,10 @@ export class ListNotificationLogsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    object?: ListNotificationLogsResponseBody;
 }

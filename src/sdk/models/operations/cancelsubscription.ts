@@ -50,12 +50,6 @@ export class CancelSubscriptionResponseBody extends SpeakeasyBase {
 
 export class CancelSubscriptionResponse extends SpeakeasyBase {
     /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    twoHundredApplicationJsonObject?: CancelSubscriptionResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
@@ -75,4 +69,10 @@ export class CancelSubscriptionResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    object?: CancelSubscriptionResponseBody;
 }

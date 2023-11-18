@@ -10,7 +10,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * OK
  */
-export class PricePreviewResponseBodyOutput extends SpeakeasyBase {
+export class PricePreviewResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
     @Type(() => shared.TransactionPricingPreviewOutput)
@@ -26,12 +26,6 @@ export class PricePreviewResponseBodyOutput extends SpeakeasyBase {
 }
 
 export class PricePreviewResponse extends SpeakeasyBase {
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    twoHundredApplicationJsonObject?: PricePreviewResponseBodyOutput;
-
     /**
      * HTTP response content type for this operation
      */
@@ -52,4 +46,10 @@ export class PricePreviewResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    object?: PricePreviewResponseBody;
 }

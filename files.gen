@@ -115,6 +115,7 @@ src/sdk/models/shared/statusadjustment.ts
 src/sdk/models/shared/action.ts
 src/sdk/models/shared/customer.ts
 src/sdk/models/shared/schemastatus.ts
+src/sdk/models/shared/errorvalidation.ts
 src/sdk/models/shared/customercreate.ts
 src/sdk/models/shared/customerincludes.ts
 src/sdk/models/shared/status.ts
@@ -234,9 +235,9 @@ src/sdk/models/shared/subscriptionupdateprorationbillingmode.ts
 src/sdk/models/shared/subscriptionupdateitem.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/errors/createadjustment.ts
+src/sdk/models/errors/error.ts
 src/sdk/models/errors/listadjustments.ts
 src/sdk/models/errors/createcustomer.ts
-src/sdk/models/errors/errorvalidation.ts
 src/sdk/models/errors/getcustomer.ts
 src/sdk/models/errors/listcustomers.ts
 src/sdk/models/errors/listcreditbalances.ts
@@ -287,7 +288,6 @@ src/sdk/models/errors/getproduct.ts
 src/sdk/models/errors/listproducts.ts
 src/sdk/models/errors/updateproduct.ts
 src/sdk/models/errors/cancelsubscription.ts
-src/sdk/models/errors/error.ts
 src/sdk/models/errors/createsubscriptioncharge.ts
 src/sdk/models/errors/createsubscriptionchargepreview.ts
 src/sdk/models/errors/getsubscription.ts
@@ -437,7 +437,7 @@ docs/sdk/models/operations/listtransactionsresponsebody.md
 docs/sdk/models/operations/listtransactionsresponse.md
 docs/sdk/models/operations/previewtransactionresponsebody.md
 docs/sdk/models/operations/previewtransactionresponse.md
-docs/sdk/models/operations/pricepreviewresponsebodyoutput.md
+docs/sdk/models/operations/pricepreviewresponsebody.md
 docs/sdk/models/operations/pricepreviewresponse.md
 docs/sdk/models/operations/updatetransactionrequest.md
 docs/sdk/models/operations/updatetransactionresponsebody.md
@@ -472,7 +472,7 @@ docs/sdk/models/operations/getsubscriptionupdatepaymentmethodtransactionrequest.
 docs/sdk/models/operations/checkout.md
 docs/sdk/models/operations/status.md
 docs/sdk/models/operations/transaction.md
-docs/sdk/models/operations/getsubscriptionupdatepaymentmethodtransactionresponsebodyoutput.md
+docs/sdk/models/operations/getsubscriptionupdatepaymentmethodtransactionresponsebody.md
 docs/sdk/models/operations/getsubscriptionupdatepaymentmethodtransactionresponse.md
 docs/sdk/models/operations/listsubscriptionsrequest.md
 docs/sdk/models/operations/listsubscriptionsresponsebody.md
@@ -517,6 +517,8 @@ docs/sdk/models/shared/statusadjustment.md
 docs/sdk/models/shared/action.md
 docs/sdk/models/shared/customer.md
 docs/sdk/models/shared/schemastatus.md
+docs/sdk/models/shared/errors.md
+docs/sdk/models/shared/errorvalidation.md
 docs/sdk/models/shared/customercreate.md
 docs/sdk/models/shared/customerincludes.md
 docs/sdk/models/shared/status.md
@@ -692,8 +694,6 @@ docs/sdk/models/errors/createcustomercustomersresponse500responsebody.md
 docs/sdk/models/errors/createcustomercustomersresponseresponsebody.md
 docs/sdk/models/errors/createcustomercustomersresponsebody.md
 docs/sdk/models/errors/createcustomerresponsebody.md
-docs/sdk/models/errors/schemaserrors.md
-docs/sdk/models/errors/errorvalidation.md
 docs/sdk/models/errors/getcustomercustomersresponse500responsebody.md
 docs/sdk/models/errors/getcustomercustomersresponseresponsebody.md
 docs/sdk/models/errors/getcustomercustomersresponsebody.md
@@ -850,7 +850,6 @@ docs/sdk/models/errors/updateproductresponsebody.md
 docs/sdk/models/errors/cancelsubscriptionsubscriptionsresponseresponsebody.md
 docs/sdk/models/errors/cancelsubscriptionsubscriptionsresponsebody.md
 docs/sdk/models/errors/cancelsubscriptionresponsebody.md
-docs/sdk/models/errors/error1.md
 docs/sdk/models/errors/createsubscriptionchargesubscriptionsresponsebody.md
 docs/sdk/models/errors/createsubscriptionchargeresponsebody.md
 docs/sdk/models/errors/createsubscriptionchargepreviewsubscriptionsresponsebody.md

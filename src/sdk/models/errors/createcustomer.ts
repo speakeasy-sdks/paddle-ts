@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../../../sdk/models/shared";
 import { ErrorT } from "./error";
-import { ErrorValidation } from "./errorvalidation";
 import { AxiosResponse } from "axios";
 import { classToPlain, Exclude, Expose, Type } from "class-transformer";
 
@@ -111,8 +111,8 @@ export class CreateCustomerResponseBody extends Error {
 
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
-    @Type(() => ErrorValidation)
-    error?: ErrorValidation;
+    @Type(() => shared.ErrorValidation)
+    error?: shared.ErrorValidation;
 
     constructor(err?: CreateCustomerResponseBody) {
         super();

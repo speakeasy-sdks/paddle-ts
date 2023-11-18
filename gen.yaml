@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 1fade75ac5b0bdfcf91084f35f8639c8
   docVersion: "1.0"
-  speakeasyVersion: 1.120.3
-  generationVersion: 2.192.1
+  speakeasyVersion: 1.121.1
+  generationVersion: 2.194.1
 generation:
   comments: {}
   sdkClassName: Paddle
@@ -15,12 +15,12 @@ features:
     core: 3.1.4
     examples: 2.81.3
     globalSecurity: 2.82.0
-    globalServerURLs: 2.82.0
+    globalServerURLs: 2.82.1
     inputOutputModels: 2.82.0
     nameOverrides: 2.81.1
     retries: 2.82.1
 typescript:
-  version: 0.14.2
+  version: 0.14.3
   author: paddle
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: false

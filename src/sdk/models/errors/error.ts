@@ -17,7 +17,10 @@ export class Errors extends SpeakeasyBase {
 
 export class Extra extends SpeakeasyBase {}
 
-export class ErrorT extends SpeakeasyBase {
+/**
+ * If the subscription is locked and can not be changed. This happens 30 min before the renewal time.
+ */
+export class ErrorT extends Error {
     @SpeakeasyMetadata()
     @Expose({ name: "code" })
     code: string;
@@ -43,36 +46,8 @@ export class ErrorT extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
     type: string;
-}
 
-export class Error1 extends Error {
-    @SpeakeasyMetadata()
-    @Expose({ name: "code" })
-    code: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "detail" })
-    detail: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "documentation_url" })
-    documentationUrl: string;
-
-    @SpeakeasyMetadata({ elemType: Errors })
-    @Expose({ name: "errors" })
-    @Type(() => Errors)
-    errors?: Errors[];
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "extra" })
-    @Type(() => Extra)
-    extra?: Extra;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "type" })
-    type: string;
-
-    constructor(err?: Error1) {
+    constructor(err?: ErrorT) {
         super();
         if (err) {
             Object.assign(this, err);
@@ -81,7 +56,7 @@ export class Error1 extends Error {
             );
         }
 
-        this.name = "Error1";
-        Object.setPrototypeOf(this, Error1.prototype);
+        this.name = "ErrorT";
+        Object.setPrototypeOf(this, ErrorT.prototype);
     }
 }
