@@ -30,7 +30,7 @@ If successful, your response includes a copy of the new price entity.
 import { Paddle } from "Paddle";
 import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -73,7 +73,9 @@ import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/d
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -109,7 +111,7 @@ Use the `include` parameter to include the related product entity in the respons
 import { Paddle } from "Paddle";
 import { IncludePrice } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -123,7 +125,9 @@ import { IncludePrice } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -161,7 +165,7 @@ Use the `include` parameter to include the related product entity in the respons
 import { Paddle } from "Paddle";
 import { IncludePrice, Status } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -175,7 +179,9 @@ import { IncludePrice, Status } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -210,7 +216,7 @@ If successful, your response includes a copy of the updated price entity.
 import { Paddle } from "Paddle";
 import { CountryCode2, CurrencyCode2, Period2Interval, SchemaStatus, TaxMode1 } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -254,7 +260,9 @@ import { CountryCode2, CurrencyCode2, Period2Interval, SchemaStatus, TaxMode1 } 
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

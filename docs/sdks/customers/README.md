@@ -26,7 +26,7 @@ If successful, your response includes a copy of the new customer entity.
 ```typescript
 import { Paddle } from "Paddle";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -41,7 +41,9 @@ import { Paddle } from "Paddle";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -75,7 +77,7 @@ Returns a customer using its ID.
 ```typescript
 import { Paddle } from "Paddle";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -89,7 +91,9 @@ import { Paddle } from "Paddle";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -126,7 +130,7 @@ By default, Paddle returns customers that are `active`. Use the `status` query p
 import { Paddle } from "Paddle";
 import { Status } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -140,7 +144,9 @@ import { Status } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -184,7 +190,7 @@ The response is not paginated.
 ```typescript
 import { Paddle } from "Paddle";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -199,7 +205,9 @@ import { Paddle } from "Paddle";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -235,7 +243,7 @@ If successful, your response includes a copy of the updated customer entity.
 import { Paddle } from "Paddle";
 import { SchemaStatus } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -253,7 +261,9 @@ import { SchemaStatus } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

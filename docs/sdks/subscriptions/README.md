@@ -36,7 +36,7 @@ You cannot reactivate a canceled subscription.
 import { Paddle } from "Paddle";
 import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -51,7 +51,9 @@ import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -93,7 +95,7 @@ Once created, to get details of a one-time charge:
 import { Paddle } from "Paddle";
 import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -116,7 +118,9 @@ import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -149,7 +153,7 @@ Previews a new one-off charge for a subscription. Use to preview the outcome of 
 import { Paddle } from "Paddle";
 import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -172,7 +176,9 @@ import { EffectiveFrom } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -207,7 +213,7 @@ Use the `include` parameter to include transaction information in the response.
 import { Paddle } from "Paddle";
 import { IncludeSubscription } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -221,7 +227,9 @@ import { IncludeSubscription } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -261,7 +269,7 @@ You can use the returned `checkout.url`, or pass the returned transaction ID to 
 ```typescript
 import { Paddle } from "Paddle";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -275,7 +283,9 @@ import { Paddle } from "Paddle";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -310,7 +320,7 @@ Returns a paginated list of subscriptions. Use the query parameters to page thro
 import { Paddle } from "Paddle";
 import { StatusSubscription } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -325,7 +335,9 @@ import { StatusSubscription } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -364,7 +376,7 @@ Pauses take place at the end of a subscription billing period. If successful, yo
 import { Paddle } from "Paddle";
 import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -381,7 +393,9 @@ import { EffectiveFromNullable } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -424,7 +438,7 @@ import {
   SubscriptionUpdateProrationBillingMode,
 } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -460,7 +474,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -494,7 +510,7 @@ If successful, Paddle returns a copy of the updated subscription entity. The sub
 ```typescript
 import { Paddle } from "Paddle";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -509,7 +525,9 @@ import { Paddle } from "Paddle";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -558,7 +576,7 @@ import {
   SubscriptionUpdateProrationBillingMode,
 } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -594,7 +612,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

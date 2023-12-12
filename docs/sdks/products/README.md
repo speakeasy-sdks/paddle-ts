@@ -28,7 +28,7 @@ If successful, your response includes a copy of the new product entity.
 import { Paddle } from "Paddle";
 import { TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -44,7 +44,9 @@ import { TaxCategory1 } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -80,7 +82,7 @@ Use the `include` parameter to include related price entities in the response.
 import { Paddle } from "Paddle";
 import { IncludeProduct } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -94,7 +96,9 @@ import { IncludeProduct } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -132,7 +136,7 @@ Use the `include` parameter to include related price entities in the response.
 import { Paddle } from "Paddle";
 import { IncludeProduct, Status, TaxCategory } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -144,7 +148,9 @@ import { IncludeProduct, Status, TaxCategory } from "Paddle/dist/sdk/models/shar
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -181,7 +187,7 @@ If successful, your response includes a copy of the updated product entity.
 import { Paddle } from "Paddle";
 import { SchemaStatus, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -198,7 +204,9 @@ import { SchemaStatus, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

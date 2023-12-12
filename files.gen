@@ -299,7 +299,6 @@ src/sdk/models/errors/updatesubscription.ts
 src/sdk/models/errors/index.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/index.ts
-USAGE.md
 docs/sdk/models/operations/createadjustmentresponsebody.md
 docs/sdk/models/operations/createadjustmentresponse.md
 docs/sdk/models/operations/listadjustmentsrequest.md
@@ -888,4 +887,5 @@ docs/sdks/transactions/README.md
 docs/sdks/transactionservice/README.md
 docs/sdks/products/README.md
 docs/sdks/subscriptions/README.md
+USAGE.md
 .gitattributes

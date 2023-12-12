@@ -28,7 +28,7 @@ If successful, your response includes a copy of the new address entity.
 import { Paddle } from "Paddle";
 import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -51,7 +51,9 @@ import { CountryCode2 } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -86,7 +88,7 @@ Returns an address for a customer using its ID and related customer ID.
 ```typescript
 import { Paddle } from "Paddle";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -101,7 +103,9 @@ import { Paddle } from "Paddle";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -139,7 +143,7 @@ By default, Paddle returns addresses that are `active`. Use the `status` query p
 import { Paddle } from "Paddle";
 import { Status } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -154,7 +158,9 @@ import { Status } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -191,7 +197,7 @@ If successful, your response includes a copy of the updated address entity.
 import { Paddle } from "Paddle";
 import { CountryCode2, SchemaStatus } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -214,7 +220,9 @@ import { CountryCode2, SchemaStatus } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

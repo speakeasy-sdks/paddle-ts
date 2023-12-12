@@ -21,7 +21,7 @@ This is sometimes referred to as "the event stream."
 ```typescript
 import { Paddle } from "Paddle";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -33,7 +33,9 @@ import { Paddle } from "Paddle";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -67,7 +69,7 @@ The response is not paginated.
 ```typescript
 import { Paddle } from "Paddle";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -79,7 +81,9 @@ import { Paddle } from "Paddle";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

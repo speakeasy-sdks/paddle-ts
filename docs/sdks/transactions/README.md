@@ -50,7 +50,7 @@ import {
   TaxMode1,
 } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -119,7 +119,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -154,7 +156,7 @@ Use the `include` parameter to include related entities in the response.
 import { Paddle } from "Paddle";
 import { IncludeTransaction } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -168,7 +170,9 @@ import { IncludeTransaction } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -208,7 +212,7 @@ The link returned is not a permanent link. It expires at the date and time retur
 ```typescript
 import { Paddle } from "Paddle";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -222,7 +226,9 @@ import { Paddle } from "Paddle";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -258,7 +264,7 @@ Use the `include` parameter to include related entities in the response.
 import { Paddle } from "Paddle";
 import { CollectionMode, IncludeTransaction, StatusTransaction } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -277,7 +283,9 @@ import { CollectionMode, IncludeTransaction, StatusTransaction } from "Paddle/di
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -326,7 +334,7 @@ Transaction previews do not create transactions, so no `id` is returned.
 import { Paddle } from "Paddle";
 import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -390,7 +398,9 @@ import { CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/d
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -433,7 +443,7 @@ Each line item includes `formatted_unit_totals` and `formatted_totals` objects t
 import { Paddle } from "Paddle";
 import { CountryCode2, CurrencyCode2 } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -460,7 +470,9 @@ import { CountryCode2, CurrencyCode2 } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -504,7 +516,7 @@ If successful, your response includes a copy of the updated transaction entity.
 import { Paddle } from "Paddle";
 import { CollectionMode2, CountryCode2, CurrencyCode2, Period2Interval, TaxMode1 } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -576,7 +588,9 @@ import { CollectionMode2, CountryCode2, CurrencyCode2, Period2Interval, TaxMode1
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

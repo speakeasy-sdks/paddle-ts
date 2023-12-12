@@ -1,4 +1,4 @@
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { Paddle } from "Paddle";
 import {
@@ -10,7 +10,7 @@ import {
     SchemaStatusAdjustment,
 } from "Paddle/dist/sdk/models/shared";
 
-(async () => {
+async function run() {
     const sdk = new Paddle({
         security: {
             bearerAuth: "YOUR_API_KEY",
@@ -49,7 +49,9 @@ import {
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

@@ -41,7 +41,7 @@ import {
   SchemaStatusAdjustment,
 } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -80,7 +80,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -115,7 +117,7 @@ Returns a paginated list of adjustments. Use the query parameters to page throug
 import { Paddle } from "Paddle";
 import { Action, StatusAdjustment } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -131,7 +133,9 @@ import { Action, StatusAdjustment } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

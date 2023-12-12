@@ -26,7 +26,7 @@ If successful, your response includes a copy of the new discount entity.
 import { Paddle } from "Paddle";
 import { CurrencyCode2, TypeT } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -47,7 +47,9 @@ import { CurrencyCode2, TypeT } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -77,7 +79,7 @@ Returns a discount using its ID.
 ```typescript
 import { Paddle } from "Paddle";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -91,7 +93,9 @@ import { Paddle } from "Paddle";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -125,7 +129,7 @@ By default, Paddle returns discounts that are `active`. Use the `status` query p
 import { Paddle } from "Paddle";
 import { StatusDiscount } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -139,7 +143,9 @@ import { StatusDiscount } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -172,7 +178,7 @@ If successful, your response includes a copy of the updated discount entity.
 import { Paddle } from "Paddle";
 import { CurrencyCode2, DiscountType, SchemaStatusDiscount } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -193,7 +199,9 @@ import { CurrencyCode2, DiscountType, SchemaStatusDiscount } from "Paddle/dist/s
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

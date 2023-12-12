@@ -30,7 +30,7 @@ If successful, your response includes a copy of the invoice entity with the `sta
 ```typescript
 import { Paddle } from "Paddle";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -44,7 +44,9 @@ import { Paddle } from "Paddle";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -83,7 +85,7 @@ import { Paddle } from "Paddle";
 import { CurrencyCodeInvoice, Interval, InvoiceType, TaxCategory1 } from "Paddle/dist/sdk/models/shared";
 import { RFCDate } from "Paddle/dist/sdk/types";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -133,7 +135,9 @@ import { RFCDate } from "Paddle/dist/sdk/types";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -166,7 +170,7 @@ Returns an invoice using its ID.
 ```typescript
 import { Paddle } from "Paddle";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -180,7 +184,9 @@ import { Paddle } from "Paddle";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -215,7 +221,7 @@ The link returned is not a permanent link. It expires at the date and time retur
 ```typescript
 import { Paddle } from "Paddle";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -229,7 +235,9 @@ import { Paddle } from "Paddle";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -274,7 +282,7 @@ If successful, your response includes a copy of the invoice entity with the new 
 ```typescript
 import { Paddle } from "Paddle";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -288,7 +296,9 @@ import { Paddle } from "Paddle";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -324,7 +334,7 @@ Returns a paginated list of invoices. Use the query parameters to page through r
 import { Paddle } from "Paddle";
 import { StatusInvoice } from "Paddle/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -338,7 +348,9 @@ import { StatusInvoice } from "Paddle/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -376,7 +388,7 @@ import { Paddle } from "Paddle";
 import { CurrencyCodeInvoice, Interval, InvoiceForPatchType } from "Paddle/dist/sdk/models/shared";
 import { RFCDate } from "Paddle/dist/sdk/types";
 
-(async() => {
+async function run() {
   const sdk = new Paddle({
     security: {
       bearerAuth: "YOUR_API_KEY",
@@ -418,7 +430,9 @@ import { RFCDate } from "Paddle/dist/sdk/types";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
