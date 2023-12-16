@@ -1,6 +1,6 @@
 # TransactionIncludes
 
-Represents a transaction entity.
+Represents a transaction entity with included entitites.
 
 
 ## Fields

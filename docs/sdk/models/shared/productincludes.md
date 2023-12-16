@@ -1,6 +1,6 @@
 # ProductIncludes
 
-Represents a product entity.
+Represents a product entity with included entities.
 
 
 ## Fields

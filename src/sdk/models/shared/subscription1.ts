@@ -44,7 +44,7 @@ export class Subscription1Discount extends SpeakeasyBase {
 }
 
 /**
- * Represents a subscription preview.
+ * Represents a subscription entity.
  */
 export class Subscription1 extends SpeakeasyBase {
     /**

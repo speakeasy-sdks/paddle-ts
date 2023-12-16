@@ -7,7 +7,7 @@ import { CurrencyCode2 } from "./currencycode2";
 import { Expose } from "class-transformer";
 
 /**
- * Breakdown of a charge in the lowest denomination of a currency (e.g. cents for USD).
+ * Breakdown of the total for a transaction.
  */
 export class TransactionTotals extends SpeakeasyBase {
     /**

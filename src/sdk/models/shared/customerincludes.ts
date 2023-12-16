@@ -7,7 +7,7 @@ import { SchemaStatus } from "./schemastatus";
 import { Expose, Transform } from "class-transformer";
 
 /**
- * Represents a customer entity.
+ * Represents a customer entity with included entities.
  */
 export class CustomerIncludes extends SpeakeasyBase {
     /**

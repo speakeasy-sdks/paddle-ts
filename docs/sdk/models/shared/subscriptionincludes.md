@@ -1,6 +1,6 @@
 # SubscriptionIncludes
 
-Represents a subscription preview.
+Represents a subscription entity with included entities.
 
 
 ## Fields

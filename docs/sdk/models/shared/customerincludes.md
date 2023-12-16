@@ -1,6 +1,6 @@
 # CustomerIncludes
 
-Represents a customer entity.
+Represents a customer entity with included entities.
 
 
 ## Fields

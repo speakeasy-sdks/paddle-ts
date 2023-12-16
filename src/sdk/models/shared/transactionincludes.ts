@@ -34,7 +34,7 @@ export class TransactionIncludesCheckout extends SpeakeasyBase {
 }
 
 /**
- * Represents a transaction entity.
+ * Represents a transaction entity with included entitites.
  */
 export class TransactionIncludes extends SpeakeasyBase {
     /**

@@ -13,7 +13,7 @@ import { UnitPriceOverride } from "./unitpriceoverride";
 import { Expose, Transform, Type } from "class-transformer";
 
 /**
- * Represents a price entity.
+ * Represents a price entity with included entities.
  */
 export class PriceIncludes extends SpeakeasyBase {
     /**

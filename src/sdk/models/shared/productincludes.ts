@@ -9,7 +9,7 @@ import { TaxCategory1 } from "./taxcategory1";
 import { Expose, Transform, Type } from "class-transformer";
 
 /**
- * Represents a product entity.
+ * Represents a product entity with included entities.
  */
 export class ProductIncludes extends SpeakeasyBase {
     /**

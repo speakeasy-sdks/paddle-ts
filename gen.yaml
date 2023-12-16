@@ -2,25 +2,27 @@ configVersion: 1.0.0
 management:
   docChecksum: 1fade75ac5b0bdfcf91084f35f8639c8
   docVersion: "1.0"
-  speakeasyVersion: 1.126.0
-  generationVersion: 2.213.3
+  speakeasyVersion: 1.126.4
+  generationVersion: 2.214.10
 generation:
   comments: {}
   sdkClassName: Paddle
   repoURL: https://github.com/speakeasy-sdks/paddle-ts.git
   usageSnippets:
     optionalPropertyRendering: withExample
+  fixes:
+    nameResolutionDec2023: false
 features:
   typescript:
-    core: 3.3.0
+    core: 3.3.8
     examples: 2.81.3
-    globalSecurity: 2.82.1
+    globalSecurity: 2.82.2
     globalServerURLs: 2.82.1
-    inputOutputModels: 2.82.0
+    inputOutputModels: 2.83.0
     nameOverrides: 2.81.1
     retries: 2.82.1
 typescript:
-  version: 0.15.0
+  version: 0.16.0
   author: paddle
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: false

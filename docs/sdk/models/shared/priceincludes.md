@@ -1,6 +1,6 @@
 # PriceIncludes
 
-Represents a price entity.
+Represents a price entity with included entities.
 
 
 ## Fields

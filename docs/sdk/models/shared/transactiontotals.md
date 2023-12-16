@@ -1,6 +1,6 @@
 # TransactionTotals
 
-Breakdown of a charge in the lowest denomination of a currency (e.g. cents for USD).
+Breakdown of the total for a transaction.
 
 
 ## Fields

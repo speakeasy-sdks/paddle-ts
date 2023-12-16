@@ -1,6 +1,6 @@
 # Subscription1
 
-Represents a subscription preview.
+Represents a subscription entity.
 
 
 ## Fields
