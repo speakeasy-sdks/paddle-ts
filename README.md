@@ -364,7 +364,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 | errors.CreateAdjustmentAdjustmentsResponseBody            | 404                                                       | application/json                                          |
 | errors.CreateAdjustmentAdjustmentsResponseResponseBody    | 409                                                       | application/json                                          |
 | errors.CreateAdjustmentAdjustmentsResponse500ResponseBody | 500                                                       | application/json                                          |
-| errors.SDKError                                           | 400-600                                                   | */*                                                       |
+| errors.SDKError                                           | 4xx-5xx                                                   | */*                                                       |
 
 Example
 

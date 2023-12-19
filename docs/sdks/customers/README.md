@@ -66,7 +66,7 @@ run();
 | errors.CreateCustomerCustomersResponseBody            | 401                                                   | application/json                                      |
 | errors.CreateCustomerCustomersResponseResponseBody    | 403                                                   | application/json                                      |
 | errors.CreateCustomerCustomersResponse500ResponseBody | 500                                                   | application/json                                      |
-| errors.SDKError                                       | 400-600                                               | */*                                                   |
+| errors.SDKError                                       | 4xx-5xx                                               | */*                                                   |
 
 ## get
 
@@ -116,7 +116,7 @@ run();
 | errors.GetCustomerCustomersResponseBody            | 403                                                | application/json                                   |
 | errors.GetCustomerCustomersResponseResponseBody    | 404                                                | application/json                                   |
 | errors.GetCustomerCustomersResponse500ResponseBody | 500                                                | application/json                                   |
-| errors.SDKError                                    | 400-600                                            | */*                                                |
+| errors.SDKError                                    | 4xx-5xx                                            | */*                                                |
 
 ## list
 
@@ -169,7 +169,7 @@ run();
 | errors.ListCustomersCustomersResponseBody            | 403                                                  | application/json                                     |
 | errors.ListCustomersCustomersResponseResponseBody    | 404                                                  | application/json                                     |
 | errors.ListCustomersCustomersResponse500ResponseBody | 500                                                  | application/json                                     |
-| errors.SDKError                                      | 400-600                                              | */*                                                  |
+| errors.SDKError                                      | 4xx-5xx                                              | */*                                                  |
 
 ## listCreditBalances
 
@@ -229,7 +229,7 @@ run();
 | errors.ListCreditBalancesResponseBody                  | 400                                                    | application/json                                       |
 | errors.ListCreditBalancesCustomersResponseBody         | 404                                                    | application/json                                       |
 | errors.ListCreditBalancesCustomersResponseResponseBody | 500                                                    | application/json                                       |
-| errors.SDKError                                        | 400-600                                                | */*                                                    |
+| errors.SDKError                                        | 4xx-5xx                                                | */*                                                    |
 
 ## update
 
@@ -287,4 +287,4 @@ run();
 | errors.UpdateCustomerCustomersResponseResponseBody    | 403                                                   | application/json                                      |
 | errors.UpdateCustomerCustomersResponse404ResponseBody | 404                                                   | application/json                                      |
 | errors.UpdateCustomerCustomersResponse500ResponseBody | 500                                                   | application/json                                      |
-| errors.SDKError                                       | 400-600                                               | */*                                                   |
+| errors.SDKError                                       | 4xx-5xx                                               | */*                                                   |

@@ -68,7 +68,7 @@ run();
 | errors.CreateProductResponseBody                 | 400                                              | application/json                                 |
 | errors.CreateProductProductsResponseBody         | 401                                              | application/json                                 |
 | errors.CreateProductProductsResponseResponseBody | 500                                              | application/json                                 |
-| errors.SDKError                                  | 400-600                                          | */*                                              |
+| errors.SDKError                                  | 4xx-5xx                                          | */*                                              |
 
 ## get
 
@@ -120,7 +120,7 @@ run();
 | errors.GetProductResponseBody                 | 401                                           | application/json                              |
 | errors.GetProductProductsResponseBody         | 404                                           | application/json                              |
 | errors.GetProductProductsResponseResponseBody | 500                                           | application/json                              |
-| errors.SDKError                               | 400-600                                       | */*                                           |
+| errors.SDKError                               | 4xx-5xx                                       | */*                                           |
 
 ## list
 
@@ -171,7 +171,7 @@ run();
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
 | errors.ListProductsResponseBody         | 401                                     | application/json                        |
 | errors.ListProductsProductsResponseBody | 500                                     | application/json                        |
-| errors.SDKError                         | 400-600                                 | */*                                     |
+| errors.SDKError                         | 4xx-5xx                                 | */*                                     |
 
 ## update
 
@@ -229,4 +229,4 @@ run();
 | errors.UpdateProductProductsResponseBody            | 401                                                 | application/json                                    |
 | errors.UpdateProductProductsResponseResponseBody    | 404                                                 | application/json                                    |
 | errors.UpdateProductProductsResponse500ResponseBody | 500                                                 | application/json                                    |
-| errors.SDKError                                     | 400-600                                             | */*                                                 |
+| errors.SDKError                                     | 4xx-5xx                                             | */*                                                 |

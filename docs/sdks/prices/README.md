@@ -97,7 +97,7 @@ run();
 | errors.CreatePriceResponseBody               | 400                                          | application/json                             |
 | errors.CreatePricePricesResponseBody         | 403                                          | application/json                             |
 | errors.CreatePricePricesResponseResponseBody | 500                                          | application/json                             |
-| errors.SDKError                              | 400-600                                      | */*                                          |
+| errors.SDKError                              | 4xx-5xx                                      | */*                                          |
 
 ## get
 
@@ -149,7 +149,7 @@ run();
 | errors.GetPriceResponseBody               | 401                                       | application/json                          |
 | errors.GetPricePricesResponseBody         | 404                                       | application/json                          |
 | errors.GetPricePricesResponseResponseBody | 500                                       | application/json                          |
-| errors.SDKError                           | 400-600                                   | */*                                       |
+| errors.SDKError                           | 4xx-5xx                                   | */*                                       |
 
 ## list
 
@@ -202,7 +202,7 @@ run();
 | ----------------------------------- | ----------------------------------- | ----------------------------------- |
 | errors.ListPricesResponseBody       | 401                                 | application/json                    |
 | errors.ListPricesPricesResponseBody | 500                                 | application/json                    |
-| errors.SDKError                     | 400-600                             | */*                                 |
+| errors.SDKError                     | 4xx-5xx                             | */*                                 |
 
 ## update
 
@@ -284,4 +284,4 @@ run();
 | errors.UpdatePriceResponseBody               | 401                                          | application/json                             |
 | errors.UpdatePricePricesResponseBody         | 404                                          | application/json                             |
 | errors.UpdatePricePricesResponseResponseBody | 500                                          | application/json                             |
-| errors.SDKError                              | 400-600                                      | */*                                          |
+| errors.SDKError                              | 4xx-5xx                                      | */*                                          |

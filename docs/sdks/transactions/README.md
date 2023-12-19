@@ -142,7 +142,7 @@ run();
 | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
 | errors.CreateTransactionResponseBody             | 401                                              | application/json                                 |
 | errors.CreateTransactionTransactionsResponseBody | 500                                              | application/json                                 |
-| errors.SDKError                                  | 400-600                                          | */*                                              |
+| errors.SDKError                                  | 4xx-5xx                                          | */*                                              |
 
 ## get
 
@@ -194,7 +194,7 @@ run();
 | errors.GetTransactionResponseBody                               | 401                                                             | application/json                                                |
 | errors.GetTransactionTransactionsResponseBody                   | 404                                                             | application/json                                                |
 | errors.GetTransactionTransactionsTransactionServiceResponseBody | 500                                                             | application/json                                                |
-| errors.SDKError                                                 | 400-600                                                         | */*                                                             |
+| errors.SDKError                                                 | 4xx-5xx                                                         | */*                                                             |
 
 ## getInvoice
 
@@ -250,7 +250,7 @@ run();
 | errors.GetTransactionInvoiceResponseBody                     | 401                                                          | application/json                                             |
 | errors.GetTransactionInvoiceTransactionsResponseBody         | 404                                                          | application/json                                             |
 | errors.GetTransactionInvoiceTransactionsResponseResponseBody | 500                                                          | application/json                                             |
-| errors.SDKError                                              | 400-600                                                      | */*                                                          |
+| errors.SDKError                                              | 4xx-5xx                                                      | */*                                                          |
 
 ## list
 
@@ -306,7 +306,7 @@ run();
 | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
 | errors.ListTransactionsResponseBody             | 401                                             | application/json                                |
 | errors.ListTransactionsTransactionsResponseBody | 500                                             | application/json                                |
-| errors.SDKError                                 | 400-600                                         | */*                                             |
+| errors.SDKError                                 | 4xx-5xx                                         | */*                                             |
 
 ## previewTransaction
 
@@ -421,7 +421,7 @@ run();
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
 | errors.PreviewTransactionResponseBody             | 401                                               | application/json                                  |
 | errors.PreviewTransactionTransactionsResponseBody | 500                                               | application/json                                  |
-| errors.SDKError                                   | 400-600                                           | */*                                               |
+| errors.SDKError                                   | 4xx-5xx                                           | */*                                               |
 
 ## pricePreview
 
@@ -493,7 +493,7 @@ run();
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
 | errors.PricePreviewResponseBody             | 401                                         | application/json                            |
 | errors.PricePreviewTransactionsResponseBody | 500                                         | application/json                            |
-| errors.SDKError                             | 400-600                                     | */*                                         |
+| errors.SDKError                             | 4xx-5xx                                     | */*                                         |
 
 ## update
 
@@ -612,4 +612,4 @@ run();
 | errors.UpdateTransactionResponseBody                               | 401                                                                | application/json                                                   |
 | errors.UpdateTransactionTransactionsResponseBody                   | 404                                                                | application/json                                                   |
 | errors.UpdateTransactionTransactionsTransactionServiceResponseBody | 500                                                                | application/json                                                   |
-| errors.SDKError                                                    | 400-600                                                            | */*                                                                |
+| errors.SDKError                                                    | 4xx-5xx                                                            | */*                                                                |

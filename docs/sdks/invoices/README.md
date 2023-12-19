@@ -68,7 +68,7 @@ run();
 | errors.CancelInvoiceResponseBody                 | 401                                              | application/json                                 |
 | errors.CancelInvoiceInvoicesResponseBody         | 404                                              | application/json                                 |
 | errors.CancelInvoiceInvoicesResponseResponseBody | 500                                              | application/json                                 |
-| errors.SDKError                                  | 400-600                                          | */*                                              |
+| errors.SDKError                                  | 4xx-5xx                                          | */*                                              |
 
 ## create
 
@@ -159,7 +159,7 @@ run();
 | errors.CreateInvoiceResponseBody                 | 400                                              | application/json                                 |
 | errors.CreateInvoiceInvoicesResponseBody         | 401                                              | application/json                                 |
 | errors.CreateInvoiceInvoicesResponseResponseBody | 500                                              | application/json                                 |
-| errors.SDKError                                  | 400-600                                          | */*                                              |
+| errors.SDKError                                  | 4xx-5xx                                          | */*                                              |
 
 ## get
 
@@ -208,7 +208,7 @@ run();
 | errors.GetInvoiceResponseBody                 | 401                                           | application/json                              |
 | errors.GetInvoiceInvoicesResponseBody         | 404                                           | application/json                              |
 | errors.GetInvoiceInvoicesResponseResponseBody | 500                                           | application/json                              |
-| errors.SDKError                               | 400-600                                       | */*                                           |
+| errors.SDKError                               | 4xx-5xx                                       | */*                                           |
 
 ## getPdf
 
@@ -259,7 +259,7 @@ run();
 | errors.GetInvoicePdfResponseBody                 | 401                                              | application/json                                 |
 | errors.GetInvoicePdfInvoicesResponseBody         | 404                                              | application/json                                 |
 | errors.GetInvoicePdfInvoicesResponseResponseBody | 500                                              | application/json                                 |
-| errors.SDKError                                  | 400-600                                          | */*                                              |
+| errors.SDKError                                  | 4xx-5xx                                          | */*                                              |
 
 ## issueInvoice
 
@@ -322,7 +322,7 @@ run();
 | errors.IssueInvoiceInvoicesResponseResponseBody    | 404                                                | application/json                                   |
 | errors.IssueInvoiceInvoicesResponse422ResponseBody | 422                                                | application/json                                   |
 | errors.IssueInvoiceInvoicesResponse500ResponseBody | 500                                                | application/json                                   |
-| errors.SDKError                                    | 400-600                                            | */*                                                |
+| errors.SDKError                                    | 4xx-5xx                                            | */*                                                |
 
 ## list
 
@@ -371,7 +371,7 @@ run();
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
 | errors.ListInvoicesResponseBody         | 401                                     | application/json                        |
 | errors.ListInvoicesInvoicesResponseBody | 500                                     | application/json                        |
-| errors.SDKError                         | 400-600                                 | */*                                     |
+| errors.SDKError                         | 4xx-5xx                                 | */*                                     |
 
 ## update
 
@@ -456,4 +456,4 @@ run();
 | errors.UpdateInvoiceInvoicesResponseResponseBody    | 404                                                 | application/json                                    |
 | errors.UpdateInvoiceInvoicesResponse422ResponseBody | 422                                                 | application/json                                    |
 | errors.UpdateInvoiceInvoicesResponse500ResponseBody | 500                                                 | application/json                                    |
-| errors.SDKError                                     | 400-600                                             | */*                                                 |
+| errors.SDKError                                     | 4xx-5xx                                             | */*                                                 |

@@ -75,7 +75,7 @@ run();
 | errors.CreateNotificationSettingResponseBody                      | 400                                                               | application/json                                                  |
 | errors.CreateNotificationSettingNotificationsResponseBody         | 401                                                               | application/json                                                  |
 | errors.CreateNotificationSettingNotificationsResponseResponseBody | 500                                                               | application/json                                                  |
-| errors.SDKError                                                   | 400-600                                                           | */*                                                               |
+| errors.SDKError                                                   | 4xx-5xx                                                           | */*                                                               |
 
 ## deleteSetting
 
@@ -128,7 +128,7 @@ run();
 | errors.DeleteNotificationSettingResponseBody                      | 401                                                               | application/json                                                  |
 | errors.DeleteNotificationSettingNotificationsResponseBody         | 404                                                               | application/json                                                  |
 | errors.DeleteNotificationSettingNotificationsResponseResponseBody | 500                                                               | application/json                                                  |
-| errors.SDKError                                                   | 400-600                                                           | */*                                                               |
+| errors.SDKError                                                   | 4xx-5xx                                                           | */*                                                               |
 
 ## get
 
@@ -177,7 +177,7 @@ run();
 | errors.GetNotificationResponseBody                      | 401                                                     | application/json                                        |
 | errors.GetNotificationNotificationsResponseBody         | 404                                                     | application/json                                        |
 | errors.GetNotificationNotificationsResponseResponseBody | 500                                                     | application/json                                        |
-| errors.SDKError                                         | 400-600                                                 | */*                                                     |
+| errors.SDKError                                         | 4xx-5xx                                                 | */*                                                     |
 
 ## getSetting
 
@@ -226,7 +226,7 @@ run();
 | errors.GetNotificationSettingResponseBody                      | 401                                                            | application/json                                               |
 | errors.GetNotificationSettingNotificationsResponseBody         | 404                                                            | application/json                                               |
 | errors.GetNotificationSettingNotificationsResponseResponseBody | 500                                                            | application/json                                               |
-| errors.SDKError                                                | 400-600                                                        | */*                                                            |
+| errors.SDKError                                                | 4xx-5xx                                                        | */*                                                            |
 
 ## list
 
@@ -279,7 +279,7 @@ run();
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
 | errors.ListNotificationsResponseBody              | 401                                               | application/json                                  |
 | errors.ListNotificationsNotificationsResponseBody | 500                                               | application/json                                  |
-| errors.SDKError                                   | 400-600                                           | */*                                               |
+| errors.SDKError                                   | 4xx-5xx                                           | */*                                               |
 
 ## listLogs
 
@@ -328,7 +328,7 @@ run();
 | errors.ListNotificationLogsResponseBody                      | 401                                                          | application/json                                             |
 | errors.ListNotificationLogsNotificationsResponseBody         | 404                                                          | application/json                                             |
 | errors.ListNotificationLogsNotificationsResponseResponseBody | 500                                                          | application/json                                             |
-| errors.SDKError                                              | 400-600                                                      | */*                                                          |
+| errors.SDKError                                              | 4xx-5xx                                                      | */*                                                          |
 
 ## listSettings
 
@@ -375,7 +375,7 @@ run();
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | errors.ListNotificationSettingsResponseBody              | 401                                                      | application/json                                         |
 | errors.ListNotificationSettingsNotificationsResponseBody | 500                                                      | application/json                                         |
-| errors.SDKError                                          | 400-600                                                  | */*                                                      |
+| errors.SDKError                                          | 4xx-5xx                                                  | */*                                                      |
 
 ## replay
 
@@ -428,7 +428,7 @@ run();
 | errors.ReplayNotificationResponseBody                      | 401                                                        | application/json                                           |
 | errors.ReplayNotificationNotificationsResponseBody         | 404                                                        | application/json                                           |
 | errors.ReplayNotificationNotificationsResponseResponseBody | 500                                                        | application/json                                           |
-| errors.SDKError                                            | 400-600                                                    | */*                                                        |
+| errors.SDKError                                            | 4xx-5xx                                                    | */*                                                        |
 
 ## replayBySetting
 
@@ -482,7 +482,7 @@ run();
 | errors.PostNotificationSettingsNotificationSettingIdReplayResponseBody                      | 401                                                                                         | application/json                                                                            |
 | errors.PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseBody         | 404                                                                                         | application/json                                                                            |
 | errors.PostNotificationSettingsNotificationSettingIdReplayNotificationsResponseResponseBody | 500                                                                                         | application/json                                                                            |
-| errors.SDKError                                                                             | 400-600                                                                                     | */*                                                                                         |
+| errors.SDKError                                                                             | 4xx-5xx                                                                                     | */*                                                                                         |
 
 ## updateSettings
 
@@ -543,4 +543,4 @@ run();
 | errors.UpdateNotificationSettingNotificationsResponseBody            | 401                                                                  | application/json                                                     |
 | errors.UpdateNotificationSettingNotificationsResponseResponseBody    | 404                                                                  | application/json                                                     |
 | errors.UpdateNotificationSettingNotificationsResponse500ResponseBody | 500                                                                  | application/json                                                     |
-| errors.SDKError                                                      | 400-600                                                              | */*                                                                  |
+| errors.SDKError                                                      | 4xx-5xx                                                              | */*                                                                  |

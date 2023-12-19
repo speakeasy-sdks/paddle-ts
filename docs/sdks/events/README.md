@@ -56,7 +56,7 @@ run();
 | ----------------------------------- | ----------------------------------- | ----------------------------------- |
 | errors.ListEventsResponseBody       | 401                                 | application/json                    |
 | errors.ListEventsEventsResponseBody | 500                                 | application/json                    |
-| errors.SDKError                     | 400-600                             | */*                                 |
+| errors.SDKError                     | 4xx-5xx                             | */*                                 |
 
 ## listTypes
 
@@ -103,4 +103,4 @@ run();
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
 | errors.ListEventTypesResponseBody       | 401                                     | application/json                        |
 | errors.ListEventTypesEventsResponseBody | 500                                     | application/json                        |
-| errors.SDKError                         | 400-600                                 | */*                                     |
+| errors.SDKError                         | 4xx-5xx                                 | */*                                     |

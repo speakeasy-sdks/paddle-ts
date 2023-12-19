@@ -77,7 +77,7 @@ run();
 | errors.CreateAddressAddressesResponseResponseBody    | 403                                                  | application/json                                     |
 | errors.CreateAddressAddressesResponse404ResponseBody | 404                                                  | application/json                                     |
 | errors.CreateAddressAddressesResponse500ResponseBody | 500                                                  | application/json                                     |
-| errors.SDKError                                      | 400-600                                              | */*                                                  |
+| errors.SDKError                                      | 4xx-5xx                                              | */*                                                  |
 
 ## get
 
@@ -129,7 +129,7 @@ run();
 | errors.GetAddressAddressesResponseResponseBody    | 403                                               | application/json                                  |
 | errors.GetAddressAddressesResponse404ResponseBody | 404                                               | application/json                                  |
 | errors.GetAddressAddressesResponse500ResponseBody | 500                                               | application/json                                  |
-| errors.SDKError                                   | 400-600                                           | */*                                               |
+| errors.SDKError                                   | 4xx-5xx                                           | */*                                               |
 
 ## list
 
@@ -183,7 +183,7 @@ run();
 | errors.ListAddressesAddressesResponseBody            | 403                                                  | application/json                                     |
 | errors.ListAddressesAddressesResponseResponseBody    | 404                                                  | application/json                                     |
 | errors.ListAddressesAddressesResponse500ResponseBody | 500                                                  | application/json                                     |
-| errors.SDKError                                      | 400-600                                              | */*                                                  |
+| errors.SDKError                                      | 4xx-5xx                                              | */*                                                  |
 
 ## update
 
@@ -246,4 +246,4 @@ run();
 | errors.UpdateAddressAddressesResponseResponseBody    | 403                                                  | application/json                                     |
 | errors.UpdateAddressAddressesResponse404ResponseBody | 404                                                  | application/json                                     |
 | errors.UpdateAddressAddressesResponse500ResponseBody | 500                                                  | application/json                                     |
-| errors.SDKError                                      | 400-600                                              | */*                                                  |
+| errors.SDKError                                      | 4xx-5xx                                              | */*                                                  |

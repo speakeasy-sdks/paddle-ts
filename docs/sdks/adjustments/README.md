@@ -105,7 +105,7 @@ run();
 | errors.CreateAdjustmentAdjustmentsResponseBody            | 404                                                       | application/json                                          |
 | errors.CreateAdjustmentAdjustmentsResponseResponseBody    | 409                                                       | application/json                                          |
 | errors.CreateAdjustmentAdjustmentsResponse500ResponseBody | 500                                                       | application/json                                          |
-| errors.SDKError                                           | 400-600                                                   | */*                                                       |
+| errors.SDKError                                           | 4xx-5xx                                                   | */*                                                       |
 
 ## list
 
@@ -156,4 +156,4 @@ run();
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
 | errors.ListAdjustmentsResponseBody            | 400                                           | application/json                              |
 | errors.ListAdjustmentsAdjustmentsResponseBody | 500                                           | application/json                              |
-| errors.SDKError                               | 400-600                                       | */*                                           |
+| errors.SDKError                               | 4xx-5xx                                       | */*                                           |

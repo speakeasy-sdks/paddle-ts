@@ -77,7 +77,7 @@ run();
 | errors.CreateBusinessBusinessesResponseResponseBody    | 403                                                    | application/json                                       |
 | errors.CreateBusinessBusinessesResponse404ResponseBody | 404                                                    | application/json                                       |
 | errors.CreateBusinessBusinessesResponse500ResponseBody | 500                                                    | application/json                                       |
-| errors.SDKError                                        | 400-600                                                | */*                                                    |
+| errors.SDKError                                        | 4xx-5xx                                                | */*                                                    |
 
 ## get
 
@@ -128,7 +128,7 @@ run();
 | errors.GetBusinessBusinessesResponseBody            | 403                                                 | application/json                                    |
 | errors.GetBusinessBusinessesResponseResponseBody    | 404                                                 | application/json                                    |
 | errors.GetBusinessBusinessesResponse500ResponseBody | 500                                                 | application/json                                    |
-| errors.SDKError                                     | 400-600                                             | */*                                                 |
+| errors.SDKError                                     | 4xx-5xx                                             | */*                                                 |
 
 ## list
 
@@ -182,7 +182,7 @@ run();
 | errors.ListBusinessesBusinessesResponseBody            | 403                                                    | application/json                                       |
 | errors.ListBusinessesBusinessesResponseResponseBody    | 404                                                    | application/json                                       |
 | errors.ListBusinessesBusinessesResponse500ResponseBody | 500                                                    | application/json                                       |
-| errors.SDKError                                        | 400-600                                                | */*                                                    |
+| errors.SDKError                                        | 4xx-5xx                                                | */*                                                    |
 
 ## update
 
@@ -248,4 +248,4 @@ run();
 | errors.UpdateBusinessBusinessesResponseResponseBody    | 403                                                    | application/json                                       |
 | errors.UpdateBusinessBusinessesResponse404ResponseBody | 404                                                    | application/json                                       |
 | errors.UpdateBusinessBusinessesResponse500ResponseBody | 500                                                    | application/json                                       |
-| errors.SDKError                                        | 400-600                                                | */*                                                    |
+| errors.SDKError                                        | 4xx-5xx                                                | */*                                                    |

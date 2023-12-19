@@ -76,7 +76,7 @@ run();
 | errors.CancelSubscriptionSubscriptionsResponseBody         | 401                                                        | application/json                                           |
 | errors.ErrorT                                              | 409                                                        | application/json                                           |
 | errors.CancelSubscriptionSubscriptionsResponseResponseBody | 500                                                        | application/json                                           |
-| errors.SDKError                                            | 400-600                                                    | */*                                                        |
+| errors.SDKError                                            | 4xx-5xx                                                    | */*                                                        |
 
 ## create
 
@@ -141,7 +141,7 @@ run();
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | errors.CreateSubscriptionChargeResponseBody              | 400                                                      | application/json                                         |
 | errors.CreateSubscriptionChargeSubscriptionsResponseBody | 500                                                      | application/json                                         |
-| errors.SDKError                                          | 400-600                                                  | */*                                                      |
+| errors.SDKError                                          | 4xx-5xx                                                  | */*                                                      |
 
 ## createPreview
 
@@ -199,7 +199,7 @@ run();
 | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
 | errors.CreateSubscriptionChargePreviewResponseBody              | 400                                                             | application/json                                                |
 | errors.CreateSubscriptionChargePreviewSubscriptionsResponseBody | 500                                                             | application/json                                                |
-| errors.SDKError                                                 | 400-600                                                         | */*                                                             |
+| errors.SDKError                                                 | 4xx-5xx                                                         | */*                                                             |
 
 ## get
 
@@ -251,7 +251,7 @@ run();
 | errors.GetSubscriptionResponseBody                      | 401                                                     | application/json                                        |
 | errors.GetSubscriptionSubscriptionsResponseBody         | 404                                                     | application/json                                        |
 | errors.GetSubscriptionSubscriptionsResponseResponseBody | 500                                                     | application/json                                        |
-| errors.SDKError                                         | 400-600                                                 | */*                                                     |
+| errors.SDKError                                         | 4xx-5xx                                                 | */*                                                     |
 
 ## getUpdatedPaymentMethodTransaction
 
@@ -308,7 +308,7 @@ run();
 | errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseBody            | 403                                                                                      | application/json                                                                         |
 | errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponseResponseBody    | 409                                                                                      | application/json                                                                         |
 | errors.GetSubscriptionUpdatePaymentMethodTransactionSubscriptionsResponse500ResponseBody | 500                                                                                      | application/json                                                                         |
-| errors.SDKError                                                                          | 400-600                                                                                  | */*                                                                                      |
+| errors.SDKError                                                                          | 4xx-5xx                                                                                  | */*                                                                                      |
 
 ## list
 
@@ -358,7 +358,7 @@ run();
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
 | errors.ListSubscriptionsResponseBody              | 401                                               | application/json                                  |
 | errors.ListSubscriptionsSubscriptionsResponseBody | 500                                               | application/json                                  |
-| errors.SDKError                                   | 400-600                                           | */*                                               |
+| errors.SDKError                                   | 4xx-5xx                                           | */*                                               |
 
 ## pause
 
@@ -418,7 +418,7 @@ run();
 | errors.PauseSubscriptionSubscriptionsResponseBody         | 401                                                       | application/json                                          |
 | errors.ErrorT                                             | 409                                                       | application/json                                          |
 | errors.PauseSubscriptionSubscriptionsResponseResponseBody | 500                                                       | application/json                                          |
-| errors.SDKError                                           | 400-600                                                   | */*                                                       |
+| errors.SDKError                                           | 4xx-5xx                                                   | */*                                                       |
 
 ## previewSubscription
 
@@ -495,7 +495,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## resumeSubscription
 
@@ -550,7 +550,7 @@ run();
 | errors.ResumeSubscriptionSubscriptionsResponseBody         | 401                                                        | application/json                                           |
 | errors.ErrorT                                              | 409                                                        | application/json                                           |
 | errors.ResumeSubscriptionSubscriptionsResponseResponseBody | 500                                                        | application/json                                           |
-| errors.SDKError                                            | 400-600                                                    | */*                                                        |
+| errors.SDKError                                            | 4xx-5xx                                                    | */*                                                        |
 
 ## update
 
@@ -637,4 +637,4 @@ run();
 | errors.UpdateSubscriptionSubscriptionsResponseBody         | 401                                                        | application/json                                           |
 | errors.ErrorT                                              | 409                                                        | application/json                                           |
 | errors.UpdateSubscriptionSubscriptionsResponseResponseBody | 500                                                        | application/json                                           |
-| errors.SDKError                                            | 400-600                                                    | */*                                                        |
+| errors.SDKError                                            | 4xx-5xx                                                    | */*                                                        |
