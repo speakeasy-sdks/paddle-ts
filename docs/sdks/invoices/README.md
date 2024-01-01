@@ -101,8 +101,8 @@ async function run() {
       },
     },
     billingPeriod: {
-      endsAt: new RFCDate("2022-12-01"),
-      startsAt: new RFCDate("2023-07-30"),
+      endsAt: new RFCDate("2023-12-01"),
+      startsAt: new RFCDate("2024-07-30"),
       type: InvoiceType.Contract,
     },
     businessId: "biz_01ghbkcbs88yxj4fxecevjz9g7",
@@ -405,8 +405,8 @@ async function run() {
         },
       },
       billingPeriod: {
-        endsAt: new RFCDate("2022-10-16"),
-        startsAt: new RFCDate("2021-01-18"),
+        endsAt: new RFCDate("2023-10-17"),
+        startsAt: new RFCDate("2022-01-18"),
         type: InvoiceForPatchType.Contract,
       },
       businessId: "biz_01ghbmaszjgjd47g5f3d9vw7hg",
