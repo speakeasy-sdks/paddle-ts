@@ -1,26 +1,10 @@
-configVersion: 1.0.0
-management:
-  docChecksum: 1fade75ac5b0bdfcf91084f35f8639c8
-  docVersion: "1.0"
-  speakeasyVersion: 1.129.1
-  generationVersion: 2.223.3
+configVersion: 2.0.0
 generation:
-  comments: {}
   sdkClassName: Paddle
-  repoURL: https://github.com/speakeasy-sdks/paddle-ts.git
   usageSnippets:
     optionalPropertyRendering: withExample
   fixes:
     nameResolutionDec2023: false
-features:
-  typescript:
-    core: 3.3.12
-    examples: 2.81.3
-    globalSecurity: 2.82.2
-    globalServerURLs: 2.82.1
-    inputOutputModels: 2.83.0
-    nameOverrides: 2.81.1
-    retries: 2.82.1
 typescript:
   version: 0.16.2
   author: paddle
@@ -35,9 +19,7 @@ typescript:
       shared: sdk/models/shared
       webhooks: sdk/models/webhooks
   inputModelSuffix: input
-  installationURL: https://github.com/speakeasy-sdks/paddle-ts
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: Paddle
-  repoSubDirectory: .
   templateVersion: v1

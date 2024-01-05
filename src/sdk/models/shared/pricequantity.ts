@@ -11,12 +11,12 @@ export class PriceQuantity extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "maximum" })
-    maximum?: number;
+    maximum: number;
 
     /**
      * Minimum quantity of the product related to this price that can be bought. Required if `maximum` set.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "minimum" })
-    minimum?: number;
+    minimum: number;
 }

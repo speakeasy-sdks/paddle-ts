@@ -128,6 +128,7 @@ async function run() {
             currencyCode: CurrencyCodeInvoice.Usd,
           },
         },
+        quantity: 69025,
       },
     ],
   });
@@ -421,6 +422,7 @@ async function run() {
               currencyCode: CurrencyCodeInvoice.Usd,
             },
           },
+          quantity: 270324,
         },
       ],
     },

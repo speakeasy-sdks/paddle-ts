@@ -35,5 +35,5 @@ export class Pagination2 extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "per_page" })
-    perPage?: number;
+    perPage: number;
 }

@@ -43,5 +43,5 @@ export class InvoiceItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "quantity" })
-    quantity?: number;
+    quantity: number;
 }
