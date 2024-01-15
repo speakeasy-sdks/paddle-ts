@@ -1,0 +1,491 @@
+overlay: 1.0.0
+info:
+  title: Overlay og-paddle.yaml => paddle.yaml
+  version: 0.0.0
+extends: file:///Users/ndimares/speakeasy/client_sdks/paddle/og-paddle.yaml
+actions:
+  - target: $
+    update:
+      x-speakeasy-name-override:
+        - operationId: ^create-.*
+          methodNameOverride: create
+        - operationId: ^cancel-.*
+          methodNameOverride: cancel
+        - operationId: ^update-.*
+          methodNameOverride: update
+        - operationId: ^replay-.*
+          methodNameOverride: replay
+        - operationId: ^pause-.*
+          methodNameOverride: pause
+        - operationId: ^get-.*
+          methodNameOverride: get
+        - operationId: ^list-.*
+          methodNameOverride: list
+  - target: $["paths"]["/products"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/products"]["get"]["tags"]
+    update:
+      - Products
+  - target: $["paths"]["/products"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/products"]["post"]["tags"]
+    update:
+      - Products
+  - target: $["paths"]["/products/{product_id}"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/products/{product_id}"]["get"]["tags"]
+    update:
+      - Products
+  - target: $["paths"]["/products/{product_id}"]["patch"]["tags"]
+    remove: true
+  - target: $["paths"]["/products/{product_id}"]["patch"]["tags"]
+    update:
+      - Products
+  - target: $["paths"]["/prices"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/prices"]["get"]["tags"]
+    update:
+      - Prices
+  - target: $["paths"]["/prices"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/prices"]["post"]["tags"]
+    update:
+      - Prices
+  - target: $["paths"]["/prices/{price_id}"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/prices/{price_id}"]["get"]["tags"]
+    update:
+      - Prices
+  - target: $["paths"]["/prices/{price_id}"]["patch"]["tags"]
+    remove: true
+  - target: $["paths"]["/prices/{price_id}"]["patch"]["tags"]
+    update:
+      - Prices
+  - target: $["paths"]["/adjustments"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/adjustments"]["post"]["tags"]
+    update:
+      - Adjustments
+  - target: $["paths"]["/adjustments"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/adjustments"]["get"]["tags"]
+    update:
+      - Adjustments
+  - target: $["paths"]["/customers/{customer_id}/credit-balances"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/customers/{customer_id}/credit-balances"]["get"]["tags"]
+    update:
+      - Customers
+  - target: $["paths"]["/customers/{customer_id}/credit-balances"]["get"]
+    update:
+      x-speakeasy-name-override: list-credit-balances
+  - target: $["paths"]["/customers"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/customers"]["get"]["tags"]
+    update:
+      - Customers
+  - target: $["paths"]["/customers"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/customers"]["post"]["tags"]
+    update:
+      - Customers
+  - target: $["paths"]["/customers/{customer_id}"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/customers/{customer_id}"]["get"]["tags"]
+    update:
+      - Customers
+  - target: $["paths"]["/customers/{customer_id}"]["patch"]["tags"]
+    remove: true
+  - target: $["paths"]["/customers/{customer_id}"]["patch"]["tags"]
+    update:
+      - Customers
+  - target: $["paths"]["/customers/{customer_id}/addresses"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/customers/{customer_id}/addresses"]["get"]["tags"]
+    update:
+      - Addresses
+  - target: $["paths"]["/customers/{customer_id}/addresses"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/customers/{customer_id}/addresses"]["post"]["tags"]
+    update:
+      - Addresses
+  - target: $["paths"]["/customers/{customer_id}/addresses/{address_id}"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/customers/{customer_id}/addresses/{address_id}"]["get"]["tags"]
+    update:
+      - Addresses
+  - target: $["paths"]["/customers/{customer_id}/addresses/{address_id}"]["patch"]["tags"]
+    remove: true
+  - target: $["paths"]["/customers/{customer_id}/addresses/{address_id}"]["patch"]["tags"]
+    update:
+      - Addresses
+  - target: $["paths"]["/customers/{customer_id}/businesses"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/customers/{customer_id}/businesses"]["get"]["tags"]
+    update:
+      - Businesses
+  - target: $["paths"]["/customers/{customer_id}/businesses"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/customers/{customer_id}/businesses"]["post"]["tags"]
+    update:
+      - Businesses
+  - target: $["paths"]["/customers/{customer_id}/businesses/{business_id}"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/customers/{customer_id}/businesses/{business_id}"]["get"]["tags"]
+    update:
+      - Businesses
+  - target: $["paths"]["/customers/{customer_id}/businesses/{business_id}"]["patch"]["tags"]
+    remove: true
+  - target: $["paths"]["/customers/{customer_id}/businesses/{business_id}"]["patch"]["tags"]
+    update:
+      - Businesses
+  - target: $["paths"]["/notification-settings"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/notification-settings"]["get"]["tags"]
+    update:
+      - Notifications
+  - target: $["paths"]["/notification-settings"]["get"]
+    update:
+      x-speakeasy-name-override: list-settings
+  - target: $["paths"]["/notification-settings"]["post"]
+    update:
+      x-speakeasy-name-override: create-setting
+  - target: $["paths"]["/notification-settings"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/notification-settings"]["post"]["tags"]
+    update:
+      - Notifications
+  - target: $["paths"]["/notification-settings/{notification_setting_id}"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/notification-settings/{notification_setting_id}"]["get"]["tags"]
+    update:
+      - Notifications
+  - target: $["paths"]["/notification-settings/{notification_setting_id}"]["get"]
+    update:
+      x-speakeasy-name-override: get-setting
+  - target: $["paths"]["/notification-settings/{notification_setting_id}"]["patch"]
+    update:
+      x-speakeasy-name-override: update-settings
+  - target: $["paths"]["/notification-settings/{notification_setting_id}"]["patch"]["tags"]
+    remove: true
+  - target: $["paths"]["/notification-settings/{notification_setting_id}"]["patch"]["tags"]
+    update:
+      - Notifications
+  - target: $["paths"]["/notification-settings/{notification_setting_id}"]["delete"]
+    update:
+      x-speakeasy-name-override: delete-setting
+  - target: $["paths"]["/notification-settings/{notification_setting_id}"]["delete"]["tags"]
+    remove: true
+  - target: $["paths"]["/notification-settings/{notification_setting_id}"]["delete"]["tags"]
+    update:
+      - Notifications
+  - target: $["paths"]["/notification-settings/{notification_setting_id}/replay"]["post"]
+    update:
+      x-speakeasy-name-override: replay-by-setting
+  - target: $["paths"]["/notification-settings/{notification_setting_id}/replay"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/notification-settings/{notification_setting_id}/replay"]["post"]["tags"]
+    update:
+      - Notifications
+  - target: $["paths"]["/event-types"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/event-types"]["get"]["tags"]
+    update:
+      - Events
+  - target: $["paths"]["/event-types"]["get"]
+    update:
+      x-speakeasy-name-override: list-types
+  - target: $["paths"]["/events"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/events"]["get"]["tags"]
+    update:
+      - Events
+  - target: $["paths"]["/notifications"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/notifications"]["get"]["tags"]
+    update:
+      - Notifications
+  - target: $["paths"]["/notifications/{notification_id}"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/notifications/{notification_id}"]["get"]["tags"]
+    update:
+      - Notifications
+  - target: $["paths"]["/notifications/{notification_id}/logs"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/notifications/{notification_id}/logs"]["get"]["tags"]
+    update:
+      - Notifications
+  - target: $["paths"]["/notifications/{notification_id}/logs"]["get"]
+    update:
+      x-speakeasy-name-override: list-logs
+  - target: $["paths"]["/notifications/{notification_id}/replay"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/notifications/{notification_id}/replay"]["post"]["tags"]
+    update:
+      - Notifications
+  - target: $["paths"]["/ips"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/ips"]["get"]["tags"]
+    update:
+      - IP addresses
+  - target: $["paths"]["/invoices"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/invoices"]["get"]["tags"]
+    update:
+      - Invoices
+  - target: $["paths"]["/invoices"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/invoices"]["post"]["tags"]
+    update:
+      - Invoices
+  - target: $["paths"]["/invoices/{invoice_id}"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/invoices/{invoice_id}"]["get"]["tags"]
+    update:
+      - Invoices
+  - target: $["paths"]["/invoices/{invoice_id}"]["patch"]["tags"]
+    remove: true
+  - target: $["paths"]["/invoices/{invoice_id}"]["patch"]["tags"]
+    update:
+      - Invoices
+  - target: $["paths"]["/invoices/{invoice_id}/pdf"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/invoices/{invoice_id}/pdf"]["get"]["tags"]
+    update:
+      - Invoices
+  - target: $["paths"]["/invoices/{invoice_id}/pdf"]["get"]
+    update:
+      x-speakeasy-name-override: get-pdf
+  - target: $["paths"]["/transactions/{transaction_id}/invoice"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/transactions/{transaction_id}/invoice"]["get"]["tags"]
+    update:
+      - Transactions
+  - target: $["paths"]["/transactions/{transaction_id}/invoice"]["get"]
+    update:
+      x-speakeasy-name-override: get-invoice
+  - target: $["paths"]["/invoices/{invoice_id}/issue"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/invoices/{invoice_id}/issue"]["post"]["tags"]
+    update:
+      - Invoices
+  - target: $["paths"]["/invoices/{invoice_id}/cancel"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/invoices/{invoice_id}/cancel"]["post"]["tags"]
+    update:
+      - Invoices
+  - target: $["paths"]["/discounts"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/discounts"]["get"]["tags"]
+    update:
+      - Discounts
+  - target: $["paths"]["/discounts"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/discounts"]["post"]["tags"]
+    update:
+      - Discounts
+  - target: $["paths"]["/discounts/{discount_id}"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/discounts/{discount_id}"]["get"]["tags"]
+    update:
+      - Discounts
+  - target: $["paths"]["/discounts/{discount_id}"]["patch"]["tags"]
+    remove: true
+  - target: $["paths"]["/discounts/{discount_id}"]["patch"]["tags"]
+    update:
+      - Discounts
+  - target: $["paths"]["/subscriptions/{subscription_id}"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/subscriptions/{subscription_id}"]["get"]["tags"]
+    update:
+      - Subscriptions
+  - target: $["paths"]["/subscriptions/{subscription_id}"]["patch"]["tags"]
+    remove: true
+  - target: $["paths"]["/subscriptions/{subscription_id}"]["patch"]["tags"]
+    update:
+      - Subscriptions
+  - target: $["paths"]["/subscriptions"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/subscriptions"]["get"]["tags"]
+    update:
+      - Subscriptions
+  - target: $["paths"]["/subscriptions/{subscription_id}/cancel"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/subscriptions/{subscription_id}/cancel"]["post"]["tags"]
+    update:
+      - Subscriptions
+  - target: $["paths"]["/subscriptions/{subscription_id}/pause"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/subscriptions/{subscription_id}/pause"]["post"]["tags"]
+    update:
+      - Subscriptions
+  - target: $["paths"]["/subscriptions/{subscription_id}/resume"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/subscriptions/{subscription_id}/resume"]["post"]["tags"]
+    update:
+      - Subscriptions
+  - target: $["paths"]["/subscriptions/{subscription_id}/update-payment-method-transaction"]["get"]
+    update:
+      x-speakeasy-name-override: get-updated-payment-method-transaction
+  - target: $["paths"]["/subscriptions/{subscription_id}/update-payment-method-transaction"]["get"]["tags"]
+    remove: true
+  - target: $["paths"]["/subscriptions/{subscription_id}/update-payment-method-transaction"]["get"]["tags"]
+    update:
+      - Subscriptions
+  - target: $["paths"]["/currencies/balance"]["parameters"]
+    remove: true
+  - target: $["paths"]["/subscriptions/{subscription_id}/charge"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/subscriptions/{subscription_id}/charge"]["post"]["tags"]
+    update:
+      - Subscriptions
+  - target: $["paths"]["/subscriptions/{subscription_id}/charge/preview"]["post"]
+    update:
+      x-speakeasy-name-override: create-preview
+  - target: $["paths"]["/subscriptions/{subscription_id}/charge/preview"]["post"]["tags"]
+    remove: true
+  - target: $["paths"]["/subscriptions/{subscription_id}/charge/preview"]["post"]["tags"]
+    update:
+      - Subscriptions
+  - target: $["components"]["schemas"]["client_token"]["properties"]["seller_id"]
+    update:
+      readOnly: true
+  - target: $["components"]["schemas"]["pagination2"]
+    update:
+      nullable: true
+  - target: $["components"]["schemas"]["price-includes"]["allOf"][1]
+    update:
+      $ref: '#/components/schemas/product'
+  - target: $["components"]["schemas"]["price-includes"]["allOf"][1]["properties"]
+    remove: true
+  - target: $["components"]["schemas"]["product-create"]["properties"]["image_url"]["oneOf"]
+    remove: true
+  - target: $["components"]["schemas"]["product-create"]["properties"]["image_url"]["oneOf"]
+    update:
+      - type: 'null'
+      - type: string
+        format: uri
+        minLength: 1
+  - target: $["components"]["schemas"]["product-patch"]["properties"]["image_url"]["oneOf"]
+    remove: true
+  - target: $["components"]["schemas"]["product-patch"]["properties"]["image_url"]["oneOf"]
+    update:
+      - type: 'null'
+      - type: string
+        format: uri
+        minLength: 1
+  - target: $["components"]["schemas"]["subscription2"]["allOf"][1]["$ref"]
+    update: '#/components/schemas/subscription_preview2'
+  - target: $["components"]["schemas"]
+    update:
+      subscription_preview2:
+        title: SubscriptionPreview
+        x-stoplight:
+          id: on6chwljln84h
+        type: object
+        examples: []
+        properties:
+          status:
+            type: string
+            enum:
+              - trialing
+              - active
+              - past_due
+              - canceled
+              - paused
+            readOnly: true
+          customer_id:
+            $ref: '#/components/schemas/paddle_id'
+          address_id:
+            $ref: '#/components/schemas/paddle_id'
+          business_id:
+            oneOf:
+              - $ref: '#/components/schemas/paddle_id'
+              - type: 'null'
+          currency_code:
+            $ref: '#/components/schemas/currency_code1'
+          created_at:
+            $ref: '#/components/schemas/timestamp_read_only'
+          updated_at:
+            $ref: '#/components/schemas/timestamp_read_only'
+          started_at:
+            oneOf:
+              - $ref: '#/components/schemas/timestamp_read_only'
+              - type: 'null'
+          first_billed_at:
+            oneOf:
+              - $ref: '#/components/schemas/timestamp_read_only'
+              - type: 'null'
+          next_billed_at:
+            oneOf:
+              - $ref: '#/components/schemas/timestamp2'
+              - type: 'null'
+          paused_at:
+            oneOf:
+              - $ref: '#/components/schemas/timestamp_read_only'
+              - type: 'null'
+          canceled_at:
+            oneOf:
+              - $ref: '#/components/schemas/timestamp_read_only'
+              - type: 'null'
+          discount:
+            type:
+              - object
+              - 'null'
+            properties:
+              id:
+                $ref: '#/components/schemas/paddle_id'
+              starts_at:
+                $ref: '#/components/schemas/timestamp_read_only'
+              ends_at:
+                anyOf:
+                  - $ref: '#/components/schemas/timestamp_read_only'
+                  - type: 'null'
+            required:
+              - id
+              - starts_at
+              - ends_at
+          collection_mode:
+            $ref: '#/components/schemas/collection_mode1'
+          billing_details:
+            anyOf:
+              - $ref: '#/components/schemas/billing_details1'
+              - type: 'null'
+          current_billing_period:
+            allOf:
+              - $ref: '#/components/schemas/billing_period'
+          billing_cycle:
+            $ref: '#/components/schemas/period1'
+          scheduled_change:
+            anyOf:
+              - $ref: '#/components/schemas/subscription_scheduled_change'
+              - type: 'null'
+          management_urls:
+            $ref: '#/components/schemas/subscription_management_urls'
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/subscription_item'
+          custom_data:
+            $ref: '#/components/schemas/custom_data'
+        required:
+          - status
+          - customer_id
+          - address_id
+          - currency_code
+          - created_at
+          - updated_at
+          - started_at
+          - first_billed_at
+          - next_billed_at
+          - paused_at
+          - canceled_at
+          - collection_mode
+          - billing_details
+          - current_billing_period
+          - billing_cycle
+          - scheduled_change
+          - items
+          - custom_data
+  - target: $["components"]["schemas"]["subscription-preview1"]
+    remove: true
