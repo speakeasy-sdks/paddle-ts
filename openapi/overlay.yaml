@@ -2,7 +2,7 @@ overlay: 1.0.0
 info:
   title: Overlay og-paddle.yaml => paddle.yaml
   version: 0.0.0
-extends: file:///Users/ndimares/speakeasy/client_sdks/paddle/og-paddle.yaml
+extends: ./openapi.yaml
 actions:
   - target: $
     update:
