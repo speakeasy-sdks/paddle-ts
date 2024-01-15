@@ -22,7 +22,9 @@ jobs:
         - typescript
       mode: direct
       openapi_docs: |
-        - ./openapi.yaml
+        - ./openapi/openapi.yaml
+      overlay_docs: |
+        - ./openapi/overlay.yaml
       speakeasy_version: latest
     secrets:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
