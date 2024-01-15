@@ -22,4 +22,4 @@ typescript:
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: Paddle
-  templateVersion: v1
+  templateVersion: v2
