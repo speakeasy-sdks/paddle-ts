@@ -82,13 +82,28 @@ tags:
     description: Work with events and the event stream.
   - name: IP addresses
     description: Get Paddle IP addresses.
+x-speakeasy-name-override:
+  - operationId: ^create-.*
+    methodNameOverride: create
+  - operationId: ^cancel-.*
+    methodNameOverride: cancel
+  - operationId: ^update-.*
+    methodNameOverride: update
+  - operationId: ^replay-.*
+    methodNameOverride: replay
+  - operationId: ^pause-.*
+    methodNameOverride: pause  
+  - operationId: ^get-.*
+    methodNameOverride: get
+  - operationId: ^list-.*
+    methodNameOverride: list
 paths:
   /products:
     get:
       summary: List products
       tags:
         - Products
-        - catalogue-service
+        
       responses:
         '200':
           description: OK
@@ -198,7 +213,7 @@ paths:
       summary: Create a product
       tags:
         - Products
-        - catalogue-service
+        
       responses:
         '201':
           description: Created
@@ -262,7 +277,7 @@ paths:
       summary: Get a product
       tags:
         - Products
-        - catalogue-service
+        
       responses:
         '200':
           description: OK
@@ -371,14 +386,14 @@ paths:
                 $ref: '#/components/examples/update-product-standard'
       tags:
         - Products
-        - catalogue-service
+        
   /prices:
     parameters: []
     get:
       summary: List prices
       tags:
         - Prices
-        - catalogue-service
+        
       responses:
         '200':
           description: OK
@@ -532,7 +547,7 @@ paths:
         If successful, your response includes a copy of the new price entity.
       tags:
         - Prices
-        - catalogue-service
+        
   "/prices/{price_id}":
     parameters:
       - $ref: '#/components/parameters/price_id1'
@@ -540,7 +555,7 @@ paths:
       summary: Get a price
       tags:
         - Prices
-        - catalogue-service
+        
       responses:
         '200':
           description: OK
@@ -659,13 +674,12 @@ paths:
                 $ref: '#/components/examples/update-price-standard'
       tags:
         - Prices
-        - catalogue-service
+        
   /transactions:
     get:
       summary: List transactions
       tags:
         - Transactions
-        - transaction-service
       responses:
         '200':
           description: OK
@@ -1258,7 +1272,6 @@ paths:
         - $ref: '#/components/parameters/include-transaction'
       tags:
         - Transactions
-        - transaction-service
     parameters: []
   /pricing-preview:
     post:
@@ -1460,7 +1473,6 @@ paths:
       parameters: []
       tags:
         - Transactions
-        - transaction-service
     parameters: []
   /transactions/preview:
     post:
@@ -1681,7 +1693,6 @@ paths:
       parameters: []
       tags:
         - Transactions
-        - transaction-service
     parameters: []
   "/transactions/{transaction_id}":
     parameters:
@@ -1690,7 +1701,6 @@ paths:
       summary: Get a transaction
       tags:
         - Transactions
-        - transaction-service
       responses:
         '200':
           description: OK
@@ -2196,7 +2206,6 @@ paths:
         If successful, your response includes a copy of the updated transaction entity.
       tags:
         - Transactions
-        - transaction-service
   "/transactions/{transaction_id}/resend-invoice":
     parameters:
       - $ref: '#/components/parameters/transaction_id1'
@@ -2207,7 +2216,7 @@ paths:
       summary: Create an adjustment
       tags:
         - Adjustments
-        - adjustment-service
+        
       responses:
         '201':
           description: Created
@@ -2304,7 +2313,7 @@ paths:
       summary: List adjustments
       tags:
         - Adjustments
-        - adjustment-service
+        
       operationId: list-adjustments
       responses:
         '200':
@@ -2432,10 +2441,10 @@ paths:
     get:
       summary: List credit balances for a customer
       tags:
-        - Adjustments
         - Customers
-        - adjustment-service
+        
       operationId: list-credit-balances
+      x-speakeasy-name-override: list-credit-balances
       responses:
         '200':
           description: OK
@@ -2496,7 +2505,7 @@ paths:
     get:
       tags:
         - Customers
-        - customer-service
+        
       summary: List customers
       responses:
         '200':
@@ -2575,7 +2584,7 @@ paths:
     post:
       tags:
         - Customers
-        - customer-service
+        
       summary: Create a customer
       operationId: create-customer
       responses:
@@ -2634,7 +2643,7 @@ paths:
     get:
       tags:
         - Customers
-        - customer-service
+        
       summary: Get a customer
       responses:
         '200':
@@ -2679,7 +2688,7 @@ paths:
     patch:
       tags:
         - Customers
-        - customer-service
+        
       summary: Update a customer
       operationId: update-customer
       responses:
@@ -2812,7 +2821,7 @@ paths:
         - $ref: '#/components/parameters/status'
       tags:
         - Addresses
-        - customer-service
+        
       description: |-
         Returns a paginated list of addresses for a customer. Use the query parameters to page through results.
 
@@ -2873,7 +2882,7 @@ paths:
                 $ref: '#/components/examples/create-address-standard'
       tags:
         - Addresses
-        - customer-service
+        
       description: |-
         Creates a new address for a customer.
 
@@ -2932,7 +2941,7 @@ paths:
       operationId: get-address
       tags:
         - Addresses
-        - customer-service
+        
       description: Returns an address for a customer using its ID and related customer ID.
     patch:
       summary: Update an address for a customer
@@ -2990,7 +2999,7 @@ paths:
                 $ref: '#/components/examples/update-address-standard'
       tags:
         - Addresses
-        - customer-service
+        
       description: |-
         Updates an address for a customer using its ID and related customer ID.
 
@@ -3062,7 +3071,7 @@ paths:
         - $ref: '#/components/parameters/status'
       tags:
         - Businesses
-        - customer-service
+        
       description: |-
         Returns a paginated list of businesses for a customer. Use the query parameters to page through results.
 
@@ -3122,7 +3131,7 @@ paths:
                 $ref: '#/components/examples/create-business-standard'
       tags:
         - Businesses
-        - customer-service
+        
       description: |-
         Creates a new business for a customer.
 
@@ -3177,7 +3186,7 @@ paths:
       parameters: []
       tags:
         - Businesses
-        - customer-service
+        
       description: Returns a business for a customer using its ID and related customer ID.
     patch:
       summary: Update a business for a customer
@@ -3238,7 +3247,7 @@ paths:
                 $ref: '#/components/examples/update-business-standard'
       tags:
         - Businesses
-        - customer-service
+        
       description: |-
         Updates a business for a customer using its ID and related customer ID.
 
@@ -3259,7 +3268,7 @@ paths:
       summary: List notification settings
       tags:
         - Notifications
-        - notification-service
+        
       responses:
         '200':
           description: OK
@@ -3373,6 +3382,7 @@ paths:
         '500':
           $ref: '#/components/responses/error_response'
       operationId: list-notification-settings
+      x-speakeasy-name-override: list-settings
       description: |-
         Returns a list of notification settings (notification destinations).
 
@@ -3381,6 +3391,7 @@ paths:
     post:
       summary: Create a notification setting
       operationId: create-notification-setting
+      x-speakeasy-name-override: create-setting
       responses:
         '201':
           description: Created
@@ -3503,7 +3514,7 @@ paths:
                 $ref: '#/components/examples/create-notification-setting-standard'
       tags:
         - Notifications
-        - notification-service
+        
       description: |-
         Creates a new notification setting (notification destination).
 
@@ -3518,7 +3529,7 @@ paths:
       summary: Get a notification setting
       tags:
         - Notifications
-        - notification-service
+        
       responses:
         '200':
           description: OK
@@ -3632,10 +3643,12 @@ paths:
         '500':
           $ref: '#/components/responses/error_response'
       operationId: get-notification-setting
+      x-speakeasy-name-override: get-setting
       description: Returns a notification setting (notification destination) using its ID.
     patch:
       summary: Update a notification setting
       operationId: update-notification-setting
+      x-speakeasy-name-override: update-settings
       responses:
         '200':
           description: OK
@@ -3768,10 +3781,11 @@ paths:
         If successful, your response includes a copy of the updated notification setting entity.
       tags:
         - Notifications
-        - notification-service
+        
     delete:
       summary: Delete a notification setting
       operationId: delete-notification-setting
+      x-speakeasy-name-override: delete-setting
       responses:
         '200':
           description: OK
@@ -3786,7 +3800,7 @@ paths:
           $ref: '#/components/responses/error_response'
       tags:
         - Notifications
-        - notification-service
+        
       description: |-
         Deletes a notification setting (notification destination) using its ID.
 
@@ -3799,6 +3813,7 @@ paths:
     post:
       summary: Replay notifications by notification setting
       operationId: post-notification-settings-notification_setting_id_replay
+      x-speakeasy-name-override: replay-by-setting
       responses:
         '200':
           description: OK
@@ -3827,13 +3842,13 @@ paths:
                 - to
       tags:
         - Notifications
-        - notification-service
+        
   /event-types:
     get:
       summary: List events types
       tags:
         - Events
-        - notification-service
+        
       responses:
         '200':
           description: OK
@@ -4058,6 +4073,7 @@ paths:
         '500':
           $ref: '#/components/responses/error_response'
       operationId: list-event-types
+      x-speakeasy-name-override: list-types
       parameters: []
       description: |-
         Returns a list of event types.
@@ -4068,7 +4084,7 @@ paths:
       summary: List events
       tags:
         - Events
-        - notification-service
+        
       responses:
         '200':
           description: OK
@@ -4437,7 +4453,7 @@ paths:
       summary: List notifications
       tags:
         - Notifications
-        - notification-service
+        
       responses:
         '200':
           description: OK
@@ -5120,7 +5136,7 @@ paths:
       summary: Get a notification
       tags:
         - Notifications
-        - notification-service
+        
       responses:
         '200':
           description: OK
@@ -5220,7 +5236,7 @@ paths:
       summary: List logs for a notification
       tags:
         - Notifications
-        - notification-service
+        
       responses:
         '200':
           description: OK
@@ -5256,6 +5272,7 @@ paths:
         '500':
           $ref: '#/components/responses/error_response'
       operationId: list-notification-logs
+      x-speakeasy-name-override: list-logs
       description: Returns a paginated list of notification logs for a notification. A log includes information about delivery attempts, including failures.
       parameters:
         - $ref: '#/components/parameters/after'
@@ -5303,13 +5320,13 @@ paths:
         The new notification replay is sent to the `destination` against the `notification_setting_id`.
       tags:
         - Notifications
-        - notification-service
+        
   /ips:
     get:
       summary: Get Paddle IP addresses
       tags:
         - IP addresses
-        - notification-service
+        
       responses:
         '200':
           description: OK
@@ -5357,7 +5374,7 @@ paths:
       summary: List invoices
       tags:
         - Invoices
-        - invoice-service
+        
       responses:
         '200':
           description: OK
@@ -5453,7 +5470,7 @@ paths:
         If successful, your response includes a copy of the new invoice entity.
       tags:
         - Invoices
-        - invoice-service
+        
   "/invoices/{invoice_id}":
     parameters:
       - $ref: '#/components/parameters/invoice_id'
@@ -5461,7 +5478,7 @@ paths:
       summary: Get an invoice
       tags:
         - Invoices
-        - invoice-service
+        
       responses:
         '200':
           description: OK
@@ -5555,13 +5572,13 @@ paths:
         If successful, your response includes a copy of the updated invoice entity.
       tags:
         - Invoices
-        - invoice-service
+        
   "/invoices/{invoice_id}/pdf":
     get:
       summary: Get a PDF for an invoice
       tags:
         - Invoices
-        - invoice-service
+        
       responses:
         '200':
           description: OK
@@ -5599,6 +5616,7 @@ paths:
         '500':
           $ref: '#/components/responses/error_response'
       operationId: get-invoice-pdf
+      x-speakeasy-name-override: get-pdf
       description: |-
         Generates a PDF for an invoice, then returns a link to it.
 
@@ -5609,7 +5627,7 @@ paths:
     get:
       summary: Get a PDF invoice for a transaction
       tags:
-        - invoice-service
+        
         - Transactions
       responses:
         '200':
@@ -5648,6 +5666,7 @@ paths:
         '500':
           $ref: '#/components/responses/error_response'
       operationId: get-transaction-invoice
+      x-speakeasy-name-override: get-invoice
       description: |-
         Returns a link to an invoice PDF for a transaction.
 
@@ -5692,7 +5711,7 @@ paths:
           $ref: '#/components/responses/error_response'
       tags:
         - Invoices
-        - invoice-service
+        
       description: |-
         Issues a draft invoice, changing the `status` from `draft` to either:
 
@@ -5712,7 +5731,7 @@ paths:
       summary: Cancel an invoice
       tags:
         - Invoices
-        - invoice-service
+        
       responses:
         '200':
           description: OK
@@ -5748,7 +5767,7 @@ paths:
       summary: List discounts
       tags:
         - Discounts
-        - discount-service
+        
       operationId: list-discounts
       description: |-
         Returns a paginated list of discounts. Use the query parameters to page through results.
@@ -5915,7 +5934,7 @@ paths:
                 $ref: '#/components/examples/create-discounts-standard'
       tags:
         - Discounts
-        - discount-service
+        
   "/discounts/{discount_id}":
     parameters:
       - $ref: '#/components/parameters/discount_id'
@@ -5923,7 +5942,7 @@ paths:
       summary: Get a discount
       tags:
         - Discounts
-        - discount-service
+        
       responses:
         '200':
           description: OK
@@ -6022,7 +6041,7 @@ paths:
           $ref: '#/components/responses/error_response'
       tags:
         - Discounts
-        - discount-service
+        
       description: |-
         Updates a discount using its ID.
 
@@ -6037,7 +6056,7 @@ paths:
       summary: Get a subscription
       tags:
         - Subscriptions
-        - subscription-service
+        
       responses:
         '200':
           description: OK
@@ -6270,13 +6289,13 @@ paths:
           $ref: '#/components/responses/error_response'
       tags:
         - Subscriptions
-        - subscription-service
+        
   /subscriptions:
     get:
       summary: List subscriptions
       tags:
         - Subscriptions
-        - subscription-service
+        
       responses:
         '200':
           description: OK
@@ -6603,7 +6622,7 @@ paths:
         You cannot reactivate a canceled subscription.
       tags:
         - Subscriptions
-        - subscription-service
+        
       requestBody:
         content:
           application/json:
@@ -6737,7 +6756,7 @@ paths:
                 $ref: '#/components/examples/cancel-subscription-standard'
       tags:
         - Subscriptions
-        - subscription-service
+        
   "/subscriptions/{subscription_id}/resume":
     parameters:
       - $ref: '#/components/parameters/subscription_id1'
@@ -6836,7 +6855,7 @@ paths:
         If successful, Paddle returns a copy of the updated subscription entity. The subscription status is `active`, and billing dates are updated to reflect the resume date.
       tags:
         - Subscriptions
-        - subscription-service
+        
       requestBody:
         content:
           application/json:
@@ -6889,6 +6908,7 @@ paths:
     get:
       summary: Get a transaction to update payment method
       operationId: get-subscription-update-payment-method-transaction
+      x-speakeasy-name-override: get-updated-payment-method-transaction
       description: |-
         Returns a transaction that you can pass to a checkout to let customers update their payment details. Only for subscriptions where `collection_mode` is `automatic`.
 
@@ -7079,18 +7099,17 @@ paths:
           $ref: '#/components/responses/error_response'
       tags:
         - Subscriptions
-        - subscription-service
+        
   /countries:
     summary: Paddle Country definitions
   /currencies:
     summary: Paddle Currency definitions
   /currency-settings: {}
-  "/currency-settings/{currency_code}": {}
-  /currencies/balance:
-    parameters: []
+  /currency-settings/{currency_code}: {}
+  /currencies/balance: {}
   /internal/search/payments: {}
   /internal/search/customers: {}
-  "/subscriptions/{subscription_id}/preview":
+  /subscriptions/{subscription_id}/preview:
     parameters:
       - $ref: '#/components/parameters/subscription_id1'
     patch:
@@ -7496,7 +7515,7 @@ paths:
                 $ref: '#/components/examples/create-subscription-charge-standard'
       tags:
         - Subscriptions
-        - subscription-service
+        
   "/subscriptions/{subscription_id}/charge/preview":
     parameters:
       - x-stoplight:
@@ -7512,6 +7531,7 @@ paths:
     post:
       summary: Preview one-off charge for a subscription
       operationId: create-subscription-charge-preview
+      x-speakeasy-name-override: create-preview
       responses:
         '200':
           description: OK
@@ -7792,7 +7812,7 @@ paths:
                 $ref: '#/components/examples/create-subscription-charge-standard'
       tags:
         - Subscriptions
-        - subscription-service
+        
   /subscriptions/import:
     parameters: []
   /subscriptions/import/validate:
@@ -9717,6 +9737,7 @@ components:
           readOnly: true
         seller_id:
           type: string
+          readOnly: true
           description: Seller ID of the seller that this client side token is for.
         name:
           type: string
@@ -12892,6 +12913,7 @@ components:
         - has_more
     pagination2:
       title: Pagination
+      nullable: true
       x-stoplight:
         id: k7forg4bax2og
       type: object
@@ -13038,11 +13060,7 @@ components:
       type: object
       allOf:
         - $ref: '#/components/schemas/price'
-        - properties:
-            product:
-              x-included: true
-              description: Related product for this price. Returned when the `include` parameter is used.
-              $ref: '#/components/schemas/product'
+        - $ref: '#/components/schemas/product'
     price-update:
       title: Price
       x-stoplight:
@@ -13160,9 +13178,6 @@ components:
           oneOf:
             - type: 'null'
             - type: string
-              minLength: 0
-              maxLength: 0
-            - type: string
               format: uri
               minLength: 1
         custom_data:
@@ -13208,9 +13223,6 @@ components:
           description: Image for this product. Included in the checkout and on some customer documents.
           oneOf:
             - type: 'null'
-            - type: string
-              minLength: 0
-              maxLength: 0
             - type: string
               format: uri
               minLength: 1
@@ -13937,7 +13949,7 @@ components:
               $ref: '#/components/schemas/subscription_id'
           required:
             - id
-        - $ref: '#/components/schemas/subscription-preview1'
+        - $ref: '#/components/schemas/subscription_preview2'
     subscription_id:
       title: Subscription ID
       x-stoplight:
@@ -14054,7 +14066,7 @@ components:
         adjustments:
           type: array
       readOnly: true
-    subscription-preview1:
+    subscription_preview2:
       title: SubscriptionPreview
       x-stoplight:
         id: on6chwljln84h
@@ -15740,3 +15752,4 @@ components:
       readOnly: true
 security:
   - bearerAuth: []
+
