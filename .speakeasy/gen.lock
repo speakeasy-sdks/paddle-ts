@@ -1,24 +1,24 @@
 lockVersion: 2.0.0
 id: 84b4fc98-ca17-41e1-9373-160f0f947251
 management:
-  docChecksum: 1fade75ac5b0bdfcf91084f35f8639c8
+  docChecksum: ec65d4bdb10ef4cb704adadbb4fa345c
   docVersion: "1.0"
   speakeasyVersion: internal
-  generationVersion: 2.225.2
-  releaseVersion: 0.16.2
-  configChecksum: d29f90d23e021faf31b56edb7315a262
+  generationVersion: 2.233.2
+  releaseVersion: 0.17.0
+  configChecksum: 1703a37436ea356a1c6d26e704ee7bfc
   repoURL: https://github.com/speakeasy-sdks/paddle-ts.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/paddle-ts
 features:
   typescript:
-    core: 3.4.1
-    examples: 2.81.3
+    constsAndDefaults: 0.1.1
+    core: 3.4.6
     globalSecurity: 2.82.2
     globalServerURLs: 2.82.1
-    inputOutputModels: 2.83.0
+    inputOutputModels: 2.82.0
     nameOverrides: 2.81.1
-    retries: 2.82.1
+    unions: 2.85.0
 generatedFiles:
   - src/sdk/adjustments.ts
   - src/sdk/customers.ts
@@ -31,27 +31,29 @@ generatedFiles:
   - src/sdk/notifications.ts
   - src/sdk/prices.ts
   - src/sdk/transactions.ts
-  - src/sdk/transactionservice.ts
   - src/sdk/products.ts
   - src/sdk/subscriptions.ts
   - src/sdk/sdk.ts
-  - .eslintrc.yml
-  - jest.config.js
+  - .eslintrc.js
+  - .npmignore
+  - RUNTIMES.md
   - package-lock.json
   - package.json
   - src/index.ts
-  - src/internal/utils/contenttype.ts
-  - src/internal/utils/headers.ts
-  - src/internal/utils/index.ts
-  - src/internal/utils/pathparams.ts
-  - src/internal/utils/queryparams.ts
-  - src/internal/utils/requestbody.ts
-  - src/internal/utils/retries.ts
-  - src/internal/utils/security.ts
-  - src/internal/utils/utils.ts
+  - src/lib/base64.ts
+  - src/lib/config.ts
+  - src/lib/encodings.ts
+  - src/lib/http.ts
+  - src/lib/retries.ts
+  - src/lib/sdks.ts
+  - src/lib/security.ts
+  - src/lib/url.ts
   - src/sdk/index.ts
   - src/sdk/models/errors/sdkerror.ts
+  - src/sdk/types/blobs.ts
+  - src/sdk/types/decimal.ts
   - src/sdk/types/index.ts
+  - src/sdk/types/operations.ts
   - src/sdk/types/rfcdate.ts
   - tsconfig.json
   - src/sdk/models/operations/createadjustment.ts
@@ -507,6 +509,10 @@ generatedFiles:
   - docs/sdk/models/operations/previewsubscriptionsubscriptionpreview.md
   - docs/sdk/models/operations/previewsubscriptionresponsebody.md
   - docs/sdk/models/operations/previewsubscriptionresponse.md
+  - docs/sdk/models/operations/three.md
+  - docs/sdk/models/operations/effectivefromenum.md
+  - docs/sdk/models/operations/effectivefromdate.md
+  - docs/sdk/models/operations/resumesubscriptionrequestbody.md
   - docs/sdk/models/operations/resumesubscriptionrequest.md
   - docs/sdk/models/operations/resumesubscriptionresponsebody.md
   - docs/sdk/models/operations/resumesubscriptionresponse.md
@@ -841,7 +847,7 @@ generatedFiles:
   - docs/sdk/models/errors/updatepriceresponsebody.md
   - docs/sdk/models/errors/createtransactiontransactionsresponsebody.md
   - docs/sdk/models/errors/createtransactionresponsebody.md
-  - docs/sdk/models/errors/gettransactiontransactionstransactionserviceresponsebody.md
+  - docs/sdk/models/errors/gettransactiontransactionsresponseresponsebody.md
   - docs/sdk/models/errors/gettransactiontransactionsresponsebody.md
   - docs/sdk/models/errors/gettransactionresponsebody.md
   - docs/sdk/models/errors/gettransactioninvoicetransactionsresponseresponsebody.md
@@ -853,7 +859,7 @@ generatedFiles:
   - docs/sdk/models/errors/previewtransactionresponsebody.md
   - docs/sdk/models/errors/pricepreviewtransactionsresponsebody.md
   - docs/sdk/models/errors/pricepreviewresponsebody.md
-  - docs/sdk/models/errors/updatetransactiontransactionstransactionserviceresponsebody.md
+  - docs/sdk/models/errors/updatetransactiontransactionsresponseresponsebody.md
   - docs/sdk/models/errors/updatetransactiontransactionsresponsebody.md
   - docs/sdk/models/errors/updatetransactionresponsebody.md
   - docs/sdk/models/errors/createproductproductsresponseresponsebody.md
@@ -894,7 +900,6 @@ generatedFiles:
   - docs/sdk/models/errors/updatesubscriptionsubscriptionsresponsebody.md
   - docs/sdk/models/errors/updatesubscriptionresponsebody.md
   - docs/sdks/paddle/README.md
-  - docs/internal/utils/retryconfig.md
   - docs/sdks/adjustments/README.md
   - docs/sdks/customers/README.md
   - docs/sdks/addresses/README.md
@@ -906,7 +911,6 @@ generatedFiles:
   - docs/sdks/notifications/README.md
   - docs/sdks/prices/README.md
   - docs/sdks/transactions/README.md
-  - docs/sdks/transactionservice/README.md
   - docs/sdks/products/README.md
   - docs/sdks/subscriptions/README.md
   - USAGE.md

@@ -32,22 +32,21 @@ yarn add https://github.com/speakeasy-sdks/paddle-ts
 ```typescript
 import { Paddle } from "Paddle";
 import {
-    AdjustmentCreateType,
     CurrencyCode2,
     CurrencyCodeChargeback,
     CurrencyCodePayouts,
     SchemaAction,
     SchemaStatusAdjustment,
-} from "Paddle/dist/sdk/models/shared";
+} from "Paddle/sdk/models/shared";
 
 async function run() {
     const sdk = new Paddle({
         security: {
-            bearerAuth: "YOUR_API_KEY",
+            bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
         },
     });
 
-    const res = await sdk.adjustments.create({
+    const result = await sdk.adjustments.create({
         action: SchemaAction.Refund,
         customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
         id: "adj_01gya6twkp8y0tv1e19rsgst9m",
@@ -76,9 +75,8 @@ async function run() {
         transactionId: "string",
     });
 
-    if (res.statusCode == 200) {
-        // handle response
-    }
+    // Handle the result
+    console.log(result);
 }
 
 run();
@@ -172,15 +170,6 @@ run();
 * [pricePreview](docs/sdks/transactions/README.md#pricepreview) - Preview prices
 * [update](docs/sdks/transactions/README.md#update) - Update a transaction
 
-### [transactionService](docs/sdks/transactionservice/README.md)
-
-* [create](docs/sdks/transactionservice/README.md#create) - Create a transaction
-* [get](docs/sdks/transactionservice/README.md#get) - Get a transaction
-* [list](docs/sdks/transactionservice/README.md#list) - List transactions
-* [previewTransaction](docs/sdks/transactionservice/README.md#previewtransaction) - Preview a transaction
-* [pricePreview](docs/sdks/transactionservice/README.md#pricepreview) - Preview prices
-* [update](docs/sdks/transactionservice/README.md#update) - Update a transaction
-
 ### [products](docs/sdks/products/README.md)
 
 * [create](docs/sdks/products/README.md#create) - Create a product
@@ -208,154 +197,12 @@ run();
 
 
 
-<!-- Start Retries [retries] -->
-## Retries
-
-Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
-
-To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
-```typescript
-import { Paddle } from "Paddle";
-import {
-    AdjustmentCreateType,
-    CurrencyCode2,
-    CurrencyCodeChargeback,
-    CurrencyCodePayouts,
-    SchemaAction,
-    SchemaStatusAdjustment,
-} from "Paddle/dist/sdk/models/shared";
-
-async function run() {
-    const sdk = new Paddle({
-        security: {
-            bearerAuth: "YOUR_API_KEY",
-        },
-    });
-
-    const res = await sdk.adjustments.create(
-        {
-            action: SchemaAction.Refund,
-            customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
-            id: "adj_01gya6twkp8y0tv1e19rsgst9m",
-            items: [
-                {
-                    id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
-                    itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
-                    type: AdjustmentCreateType.Full,
-                },
-            ],
-            payoutTotals: {
-                chargebackFee: {
-                    amount: "1680",
-                    original: {
-                        amount: "1500",
-                    },
-                },
-                earnings: "15120",
-                fee: "300",
-                subtotal: "15000",
-                tax: "1500",
-                total: "16500",
-            },
-            reason: "string",
-            subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
-            transactionId: "string",
-        },
-        {
-            strategy: "backoff",
-            backoff: {
-                initialInterval: 1,
-                maxInterval: 50,
-                exponent: 1.1,
-                maxElapsedTime: 100,
-            },
-            retryConnectionErrors: false,
-        }
-    );
-
-    if (res.statusCode == 200) {
-        // handle response
-    }
-}
-
-run();
-
-```
-
-If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
-```typescript
-import { Paddle } from "Paddle";
-import {
-    AdjustmentCreateType,
-    CurrencyCode2,
-    CurrencyCodeChargeback,
-    CurrencyCodePayouts,
-    SchemaAction,
-    SchemaStatusAdjustment,
-} from "Paddle/dist/sdk/models/shared";
-
-async function run() {
-    const sdk = new Paddle({
-        retry_config: {
-            strategy: "backoff",
-            backoff: {
-                initialInterval: 1,
-                maxInterval: 50,
-                exponent: 1.1,
-                maxElapsedTime: 100,
-            },
-            retryConnectionErrors: false,
-        },
-        security: {
-            bearerAuth: "YOUR_API_KEY",
-        },
-    });
-
-    const res = await sdk.adjustments.create({
-        action: SchemaAction.Refund,
-        customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
-        id: "adj_01gya6twkp8y0tv1e19rsgst9m",
-        items: [
-            {
-                id: "adjitm_01gw4rs4kex0prncwfne87ft8x",
-                itemId: "txnitm_01gm302t81w94gyjpjpqypkzkf",
-                type: AdjustmentCreateType.Full,
-            },
-        ],
-        payoutTotals: {
-            chargebackFee: {
-                amount: "1680",
-                original: {
-                    amount: "1500",
-                },
-            },
-            earnings: "15120",
-            fee: "300",
-            subtotal: "15000",
-            tax: "1500",
-            total: "16500",
-        },
-        reason: "string",
-        subscriptionId: "sub_01h04vsc0qhwtsbsxh3422wjs4",
-        transactionId: "string",
-    });
-
-    if (res.statusCode == 200) {
-        // handle response
-    }
-}
-
-run();
-
-```
-<!-- End Retries [retries] -->
-
 
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+All SDK methods return a response object or throw an error. If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
 
 | Error Object                                              | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
@@ -369,25 +216,25 @@ Example
 
 ```typescript
 import { Paddle } from "Paddle";
+import * as errors from "Paddle/sdk/models/errors";
 import {
-    AdjustmentCreateType,
     CurrencyCode2,
     CurrencyCodeChargeback,
     CurrencyCodePayouts,
     SchemaAction,
     SchemaStatusAdjustment,
-} from "Paddle/dist/sdk/models/shared";
+} from "Paddle/sdk/models/shared";
 
 async function run() {
     const sdk = new Paddle({
         security: {
-            bearerAuth: "YOUR_API_KEY",
+            bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
         },
     });
 
-    let res;
+    let result;
     try {
-        res = await sdk.adjustments.create({
+        result = await sdk.adjustments.create({
             action: SchemaAction.Refund,
             customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
             id: "adj_01gya6twkp8y0tv1e19rsgst9m",
@@ -416,27 +263,31 @@ async function run() {
             transactionId: "string",
         });
     } catch (err) {
-        if (err instanceof errors.CreateAdjustmentResponseBody) {
-            console.error(err); // handle exception
-            throw err;
-        } else if (err instanceof errors.CreateAdjustmentAdjustmentsResponseBody) {
-            console.error(err); // handle exception
-            throw err;
-        } else if (err instanceof errors.CreateAdjustmentAdjustmentsResponseResponseBody) {
-            console.error(err); // handle exception
-            throw err;
-        } else if (err instanceof errors.CreateAdjustmentAdjustmentsResponse500ResponseBody) {
-            console.error(err); // handle exception
-            throw err;
-        } else if (err instanceof errors.SDKError) {
-            console.error(err); // handle exception
-            throw err;
+        switch (true) {
+            case err instanceof errors.CreateAdjustmentResponseBody: {
+                console.error(err); // handle exception
+                return;
+            }
+            case err instanceof errors.CreateAdjustmentAdjustmentsResponseBody: {
+                console.error(err); // handle exception
+                return;
+            }
+            case err instanceof errors.CreateAdjustmentAdjustmentsResponseResponseBody: {
+                console.error(err); // handle exception
+                return;
+            }
+            case err instanceof errors.CreateAdjustmentAdjustmentsResponse500ResponseBody: {
+                console.error(err); // handle exception
+                return;
+            }
+            default: {
+                throw err;
+            }
         }
     }
 
-    if (res.statusCode == 200) {
-        // handle response
-    }
+    // Handle the result
+    console.log(result);
 }
 
 run();
@@ -451,35 +302,32 @@ run();
 
 ### Select Server by Index
 
-You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+You can override the default server globally by passing a server index to the `serverIdx` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
 
 | # | Server | Variables |
 | - | ------ | --------- |
 | 0 | `https://api.paddle.com` | None |
 | 1 | `https://sandbox-api.paddle.com` | None |
 
-#### Example
-
 ```typescript
 import { Paddle } from "Paddle";
 import {
-    AdjustmentCreateType,
     CurrencyCode2,
     CurrencyCodeChargeback,
     CurrencyCodePayouts,
     SchemaAction,
     SchemaStatusAdjustment,
-} from "Paddle/dist/sdk/models/shared";
+} from "Paddle/sdk/models/shared";
 
 async function run() {
     const sdk = new Paddle({
         serverIdx: 1,
         security: {
-            bearerAuth: "YOUR_API_KEY",
+            bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
         },
     });
 
-    const res = await sdk.adjustments.create({
+    const result = await sdk.adjustments.create({
         action: SchemaAction.Refund,
         customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
         id: "adj_01gya6twkp8y0tv1e19rsgst9m",
@@ -508,9 +356,8 @@ async function run() {
         transactionId: "string",
     });
 
-    if (res.statusCode == 200) {
-        // handle response
-    }
+    // Handle the result
+    console.log(result);
 }
 
 run();
@@ -520,27 +367,27 @@ run();
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
+The default server can also be overridden globally by passing a URL to the `serverURL` optional parameter when initializing the SDK client instance. For example:
+
 ```typescript
 import { Paddle } from "Paddle";
 import {
-    AdjustmentCreateType,
     CurrencyCode2,
     CurrencyCodeChargeback,
     CurrencyCodePayouts,
     SchemaAction,
     SchemaStatusAdjustment,
-} from "Paddle/dist/sdk/models/shared";
+} from "Paddle/sdk/models/shared";
 
 async function run() {
     const sdk = new Paddle({
         serverURL: "https://api.paddle.com",
         security: {
-            bearerAuth: "YOUR_API_KEY",
+            bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
         },
     });
 
-    const res = await sdk.adjustments.create({
+    const result = await sdk.adjustments.create({
         action: SchemaAction.Refund,
         customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
         id: "adj_01gya6twkp8y0tv1e19rsgst9m",
@@ -569,9 +416,8 @@ async function run() {
         transactionId: "string",
     });
 
-    if (res.statusCode == 200) {
-        // handle response
-    }
+    // Handle the result
+    console.log(result);
 }
 
 run();
@@ -584,19 +430,49 @@ run();
 <!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
 
-The Typescript SDK makes API calls using the [axios](https://axios-http.com/docs/intro) HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+The TypeScript SDK makes API calls using an `HTTPClient` that wraps the native
+[Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). This
+client is a thin wrapper around `fetch` and provides the ability to attach hooks
+around the request lifecycle that can be used to modify the request or handle
+errors and response.
 
-For example, you could specify a header for every request that your sdk makes as follows:
+The `HTTPClient` constructor takes an optional `fetcher` argument that can be
+used to integrate a third-party HTTP client or when writing tests to mock out
+the HTTP client and feed in fixtures.
+
+The following example shows how to use the `"beforeRequest"` hook to to add a
+custom header and a timeout to requests and how to use the `"requestError"` hook
+to log errors:
 
 ```typescript
 import { Paddle } from "Paddle";
-import axios from "axios";
+import { HTTPClient } from "Paddle/lib/http";
 
-const httpClient = axios.create({
-    headers: {'x-custom-header': 'someValue'}
-})
+const httpClient = new HTTPClient({
+  // fetcher takes a function that has the same signature as native `fetch`.
+  fetcher: (request) => {
+    return fetch(request);
+  }
+});
 
-const sdk = new Paddle({defaultClient: httpClient});
+httpClient.addHook("beforeRequest", (request) => {
+  const nextRequest = new Request(request, {
+    signal: request.signal || AbortSignal.timeout(5000);
+  });
+
+  nextRequest.headers.set("x-custom-header", "custom value");
+
+  return nextRequest;
+});
+
+httpClient.addHook("requestError", (error, request) => {
+  console.group("Request Error");
+  console.log("Reason:", `${error}`);
+  console.log("Endpoint:", `${request.method} ${request.url}`);
+  console.groupEnd();
+});
+
+const sdk = new Paddle({ httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 
@@ -617,22 +493,21 @@ You can set the security parameters through the `security` optional parameter wh
 ```typescript
 import { Paddle } from "Paddle";
 import {
-    AdjustmentCreateType,
     CurrencyCode2,
     CurrencyCodeChargeback,
     CurrencyCodePayouts,
     SchemaAction,
     SchemaStatusAdjustment,
-} from "Paddle/dist/sdk/models/shared";
+} from "Paddle/sdk/models/shared";
 
 async function run() {
     const sdk = new Paddle({
         security: {
-            bearerAuth: "YOUR_API_KEY",
+            bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
         },
     });
 
-    const res = await sdk.adjustments.create({
+    const result = await sdk.adjustments.create({
         action: SchemaAction.Refund,
         customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
         id: "adj_01gya6twkp8y0tv1e19rsgst9m",
@@ -661,15 +536,20 @@ async function run() {
         transactionId: "string",
     });
 
-    if (res.statusCode == 200) {
-        // handle response
-    }
+    // Handle the result
+    console.log(result);
 }
 
 run();
 
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Requirements [requirements] -->
+## Requirements
+
+For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
+<!-- End Requirements [requirements] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

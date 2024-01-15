@@ -2,22 +2,21 @@
 ```typescript
 import { Paddle } from "Paddle";
 import {
-    AdjustmentCreateType,
     CurrencyCode2,
     CurrencyCodeChargeback,
     CurrencyCodePayouts,
     SchemaAction,
     SchemaStatusAdjustment,
-} from "Paddle/dist/sdk/models/shared";
+} from "Paddle/sdk/models/shared";
 
 async function run() {
     const sdk = new Paddle({
         security: {
-            bearerAuth: "YOUR_API_KEY",
+            bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
         },
     });
 
-    const res = await sdk.adjustments.create({
+    const result = await sdk.adjustments.create({
         action: SchemaAction.Refund,
         customerId: "ctm_01grnn4zta5a1mf02jjze7y2ys",
         id: "adj_01gya6twkp8y0tv1e19rsgst9m",
@@ -46,9 +45,8 @@ async function run() {
         transactionId: "string",
     });
 
-    if (res.statusCode == 200) {
-        // handle response
-    }
+    // Handle the result
+    console.log(result);
 }
 
 run();

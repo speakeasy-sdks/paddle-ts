@@ -3,6 +3,6 @@
 
 ## Fields
 
-| Field              | Type               | Required           | Description        | Example            |
-| ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `bearerAuth`       | *string*           | :heavy_check_mark: | N/A                | YOUR_API_KEY       |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `bearerAuth`       | *string*           | :heavy_check_mark: | N/A                |
