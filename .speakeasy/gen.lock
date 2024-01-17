@@ -4,7 +4,7 @@ management:
   docChecksum: ec65d4bdb10ef4cb704adadbb4fa345c
   docVersion: "1.0"
   speakeasyVersion: internal
-  generationVersion: 2.233.2
+  generationVersion: 2.234.3
   releaseVersion: 0.17.0
   configChecksum: 1703a37436ea356a1c6d26e704ee7bfc
   repoURL: https://github.com/speakeasy-sdks/paddle-ts.git
@@ -43,6 +43,7 @@ generatedFiles:
   - src/lib/base64.ts
   - src/lib/config.ts
   - src/lib/encodings.ts
+  - src/lib/event-streams.ts
   - src/lib/http.ts
   - src/lib/retries.ts
   - src/lib/sdks.ts
