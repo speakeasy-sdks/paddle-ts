@@ -8,7 +8,7 @@ import { z } from "zod";
 /**
  * Type of discount.
  */
-export enum TypeT {
+export enum Type {
     Flat = "flat",
     FlatPerSeat = "flat_per_seat",
     Percentage = "percentage",
@@ -61,7 +61,7 @@ export type DiscountCreate = {
     /**
      * Type of discount.
      */
-    type: TypeT;
+    type: Type;
     /**
      * Maximum amount of times this discount can be used. This is an overall limit, rather than a per-customer limit. `null` if this discount can be used an unlimited amount of times.
      */
@@ -69,7 +69,7 @@ export type DiscountCreate = {
 };
 
 /** @internal */
-export const TypeT$ = z.nativeEnum(TypeT);
+export const Type$ = z.nativeEnum(Type);
 
 /** @internal */
 export namespace DiscountCreate$ {
@@ -84,7 +84,7 @@ export namespace DiscountCreate$ {
         maximum_recurring_intervals?: number | null | undefined;
         recur?: boolean | undefined;
         restrict_to?: Array<string> | null | undefined;
-        type: TypeT;
+        type: Type;
         usage_limit?: number | null | undefined;
     };
 
@@ -104,7 +104,7 @@ export namespace DiscountCreate$ {
             maximum_recurring_intervals: z.nullable(z.number().int()).optional(),
             recur: z.boolean().default(false),
             restrict_to: z.nullable(z.array(z.string())).optional(),
-            type: TypeT$,
+            type: Type$,
             usage_limit: z.nullable(z.number().int()).optional(),
         })
         .transform((v) => {
@@ -139,7 +139,7 @@ export namespace DiscountCreate$ {
         maximum_recurring_intervals?: number | null | undefined;
         recur: boolean;
         restrict_to?: Array<string> | null | undefined;
-        type: TypeT;
+        type: Type;
         usage_limit?: number | null | undefined;
     };
 
@@ -158,7 +158,7 @@ export namespace DiscountCreate$ {
             maximumRecurringIntervals: z.nullable(z.number().int()).optional(),
             recur: z.boolean().default(false),
             restrictTo: z.nullable(z.array(z.string())).optional(),
-            type: TypeT$,
+            type: Type$,
             usageLimit: z.nullable(z.number().int()).optional(),
         })
         .transform((v) => {

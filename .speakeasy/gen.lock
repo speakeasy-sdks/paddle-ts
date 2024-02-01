@@ -4,21 +4,21 @@ management:
   docChecksum: ec65d4bdb10ef4cb704adadbb4fa345c
   docVersion: "1.0"
   speakeasyVersion: internal
-  generationVersion: 2.234.3
-  releaseVersion: 0.17.0
-  configChecksum: 1703a37436ea356a1c6d26e704ee7bfc
+  generationVersion: 2.245.1
+  releaseVersion: 0.17.1
+  configChecksum: f75f48cbf97de9351859b26d474442dd
   repoURL: https://github.com/speakeasy-sdks/paddle-ts.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/paddle-ts
 features:
   typescript:
     constsAndDefaults: 0.1.1
-    core: 3.4.6
+    core: 3.4.8
     globalSecurity: 2.82.2
     globalServerURLs: 2.82.1
     inputOutputModels: 2.82.0
     nameOverrides: 2.81.1
-    unions: 2.85.0
+    unions: 2.85.1
 generatedFiles:
   - src/sdk/adjustments.ts
   - src/sdk/customers.ts
@@ -565,7 +565,7 @@ generatedFiles:
   - docs/sdk/models/shared/discounttype.md
   - docs/sdk/models/shared/discount.md
   - docs/sdk/models/shared/schemastatusdiscount.md
-  - docs/sdk/models/shared/typet.md
+  - docs/sdk/models/shared/type.md
   - docs/sdk/models/shared/discountcreate.md
   - docs/sdk/models/shared/statusdiscount.md
   - docs/sdk/models/shared/discountinput.md

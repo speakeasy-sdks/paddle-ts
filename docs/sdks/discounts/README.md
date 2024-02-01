@@ -24,7 +24,7 @@ If successful, your response includes a copy of the new discount entity.
 
 ```typescript
 import { Paddle } from "Paddle";
-import { CurrencyCode2, TypeT } from "Paddle/sdk/models/shared";
+import { CurrencyCode2, Type } from "Paddle/sdk/models/shared";
 
 async function run() {
   const sdk = new Paddle({
@@ -41,7 +41,7 @@ async function run() {
     restrictTo: [
       "string",
     ],
-    type: TypeT.FlatPerSeat,
+    type: Type.FlatPerSeat,
   });
 
   // Handle the result
